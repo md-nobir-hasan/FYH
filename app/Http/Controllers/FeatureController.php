@@ -22,8 +22,8 @@ class FeatureController extends Controller
         if(!check('Features')->show){
             return back();
         }
-        
-        $n['features'] = Feature::where('status',1)->orderBy('id','desc')->get();
+
+        $n['mdata'] = Feature::where('status',1)->orderBy('id','desc')->get();
         return view('user.feature.index',$n);
     }
 
@@ -52,7 +52,7 @@ class FeatureController extends Controller
             return back();
         }
         Feature::create($request->all())->only('name');
-        return redirect()->route('setting.feature.index')->with('success',$request->name.' successfylly created');
+        return redirect()->route('admin.user.feature.index')->with('success',$request->name.' successfylly created');
     }
 
     /**
@@ -78,7 +78,7 @@ class FeatureController extends Controller
             return back();
         }
 
-        return view('user.feature.edit',['feature' =>$feature]);
+        return view('user.feature.edit',['mdata' =>$feature]);
     }
 
     /**
@@ -95,7 +95,7 @@ class FeatureController extends Controller
         }
 
         $feature->update($request->all());
-        return redirect()->route('setting.feature.index')->with('success',$feature->name.' successfylly updated');
+        return redirect()->route('admin.user.feature.index')->with('success',$feature->name.' successfylly updated');
 
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function () {
+    //Delete
+    Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
     Route::prefix('/user')->name('user.')->group(function(){
         //role
     Route::group(['as' => 'role.', 'prefix' => 'role'], function (){
