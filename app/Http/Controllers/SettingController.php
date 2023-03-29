@@ -24,8 +24,8 @@ class SettingController extends Controller
             return back();
         }
 
-        $n['roles'] = Role::with('permission')->get();
-        return view('backend.pages.setting.role.index', $n);
+        $n['mdata'] = Role::with('permission')->get();
+        return view('user.role.index', $n);
     }
 
     public function roleCreate($id = null)
@@ -36,13 +36,14 @@ class SettingController extends Controller
 
         $n['features'] = Feature::all();
         if ($id) {
-            $n['role'] = Role::find($id);
+            $n['mdata'] = Role::find($id);
         }
-        return view('backend.pages.setting.role.create', $n);
+        return view('user.role.create', $n);
     }
 
     public function roleStore(Request $req)
     {
+
         if(!check('Role')->add){
             return back();
         }
@@ -71,16 +72,17 @@ class SettingController extends Controller
             Permission::where('role_id',$req->role_id)->delete();
         }
 
-        $role_insert->name = $req->role;
+        $role_insert->name = $req->name;
         $role_insert->save();
 
-        foreach ($req->feature as $feature) {
+        foreach ($req->permissions as $key => $feature) {
+            // dd($feature);
 
             if (isset($feature['name'])) {
 
                 $permission_insert = new Permission();
                 $permission_insert->role_id = $role_insert->id;
-                $permission_insert->feature_id = $feature['name'];
+                $permission_insert->feature_id = $key;
 
                 if (isset($feature['add'])) {
                     $permission_insert->add = $feature['add'];
@@ -102,10 +104,10 @@ class SettingController extends Controller
             }
         }
         if ($req->role_id) {
-            return redirect()->route('setting.role.index')->with('Role successfully Updated');
+            return redirect()->route('admin.user.role.index')->with('Role successfully Updated');
         }
 
-        return redirect()->route('setting.role.index')->with('Role successfully created');
+        return redirect()->route('admin.user.role.index')->with('Role successfully created');
     }
 
 
@@ -129,7 +131,7 @@ class SettingController extends Controller
         }
 
         $n['users'] = User::get();
-        return view('backend.pages.setting.user-creation.index', $n);
+        return view('user.user-creation.index', $n);
     }
 
     public function userCreate($id = null)
@@ -142,7 +144,7 @@ class SettingController extends Controller
         if ($id) {
             $n['user'] = User::find($id);
         }
-        return view('backend.pages.setting.user-creation.create', $n);
+        return view('user.user-creation.create', $n);
     }
 
     public function userStore(Request $req)
@@ -185,10 +187,10 @@ class SettingController extends Controller
         $insert->save();
 
         if ($req->user_id) {
-            return redirect()->route('setting.user.index')->with('User successfully Updated');
+            return redirect()->route('admin.user.user.index')->with('User successfully Updated');
         }
 
-        return redirect()->route('setting.user.index')->with('User successfully created');
+        return redirect()->route('admin.user.user.index')->with('User successfully created');
     }
 
 

@@ -1,95 +1,75 @@
-@extends('backend.layouts.app')
+<x-app-layout>
+    <x-slot name='title'>
+        Role
+    </x-slot>
 
-@section('title', 'Role Management')
-
-@push('third_party_stylesheets')
-    <link href="{{ asset('assets/backend/js/DataTable/datatables.min.css') }}" rel="stylesheet">
-@endpush
-
-@push('page_css')
-@endpush
-
-@section('content')
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-12">
-                @if(session()->has('message'))
-                    <div class="alert text-white" style="background-color: #28a745">{{ @session('message') }}</div>
-                @endif
-                <div class="card">
-                    <div class="card-header">
-                        <span class="float-left">
-                            <h1>View role</h1>
-                        </span>
-                        <span class="float-right  @if (!check('Role')->add) d-none @endif">
-                            <a href="{{ route('setting.role.create') }}" class="btn btn-info">Add new role</a>
-                        </span>
-                    </div>
-                    <div class="card-body">
-                        @include('backend.partial.flush-message')
-                        <div class="table-responsive">
-                            <table id="table" class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Role name</th>
-                                    <th class="@if (!check('Role')->edit && !check('Role')->delete) d-none @endif"
-                                        id="action">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($roles as $role)
-                                <tr>
-                                    <td>{{$loop->index+1}}</td>
-                                    <td>{{ $role->name }}</td>
-                                    <td class="@if (!check('Role')->edit && !check('Role')->delete) d-none @endif">
-                                        <a href="{{ route('setting.role.create', $role->id) }}" class="btn btn-dark btn-sm @if (!check('Role')->edit) d-none @endif"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('setting.role.destroy', $role->id) }}" class="btn btn-danger btn-sm @if (!check('Role')->delete) d-none @endif"><i class="fas fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                @endforeach
-
-                                </tbody>
-                            </table>
+    <div class="p-4">
+        <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
+            <div class="border-b-2 border-neutral-100 py-3 px-6 dark:border-neutral-600 dark:text-neutral-50">
+                <div class="flex justify-between">
+                    <h4 class="text-bold text-lg">Roles</h4>
+                    <a href="{{ route('admin.user.role.create') }}">
+                        <div class="flex justify-center space-x-2">
+                            <button type="button"
+                                class="inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
+                                Add new role
+                            </button>
                         </div>
-
-                    </div>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="p-6 bg-gray-100">
+                <div class="">
+                    @if ($msg = Session::get('success'))
+                    {{$msg}}
+                    @endif
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="rounded-xl shadow-md text-md mx-auto min-w-[50%] text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                   Name
+                                </th>
 
-@endsection
+                                <th scope="col" class="px-6 py-3 text-bold text-md">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($mdata as $value)
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{$value->name}}
+                                    </th>
 
+                                    <td class="px-6 py-4 text-center flex">
+                                        <a href="{{route('admin.user.role.create',[$value->id])}}"
+                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                              </svg>
+                                        </a>
+                                        <a href="{{route('admin.delete',[$value->id,'Role'])}}"
+                                            class="ml-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[red]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                              </svg>
 
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <x-slot:js>
+                <script type="module">
 
-@push('third_party_scripts')
-    <script src="{{ asset('assets/backend/js/DataTable/datatables.min.js') }}"></script>
-@endpush
-
-@push('page_scripts')
-    <script>
-        $(document).ready(function() {
-            $('#table').DataTable({
-                dom: 'Bfrtip',
-                buttons: [{
-                    extend: 'pdfHtml5',
-                    title: 'Role Management',
-                    download: 'open',
-                    orientation: 'potrait',
-                    pagesize: 'LETTER',
-                    exportOptions: {
-                        columns: [0, 1, 2]
-                    }
-                },
-                    {
-                        extend: 'print',
-                        exportOptions: {
-                            columns: [0, 1, 2]
-                        }
-                    }, 'pageLength'
-                ]
-            });
-        });
     </script>
-@endpush
+            </x-slot:js>
+</x-app-layout>
