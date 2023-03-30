@@ -81,14 +81,10 @@
                             cancelButtonColor: '#d33',
                             confirmButtonText: 'Yes, delete it!'
                             }).then((result) => {
-                                window.location = url;
-                            // if (result.isConfirmed) {
-                            //     Swal.fire(
-                            //     'Deleted!',
-                            //     'Your file has been deleted.',
-                            //     'success'
-                            //     )
-                            // }
+
+                                if (result.isConfirmed) {
+                                    window.location = url;
+                                }
                         })
                     })
                 </script>
