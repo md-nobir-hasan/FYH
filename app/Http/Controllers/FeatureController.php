@@ -10,7 +10,7 @@ use App\Http\Requests\UpdateFeatureRequest;
 class FeatureController extends Controller
 {
     public function __construct() {
-        $this->middleware(['auth',"check:features"]);
+        $this->middleware(['auth',"check:Permission"]);
     }
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        if(!check('Features')->show){
+        if(!check('Permission')->show){
             return back();
         }
 
@@ -34,7 +34,7 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        if(!check('Features')->add){
+        if(!check('Permission')->add){
                 return back();
             }
         return view('user.feature.create');
@@ -48,7 +48,7 @@ class FeatureController extends Controller
      */
     public function store(StoreFeatureRequest $request)
     {
-        if(!check('Features')->add){
+        if(!check('Permission')->add){
             return back();
         }
         Feature::create($request->all())->only('name');
@@ -74,7 +74,7 @@ class FeatureController extends Controller
      */
     public function edit(Feature $feature)
     {
-        if(!check('Features')->edit){
+        if(!check('Permission')->edit){
             return back();
         }
 
@@ -90,7 +90,7 @@ class FeatureController extends Controller
      */
     public function update(UpdateFeatureRequest $request, Feature $feature)
     {
-        if(!check('Features')->edit){
+        if(!check('Permission')->edit){
             return back();
         }
 
@@ -107,7 +107,7 @@ class FeatureController extends Controller
      */
     public function destroy(Feature $feature)
     {
-        if(!check('Features')->delete){
+        if(!check('Permission')->delete){
             return back();
         }
 

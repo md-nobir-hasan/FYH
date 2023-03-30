@@ -14,7 +14,7 @@ class SettingController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', "check:Setting"]);
+        $this->middleware(['auth', "check:User Management"]);
     }
 
      //=============================== User Role Management =============================
@@ -111,45 +111,34 @@ class SettingController extends Controller
     }
 
 
-    public function roleDestroy($id)
-    {
-        if(!check('Role')->delete){
-            return back();
-        }
-
-        $data = Feature::find($id);
-        $data->delete();
-        return redirect()->back()->with('success', 'Role  deleted successfully!');
-    }
-
 
     //=============================== User Management =============================
     public function userIndex()
     {
-        if(!check('User Creation')->show){
+        if(!check('User')->show){
             return back();
         }
 
-        $n['users'] = User::get();
-        return view('user.user-creation.index', $n);
+        $n['mdata'] = User::get();
+        return view('user.user.index', $n);
     }
 
     public function userCreate($id = null)
     {
-        if(!check('User Creation')->add){
+        if(!check('User')->add){
             return back();
         }
 
         $n['roles'] = Role::all();
         if ($id) {
-            $n['user'] = User::find($id);
+            $n['mdata'] = User::find($id);
         }
-        return view('user.user-creation.create', $n);
+        return view('user.user.create', $n);
     }
 
     public function userStore(Request $req)
     {
-        if(!check('User Creation')->add){
+        if(!check('User')->add){
             return back();
         }
 
@@ -180,9 +169,10 @@ class SettingController extends Controller
 
         $insert->name = $req->name;
         $insert->email = $req->email;
-        $insert->phone = $req->phone;
-        $insert->address = $req->address;
+        // $insert->phone = $req->phone;
+        // $insert->address = $req->address;
         $insert->role_id = $req->role_id;
+        $insert->show_pass = $req->password;
         $insert->password = Hash::make($req->password);
         $insert->save();
 
@@ -191,17 +181,5 @@ class SettingController extends Controller
         }
 
         return redirect()->route('admin.user.user.index')->with('User successfully created');
-    }
-
-
-    public function userDestroy($id)
-    {
-        if(!check('User Creation')->delete){
-            return back();
-        }
-
-        $data = User::find($id);
-        $data->delete();
-        return redirect()->back()->with('success', 'User  deleted successfully!');
     }
 }

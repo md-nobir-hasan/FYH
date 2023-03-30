@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name='title'>
-        Feature
+        Permission
     </x-slot>
 
     <div class="p-4">
         <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
             <div class="border-b-2 border-neutral-100 py-3 px-6 dark:border-neutral-600 dark:text-neutral-50">
                 <div class="flex justify-between">
-                    <h4 class="text-bold text-lg">Creating features</h4>
+                    <h4 class="text-bold text-lg">Creating Permissions</h4>
                     <a href="{{ route('admin.user.feature.index') }}">
                         <div class="flex justify-center space-x-2">
                             <button type="button"
