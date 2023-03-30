@@ -5,32 +5,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <title>
+            @isset($title) {{$title}} - @endisset{{ config('app.name', 'FYH') }}</title>
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <style>
+            body{
+                background-color: #80808042;
+            }
+        </style>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+    {{-- <body class="font-sans antialiased"> --}}
+        <body class="dark:bg-zinc-800">
+            <!--Main Navigation-->
+            <header>
+              <!-- Sidenav -->
+                <x-sidenav></x-sidenav>
+              <!-- End Sidenav -->
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+              <!-- Navbar -->
+              <x-navbar></x-navbar>
+              <!-- Navbar -->
+            </header>
+            <!--Main Navigation-->
+
+            <!--Main layout-->
+            <main class="md:pl-[250px] pt-[85px]">
+                @isset($header)
+                    <div class="pl-8 text-center">
+                        {{$header}}
                     </div>
-                </header>
-            @endif
+                @endisset
+
 
             <!-- Page Content -->
-            <main>
+            {{-- <main> --}}
                 {{ $slot }}
+            {{-- </main> --}}
+
             </main>
-        </div>
+            <!--Main layout-->
+
+            <!--Footer-->
+                <x-footer></x-footer>
+            <!--Footer-->
+            @isset ($js)
+                {{$js}}
+            @endisset
     </body>
 </html>
