@@ -7,13 +7,16 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'public/js/jquery.js',
+                'public/js/toastr.css',
+                'public/js/toastr.js',
+                'public/js/sweet-alert.js',
             ],
             refresh: true,
         }),
     ],
     resolve: {
         alias: {
-            '$': 'jQuery'
         },
     },
 });

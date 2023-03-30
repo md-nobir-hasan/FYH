@@ -19,11 +19,6 @@
                 </div>
             </div>
             <div class="p-6 bg-gray-100">
-                <div class="">
-                    @if ($msg = Session::get('success'))
-                    {{$msg}}
-                    @endif
-                </div>
                 <div class="overflow-x-auto">
                     <table class="rounded-xl shadow-md text-md mx-auto min-w-[50%] text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -68,6 +63,8 @@
                 </div>
             </div>
             <x-slot:js>
+                {{-- @vite(['public/js/sweet-alert.js']) --}}
+                <script src="{{asset('js/sweet-alert.js')}}"></script>
                 <script type="module">
                     $('.delete').on('click',function(e){
                        e.preventDefault();
@@ -87,6 +84,10 @@
                                 }
                         })
                     })
+                    //Toastr message
+                    @if ($msg = Session::get('success'))
+                            toastr.success("{{$msg}}");
+                        @endif
                 </script>
             </x-slot:js>
 </x-app-layout>
