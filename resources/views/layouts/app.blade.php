@@ -11,10 +11,17 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css','resources/js/app.js','public/js/toastr.css'])
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        @if (isset($style))
+                {{$style}}
+        @endif
         <style>
             body{
                 background-color: #80808042;
+            }
+            #toast-container{
+                top: 50px;
             }
         </style>
     </head>
@@ -50,8 +57,10 @@
             <!--Main layout-->
 
             <!--Footer-->
+
                 <x-footer></x-footer>
             <!--Footer-->
+
             @isset ($js)
                 {{$js}}
             @endisset

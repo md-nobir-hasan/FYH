@@ -3,6 +3,9 @@
         <x-slot name='title'>
             Permission
         </x-slot>
+        <s-slot name='style'>
+
+        </s-slot>
         <div class="p-4">
             <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
                 <div class="border-b-2 border-neutral-100 py-3 px-6 dark:border-neutral-600 dark:text-neutral-50">
@@ -21,11 +24,6 @@
                     </div>
                 </div>
                 <div class="p-6">
-                    <div class="text-[green] bg-[black]">
-                        @if ($msg = Session::get('success'))
-                        {{$msg}}
-                        @endif
-                    </div>
                     <div class=" overflow-x-auto shadow-md sm:rounded-lg">
                         <table class=" text-md mx-auto min-w-[50%] text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -77,6 +75,8 @@
                     </div>
                 </div>
                 <x-slot:js>
+                    {{-- @vite(['public/js/sweet-alert.js']) --}}
+                    <script src="{{asset('js/sweet-alert.js')}}"></script>
                     <script type="module">
                         $('.delete').on('click',function(e){
                            e.preventDefault();
@@ -96,6 +96,10 @@
                                 }
                             })
                         })
+                        //Toastr message
+                        @if ($msg = Session::get('success'))
+                            toastr.success("{{$msg}}");
+                        @endif
                     </script>
                 </x-slot:js>
     </x-app-layout>
