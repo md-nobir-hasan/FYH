@@ -12,7 +12,6 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <!-- Scripts -->
         @vite(['resources/css/app.css','resources/js/app.js','public/js/toastr.css'])
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         @if (isset($style))
                 {{$style}}
         @endif
@@ -24,6 +23,7 @@
                 top: 50px;
             }
         </style>
+
     </head>
     {{-- <body class="font-sans antialiased"> --}}
         <body class="dark:bg-zinc-800">
@@ -60,7 +60,6 @@
 
                 <x-footer></x-footer>
             <!--Footer-->
-
             @isset ($js)
                 {{$js}}
             @endisset
