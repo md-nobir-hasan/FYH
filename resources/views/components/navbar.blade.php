@@ -84,7 +84,7 @@
                         </span>
                         <span
                           class="absolute -mt-2.5 ml-2 rounded-full bg-red-600 py-[1px] px-1.5 text-[0.6rem] text-white"
-                          >1</span
+                          >{{count($cumtomers)}}</span
                         >
                       </a>
                       <ul
