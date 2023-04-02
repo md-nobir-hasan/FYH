@@ -12,7 +12,6 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <!-- Scripts -->
         @vite(['resources/css/app.css','resources/js/app.js','public/js/toastr.css'])
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         @if (isset($style))
                 {{$style}}
         @endif
@@ -24,6 +23,10 @@
                 top: 50px;
             }
         </style>
+<script>
+    //Notification sounds
+var noti1 = new Audio('/sounds/00s.mp3');
+</script>
     </head>
     {{-- <body class="font-sans antialiased"> --}}
         <body class="dark:bg-zinc-800">
@@ -60,7 +63,33 @@
 
                 <x-footer></x-footer>
             <!--Footer-->
+            <script>
+                 //Notification sound play on load
 
+                 $(document).ready(function(){
+                    $('#paly').on('click',function(){
+                        noti1.play();
+                    })
+
+                    //notification pan show hide
+                    let noti_hide = true;
+                    $('#notification').on('click',function(){
+                        if(noti_hide){
+                            $('#notification_pan').show();
+                            noti_hide = false;
+                        }else{
+                            $('#notification_pan').hide();
+                            noti_hide = true;
+                        }
+
+                        // notificaton remove from notificaton bar
+                        axios.get('{{route('admin.customer.mark_as_read')}}').then(function(res){
+                            console.log(res.data);
+                        })
+                    })
+                 })
+
+            </script>
             @isset ($js)
                 {{$js}}
             @endisset

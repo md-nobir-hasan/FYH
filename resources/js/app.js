@@ -8,3 +8,5 @@ import jQuery from 'jquery';
 // Alpine.start();
 
 window.$ = jQuery;
+
+

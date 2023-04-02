@@ -24,6 +24,7 @@
                     </div>
                 </div>
                 <div class="p-6">
+                    <a href="{{route('brotcast')}}" class="text-xl font-bold p-4 m-4 text-center">Check life notification</a>
                     <div class=" overflow-x-auto shadow-md sm:rounded-lg">
                         <table class=" text-md mx-auto min-w-[50%] text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

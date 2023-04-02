@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserCommonController;
+use App\Http\Middleware\UserHasRole;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,22 +23,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+Route::get('/brotcast',[BrotcastController::class,'UserRegInfoAdmin'])->name('brotcast');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
+//Profile common for comstomer and admin
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function () {
+//Comtomer route
+Route::prefix('/cumstomer')->name('customer.')->group(function(){
+    Route::get('/dashboard',[UserCommonController::class,'dashboard'])->name('dashboard');
+});
+
+//dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified','admin'])->name('dashboard');
+//end dashoard
+
+//Admin route
+Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(function () {
+
     //Delete
     Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
 
+    //ajax throug axios
+    Route::get('customer/mark-as-read',[AjaxController::class,'customerMarkAsRead'])->name('customer.mark_as_read');
     //User Management
     Route::prefix('/user')->name('user.')->group(function(){
 
@@ -65,5 +82,6 @@ Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function () {
     });
 
 });
+//End admin route
 
 require __DIR__.'/auth.php';

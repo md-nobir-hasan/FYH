@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserRegister;
 use App\Http\Controllers\Controller;
 use App\Models\Feature;
 use App\Models\Permission;
@@ -167,6 +168,7 @@ class SettingController extends Controller
             $insert = User::find($req->user_id);
         }
 
+
         $insert->name = $req->name;
         $insert->email = $req->email;
         // $insert->phone = $req->phone;
@@ -175,7 +177,9 @@ class SettingController extends Controller
         $insert->show_pass = $req->password;
         $insert->password = Hash::make($req->password);
         $insert->save();
-
+        if (!$req->user_id) {
+            UserRegister::dispatch($insert);
+        }
         if ($req->user_id) {
             return redirect()->route('admin.user.user.index')->with('User successfully Updated');
         }
