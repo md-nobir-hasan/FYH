@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MiscellaneousController;
@@ -45,9 +46,12 @@ Route::get('/dashboard', function () {
 
 //Admin route
 Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(function () {
+
     //Delete
     Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
 
+    //ajax throug axios
+    Route::get('customer/mark-as-read',[AjaxController::class,'customerMarkAsRead'])->name('customer.mark_as_read');
     //User Management
     Route::prefix('/user')->name('user.')->group(function(){
 

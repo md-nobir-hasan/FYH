@@ -23,7 +23,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
        if(Schema::hasTable('users')) {
-            View::share('cumtomers',User::where('role_id',null)->get());
+        $user = User::where('role_id',null)->orderBy('id','desc')->get();
+            View::share('customers',$user);
         }
     }
 }
