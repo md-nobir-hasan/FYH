@@ -3,15 +3,19 @@
 namespace App\Exports;
 
 use App\Models\User;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class CustomerExport implements FromCollection
+
+class CustomerExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
+
+    public function view(): View
     {
-        return User::where('role_id',null)->get();
+        $n['datas'] = User::where('role_id',null)->get();
+        return view('exports.customer',$n);
     }
 }

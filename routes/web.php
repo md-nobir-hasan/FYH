@@ -58,6 +58,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     // Export routes
     Route::get('/customers/export/excel',[ExportController::class,'CustomerExport'])->name('customer.export');
     Route::get('/customers/export/pdf',[ExportController::class,'CustomerExportPdf'])->name('customer.export.pdf');
+    Route::get('/customers/export/pdf/htmlshow',[ExportController::class,'CustomerExportPdfhtml'])->name('customer.export.html');
     //User Management
     Route::prefix('/user')->name('user.')->group(function(){
         //Features
