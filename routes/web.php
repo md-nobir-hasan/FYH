@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BrotcastController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\ProfileController;
@@ -53,9 +54,14 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
     //ajax throug axios
     Route::get('customer/mark-as-read',[AjaxController::class,'customerMarkAsRead'])->name('customer.mark_as_read');
+
+    // Export routes
+        Route::get('/customers/export/excel',[ExportController::class,'CustomerExport'])->name('customer.export');
+        Route::get('/customers/export/pdf',[ExportController::class,'CustomerExportPdf'])->name('customer.export.pdf');
+        // Route::get('/customers/export/pdf/htmlshow',[ExportController::class,'CustomerExportPdfhtml'])->name('customer.export.html');
+    
     //User Management
     Route::prefix('/user')->name('user.')->group(function(){
-
         //Features
         Route::resource('features',FeatureController::class)->names([
             'index' => 'feature.index',
