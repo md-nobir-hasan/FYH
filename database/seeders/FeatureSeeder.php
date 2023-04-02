@@ -20,6 +20,7 @@ class FeatureSeeder extends Seeder
             ['name' => 'Role','status' => 1],
             ['name' => 'User','status' => 1],
             ['name' => 'Permission','status' => 1],
+            ['name' => 'Customer','status' => 1],
         ];
 
         DB::table('features')->insert($n);
