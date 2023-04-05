@@ -25,7 +25,7 @@
         </style>
 <script>
     //Notification sounds
-var noti1 = new Audio('/sounds/00s.mp3');
+        // var noti1 = new Audio('/sounds/00s.mp3');
 </script>
     </head>
     {{-- <body class="font-sans antialiased"> --}}
@@ -67,9 +67,21 @@ var noti1 = new Audio('/sounds/00s.mp3');
                  //Notification sound play on load
 
                  $(document).ready(function(){
-                    $('#paly').on('click',function(){
-                        noti1.play();
-                    })
+                    // Side navbar show hide
+                    let side_nav = false;
+                    $('#navbartogglerbtn').on('click',function(){
+                        if(side_nav){
+                            $('#sidenav1').hide();
+                            side_nav = false;
+                        }else{
+                            $('#sidenav1').show();
+                            side_nav = true;
+                        }
+                    });
+                    // $(document).on('load',function(){
+
+                    //     noti1.play();
+                    // })
 
                     //notification pan show hide
                     let noti_hide = true;
