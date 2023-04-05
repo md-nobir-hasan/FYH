@@ -12,5 +12,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ftp.nobir-hasan.com
-        username: fyh@fyh.security-fast.com
+        username: fyh1@fyh.security-fast.com
         password: ${{ secrets.ftp_password }}
