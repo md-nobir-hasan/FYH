@@ -1,13 +1,7 @@
     <!-- Sidenav -->
 <nav
-id="sidenav-1"
-class="fixed top-0 max-md:top-[66px] left-0 z-[1035]  h-screen w-60 -translate-x-full overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] dark:bg-zinc-800 md:data-[te-sidenav-hidden='false']:translate-x-0"
-data-te-sidenav-init
-data-te-sidenav-hidden="false"
-data-te-sidenav-mode-breakpoint-over=""
-data-te-sidenav-mode-breakpoint-side="md"
-data-te-sidenav-content="#h"
-data-te-sidenav-accordion="true"
+id="sidenav1"
+class="fixed top-0 max-md:top-[66px] left-0 z-[1035]  h-screen w-60 max-md:hidden overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] dark:bg-zinc-800"
 >
 <a
   class="mb-3 flex items-center justify-center py-4 outline-none max-md:hidden"
