@@ -71,10 +71,10 @@
                     let side_nav = false;
                     $('#navbartogglerbtn').on('click',function(){
                         if(side_nav){
-                            $('#sidenav1').hide(300);
+                            $('#sidenav1').hide();
                             side_nav = false;
                         }else{
-                            $('#sidenav1').show(300);
+                            $('#sidenav1').show();
                             side_nav = true;
                         }
                     });
