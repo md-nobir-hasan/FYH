@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('client_types', function (Blueprint $table) {
+        Schema::create('membership_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('notice')->nullable();
-            $table->enum('ct_code',['ap','mts']);
+            $table->decimal('price');
+            $table->longText('details')->nullable();
+            $table->enum('mt_code',['m','y']);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('client_types');
+        Schema::dropIfExists('membership_types');
     }
 };

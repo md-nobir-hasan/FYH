@@ -40,7 +40,7 @@ class ClientTypeController extends Controller
         if(!check('Client Type')->add){
             return back();
         }
-        ClientType::create($request->all())->only('name');
+        ClientType::create($request->all())->only('name','ct_code');
         return redirect()->route('admin.setup.client-type.index')->with('success',$request->name.' successfylly created');
     }
 

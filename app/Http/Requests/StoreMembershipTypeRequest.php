@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreClientTypeRequest extends FormRequest
+class StoreMembershipTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,8 @@ class StoreClientTypeRequest extends FormRequest
     {
         return [
             'name' =>'required|string|max:255',
-            'ct_code' =>'required|in:ap,mts',
-
+            'price' =>'required|numeric|max:99999',
+            'mt_code' =>'required|in:m,y',
         ];
     }
 }

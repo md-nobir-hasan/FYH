@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ClientType extends Model
+class MembershipType extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','ct_code'];
+    protected $fillable = ['name','mt_code','price'];
 }
