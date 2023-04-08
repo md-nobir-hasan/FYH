@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
 use App\Http\Controllers\CustomerController;
@@ -68,6 +69,9 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
         //Membership type
         Route::resource('/membership',MembershipTypeController::class);
+
+        //Benefit
+        Route::resource('/benefit',BenefitController::class);
     });
 
     //User Management
