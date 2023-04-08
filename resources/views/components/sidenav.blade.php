@@ -57,8 +57,8 @@
                         data-te-sidenav-collapse-ref @if (Request::is('admin/setup/*')) data-te-collapse-show @endif>
                         @if ($n = check('Client Type'))
                             <li class="relative">
-                                <a href="{{ route('admin.user.feature.index') }}"
-                                    class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/features/*') || Request::is('admin/user/features')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+                                <a href="{{ route('admin.setup.client-type.index') }}"
+                                    class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/setup/client-type/*') || Request::is('admin/setup/client-type')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
                                     data-te-sidenav-link-ref>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

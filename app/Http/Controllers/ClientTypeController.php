@@ -8,12 +8,16 @@ use App\Http\Requests\UpdateClientTypeRequest;
 
 class ClientTypeController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware(['auth',"check:Client Type"]);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $n['client_types'] = ClientType::where('deleted_at',null)->orderBy('id','desc')->get();
+        $n['mdata'] = ClientType::orderBy('id','desc')->get();
         return view('pages.setup.client-type.index',$n);
     }
 
@@ -22,7 +26,10 @@ class ClientTypeController extends Controller
      */
     public function create()
     {
-        //
+        if(!check('Client Type')->add){
+            return back();
+        }
+    return view('pages.setup.client-type.create');
     }
 
     /**
@@ -30,7 +37,11 @@ class ClientTypeController extends Controller
      */
     public function store(StoreClientTypeRequest $request)
     {
-        //
+        if(!check('Client Type')->add){
+            return back();
+        }
+        ClientType::create($request->all())->only('name');
+        return redirect()->route('admin.setup.client-type.index')->with('success',$request->name.' successfylly created');
     }
 
     /**
@@ -46,7 +57,11 @@ class ClientTypeController extends Controller
      */
     public function edit(ClientType $clientType)
     {
-        //
+        if(!check('Client Type')->edit){
+            return back();
+        }
+
+        return view('pages.setup.client-type.edit',['mdata' =>$clientType]);
     }
 
     /**
@@ -54,7 +69,12 @@ class ClientTypeController extends Controller
      */
     public function update(UpdateClientTypeRequest $request, ClientType $clientType)
     {
-        //
+        if(!check('Client Type')->edit){
+            return back();
+        }
+
+        $clientType->update($request->all());
+        return redirect()->route('admin.setup.client-type.index')->with('success',$clientType->name.' successfylly updated');
     }
 
     /**
