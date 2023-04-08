@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BrotcastController;
+use App\Http\Controllers\ClientTypeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
@@ -64,6 +65,11 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     //Customers
         Route::prefix('/customer')->name('customer.')->group(function(){
             Route::get('/index',[CustomerController::class,'index'])->name('index');
+        });
+
+    //Customers
+        Route::prefix('/setup')->name('setup.')->group(function(){
+           Route::resource('/client-type',ClientTypeController::class);
         });
 
     //User Management

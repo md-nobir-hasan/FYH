@@ -11,7 +11,6 @@ class CustomerController extends Controller
         $this->middleware(['auth',"check:Customer"]);
     }
 
-
     public function index(){
         $n['mdata'] = User::where('role_id',null)->paginate(2);
         return view('pages.customers.index',$n);
