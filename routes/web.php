@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BrotcastController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MiscellaneousController;
@@ -37,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
 //Comtomer route
 Route::prefix('/cumstomer')->name('customer.')->group(function(){
     Route::get('/dashboard',[UserCommonController::class,'dashboard'])->name('dashboard');
-    Route::get('/index',[UserCommonController::class,'index'])->name('index');
+    // Route::get('/index',[UserCommonController::class,'index'])->name('index');
 });
 
 //dashboard
@@ -59,34 +60,39 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::get('/customers/export/excel',[ExportController::class,'CustomerExport'])->name('customer.export');
         Route::get('/customers/export/pdf',[ExportController::class,'CustomerExportPdf'])->name('customer.export.pdf');
         // Route::get('/customers/export/pdf/htmlshow',[ExportController::class,'CustomerExportPdfhtml'])->name('customer.export.html');
-    
+
+    //Customers
+        Route::prefix('/customer')->name('customer.')->group(function(){
+            Route::get('/index',[CustomerController::class,'index'])->name('index');
+        });
+
     //User Management
-    Route::prefix('/user')->name('user.')->group(function(){
-        //Features
-        Route::resource('features',FeatureController::class)->names([
-            'index' => 'feature.index',
-            'create' => 'feature.create',
-            'edit' => 'feature.edit',
-            'store' => 'feature.store',
-            'update' => 'feature.update',
-            'show' => 'feature.show',
-            ]);
+        Route::prefix('/user')->name('user.')->group(function(){
+            //Features
+            Route::resource('features',FeatureController::class)->names([
+                'index' => 'feature.index',
+                'create' => 'feature.create',
+                'edit' => 'feature.edit',
+                'store' => 'feature.store',
+                'update' => 'feature.update',
+                'show' => 'feature.show',
+                ]);
 
 
-        //role
-        Route::group(['as' => 'role.', 'prefix' => 'role'], function (){
-            Route::get('/index', [SettingController::class, 'roleIndex'])->name('index');
-            Route::get('/create/{id?}', [SettingController::class, 'roleCreate'])->name('create');
-            Route::post('/store', [SettingController::class, 'roleStore'])->name('store');
+            //role
+            Route::group(['as' => 'role.', 'prefix' => 'role'], function (){
+                Route::get('/index', [SettingController::class, 'roleIndex'])->name('index');
+                Route::get('/create/{id?}', [SettingController::class, 'roleCreate'])->name('create');
+                Route::post('/store', [SettingController::class, 'roleStore'])->name('store');
+            });
+
+            //user
+            Route::group(['as' => 'user.', 'prefix' => 'user'], function (){
+                Route::get('/index', [SettingController::class, 'userIndex'])->name('index');
+                Route::get('/create/{id?}', [SettingController::class, 'userCreate'])->name('create');
+                Route::post('/store', [SettingController::class, 'userStore'])->name('store');
+            });
         });
-
-        //user
-        Route::group(['as' => 'user.', 'prefix' => 'user'], function (){
-            Route::get('/index', [SettingController::class, 'userIndex'])->name('index');
-            Route::get('/create/{id?}', [SettingController::class, 'userCreate'])->name('create');
-            Route::post('/store', [SettingController::class, 'userStore'])->name('store');
-        });
-    });
 
 });
 //End admin route
