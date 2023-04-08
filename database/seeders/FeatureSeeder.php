@@ -24,6 +24,7 @@ class FeatureSeeder extends Seeder
             ['title'=>'Setup','name' => 'Setup','status' => 1],
                 ['title'=>'Client Type','name' => 'Client Type','status' => 1],
                 ['title'=>'Membership','name' => 'Membership Type','status' => 1],
+                ['title'=>'Benefit','name' => 'Benefit','status' => 1],
         ];
 
         DB::table('features')->insert($n);

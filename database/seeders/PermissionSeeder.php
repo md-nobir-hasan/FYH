@@ -23,6 +23,7 @@ class PermissionSeeder extends Seeder
                 ['role_id' => 1,'feature_id' => 7,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Setup
                 ['role_id' => 1,'feature_id' => 8,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Client Type
                 ['role_id' => 1,'feature_id' => 9,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Membership Type
+                ['role_id' => 1,'feature_id' => 10,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Benefit
             ];
 
             DB::table('permissions')->insert($n);
