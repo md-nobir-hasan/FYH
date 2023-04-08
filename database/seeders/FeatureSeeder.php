@@ -15,12 +15,15 @@ class FeatureSeeder extends Seeder
     public function run()
     {
         $n = [
-            ['name' => 'Home','status' => 1],
-            ['name' => 'User Management','status' => 1],
-            ['name' => 'Role','status' => 1],
-            ['name' => 'User','status' => 1],
-            ['name' => 'Permission','status' => 1],
-            ['name' => 'Customer','status' => 1],
+            ['title'=>'Home','name' => 'Home','status' => 1],
+            ['title'=>'User Management','name' => 'User Management','status' => 1],
+                ['title'=>'Role','name' => 'Role','status' => 1],
+                ['title'=>'User','name' => 'User','status' => 1],
+                ['title'=>'Permission','name' => 'Permission','status' => 1],
+            ['title'=>'Customer','name' => 'Customer','status' => 1],
+            ['title'=>'Setup','name' => 'Setup','status' => 1],
+                ['title'=>'Client Type','name' => 'Client Type','status' => 1],
+                ['title'=>'Membership','name' => 'Membership Type','status' => 1],
         ];
 
         DB::table('features')->insert($n);

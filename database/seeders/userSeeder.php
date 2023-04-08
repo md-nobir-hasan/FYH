@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,7 @@ class userSeeder extends Seeder
             ];
 
         DB::table('users')->insert($n);
+    //    User::factory()->count(5)->make();
     }
 }
 
