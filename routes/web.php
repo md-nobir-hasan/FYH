@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientTypeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FrontendControler;
 use App\Http\Controllers\MembershipTypeController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\ProfileController;
@@ -15,10 +16,9 @@ use App\Http\Controllers\UserCommonController;
 use Illuminate\Support\Facades\Route;
 
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Frontend controller
+Route::get('/', [FrontendControler::class,'homePage'])->name('home');
+Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
 
 //broadcast
 Route::get('/broadcast',[BrotcastController::class,'UserRegInfoAdmin'])->name('brotcast');
