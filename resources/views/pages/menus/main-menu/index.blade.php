@@ -4,21 +4,12 @@
             Menus
         </x-slot>
         <s-slot name='style'>
-<script type="module">
-    import * as te from "../../../../../node_modules/tw-element";
-    // Initialization for ES Users
-import {
-  Tab,
-  initTE,
-} from "../../../../../node_modules/tw-element";
 
-initTE({ Tab });
-</script>
         </s-slot>
         <div class="p-4">
             <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
                 <div class="border-b-2 border-neutral-100 py-3 px-6 dark:border-neutral-600 dark:text-neutral-50">
-                    <div class="flex justify-between">
+                    <div class="flex justify-between mt-20">
                         <h4 class="text-bold text-lg">Menus</h4>
                         @if ($n->add)
                             <a href="{{ route('admin.menu.menu.create') }}">
@@ -33,94 +24,7 @@ initTE({ Tab });
                     </div>
                 </div>
                 <div class="p-6">
-                    <!--Tabs navigation-->
-<ul
-class="mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0"
-role="tablist"
-data-te-nav-ref>
-<li role="presentation" class="flex-auto text-center">
-  <a
-    href="#tabs-home01"
-    class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-    data-te-toggle="pill"
-    data-te-target="#tabs-home01"
-    data-te-nav-active
-    role="tab"
-    aria-controls="tabs-home01"
-    aria-selected="true"
-    >Home</a
-  >
-</li>
-<li role="presentation" class="flex-auto text-center">
-  <a
-    href="#tabs-profile01"
-    class="focus:border-transparen my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-    data-te-toggle="pill"
-    data-te-target="#tabs-profile01"
-    role="tab"
-    aria-controls="tabs-profile01"
-    aria-selected="false"
-    >Profile</a
-  >
-</li>
-<li role="presentation" class="flex-auto text-center">
-  <a
-    href="#tabs-messages01"
-    class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-    data-te-toggle="pill"
-    data-te-target="#tabs-messages01"
-    role="tab"
-    aria-controls="tabs-messages01"
-    aria-selected="false"
-    >Messages</a
-  >
-</li>
-<li role="presentation" class="flex-auto text-center">
-  <a
-    href="#tabs-contact01"
-    class="disabled pointer-events-none my-2 block border-x-0 border-b-2 border-t-0 border-transparent bg-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-400 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent dark:text-neutral-600"
-    data-te-toggle="pill"
-    data-te-target="#tabs-contact01"
-    role="tab"
-    aria-controls="tabs-contact01"
-    aria-selected="false"
-    >Contact</a
-  >
-</li>
-</ul>
 
-<!--Tabs content-->
-<div class="mb-6">
-<div
-  class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-  id="tabs-home01"
-  role="tabpanel"
-  aria-labelledby="tabs-home-tab01"
-  data-te-tab-active>
-  Tab 1 content
-</div>
-<div
-  class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-  id="tabs-profile01"
-  role="tabpanel"
-  aria-labelledby="tabs-profile-tab01">
-  Tab 2 content
-</div>
-<div
-  class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-  id="tabs-messages01"
-  role="tabpanel"
-  aria-labelledby="tabs-profile-tab01">
-  Tab 3 content
-</div>
-<div
-  class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-  id="tabs-contact01"
-  role="tabpanel"
-  aria-labelledby="tabs-contact-tab01">
-  Tab 4 content
-</div>
-</div>
                     <div class=" overflow-x-auto shadow-md sm:rounded-lg">
 
                         {{-- <table class=" text-md mx-auto min-w-[50%] text-left text-gray-500 dark:text-gray-400">
