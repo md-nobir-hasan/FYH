@@ -8,10 +8,13 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FrontendControler;
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MembershipTypeController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\Submenucontroller;
 use App\Http\Controllers\UserCommonController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +75,15 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
         //Benefit
         Route::resource('/benefit',BenefitController::class);
+
+        //Links
+        Route::resource('/link',LinkController::class);
+    });
+
+    //Menus route
+    Route::prefix('/menu')->name('menu.')->group(function(){
+        Route::resource('menu',MenuController::class);
+        Route::resource('submenu',Submenucontroller::class);
     });
 
     //User Management

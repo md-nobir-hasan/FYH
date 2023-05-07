@@ -51,7 +51,8 @@ class FeatureController extends Controller
         if(!check('Permission')->add){
             return back();
         }
-        Feature::create($request->all())->only('name');
+        // dd($request->all());
+        Feature::create(['name'=>$request->name,'title'=>$request->name]);
         return redirect()->route('admin.user.feature.index')->with('success',$request->name.' successfylly created');
     }
 

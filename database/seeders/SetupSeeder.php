@@ -26,5 +26,12 @@ class SetupSeeder extends Seeder
         ['name'=>'Yearly','price'=>2000,'mt_code'=>'y'],
        ];
        DB::table('membership_types')->insert($mt);
+
+       //Link
+       $links = [
+        ['name'=>'Home','url'=>'/'],
+        ['name'=>'Membership Page','url'=>'/members'],
+       ];
+       DB::table('links')->insert($links);
     }
 }
