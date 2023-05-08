@@ -1,5 +1,5 @@
 on: push
-name: 🚀 Deploy website on push
+name: 🚀 Deploy to fyh on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -12,5 +12,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ftp.fyh.ch
-        username: devfyh@fyh.ch
+        username: testfyh@fyh.ch
         password: ${{ secrets.FTP_FYH_PASS }}
