@@ -27,6 +27,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->integer('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
         Schema::table('users', function (Blueprint $table) {

@@ -23,6 +23,11 @@ return new class extends Migration
             $table->foreign('link_id', 'menus_link_id')->references('id')->on('links')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('client_type_id', 'menus_client_type_id')->references('id')->on('client_types')->onDelete('cascade')->onUpdate('cascade');
         });
+        Schema::table('features', function (Blueprint $table) {
+            $table->foreign('created_by', 'features_created_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('updated_by', 'features_updated_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('deleted_by', 'features_deleted_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

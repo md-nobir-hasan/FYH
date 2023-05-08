@@ -18,6 +18,11 @@ return new class extends Migration
             $table->enum('ct_code',['ap','mts']);
             $table->timestamps();
         });
+        Schema::table('features', function (Blueprint $table) {
+            $table->foreign('created_by', 'features_created_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('updated_by', 'features_updated_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('deleted_by', 'features_deleted_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**
