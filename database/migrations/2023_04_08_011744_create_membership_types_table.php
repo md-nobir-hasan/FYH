@@ -17,12 +17,16 @@ return new class extends Migration
             $table->decimal('price');
             $table->longText('details')->nullable();
             $table->enum('mt_code',['m','y']);
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
-        Schema::table('features', function (Blueprint $table) {
-            $table->foreign('created_by', 'features_created_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('updated_by', 'features_updated_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('deleted_by', 'features_deleted_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+        Schema::table('membership_types', function (Blueprint $table) {
+            $table->foreign('created_by', 'membership_types_created_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('updated_by', 'membership_types_updated_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('deleted_by', 'membership_types_deleted_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

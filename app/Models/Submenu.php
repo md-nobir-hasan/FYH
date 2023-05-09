@@ -9,9 +9,24 @@ class Submenu extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['menu_id','name','url','serial'];
+    protected $fillable = ['menu_id','name','link_id','serial'];
 
-    public function submenus(){
+    public function created_by(){
+        return $this->belongsTo(User::class,'created_by');
+    }
+    public function updated_by(){
+        return $this->belongsTo(User::class,'updated_by');
+    }
+    public function deleted_by(){
+        return $this->belongsTo(User::class,'deleted_by');
+    }
+
+    public function menu(){
         return $this->belongsTo(Menu::class,'menu_id');
     }
+    public function link(){
+        return $this->belongsTo(Link::class,'link_id');
+    }
+
+
 }

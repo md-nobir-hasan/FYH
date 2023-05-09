@@ -59,6 +59,7 @@
                               <select name="link_id" data-te-select-init data-te-select-option-height="52" data-te-select-filter="true"
                               >
                                   <option hidden>Select Links</option>
+                                  <option value="no">No Link</option>
                                  @foreach ($links as $s)
                                   <option value="{{$s->id}}" data-te-select-secondary-text="{{$s->url}}" @selected($mdata->link_id==$s->id)>{{$s->name}}</option>
                                  @endforeach
@@ -83,28 +84,31 @@
 
                          {{--Client/User Types  --}}
                          <div class="relative w-full mb-6 xl:w-96">
-                          <div class=" mb-4 flex group">
-                              <select name="client_type_id"  id="multiSelection" data-te-select-init data-te-select-filter="true" data-te-select-clear-button="true" multiple>
-                                  {{-- <option value="" hidden selected>Select User Types</option> --}}
-                                  <option >Normal User</option>
+                            <div class="mb-4 flex group">
+                              <select name="client_type_id" data-te-select-init data-te-select-option-height="52" data-te-select-filter="true"
+                              >
+                                <option hidden>Select User Types</option>
+                                <option value="nor_user" @selected(!$mdata->client_type_id)>Normar User</option>
                                  @foreach ($user_types as $st)
-                                  <option value="{{$st->id}}">{{$st->name}}</option>
+                                  <option value="{{$st->id}}" data-te-select-secondary-text="{{$st->url}}" @selected($mdata->client_type_id==$st->id)>{{$st->name}}</option>
                                  @endforeach
                                 </select>
-
-                              <a href="{{route('admin.setup.client-type.create')}}" target="_blank"
-                                  title="Add a Client Type">
-                                  <button
-                                      class="z-[2] inline-block rounded-r bg-primary text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:z-[3] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                                      data-te-ripple-init
-                                      type="button"
-                                      id="button-addon2">
-                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                      </svg>
-                                  </button>
-                              </a>
+                                <a href="{{route('admin.setup.client-type.create')}}" target="_blank"
+                                title="Add a Client Type">
+                                <button
+                                    class="z-[2] inline-block rounded-r bg-primary text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:z-[3] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                    data-te-ripple-init
+                                    type="button"
+                                    id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </button>
+                            </a>
                             </div>
+                              @error('link_id')
+                                  <span class="text-[red]">{{$message}}</span>
+                              @enderror
                         </div>
 
                       {{-- serial  --}}
