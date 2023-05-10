@@ -20,16 +20,12 @@
     "src": "public/js/toastr.js"
   },
   "resources/css/app.css": {
-
-    "file": "assets/app-86062a7e.css",
-
-
-
+    "file": "assets/app-2931c312.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-f5dde28b.js",
+    "file": "assets/app-e3e396a2.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

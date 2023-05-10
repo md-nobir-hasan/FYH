@@ -20,8 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 
 // Frontend controller
-Route::get('/', [FrontendControler::class,'homePage'])->name('home');
-Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
+    Route::get('/', [FrontendControler::class,'homePage'])->name('home');
+    Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
+    Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
+    Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
+    Route::get('/congratulations', [FrontendControler::class,'congratsPage'])->name('congrats');
+//End frontend controller
 
 //broadcast
 Route::get('/broadcast',[BrotcastController::class,'UserRegInfoAdmin'])->name('brotcast');

@@ -13,4 +13,14 @@ class FrontendControler extends Controller
   public function membershipPage(){
     return view('frontend.pages.member');
   }
+
+  public function communityPage(){
+    return view('frontend.pages.community');
+  }
+  public function paymentPage(){
+    return view('frontend.pages.payment');
+  }
+  public function congratsPage(){
+    return view('frontend.pages.congrats');
+  }
 }

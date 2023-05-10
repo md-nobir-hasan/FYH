@@ -46,14 +46,15 @@ class MenuController extends Controller
         if(!check('Main Menu')->add){
             return back();
         }
-
+        $serial_no = Menu::latest()->first();
+        $serial = $serial_no->id + 1;
         foreach($request->client_type_id as $ct_id){
             $insert = new Menu();
             $insert->name = $request->name;
             if($request->link_id != 'no'){
                 $insert->link_id = $request->link_id;
             }
-            $insert->serial++;
+            $insert->serial = $serial;
             $insert->client_type_id = $ct_id;
             $insert->save();
         }

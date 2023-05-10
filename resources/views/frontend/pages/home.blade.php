@@ -33,23 +33,23 @@
     </div> -->
     <!-- navbar section -->
     <div class="mx-40" style="font-family: 'Montserrat';">
-    
+
     <!-- hero section -->
         <div class="mt-16 grid grid-cols-2">
             <div>
-            <h3 class="text-5xl font-bold">Do you want to move <br> in Switzerland ?</h3>  
+            <h3 class="text-5xl font-bold">Do you want to move <br> in Switzerland ?</h3>
             <p class="font-semibold">At Fyh service you Can Find All Necessary information to take the Decision That can Change Your life</p>
             <h3 class="text-5xl font-bold mt-5">Already Relocated ?</h3>
             <p class="font-semibold">At FYH service You Can Find All Necessary Information to Integrate Into Switzerland</p>
             <div class="flex">
-            <div class="mt-10 text-white w-72 rounded flex justify-center items-center h-16 font-semibold" style="background-color:#D1052C"><button class="mr-1 font-lg">Join FYH now</button>
+            <div class="mt-10 text-white w-72 rounded flex justify-center items-center h-16 font-semibold" style="background-color:#D1052C"><button class="mr-1 font-lg"><a href="{{route('member')}}">Join FYH now</a></button>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
         </div>
             <p class="mt-10 flex justify-center items-center ml-12 font-semibold underline decoration-3" style="color:
                 #D1052C"><a href="">Learn More</a></p>
-                
+
             </div>
-            </div>  
+            </div>
             <!-- make changing section -->
             <div>
             <img src="{{asset('/images/changing.png')}}" alt="" class="mt-[-20px] lg:w-[450px]">
@@ -61,7 +61,7 @@
         <div class="mt-40">
             <div>
                 <h1 class="text-4xl font-bold text-center">Benefits of living in Switzerland</h1>
-                <p class=" text-center text-lg font-normal">Why is Switzerland so attractive for living and working?</p>        
+                <p class=" text-center text-lg font-normal">Why is Switzerland so attractive for living and working?</p>
             </div>
             <!-- benifit card section -->
             <div class="grid grid-cols-3 gap-8 mt-10">
@@ -190,7 +190,7 @@
 
             <div class="my-5">
                 <div class="grid grid-cols-3">
-                
+
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-24">
                 <a href="#">
                     <img class="rounded-t-lg p-5" src="{{asset('/images/man1.png')}}" alt="" />
@@ -228,7 +228,7 @@
             </div>
             <!-- content testimonial end -->
     </div>
-    
+
     <!-- Testimonial section end -->
 @endsection
 @push('js')
