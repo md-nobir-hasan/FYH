@@ -68,6 +68,7 @@
                                 <select name="link_id" data-te-select-init data-te-select-option-height="52" data-te-select-filter="true"
                                 >
                                     <option hidden>Select Links</option>
+                                    <option value="no">No Link</option>
                                    @foreach ($links as $s)
                                     <option value="{{$s->id}}" data-te-select-secondary-text="{{$s->url}}" @selected(old('link_id')==$s->id)>{{$s->name}}</option>
                                    @endforeach
@@ -93,14 +94,13 @@
                            {{--Client/User Types  --}}
                            <div class="relative w-full mb-6 xl:w-96">
                             <div class=" mb-4 flex group">
-                                <select name="client_type_id"  id="multiSelection" data-te-select-init data-te-select-filter="true" data-te-select-clear-button="true" multiple>
+                                <select name="client_type_id[]"  id="multiSelection" data-te-select-init data-te-select-filter="true" data-te-select-clear-button="true" multiple>
                                     {{-- <option value="" hidden selected>Select User Types</option> --}}
-                                    <option @selected(!old('link_id'))>Normal User</option>
-                                   @foreach ($user_types as $st)
-                                    <option value="{{$st->id}}">{{$st->name}}</option>
-                                   @endforeach
-                                  </select>
-
+                                    <option value="" selected>Normal User</option>
+                                    @foreach ($user_types as $st)
+                                        <option value="{{$st->id}}">{{$st->name}}</option>
+                                    @endforeach
+                                </select>
                                 <a href="{{route('admin.setup.client-type.create')}}" target="_blank"
                                     title="Add a Client Type">
                                     <button
@@ -117,7 +117,7 @@
                           </div>
 
                         {{-- serial  --}}
-                          <div class="relative w-full mb-6 xl:w-96">
+                          {{-- <div class="relative w-full mb-6 xl:w-96">
                                 <input
                                 type="text"
                                 name="serial"
@@ -133,7 +133,7 @@
                                 @error('serial')
                                     <span class="text-[red]">{{$message}}</span>
                                 @enderror
-                          </div>
+                          </div> --}}
                     <button
                       type="submit"
                       class="w-full rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"

@@ -48,9 +48,10 @@ class MembershipTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MembershipType $membershipType)
+    public function show(MembershipType $membership)
     {
-        //
+        $n['mdata'] = $membership;
+        return view('pages.setup.membership-type.show',$n);
     }
 
     /**
