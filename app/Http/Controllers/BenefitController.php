@@ -48,7 +48,8 @@ class BenefitController extends Controller
      */
     public function show(Benefit $benefit)
     {
-        //
+        $n['mdata'] = $benefit;
+        return view('pages.setup.benefit.show',$n);
     }
 
     /**

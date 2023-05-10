@@ -11,7 +11,7 @@ class UpdateSubmenuRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateSubmenuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name" => "required|string|max:255",
+            'menu_id'=>"required|numeric|exists:menus,id",
+            'serial' => 'required|numeric'
         ];
     }
 }

@@ -1,0 +1,16 @@
+on: push
+name: 🚀 Deploy to fyh on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.fyh.ch
+        username: testfyh@fyh.ch
+        password: ${{ secrets.FTP_FYH_PASS }}

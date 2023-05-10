@@ -24,9 +24,9 @@ class UpdateMenuRequest extends FormRequest
         $id = $this->menu->id;
         return [
             'name' =>'required|string|max:255|unique:menus,name,'.$id.',id',
-            'serial' =>'required|numeric',
-            'link_id' =>'required|exists:links,id',
-            'client_type_id' =>'required|exists:client_types,id',
+            'serial' =>'nullable|numeric',
+            // 'link_id' =>'nullable|exists:links,id',
+            // 'client_type_id.*' =>'nullable|exists:client_types,id',
         ];
     }
 }

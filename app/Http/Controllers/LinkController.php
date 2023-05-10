@@ -47,7 +47,8 @@ class LinkController extends Controller
      */
     public function show(Link $link)
     {
-        //
+        $n['mdata'] = $link;
+        return view('pages.setup.link.show',$n);
     }
 
     /**
