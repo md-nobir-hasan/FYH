@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Submenu;
 use App\Http\Requests\StoreSubmenuRequest;
 use App\Http\Requests\UpdateSubmenuRequest;
+use App\Models\Link;
+use App\Models\Menu;
 
 class Submenucontroller extends Controller
 {
@@ -17,7 +19,7 @@ class Submenucontroller extends Controller
      */
     public function index()
     {
-        $n['mdata'] = Submenu::paginate();
+        $n['mdata'] = Submenu::with(['created_by','updated_by','menu','link'])->paginate();
        return view('pages.menus.sub-menu.index',$n);
     }
 
@@ -29,7 +31,9 @@ class Submenucontroller extends Controller
         if(!check('Sub-menu')->add){
             return back();
         }
-        return view('pages.menus.sub-menu.create');
+        $n['links'] = Link::get();
+        $n['menus'] = Menu::get();
+        return view('pages.menus.sub-menu.create',$n);
     }
 
     /**
@@ -40,8 +44,15 @@ class Submenucontroller extends Controller
         if(!check('Sub-menu')->add){
             return back();
         }
-        Submenu::create($request->all())->only('name','url','manu_id','serial');
-        return redirect()->route('admin.menu.sub-menu.index')->with('success',$request->name.' successfylly created');
+        $insert = new Submenu();
+        $insert->name = $request->name;
+        if($request->link_id != 'no'){
+            $insert->link_id = $request->link_id;
+        }
+        $insert->menu_id = $request->menu_id;
+        $insert->serial++;
+        $insert->save();
+        return redirect()->route('admin.menu.submenu.index')->with('success',$request->name.' successfylly created');
     }
 
     /**
@@ -60,7 +71,10 @@ class Submenucontroller extends Controller
         if(!check('Sub-menu')->edit){
             return back();
         }
-        return view('pages.menu.sub-menu.edit',['mdata' =>$submenu]);
+        $n['links'] = Link::get();
+        $n['menus'] = Menu::get();
+        $n['mdata'] = $submenu;
+        return view('pages.menus.sub-menu.edit',$n);
     }
 
     /**
@@ -71,9 +85,15 @@ class Submenucontroller extends Controller
         if(!check('Sub-menu')->edit){
             return back();
         }
-
-        $submenu->update($request->all());
-        return redirect()->route('admin.menu.sub-menu.index')->with('success',$submenu->name.' successfylly updated');
+        // dd($request->all());
+        $submenu->name = $request->name;
+        if($request->link_id != 'no'){
+            $submenu->link_id = $request->link_id;
+        }
+        $submenu->menu_id = $request->menu_id;
+        $submenu->serial = $request->serial;
+        $submenu->save();
+        return redirect()->route('admin.menu.submenu.index')->with('success',$submenu->name.' successfylly updated');
     }
 
     /**

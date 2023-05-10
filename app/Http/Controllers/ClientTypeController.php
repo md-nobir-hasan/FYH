@@ -49,7 +49,8 @@ class ClientTypeController extends Controller
      */
     public function show(ClientType $clientType)
     {
-        //
+        $n['mdata'] = $clientType;
+        return view('pages.setup.client-type.show',$n);
     }
 
     /**

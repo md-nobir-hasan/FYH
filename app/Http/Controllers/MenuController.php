@@ -18,7 +18,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $n['all_menus'] = Menu::with(['client_type','link'])->OrderBy('serial','asc')->get()->groupBy('name');
+        $n['all_menus'] = Menu::with(['client_type','link'])->OrderBy('serial','asc')->get()->groupBy('client_type_id');
         $n['client_tyes'] = ClientType::get();
         $n['normal_users_menus'] = Menu::with(['client_type','link'])->where('client_type_id',null)->orderBy('serial','asc')->get();
         // dd($n);
@@ -50,8 +50,10 @@ class MenuController extends Controller
         foreach($request->client_type_id as $ct_id){
             $insert = new Menu();
             $insert->name = $request->name;
-            $insert->link_id = $request->link_id;
-            $insert->serial = $request->serial;
+            if($request->link_id != 'no'){
+                $insert->link_id = $request->link_id;
+            }
+            $insert->serial++;
             $insert->client_type_id = $ct_id;
             $insert->save();
         }
@@ -64,7 +66,8 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        //
+        $n['mdata'] = $menu;
+        return view('pages.menus.main-menu.show',$n);
     }
 
     /**
@@ -90,7 +93,17 @@ class MenuController extends Controller
             return back();
         }
 
-        $menu->update($request->all());
+        $menu->name = $request->name;
+        if($request->link_id != 'no'){
+            $menu->link_id = $request->link_id;
+        }
+        if($request->client_type_id != 'nor_user'){
+            $menu->client_type_id = $request->client_type_id;
+        }
+        if($request->serial){
+            $menu->serial = $request->serial;
+        }
+        $menu->save();
         return redirect()->route('admin.menu.menu.index')->with('success',$menu->name.' successfylly updated');
     }
 
