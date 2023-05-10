@@ -24,7 +24,7 @@ class StoreMenuRequest extends FormRequest
         return [
             'name' =>'required|string|max:255|unique:menus,name',
             // 'serial' =>'required|numeric',
-            'link_id' =>'nullable|exists:links,id',
+            // 'link_id' =>'nullable|exists:links,id',
             'client_type_id.*' =>'nullable|exists:client_types,id',
         ];
     }

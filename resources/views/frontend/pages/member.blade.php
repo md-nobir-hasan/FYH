@@ -96,12 +96,12 @@
           <p class="w-[236px] ml-[30px]">It’s the starter package for new comer. You can pay monthly and cancel anytime...</p>
           <p class="w-[400px] border-t-2 border-black mx-[30px] my-2"></p>
          <div class="text-[14px] ml-[40px]">
-          
+
           <p class="mb-[6px]">
-            <i class="fa-solid fa-check"></i> Access to A limited selection of Services  
+            <i class="fa-solid fa-check"></i> Access to A limited selection of Services
           </p>
           <p class="mb-[6px]">
-            <i class="fa-solid fa-check"></i> Access to A limited selection of Services  
+            <i class="fa-solid fa-check"></i> Access to A limited selection of Services
           </p>
           <p class="mb-[6px]">
             <i class="fa-solid fa-check"></i> Access to Community Discussion Forum
@@ -123,7 +123,7 @@
               </div>
               <div>
                 <h1 class="font-bold text-[25px]">17 CHF/mo.</h1>
-                
+
               </div>
 
 
@@ -134,7 +134,7 @@
           </div>
           <p class="w-[400px] border-t-2 border-black mx-[30px] my-2"></p>
          <div class="text-[14px] ml-[40px]">
-          
+
           <p class="mb-[6px]">
             <i class="fa-solid fa-check"></i>Access to A limited selection of Services
           </p>
@@ -150,7 +150,7 @@
          </div>
           </div>
         </div>
-        <button class="text-center w-[472px] h-[48px] bg-[#D1052C] rounded-[10px] text-white text-[16px] font-bold">GET STARTED</button>
+        <button class="text-center w-[472px] h-[48px] bg-[#D1052C] rounded-[10px] text-white text-[16px] font-bold"><a href="{{route('register')}}">GET STARTED</a></button>
       </div>
     </div>
   </body>
