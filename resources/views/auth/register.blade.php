@@ -1,6 +1,9 @@
 <x-guest-layout>
-    <div>
-        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+
+
+    <div class="w-full">
+    <form class="" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+
         @csrf
 
         <!-- Name -->

@@ -1,7 +1,12 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
+    
+    <div class="p-10">
+    <img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24 mx-auto mb-8 mt-[-40px]">
+    <h1 class="text-2xl font-bold text-center">
+        Forgot Password?
+    </h1>
+    <p class="text-sm text-center font-medium">No worries,we'll send you reset instructions</p>
+    <hr class="bg-black border mb-5">
 
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -10,16 +15,19 @@
         @csrf
 
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+        <div class="mt-3">
+            <x-input-label for="email" :value="__('Enter Your Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus placeholder="mymail@mail.com"/>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
+        <div class="mt-4">
+        <button class="w-full  p-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white text-sm">{{ __('RESET PASSWORD') }}</button>
         </div>
     </form>
+   <div class="text-center mt-3 font-medium text-sm">
+   <a href="/login"><i class="fa-solid fa-arrow-left"></i>Back to log in</a>
+   </div>
+    </div>
 </x-guest-layout>
+
