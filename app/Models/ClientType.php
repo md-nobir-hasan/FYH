@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ClientType extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','ct_code'];
+    protected $fillable = ['name','price','dis','des','currency_id','pay_duration_id'];
 
     public function created_by(){
         return $this->belongsTo(User::class,'created_by');
@@ -18,6 +18,12 @@ class ClientType extends Model
     }
     public function deleted_by(){
         return $this->belongsTo(User::class,'deleted_by');
+    }
+    public function currency(){
+        return $this->belongsTo(Currency::class,'currency_id');
+    }
+    public function payDuration(){
+        return $this->belongsTo(PaymentDuration::class,'pay_duration_id');
     }
 
     public function menu(){

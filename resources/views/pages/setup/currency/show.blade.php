@@ -1,7 +1,7 @@
-@if ($n = check('Link'))
+@if ($n = check('Currency'))
     <x-app-layout>
         <x-slot name='title'>
-            Link
+            Currency
         </x-slot>
         <s-slot name='style'>
 
@@ -15,7 +15,7 @@
                     <div class="overflow-x-auto shadow-md sm:rounded-lg">
                         <div class="flex justify-center items-center mb-3">
                             @if ($n->add)
-                                <a href="{{ route('admin.setup.link.create') }}" target="_blank"
+                                <a href="{{ route('admin.setup.currency.create') }}" target="_blank"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
@@ -25,7 +25,7 @@
                                 </a>
                             @endif
                             @if ($n->edit)
-                                <a href="{{ route('admin.setup.link.edit', [$mdata->id]) }}" target="_blank"
+                                <a href="{{ route('admin.setup.currency.edit', [$mdata->id]) }}" target="_blank"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
@@ -42,19 +42,19 @@
                                         <table class="min-w-full text-center text-sm font-light">
                                             <tbody>
                                                 <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
-                                                    <th>Link Name</th>
+                                                    <th>Currency Name</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                         {{ $mdata->name }}
                                                     </td>
                                                 </tr>
-                                                <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
-                                                    <th>Link Url</th>
+                                                {{-- <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
+                                                    <th>Currency Url</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                         {{ $mdata->url }}
                                                     </td>
-                                                </tr>
+                                                </tr> --}}
                                                 <tr class="border-b border-danger-200 bg-danger-100 text-neutral-800">
                                                     <th>Created At</th>
                                                     <th>:</th>

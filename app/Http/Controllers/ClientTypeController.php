@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ClientType;
 use App\Http\Requests\StoreClientTypeRequest;
 use App\Http\Requests\UpdateClientTypeRequest;
+use App\Models\Currency;
+use App\Models\PaymentDuration;
 
 class ClientTypeController extends Controller
 {
@@ -17,6 +19,7 @@ class ClientTypeController extends Controller
      */
     public function index()
     {
+
         $n['mdata'] = ClientType::orderBy('id','desc')->get();
         return view('pages.setup.client-type.index',$n);
     }
@@ -29,7 +32,9 @@ class ClientTypeController extends Controller
         if(!check('Client Type')->add){
             return back();
         }
-    return view('pages.setup.client-type.create');
+        $n['currencies'] = Currency::get();
+        $n['pay_durations'] = PaymentDuration::get();
+    return view('pages.setup.client-type.create',$n);
     }
 
     /**
@@ -61,8 +66,11 @@ class ClientTypeController extends Controller
         if(!check('Client Type')->edit){
             return back();
         }
+        $n['currencies'] = Currency::get();
+        $n['pay_durations'] = PaymentDuration::get();
+        $n['mdata'] = $clientType;
 
-        return view('pages.setup.client-type.edit',['mdata' =>$clientType]);
+        return view('pages.setup.client-type.edit',$n);
     }
 
     /**

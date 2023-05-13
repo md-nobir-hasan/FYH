@@ -67,6 +67,7 @@
                  //Notification sound play on load
 
                  $(document).ready(function(){
+                    $('#sidenav1').css({'width':'260px'})
                     // Side navbar show hide
                     let side_nav = false;
                     $('#navbartogglerbtn').on('click',function(){

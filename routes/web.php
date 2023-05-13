@@ -4,6 +4,7 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MembershipTypeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MiscellaneousController;
+use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Submenucontroller;
@@ -82,6 +84,12 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
         //Links
         Route::resource('/link',LinkController::class);
+
+        //Currency
+        Route::resource('/currency',CurrencyController::class);
+
+        //Payment Duration
+        Route::resource('/payment_duration',PaymentDurationController::class);
     });
 
     //Menus route

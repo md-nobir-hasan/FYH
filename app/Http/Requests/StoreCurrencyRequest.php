@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreClientTypeRequest extends FormRequest
+class StoreCurrencyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,8 @@ class StoreClientTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' =>'required|string|max:255|unique:client_types,name',
-            'currency_id' =>'required|numeric|exists:currencies,id',
-            'pay_duration_id' =>'required|numeric|exists:payment_durations,id',
-            'price'=>"required|numeric",
-            'dis'=>"required|numeric",
-            'des'=>"required|string",
-
+            'name' =>'required|string|max:255|unique:currencies,name',
+            'rate' =>'nullable|numeric',
         ];
     }
 }
