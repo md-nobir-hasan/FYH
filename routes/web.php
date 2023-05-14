@@ -16,6 +16,7 @@ use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Submenucontroller;
 use App\Http\Controllers\UserCommonController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,10 @@ Route::get('/dashboard', function () {
 // Admin route ===============================================
 Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(function () {
 
+    //Settings
+    Route::prefix('/setting')->name('setting.')->group(function(){
+        Route::resource('setting',SettingsController::class);
+    });
     //Delete
     Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
 

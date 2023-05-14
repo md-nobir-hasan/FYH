@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Menu;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -26,5 +28,10 @@ class AppServiceProvider extends ServiceProvider
         $user = User::where('role_id',null)->orderBy('id','desc')->get();
             View::share('customers',$user);
         }
+       if(Schema::hasTable('settings')) {
+        $n['setting'] = Setting::first();
+            View::share($n);
+        }
+
     }
 }

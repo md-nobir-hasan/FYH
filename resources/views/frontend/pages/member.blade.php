@@ -90,7 +90,6 @@
                                     {{ $member->currency->name }}/{{ $member->payDuration->name }}</h1>
 
                             </div>
-
                             <div>
                                 {!! $member->des !!}
                                 {{-- @if ($member->dis>0)

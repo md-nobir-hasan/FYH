@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +10,9 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     @vite(['resources/css/app.css','resources/js/app.js','public/js/toastr.css'])
 </head>
 <body class="antialiased">
-
     <div class=" mt-12 lg:mx-40" style="font-family: 'Montserrat';">
         <div class="flex">
             <a href="{{route('home')}}"><img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24"></a>
