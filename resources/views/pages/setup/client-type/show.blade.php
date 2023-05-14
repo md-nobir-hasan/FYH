@@ -1,10 +1,14 @@
 @if ($n = check('Client Type'))
     <x-app-layout>
         <x-slot name='title'>
-            Client Type
+            Membership Type
         </x-slot>
         <s-slot name='style'>
-
+            <style>
+                table th, table td{
+                    padding-left: 40px !important;
+                }
+            </style>
         </s-slot>
         <div class="p-4">
             <div class="flex items-center justify-center">
@@ -39,41 +43,75 @@
                             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                                     <div class="overflow-hidden">
-                                        <table class="min-w-full text-center text-sm font-light">
+                                        <table class="max-w-lg mx-auto p-6 text-sm font-light">
                                             <tbody>
                                                 <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
-                                                    <th>Client Type</th>
+                                                    <th class="text-left">Membership Type</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                         {{ $mdata->name }}
                                                     </td>
                                                 </tr>
+                                                <tr class="border-b border-danger-200 bg-success-100 text-neutral-800">
+                                                    <th class="text-left">Price</th>
+                                                    <th>:</th>
+                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">
+                                                        {{ $mdata->price }}
+                                                    </td>
+                                                </tr>
+                                                <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
+                                                    <th class="text-left">Discount</th>
+                                                    <th>:</th>
+                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">
+                                                        {{ $mdata->dis }}
+                                                    </td>
+                                                <tr class="border-b border-danger-200 bg-success-100 text-neutral-800">
+                                                    <th class="text-left">Currency</th>
+                                                    <th>:</th>
+                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">
+                                                        {{ $mdata->currency->name }}
+                                                    </td>
+                                                <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
+                                                    <th class="text-left">Payment Duration</th>
+                                                    <th>:</th>
+                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">
+                                                        {{ $mdata->payDuration->name }}
+                                                    </td>
+                                                </tr>
                                                 <tr class="border-b border-danger-200 bg-danger-100 text-neutral-800">
-                                                    <th>Created At</th>
+                                                    <th class="text-left">Created At</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                         {{ $mdata->created_at ? date_format($mdata->created_at,'d-m-Y') : '' }}
                                                     </td>
                                                 </tr>
                                                 <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
-                                                    <th>Created By</th>
+                                                    <th class="text-left">Created By</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                         {{ $mdata->created_by ? $mdata->created_by->name : '' }}
                                                     </td>
                                                 </tr>
                                                 <tr class="border-b border-danger-200 bg-danger-100 text-neutral-800">
-                                                    <th>Updated At</th>
+                                                    <th class="text-left">Updated At</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                         {{$mdata->updated_at ? date_format($mdata->updated_at,'d-m-Y') : '' }}
                                                     </td>
                                                 </tr>
                                                 <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
-                                                    <th>Updated By</th>
+                                                    <th class="text-left">Updated By</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                         {{ $mdata->updated_by ? $mdata->updated_by->name : '' }}
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="border-b border-danger-200 bg-success-100 text-neutral-800">
+                                                    <th class="text-left">Description</th>
+                                                    <th>:</th>
+                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-left m-auto">
+                                                        {!! $mdata->des !!}
                                                     </td>
                                                 </tr>
                                             </tbody>

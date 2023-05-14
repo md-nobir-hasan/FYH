@@ -1,5 +1,7 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+    <div class="grid grid-cols-2">
+    <form class="" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+
         @csrf
 
         <!-- Name -->
@@ -64,4 +66,6 @@
             </x-primary-button>
         </div>
     </form>
+    hi this is nayeem
+    </div>
 </x-guest-layout>

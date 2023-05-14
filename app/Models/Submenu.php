@@ -20,9 +20,8 @@ class Submenu extends Model
     public function deleted_by(){
         return $this->belongsTo(User::class,'deleted_by');
     }
-
     public function menu(){
-        return $this->belongsTo(Menu::class,'menu_id');
+        return $this->belongsTo(Menu::class,'menu_id')->where('deleted_by',null);
     }
     public function link(){
         return $this->belongsTo(Link::class,'link_id');

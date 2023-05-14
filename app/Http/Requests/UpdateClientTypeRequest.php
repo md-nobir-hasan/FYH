@@ -21,9 +21,16 @@ class UpdateClientTypeRequest extends FormRequest
      */
     public function rules(): array
     {
+
+        $id = $this->client_type->id;
+        // dd($this->client_type);
         return [
-            'name' =>'required|string|max:255',
-            'ct_code' =>'required|in:ap,mts',
+            'name' =>'required|string|max:255|unique:client_types,name,'.$id.',id',
+            'currency_id' =>'required|numeric|exists:currencies,id',
+            'pay_duration_id' =>'required|numeric|exists:payment_durations,id',
+            'price'=>"required|numeric",
+            'dis'=>"required|numeric",
+            'des'=>"required|string",
         ];
     }
 }

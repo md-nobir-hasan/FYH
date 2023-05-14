@@ -18,9 +18,17 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $n['all_menus'] = Menu::with(['client_type','link'])->OrderBy('serial','asc')->get()->groupBy('client_type_id');
-        $n['client_tyes'] = ClientType::get();
-        $n['normal_users_menus'] = Menu::with(['client_type','link'])->where('client_type_id',null)->orderBy('serial','asc')->get();
+        $n['all_menus'] = Menu::with(['client_type','link'])
+                                ->where('deleted_by',null)
+                                ->OrderBy('serial','asc')
+                                ->get()
+                                ->groupBy('client_type_id');
+        $n['client_tyes'] = ClientType:: where('deleted_by',null)->get();
+        $n['normal_users_menus'] = Menu::with(['client_type','link'])
+                                        ->where('client_type_id',null)
+                                        ->where('deleted_by',null)
+                                        ->orderBy('serial','asc')
+                                        ->get();
         // dd($n);
        return view('pages.menus.main-menu.index',$n);
     }

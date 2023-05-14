@@ -28,6 +28,10 @@ class PermissionSeeder extends Seeder
                 ['role_id' => 1,'feature_id' => 12,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Menue
                 ['role_id' => 1,'feature_id' => 13,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Main Menu
                 ['role_id' => 1,'feature_id' => 14,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Sub-menu
+                ['role_id' => 1,'feature_id' => 15,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Sub-menu
+                ['role_id' => 1,'feature_id' => 16,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Sub-menu
+                ['role_id' => 1,'feature_id' => 17,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Setting
+                ['role_id' => 1,'feature_id' => 18,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Site Setting
             ];
 
             DB::table('permissions')->insert($n);

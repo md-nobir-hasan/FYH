@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClientType;
 use Illuminate\Http\Request;
 
 class FrontendControler extends Controller
@@ -11,7 +12,8 @@ class FrontendControler extends Controller
   }
 
   public function membershipPage(){
-    return view('frontend.pages.member');
+    $n['membership_types'] = ClientType::with(['currency','payDuration'])->limit(2)->get();
+    return view('frontend.pages.member',$n);
   }
 
   public function communityPage(){

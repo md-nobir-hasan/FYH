@@ -1,7 +1,7 @@
 @if ($n = check('Client Type'))
     <x-app-layout>
         <x-slot name='title'>
-            Client Type
+            Membership Type
         </x-slot>
         <s-slot name='style'>
 
@@ -10,13 +10,13 @@
             <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
                 <div class="border-b-2 border-neutral-100 py-3 px-6 dark:border-neutral-600 dark:text-neutral-50">
                     <div class="flex justify-between">
-                        <h4 class="text-bold text-lg">Client Types</h4>
+                        <h4 class="text-bold text-lg">Membership Types</h4>
                         @if ($n->add)
                             <a href="{{ route('admin.setup.client-type.create') }}">
                                 <div class="flex justify-center space-x-2">
                                     <button type="button"
                                         class="inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
-                                        Add new Client Type
+                                        Add new Membership Type
                                     </button>
                                 </div>
                             </a>
@@ -29,7 +29,19 @@
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-center">
-                                    Name
+                                        Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Price
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Discount
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Currency
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Payment Duration
                                     </th>
                                     @if ($n->edit || $n->delete)
                                         <th scope="col" class="px-6 py-3 text-bold text-md text-center">
@@ -42,10 +54,26 @@
                                 @foreach ($mdata as $value)
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <th scope="row"
+                                        <td scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{$value->name}}
-                                        </th>
+                                            {{$value->name}}
+                                        </td>
+                                        <td scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{$value->price}}
+                                        </td>
+                                        <td scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{$value->dis}}
+                                        </td>
+                                        <td scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{$value->currency->name}}
+                                        </td>
+                                        <td scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{$value->payduration->name}}
+                                        </td>
                                         @if ($n->edit || $n->delete)
                                             <td class="px-6 py-4 text-center flex justify-center items-center">
                                                 @if ($n->show)

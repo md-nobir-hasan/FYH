@@ -22,8 +22,12 @@ class StoreClientTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' =>'required|string|max:255',
-            'ct_code' =>'required|in:ap,mts',
+            'name' =>'required|string|max:255|unique:client_types,name',
+            'currency_id' =>'required|numeric|exists:currencies,id',
+            'pay_duration_id' =>'required|numeric|exists:payment_durations,id',
+            'price'=>"required|numeric",
+            'dis'=>"required|numeric",
+            'des'=>"required|string",
 
         ];
     }
