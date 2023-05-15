@@ -28,6 +28,14 @@ use Illuminate\Support\Facades\Route;
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
     Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
     Route::get('/congratulations', [FrontendControler::class,'congratsPage'])->name('congrats');
+    Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
+    Route::get('/about', [FrontendControler::class,'aboutPage'])->name('about');
+    Route::get('/discover', [FrontendControler::class,'discoverPage'])->name('discover');
+    Route::get('/billing', [FrontendControler::class,'billingPage'])->name('billing');
+    Route::prefix('/guide')->name('guide.')->group(function(){
+        Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
+        Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('move_switzerland');
+    });
 //End frontend controller
 
 //broadcast

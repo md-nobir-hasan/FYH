@@ -25,4 +25,23 @@ class FrontendControler extends Controller
   public function congratsPage(){
     return view('frontend.pages.congrats');
   }
+  public function benefitPage(){
+    return view('frontend.pages.benefit');
+  }
+  public function aboutPage(){
+    return view('frontend.pages.about');
+  }
+  public function discoverPage(){
+    return view('frontend.pages.discover');
+  }
+  public function moveSwitzerland(){
+    return view('frontend.pages.move-ch');
+  }
+  public function integrationSwitzerland(){
+    return view('frontend.pages.integration-ch');
+  }
+  public function billingPage(){
+    return view('frontend.pages.billing');
+  }
+
 }
