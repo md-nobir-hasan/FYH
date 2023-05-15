@@ -26,6 +26,9 @@
                                 </label>
                                 <input type="text" name="title" id="title" value="{{$mdata->title}}" class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                  placeholder="Site Title">
+                                 @error('title')
+                                    <span class="block text-[red] text-left">{{$message}}</span>
+                                 @enderror
                             </div>
                             <div>
                                 <label for="email" class="block text-left mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -51,7 +54,6 @@
                                 class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="file"
                                 id="logo" />
-                                {{-- <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="logo_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p> --}}
                             </div>
                         </div>
                         <div class="mb-6">

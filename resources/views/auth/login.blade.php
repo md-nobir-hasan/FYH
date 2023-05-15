@@ -3,6 +3,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form class="p-10" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';">
+        @csrf
     <img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24 mx-auto mb-14 mt-[-40px]">
     <h1 class="text-center text-4xl font-bold">Welcome Back!</h1>
     <p class="text-center font-medium text-lg">Continue with Google or Enter your details</p>

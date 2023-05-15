@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div>
+        <a href="/">
+            <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+        </a>
+    </div>
     <div class="grid grid-cols-2">
     <form class="" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
 
@@ -66,6 +71,5 @@
             </x-primary-button>
         </div>
     </form>
-    hi this is nayeem
     </div>
 </x-guest-layout>
