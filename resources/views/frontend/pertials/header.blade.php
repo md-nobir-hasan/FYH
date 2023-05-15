@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        @stack('title') - {{ config('app.name', 'FYH') }}
+        @stack('title') - {{ $setting->title ?? 'FYH' }}
     </title>
 
     <!-- Fonts -->
