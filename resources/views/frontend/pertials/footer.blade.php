@@ -13,7 +13,7 @@
                         <p class="font-semibold font-[16px] w-full">Subscribe our newsletter for hints, tips and the
                             latest product news.</p>
                     </div>
-                    <a href="{{$setting->youtube}}"><svg width="34" height="25" viewBox="0 0 34 34"
+                    <a href="{{$setting->youtube ?? null}}"><svg width="34" height="25" viewBox="0 0 34 34"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="16.6935" cy="16.6935" r="16.6935" fill="#D1052C" />
                             <g clip-path="url(#clip0_364_9092)">
@@ -30,7 +30,7 @@
                         </svg>
 
                     </a>
-                    <a href="{{$setting->fb_page}}"><svg width="35" height="25" viewBox="0 0 35 34"
+                    <a href="{{$setting->fb_page ?? null}}"><svg width="35" height="25" viewBox="0 0 35 34"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M34.1936 16.6935C34.1936 25.026 28.0887 31.9323 20.1084 33.1843V21.519H23.9981L24.7382 16.6935H20.1084V13.5622C20.1084 12.2417 20.7552 10.9551 22.8289 10.9551H24.9339V6.84696C24.9339 6.84696 23.0232 6.52092 21.1967 6.52092C17.3839 6.52092 14.8916 8.83193 14.8916 13.0158V16.6935H10.653V21.519H14.8916V33.1843C6.91134 31.9323 0.806458 25.026 0.806458 16.6935C0.806458 7.47428 8.28073 0 17.5 0C26.7193 0 34.1936 7.47428 34.1936 16.6935Z"
@@ -41,7 +41,7 @@
                         </svg>
 
                     </a>
-                    <a href="{{$setting->linkedin}}"><svg width="34" height="25" viewBox="0 0 34 34"
+                    <a href="{{$setting->linkedin ?? null}}"><svg width="34" height="25" viewBox="0 0 34 34"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M17.3065 33.3866C26.5261 33.3866 34 25.9127 34 16.6931C34 7.47347 26.5261 -0.000488281 17.3065 -0.000488281C8.08687 -0.000488281 0.612915 7.47347 0.612915 16.6931C0.612915 25.9127 8.08687 33.3866 17.3065 33.3866Z"
