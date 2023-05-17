@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Benefit;
 use App\Models\ClientType;
+use App\Models\Home;
+use App\Models\Service;
+use App\Models\Story;
 use Illuminate\Http\Request;
 
 class FrontendControler extends Controller
 {
   public function homePage(){
-    return view('frontend.pages.home');
+     $home = Home::first() ?? null;
+     $services = Service::orderBy('priority','asc')->take(4)->get() ?? null;
+     $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ?? null;
+     $stories = Story::select('id', 'name', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','asc')->take(15)->get();
+    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories'));
   }
 
   public function membershipPage(){
@@ -17,7 +25,8 @@ class FrontendControler extends Controller
   }
 
   public function communityPage(){
-    return view('frontend.pages.community');
+      $stories = Story::orderBy('priority','asc')->take(10)->get();
+    return view('frontend.pages.community',compact('stories'));
   }
   public function paymentPage(){
     return view('frontend.pages.payment');

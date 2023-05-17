@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('benefits', function (Blueprint $table) {
             $table->id();
-            $table->longText('name');
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('priority')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->unsignedBigInteger('deleted_by')->nullable();
