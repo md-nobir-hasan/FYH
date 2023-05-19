@@ -30,4 +30,10 @@ class Menu extends Model
     public function link(){
         return $this->belongsTo(Link::class,'link_id');
     }
+
+
+    public function content()
+    {
+        return $this->hasOne(Content::class);
+    }
 }

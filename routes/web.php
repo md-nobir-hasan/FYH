@@ -4,6 +4,7 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
@@ -125,6 +126,10 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::resource('menu',MenuController::class);
         Route::resource('submenu',Submenucontroller::class);
     });
+
+
+    // content or Page Create Route
+    Route::resource('/contents', ContentController::class);
 
     //User Management
     Route::prefix('/user')->name('user.')->group(function(){
