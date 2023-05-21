@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('benefits', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('slug')->nullable();
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
             $table->integer('priority')->nullable();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContentRequest;
 use App\Models\Content;
 use App\Models\Menu;
+use App\Models\Submenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -23,6 +24,7 @@ class ContentController extends Controller
     public function create()
     {
          $menus = Menu::select('id', 'name')->get();
+      //   $subMenus = Submenu::select('')
        return view('pages.content.create', ['menus' => $menus]);
     }
 

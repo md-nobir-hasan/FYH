@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Benefit;
+use App\Models\Service;
+use App\Models\Story;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,7 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        Benefit::factory(15)->create();
+        Service::factory(15)->create();
+        Story::factory(15)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -25,5 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(userSeeder::class);
         $this->call(MenuSeeder::class);
         $this->call(SettingSeeder::class);
+        $this->call(HomeSeeder::class);
+        $this->call(HomeSeeder::class);
     }
 }

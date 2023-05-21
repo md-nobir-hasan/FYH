@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Content;
 use App\Models\Menu;
 use App\Models\Setting;
 use App\Models\User;
@@ -32,6 +33,11 @@ class AppServiceProvider extends ServiceProvider
         $n['setting'] = Setting::first() ?? null;
             View::share($n);
         }
+
+        if(Schema::hasTable('contents')) {
+            $homeContents = Content::orderBy('priority','asc')->get() ?? null;
+                View::share('homeContents',$homeContents);
+            }
 
     }
 }

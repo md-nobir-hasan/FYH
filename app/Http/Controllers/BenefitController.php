@@ -7,6 +7,7 @@ use App\Http\Requests\StoreBenefitRequest;
 use App\Http\Requests\UpdateBenefitRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BenefitController extends Controller
 {
@@ -51,6 +52,7 @@ class BenefitController extends Controller
        
         Benefit::create([
             'title' => $request->title,
+            'slug' => Str::slug($request->title, '-'),
             'image' => $image,
             'description' => $request->description,
             'priority' => $request->priority,
@@ -101,6 +103,7 @@ class BenefitController extends Controller
         $benefit->update([
             'title' => $request->title,
             'image' => $image,
+            'slug' => Str::slug($request->title, '-'),
             'description' => $request->description,
             'priority' => $request->priority,
         ]);

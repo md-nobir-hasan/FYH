@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Benefit extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','description','image','priority'];
+    protected $fillable = ['title', 'slug','description','image','priority'];
     
     public function created_by(){
         return $this->belongsTo(User::class,'created_by');

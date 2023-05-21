@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('priority');
             $table->string('title')->nullable();
+            $table->string('slug')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

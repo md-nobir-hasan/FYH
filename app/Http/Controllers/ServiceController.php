@@ -6,6 +6,7 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
@@ -39,6 +40,7 @@ class ServiceController extends Controller
 
             Service::create([
                 'title' => $request->title,
+                'slug' => Str::slug($request->title, '-'),
                 'image' => $image,
                 'description' => $request->description,
                 'priority' => $request->priority
@@ -58,6 +60,7 @@ class ServiceController extends Controller
      {
         $request->validate([
             'title' => 'required',
+
             'image' => 'nullable',
             'description' => 'required',
             'priority' => 'required'
@@ -75,6 +78,7 @@ class ServiceController extends Controller
 
           $service->update([
             'title' => $request->title,
+            'slug' => Str::slug($request->title, '-'),
             'image' => $image,
             'description' => $request->description,
             'priority' => $request->priority

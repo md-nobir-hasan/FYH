@@ -8,6 +8,9 @@ use App\Models\Story;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+
 
 class StoryController extends Controller
 {
@@ -36,6 +39,7 @@ class StoryController extends Controller
 
            Story::create([
                'name' =>$request->name,
+               'slug' => Str::slug($request->name, '-'),
                'title' => $request->title,
                'image' => $image,
                'description' => $request->description,
@@ -69,6 +73,7 @@ class StoryController extends Controller
 
          $story->update([
             'name' =>$request->name,
+            'slug' => Str::slug($request->name, '-'),
             'title' => $request->title,
             'image' => $image,
             'description' => $request->description,

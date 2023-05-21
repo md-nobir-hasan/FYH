@@ -102,7 +102,7 @@
                 @foreach ($stories->slice(1,3) as $item)
                     
                
-            <a href="#" class="block w-80 h-[250px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <a href="{{route('single-story',$item->slug)}}" class="block w-80 h-[250px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
             <div class="flex">
             <img src="{{'/storage/'.$item->image}}" alt="" class="h-16 w-16 rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
             <div class="ml-2">
@@ -130,20 +130,22 @@
                     <p class="text-lg font-normal text-center">Our Application process is very easy to use and user friendly. Let’s start...</p>
                     
                     <!-- services here -->
-                    <div class="mt-10 flex mx-auto">
+                    <div class="mt-10 grid grid-cols-4 mx-auto">
                     
                         @if($services->count() > 0)
                         @foreach ($services as $item)
  
-                    <div><img src="{{'/storage/'.$item->image}}" alt="" class="h-56 w-56  rounded-full p-16 mr-16" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-                    <h1 class="text-center text-2xl font-bold mt-5 mr-5"> {{$item->title ?? null}} </h1>
-                    <p class="font-normal text-justify w-56">
-                                    {{$item->description}}    
-                    </p>
-                   </div>
+                            <div>
+                                <img src="{{'/storage/'.$item->image}}" alt="" class="h-56 w-56  rounded-full p-16 mr-16" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                                <h1 class="text-center text-2xl font-bold mt-5 mr-5"> {{$item->title ?? null}} </h1>
+                                <p class="font-normal text-justify w-56">
+                                                {{$item->description}}    
+                                </p>
+                               </div>
+                                     
                    
-                   @endforeach
-                    @endif
+                        @endforeach
+                        @endif
                   
                     </div>
                     <!-- services end -->
