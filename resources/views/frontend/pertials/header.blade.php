@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        @stack('title') - {{ config('app.name', 'FYH') }}
+        @stack('title') - {{ $setting->title ?? 'FYH' }}
     </title>
 
     <!-- Fonts -->
@@ -16,13 +16,30 @@
     <div class=" mt-12 lg:mx-40" style="font-family: 'Montserrat';">
         <div class="flex">
             <a href="{{route('home')}}"><img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24"></a>
-            <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="{{route('member')}}">Membership</a></button>
-            <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="{{route('community')}}">Community</a></button>
-            <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Benifits</button>
+            <a href="{{route('member')}}">
+                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Membership</button>
+            </a>
+            <a href="{{route('community')}}">
+                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Community</button>
+            </a>
+            <a href="{{route('benefit')}}">
+                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Benefits</button>
+            </a>
             <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Guide</button>
-            <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Discover</button>
-            <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
-            <button class="ml-12 font-semibold text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="{{route('login')}}">Login</a></button>
+
+            <a href="{{route('discover')}}">
+                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Discover</button>
+            </a>
+
+            <a href="{{route('about')}}">
+                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
+            </a>
+            
+            <a href="{{route('login')}}">
+                <button class="ml-12 font-semibold text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="{{route('login')}}">Login</a></button>
+            </a>
+
+
         </div>
 </div>
 @push('js')

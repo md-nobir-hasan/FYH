@@ -4,6 +4,7 @@
 
     <form class="p-10 sm:max-w-md bg-white mx-auto" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';">
     <img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24 mx-auto mb-14 mt-[-30px]">
+
     <h1 class="text-center text-4xl font-bold">Welcome Back!</h1>
     <p class="text-center font-medium text-lg">Continue with Google or Enter your details</p>
 
