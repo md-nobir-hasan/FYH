@@ -22,7 +22,10 @@ class StoreBenefitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' =>'required|string',
+            'title' =>'required|string',
+            'image' => 'nullable',
+            'description' => 'required',
+            'priority' => 'required'
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBenefitRequest extends FormRequest
+class ContentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,11 @@ class UpdateBenefitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' =>'required|string',
-            'image' => 'nullable',
-            'description' => 'required',
-            'priority' => 'required'
+              'title' => 'required',
+              'menu_id' => 'required',
+              'priority' => 'required',
+              'image' => 'nullable',
+              'description' => 'required|min:20'
         ];
     }
 }

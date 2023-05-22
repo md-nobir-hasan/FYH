@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Benefit;
 use App\Models\ClientType;
+use App\Models\Content;
+use App\Models\Home;
+use App\Models\Service;
+use App\Models\Story;
 use Illuminate\Http\Request;
 
 class FrontendControler extends Controller
 {
   public function homePage(){
-    return view('frontend.pages.home');
+     $home = Home::first() ?? null;
+     $services = Service::orderBy('priority','asc')->take(4)->get() ?? null;
+     $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ?? null;
+     $stories = Story::select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','asc')->take(15)->get();
+    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories'));
   }
 
   public function membershipPage(){
@@ -17,8 +26,18 @@ class FrontendControler extends Controller
   }
 
   public function communityPage(){
-    return view('frontend.pages.community');
+      $stories = Story::orderBy('priority','asc')->take(10)->get();
+    return view('frontend.pages.community',compact('stories'));
   }
+
+
+  public function dynamicMenu($slug)
+  {
+      $content = Content::where('slug', $slug)->first();
+      return view('frontend.pages.dynamicMenu', ['content' => $content]);
+  }
+
+
   public function paymentPage(){
     return view('frontend.pages.payment');
   }
@@ -26,14 +45,14 @@ class FrontendControler extends Controller
     return view('frontend.pages.congrats');
   }
   public function benefitPage(){
-    return view('frontend.pages.benefit');
+      $Benefits = Benefit::orderBy('priority','asc')->get();
+    return view('frontend.pages.benefit', ['Benefits' => $Benefits]);
   }
-  public function aboutPage(){
-    return view('frontend.pages.about');
+  public function singleStory($slug){
+       $story = Story::where('slug', $slug)->first(); 
+    return view('frontend.pages.single-story', ['story' => $story]);
   }
-  public function discoverPage(){
-    return view('frontend.pages.discover');
-  }
+
   public function moveSwitzerland(){
     return view('frontend.pages.move-ch');
   }

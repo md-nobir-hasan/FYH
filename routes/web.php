@@ -4,19 +4,23 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FrontendControler;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MembershipTypeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\StoryController;
 use App\Http\Controllers\Submenucontroller;
 use App\Http\Controllers\UserCommonController;
 use Illuminate\Support\Facades\Route;
@@ -29,13 +33,14 @@ use Illuminate\Support\Facades\Route;
     Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
     Route::get('/congratulations', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
-    Route::get('/about', [FrontendControler::class,'aboutPage'])->name('about');
-    Route::get('/discover', [FrontendControler::class,'discoverPage'])->name('discover');
+    Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
     Route::get('/billing', [FrontendControler::class,'billingPage'])->name('billing');
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('move_switzerland');
     });
+
+    Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
 //End frontend controller
 
 //broadcast
@@ -84,6 +89,17 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::get('/index',[CustomerController::class,'index'])->name('index');
     });
 
+    // admin First Section 
+    Route::resource('/home', HomeController::class)->only('create', 'update', 'store');
+
+    // admin service section
+    Route::resource('/services', ServiceController::class)->except('destroy');
+    Route::get('services/destroy/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+
+    // Story 
+    Route::resource('stories', StoryController::class)->except('destroy');
+    Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
+
     //Setup
     Route::prefix('/setup')->name('setup.')->group(function(){
         //Client type
@@ -93,7 +109,8 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::resource('/membership',MembershipTypeController::class);
 
         //Benefit
-        Route::resource('/benefit',BenefitController::class);
+        Route::resource('/benefit',BenefitController::class)->except('destroy');
+        Route::get('/benefit/destroy/{id}', [BenefitController::class, 'destroy'])->name('benefit.destroy');
 
         //Links
         Route::resource('/link',LinkController::class);
@@ -110,6 +127,10 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::resource('menu',MenuController::class);
         Route::resource('submenu',Submenucontroller::class);
     });
+
+
+    // content or Page Create Route
+    Route::resource('/contents', ContentController::class);
 
     //User Management
     Route::prefix('/user')->name('user.')->group(function(){

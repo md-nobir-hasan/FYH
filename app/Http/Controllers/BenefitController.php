@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Benefit;
 use App\Http\Requests\StoreBenefitRequest;
 use App\Http\Requests\UpdateBenefitRequest;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BenefitController extends Controller
 {
@@ -16,7 +19,7 @@ class BenefitController extends Controller
      */
     public function index()
     {
-        $n['mdata'] = Benefit::orderBy('id','desc')->get();
+        $n['mdata'] = Benefit::orderBy('priority','asc')->get();
         return view('pages.setup.benefit.index',$n);
     }
 
@@ -39,7 +42,21 @@ class BenefitController extends Controller
         if(!check('Benefit')->add){
             return back();
         }
-        Benefit::create($request->all())->only('name','ct_code');
+
+        
+        if($request->hasFile('image')){
+            $image = $request->file('image')->store('image');
+      }else{
+            $image = null;
+      }
+       
+        Benefit::create([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title, '-'),
+            'image' => $image,
+            'description' => $request->description,
+            'priority' => $request->priority,
+        ]);
         return redirect()->route('admin.setup.benefit.index')->with('success',$request->name.' successfylly created');
     }
 
@@ -73,15 +90,40 @@ class BenefitController extends Controller
             return back();
         }
 
-        $benefit->update($request->all());
+        if($request->hasFile('image')){
+            if($benefit->image){
+                 Storage::delete($benefit->image);
+                 
+            }
+            $image = $request->file('image')->store('image');
+      }else{
+            $image = $benefit->image;
+      }
+
+        $benefit->update([
+            'title' => $request->title,
+            'image' => $image,
+            'slug' => Str::slug($request->title, '-'),
+            'description' => $request->description,
+            'priority' => $request->priority,
+        ]);
         return redirect()->route('admin.setup.benefit.index')->with('success',$benefit->name.' successfylly updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Benefit $benefit)
+    public function destroy($id)
     {
-        //
+           $benefit = Benefit::findOrFail($id);
+         
+      
+        if($benefit->image){
+            Storage::delete($benefit->image);
+            
+       }
+       $benefit->delete();
+     
+       return Redirect::back()->with('success',' Benefit Delete SuccessfullY');
     }
 }
