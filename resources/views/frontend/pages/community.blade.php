@@ -8,12 +8,12 @@
     <p class="text-lg">Stories of People Who Have Successfully Moved to Switzerland</p>
     <h1 class="text-4xl font-bold text-center">Our Success Stories</h1>
 
-    <div class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-5 mx-36 mt-5">
+    <div class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-5 lg:mx-36 mt-5">
         <!-- card -->
     <div>
-    <div class=" bg-white border border-gray-200 rounded-lg shadow ">
+    <div class=" bg-white border w-full border-gray-200 rounded-lg shadow ">
         <a href="#">
-        <img src="{{asset('/images/success1.png')}}" alt="" class="">
+        <img src="{{asset('/images/success1.png')}}" alt="" class="mx-auto w-full">
         </a>
         <div class="">
             <a href="#">
@@ -26,14 +26,14 @@
             
         </div>
 </div>
-<button class="lg:w-48  mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
+<button class="lg:w-48 w-full mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
     </div>
 <!-- card end -->
         <!-- card -->
     <div>
     <div class=" bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
-        <img src="{{asset('/images/success2.png')}}" alt="" class="">
+        <img src="{{asset('/images/success2.png')}}" alt="" class="mx-auto w-full">
         </a>
         <div class="">
             <a href="#">
@@ -46,14 +46,14 @@
             
         </div>
 </div>
-<button class="lg:w-48  mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
+<button class="lg:w-48 w-full mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
     </div>
 <!-- card end -->
         <!-- card -->
     <div>
     <div class=" bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
-        <img src="{{asset('/images/success3.png')}}" alt="" class="">
+        <img src="{{asset('/images/success3.png')}}" alt="" class="mx-auto w-full">
         </a>
         <div class="">
             <a href="#">
@@ -66,14 +66,14 @@
             
         </div>
 </div>
-<button class="lg:w-48  mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
+<button class="lg:w-48 w-full mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
     </div>
 <!-- card end -->
         <!-- card -->
     <div>
     <div class=" bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
-        <img src="{{asset('/images/success4.png')}}" alt="" class="">
+        <img src="{{asset('/images/success4.png')}}" alt="" class="mx-auto w-full">
         </a>
         <div class="">
             <a href="#">
@@ -86,14 +86,14 @@
             
         </div>
 </div>
-<button class="lg:w-48  mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
+<button class="lg:w-48 w-full mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
     </div>
 <!-- card end -->
         <!-- card -->
     <div>
     <div class=" bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
-        <img src="{{asset('/images/success5.png')}}" alt="" class="">
+        <img src="{{asset('/images/success5.png')}}" alt="" class="mx-auto w-full">
         </a>
         <div class="">
             <a href="#">
@@ -106,7 +106,7 @@
             
         </div>
 </div>
-<button class="lg:w-48  mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
+<button class="lg:w-48 w-full mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ THE STORY</button>
     </div>
 <!-- card end -->
 
