@@ -45,9 +45,18 @@ class FrontendControler extends Controller
   public function congratsPage($planId=null){
     return view('frontend.pages.congrats');
   }
+
+  public function about(){
+    return view('frontend.pages.about');
+  }
+
+  public function discover(){
+    return view('frontend.pages.discover');
+  }
+
   public function benefitPage(){
       $Benefits = Benefit::orderBy('priority','asc')->get();
-    return view('frontend.pages.benefit', ['Benefits' => $Benefits]);
+      return view('frontend.pages.benefit', ['Benefits' => $Benefits]);
   }
   public function singleStory($slug){
        $story = Story::where('slug', $slug)->first(); 

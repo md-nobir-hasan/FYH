@@ -48,6 +48,9 @@ use Illuminate\Support\Facades\Route;
 
     });
 
+    Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
+    Route::get('/about', [FrontendControler::class, 'about'])->name('about');
+
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
 //End frontend controller
 
