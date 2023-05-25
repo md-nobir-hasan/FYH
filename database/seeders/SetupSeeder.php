@@ -72,7 +72,7 @@ class SetupSeeder extends Seeder
                         </div>',
                 'dis'=>182]
             ];
-            DB::table('client_types')->insert($ct);
+            // DB::table('client_types')->insert($ct);
 
         //membership type seeder
             $mt = [

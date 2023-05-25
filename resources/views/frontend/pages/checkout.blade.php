@@ -35,7 +35,7 @@
         <div class="form-group">
             <div class="card-header p-2">
                 <label for="card-element">
-                          <div class="my-6 p-1 rounded-lg" style="display: flex; justify-content: space-between; background: #cdcde8">
+                          <div class="my-6 p-1 rounded-lg" style="display: flex; justify-content: space-between; background: #e8f0f7">
                             <h3 class="font-bold m-2 p-1 rounded-lg" > {{ucfirst($plan->name)}}</h3>
                             <h3 class="font-bold m-2 p-1 rounded-lg" > {{ucfirst($plan->price) }} {{$plan->currency}}</h3>
                             <img src="{{asset('images/checkout.png')}}" alt="" style="width: 140px ; height:30px;">
