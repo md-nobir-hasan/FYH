@@ -23,11 +23,12 @@ class StoreClientTypeRequest extends FormRequest
     {
         return [
             'name' =>'required|string|max:255|unique:client_types,name',
-            'currency_id' =>'required|numeric|exists:currencies,id',
-            'pay_duration_id' =>'required|numeric|exists:payment_durations,id',
+            'currency' =>'required',
+            'billing_period' =>'required',
             'price'=>"required|numeric",
-            'dis'=>"required|numeric",
+           // 'dis'=>"required|numeric",
             'des'=>"required|string",
+            'interval_count' => "required"
 
         ];
     }

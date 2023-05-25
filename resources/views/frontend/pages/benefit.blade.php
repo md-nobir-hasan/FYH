@@ -3,7 +3,6 @@
     Benefits
 @endpush
 @section('content')
-
 <div class="mx-36" style="font-family:'Poppins'">
     <h1 class="text-center text-5xl font-black mt-16">Benifits Of Living In Switzerland</h1>
     <p class="text-center text-2xl font-normal">Why is Switzerland so attractive for living and working?</p>
@@ -142,6 +141,7 @@
         
 
     <!-- design 2 card end -->
+
 </div>
 
 @endsection

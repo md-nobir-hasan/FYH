@@ -7,9 +7,13 @@ use App\Http\Requests\StoreClientTypeRequest;
 use App\Http\Requests\UpdateClientTypeRequest;
 use App\Models\Currency;
 use App\Models\PaymentDuration;
+use exception;
+use Stripe;
+use Stripe\Plan;
 
 class ClientTypeController extends Controller
 {
+    public $billing_periods = [ 'week', 'month','year', ];
 
     public function __construct() {
         $this->middleware(['auth',"check:Client Type"]);
@@ -32,9 +36,9 @@ class ClientTypeController extends Controller
         if(!check('Client Type')->add){
             return back();
         }
-        $n['currencies'] = Currency::get();
-        $n['pay_durations'] = PaymentDuration::get();
-    return view('pages.setup.client-type.create',$n);
+        
+
+    return view('pages.setup.client-type.create',['billing_periods' => $this->billing_periods] );
     }
 
     /**
@@ -45,8 +49,40 @@ class ClientTypeController extends Controller
         if(!check('Client Type')->add){
             return back();
         }
-        ClientType::create($request->all())->only('name','ct_code');
-        return redirect()->route('admin.setup.client-type.index')->with('success',$request->name.' successfylly created');
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+       
+        try{
+                  
+        $plan = Plan::create([
+            'amount' => $request->price *100,
+            'currency' => $request->currency,
+            'interval' => $request->billing_period,
+            'interval_count' => $request->interval_count,
+            'product' => [
+                  'name' => $request->name
+            ]
+        ]);
+
+        ClientType::create([
+            'plan_id' => $plan->id,	
+                'interval_count' => $request->interval_count,
+            	'name' => $request->name,
+            	'price' => $request->price, 
+            	'des' => $request->des,
+            	// 'dis' => $request-> 
+            	'billing_period' => $request->billing_period,
+            	'currency' => $request->currency,
+
+        ]);
+        }
+
+        catch(exception $ex){
+            return dd($ex->getMessage());
+       }
+      
+
+      
+         return redirect()->route('admin.setup.client-type.index')->with('success','New Member Type Add successfully');
     }
 
     /**
@@ -66,11 +102,9 @@ class ClientTypeController extends Controller
         if(!check('Client Type')->edit){
             return back();
         }
-        $n['currencies'] = Currency::get();
-        $n['pay_durations'] = PaymentDuration::get();
-        $n['mdata'] = $clientType;
+        $mdata = $clientType;
 
-        return view('pages.setup.client-type.edit',$n);
+        return view('pages.setup.client-type.edit',[ 'mdata' =>$mdata , 'billing_periods' => $this->billing_periods]);
     }
 
     /**
@@ -81,9 +115,32 @@ class ClientTypeController extends Controller
         if(!check('Client Type')->edit){
             return back();
         }
+                Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        
+              // Retrieve the plan from the Stripe API
+              $stripePlan = \Stripe\Plan::retrieve($clientType->plan_id);
 
-        $clientType->update($request->all());
-        return redirect()->route('admin.setup.client-type.index')->with('success',$clientType->name.' successfylly updated');
+               // Update the plan details
+                  try{
+                    $stripePlan->metadata = [
+                        'interval_count' => $request->interval_count,
+                        'name' => $request->name,
+                        'price' => $request->price, 
+                        'des' => $request->des,
+                        // 'dis' => $request-> 
+                        'billing_period' => $request->billing_period,
+                        'currency' => $request->currency,
+                     ];
+                      // Save the updated plan in Stripe
+                       $stripePlan->save();
+        
+                $clientType->update($request->all());
+                return redirect()->route('admin.setup.client-type.index')->with('success',$clientType->name.' successfylly updated');
+                  }
+
+                  catch(exception $ex){
+                    return dd($ex->getMessage());
+               }
     }
 
     /**

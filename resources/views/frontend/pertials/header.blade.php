@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
+     @yield('styles')
+
     <!-- Styles -->
     @vite(['resources/css/app.css','resources/js/app.js','public/js/toastr.css'])
 </head>
@@ -25,16 +27,19 @@
             <a href="{{route('benefit')}}">
                 <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Benefits</button>
             </a>
-            <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Guide</button>
 
-            <a href="{{route('discover')}}">
-                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Discover</button>
-            </a>
 
-            <a href="{{route('about')}}">
-                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
+
+            @if($homeContents->count() > 0)
+
+            @foreach ($homeContents as $item)
+            <a href="{{route('dynamicMenu',$item->slug)}}">
+                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"> {{$item->slug}} </button>
             </a>
+            @endforeach
             
+
+            @endif
             <a href="{{route('login')}}">
                 <button class="ml-12 font-semibold text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="{{route('login')}}">Login</a></button>
             </a>

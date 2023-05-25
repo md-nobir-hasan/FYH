@@ -26,11 +26,12 @@ class UpdateClientTypeRequest extends FormRequest
         // dd($this->client_type);
         return [
             'name' =>'required|string|max:255|unique:client_types,name,'.$id.',id',
-            'currency_id' =>'required|numeric|exists:currencies,id',
-            'pay_duration_id' =>'required|numeric|exists:payment_durations,id',
+            'currency' =>'required',
+            'billing_period' =>'required',
             'price'=>"required|numeric",
-            'dis'=>"required|numeric",
+           // 'dis'=>"required|numeric",
             'des'=>"required|string",
+            'interval_count' => "required"
         ];
     }
 }

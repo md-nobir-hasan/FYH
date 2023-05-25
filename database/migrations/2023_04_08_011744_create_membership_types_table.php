@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreign('created_by', 'membership_types_created_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('updated_by', 'membership_types_updated_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('deleted_by', 'membership_types_deleted_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+           
         });
     }
 
