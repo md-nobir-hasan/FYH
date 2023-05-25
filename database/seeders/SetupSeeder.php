@@ -15,8 +15,8 @@ class SetupSeeder extends Seeder
     {
         //Currency
             $curren = [
-                ['name'=>'CHF','rate'=>1],
-                ['name'=>'dollar','rate'=>0.89],
+                ['name'=>'chf','rate'=>1],
+                ['name'=>'usd','rate'=>0.89],
             ];
             DB::table('currencies')->insert($curren);
 
@@ -76,8 +76,8 @@ class SetupSeeder extends Seeder
 
         //membership type seeder
             $mt = [
-                ['name'=>'Monthly','price'=>250,'mt_code'=>'m'],
-                ['name'=>'Yearly','price'=>2000,'mt_code'=>'y'],
+                ['name'=>'month','price'=>250,'mt_code'=>'m'],
+                ['name'=>'year','price'=>2000,'mt_code'=>'y'],
             ];
             DB::table('membership_types')->insert($mt);
 

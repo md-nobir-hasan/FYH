@@ -9,6 +9,7 @@ use App\Models\Home;
 use App\Models\Service;
 use App\Models\Story;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class FrontendControler extends Controller
 {
@@ -21,8 +22,8 @@ class FrontendControler extends Controller
   }
 
   public function membershipPage(){
-    $n['membership_types'] = ClientType::with(['currency','payDuration'])->limit(2)->get();
-    return view('frontend.pages.member',$n);
+       $memberShips = ClientType::orderBy('created_at', 'desc')->get();
+    return view('frontend.pages.member', ['memberShips' => $memberShips]);
   }
 
   public function communityPage(){
@@ -41,7 +42,7 @@ class FrontendControler extends Controller
   public function paymentPage(){
     return view('frontend.pages.payment');
   }
-  public function congratsPage(){
+  public function congratsPage($planId=null){
     return view('frontend.pages.congrats');
   }
   public function benefitPage(){
@@ -62,5 +63,28 @@ class FrontendControler extends Controller
   public function billingPage(){
     return view('frontend.pages.billing');
   }
+
+  // checkout
+  public function checkout($planId)
+  {
+    $user  = auth()->user() ?? null;
+    $plan = ClientType::where('plan_id', $planId)->first();
+    if(!$plan){
+          Session::flash('error', 'unable To Locate Membership');
+        return redirect()->back();
+    }
+
+    if($user==null){
+        return to_route('login');
+    }else{
+      return view('frontend.pages.checkout', [
+        'intent' => $user->createSetupIntent(),
+        'stripe_key' => config('services.stripe.key'),
+        'plan' => $plan,
+      ]);
+    }
+  
+  }
+
 
 }

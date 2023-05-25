@@ -15,12 +15,14 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MembershipTypeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MiscellaneousController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\SubcriptionController;
 use App\Http\Controllers\Submenucontroller;
 use App\Http\Controllers\UserCommonController;
 use Illuminate\Support\Facades\Route;
@@ -31,13 +33,19 @@ use Illuminate\Support\Facades\Route;
     Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
     Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
-    Route::get('/congratulations', [FrontendControler::class,'congratsPage'])->name('congrats');
+
+    Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
-    Route::get('/billing', [FrontendControler::class,'billingPage'])->name('billing');
+
+    // checkout
+    Route::get('/checkout/{planId}', [FrontendControler::class,'checkout'])->name('checkout')->middleware('auth');
+    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment')->middleware('auth');
+    
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('move_switzerland');
+
     });
 
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
@@ -88,6 +96,10 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::prefix('/customer')->name('customer.')->group(function(){
         Route::get('/index',[CustomerController::class,'index'])->name('index');
     });
+
+    Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
+    Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
+    Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');
 
     // admin First Section 
     Route::resource('/home', HomeController::class)->only('create', 'update', 'store');

@@ -38,6 +38,8 @@ class RegisteredUserController extends Controller
         ]);
         if( $request->file('img')){
             $path = '/storage/'.$request->file('img')->store('user','public');
+        }else{
+             $path = null;
         }
         $user = User::create([
             'name' => $request->name,
