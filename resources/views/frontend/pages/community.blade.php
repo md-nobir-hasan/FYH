@@ -36,7 +36,6 @@
             <!-- card end -->
             @endforeach
             @endif
-
         </div>
                         
         <!-- last buttons -->
@@ -45,6 +44,7 @@
             <button class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">NEWS</button>
         </div>
         <!-- last buttons end -->
+
     </div>
 @endsection
 @push('js')
