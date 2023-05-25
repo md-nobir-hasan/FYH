@@ -34,14 +34,13 @@
                                     <th scope="col" class="px-6 py-3 text-center">
                                         Price
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
-                                        Discount
-                                    </th>
+
+                                
                                     <th scope="col" class="px-6 py-3 text-center">
                                         Currency
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-center">
-                                        Payment Duration
+                                        Billing Period
                                     </th>
                                     @if ($n->edit || $n->delete)
                                         <th scope="col" class="px-6 py-3 text-bold text-md text-center">
@@ -62,17 +61,17 @@
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{$value->price}}
                                         </td>
-                                        <td scope="row"
+                                        {{-- <td scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{$value->dis}}
+                                        </td> --}}
+                                        <td scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{$value->currency}}
                                         </td>
                                         <td scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{$value->currency->name}}
-                                        </td>
-                                        <td scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{$value->payduration->name}}
+                                          {{$value->interval_count}}  {{$value->billing_period}}
                                         </td>
                                         @if ($n->edit || $n->delete)
                                             <td class="px-6 py-4 text-center flex justify-center items-center">

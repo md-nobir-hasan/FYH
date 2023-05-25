@@ -59,23 +59,24 @@
                                                         {{ $mdata->price }}
                                                     </td>
                                                 </tr>
-                                                <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
+                                                {{-- <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
                                                     <th class="text-left">Discount</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
                                                         {{ $mdata->dis }}
-                                                    </td>
+                                                    </td> --}}
+
                                                 <tr class="border-b border-danger-200 bg-success-100 text-neutral-800">
                                                     <th class="text-left">Currency</th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                                        {{ $mdata->currency->name }}
+                                                        {{ $mdata->currency }}
                                                     </td>
                                                 <tr class="border-b border-success-200 bg-success-100 text-neutral-800">
-                                                    <th class="text-left">Payment Duration</th>
+                                                    <th class="text-left"> Billing Period </th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                                        {{ $mdata->payDuration->name }}
+                                                      {{$mdata->interval_count}}  {{ $mdata->billing_period }}
                                                     </td>
                                                 </tr>
                                                 <tr class="border-b border-danger-200 bg-danger-100 text-neutral-800">

@@ -88,7 +88,7 @@
                             @enderror
                     </div>
                     {{-- Discount  --}}
-                    <div class="relative w-full mb-6">
+                    {{-- <div class="relative w-full mb-6">
                             <input
                             type="number"
                             name="dis"
@@ -104,70 +104,68 @@
                             @error('dis')
                                 <span class="text-[red]">{{$message}}</span>
                             @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- Currency  --}}
                     <div class="relative w-full mb-6">
-                        <div class=" mb-4 flex group">
-                            <select name="currency_id" data-te-select-init data-te-select-filter="true"
-                            >
-                                <option hidden>Select Currency</option>
-                                @foreach ($currencies as $s)
-                                <option value="{{$s->id}}"  @selected($mdata->currency_id ==$s->id)>{{$s->name}}</option>
-                                @endforeach
-                            </select>
-                            <a href="{{route('admin.setup.currency.create')}}" target="_blank"
-                                title="Add Currency">
-                                <button
-                                    class="z-[2] inline-block rounded-r bg-primary text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:z-[3] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                                    data-te-ripple-init
-                                    type="button"
-                                    id="button-addon2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-                        @error('currency_id')
+                        <input
+                        type="text"
+                        name="currency"
+                        value="{{$mdata->currency}}"
+                        class="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                        id="currency"
+                        placeholder="currency" autocomplete="on" />
+                        <label
+                        for="price"
+                        class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none dark:text-neutral-200"
+                        >Currency</label
+                        >
+                        @error('currency')
                             <span class="text-[red]">{{$message}}</span>
                         @enderror
-                    </div>
+                </div>
 
                     {{-- Payment Duration  --}}
                     <div class="relative w-full mb-6">
                         <div class=" mb-4 flex group">
-                            <select name="pay_duration_id" data-te-select-init data-te-select-filter="true"
+                            <select name="billing_period" data-te-select-init data-te-select-filter="true"
                             >
                                 <option hidden>Select Payment Duration</option>
-                                @foreach ($pay_durations as $pd)
-                                    <option value="{{$pd->id}}" @selected($mdata->pay_duration_id == $pd->id)>{{$pd->name}}</option>
+                                @foreach ($billing_periods as $period)
+                                    <option value="{{$period}}" @if($period ==$mdata->billing_period) selected @endif>{{strtoupper($period)}}</option>
                                 @endforeach
                             </select>
-                            <a href="{{route('admin.setup.payment_duration.create')}}" target="_blank"
-                                title="Add a Payment Duration">
-                                <button
-                                    class="z-[2] inline-block rounded-r bg-primary text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:z-[3] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                                    data-te-ripple-init
-                                    type="button"
-                                    id="button-addon2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </button>
-                            </a>
+                          
                         </div>
-                        @error('pay_duration_id')
+                        @error('billing_period')
                             <span class="text-[red]">{{$message}}</span>
                         @enderror
                     </div>
+
+                    <div class="relative w-full mb-6">
+                        <input
+                        type="number"
+                        name="interval_count"
+                        value="{{$mdata->interval_count}}"
+                        class="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                        id="name"
+                        placeholder="Interval Count" autocomplete="off" />
+                        <label
+                        for="name"
+                        class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none dark:text-neutral-200"
+                        >Interval Count</label
+                        >
+                        @error('interval_count')
+                            <span class="text-[red]">{{$message}}</span>
+                        @enderror
+                </div>
 
                       {{-- Description  --}}
                       <div class="relative w-full mb-6 text-left">
                           <label for="editor" class="">Description:</label>
                         <textarea name="des" id="editor" cols="30" rows="10"
                         class="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
-                        >{{ $mdata->des }}</textarea>
+                        >{!!$mdata->des !!}</textarea>
 
                         {{-- <label
                         for=""
