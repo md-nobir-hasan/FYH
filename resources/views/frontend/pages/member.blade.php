@@ -82,7 +82,7 @@
                             <!-- card 1 -->
                             <div class="flex justify-between mr-[16px]">
                                 <div class="flex text-align items-center ">
-                                    <input type="radio" class="accent-gray-300 w-[22px] h-[22px]">
+                                    <input type="radio" name="membership" class="accent-gray-300 w-[22px] h-[22px]">
                                     <p class="text-[25px] ml-2">{{ $member->name }}</p>
                                 </div>
                                 {{-- <h1 class="font-bold text-[25px]">29 CHF/mo.</h1> --}}
