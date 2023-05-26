@@ -30,16 +30,14 @@
 
 
 
-            @if($homeContents->count() > 0)
-
-            @foreach ($homeContents as $item)
-            <a href="{{route('dynamicMenu',$item->slug)}}">
-                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"> {{$item->slug}} </button>
+            <a href="{{route('discover')}}">
+                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Discover</button>
             </a>
-            @endforeach
-            
 
-            @endif
+            <a href="{{route('about')}}">
+                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
+            </a>
+            
             <a href="{{route('login')}}">
                 <button class="ml-12 font-semibold text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="{{route('login')}}">Login</a></button>
             </a>

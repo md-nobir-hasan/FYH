@@ -93,7 +93,7 @@ class ContentController extends Controller
     }
 
 
-    public function show(Service $service)
+    public function show()
     {
        # code...
     }
@@ -102,13 +102,13 @@ class ContentController extends Controller
     public function destroy($id)
     {
      
-       $service = Service::findOrFail($id);
+      //  $service = Service::findOrFail($id);
      
-       if($service->image){
-           Storage::delete($service->image);
+      //  if($service->image){
+      //      Storage::delete($service->image);
            
-      }
-      $service->delete();
+      // }
+      // $service->delete();
     
       return Redirect::back()->with('success',' Services Delete SuccessfullY');
     }

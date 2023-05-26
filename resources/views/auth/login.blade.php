@@ -3,7 +3,8 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form class="p-10 sm:max-w-md bg-white mx-auto" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';">
-    <img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24 mx-auto mb-14 mt-[-30px]">
+    @csrf
+        <img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24 mx-auto mb-14 mt-[-30px]">
 
     <h1 class="text-center text-4xl font-bold">Welcome Back!</h1>
     <p class="text-center font-medium text-lg">Continue with Google or Enter your details</p>
@@ -26,7 +27,7 @@
     <p class="col-span-2 flex justify-center items-center font-medium">or continue with email</p>
     <hr class="h-px my-8 bg-black col-span-1 border-0">
     </div>
-
+         
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
