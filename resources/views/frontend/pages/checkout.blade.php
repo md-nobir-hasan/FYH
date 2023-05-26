@@ -29,7 +29,7 @@
      
  {{-- Stripe Checkout  --}}
   
- <div class="card bg-blue-600 shadow-lg m-3 p-4 rounded-xl">
+ <div class="card bg-blue-600 shadow-xl mt-3 p-4 rounded-xl" style="width:500px !important; margin:auto !important;">
     <form action="{{route('checkout.payment')}}" method="post" id="payment-form" class="p-4">
         @csrf                    
         <div class="form-group">

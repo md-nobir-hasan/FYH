@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\About;
 use App\Models\Benefit;
 use App\Models\Service;
 use App\Models\Story;
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
         Benefit::factory(15)->create();
         Service::factory(15)->create();
         Story::factory(15)->create();
+        About::factory(1)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

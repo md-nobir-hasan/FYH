@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BrotcastController;
@@ -100,12 +101,17 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::get('/index',[CustomerController::class,'index'])->name('index');
     });
 
+   
+
     Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
     Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
     Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');
 
     // admin First Section 
     Route::resource('/home', HomeController::class)->only('create', 'update', 'store');
+
+     // about
+     Route::resource('/about', AboutController::class)->only('create', 'update', 'store');
 
     // admin service section
     Route::resource('/services', ServiceController::class)->except('destroy');

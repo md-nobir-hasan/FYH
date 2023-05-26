@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Benefit;
 use App\Models\ClientType;
 use App\Models\Content;
@@ -47,7 +48,9 @@ class FrontendControler extends Controller
   }
 
   public function about(){
-    return view('frontend.pages.about');
+     $about = About::first();
+     $stories = Story::orderBy('priority','asc')->take(3)->get();
+    return view('frontend.pages.about', compact('about', 'stories'));
   }
 
   public function discover(){
