@@ -7,6 +7,7 @@ use App\Models\Benefit;
 use App\Models\ClientType;
 use App\Models\Content;
 use App\Models\Home;
+use App\Models\Opportunity;
 use App\Models\Service;
 use App\Models\Story;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class FrontendControler extends Controller
 
   public function membershipPage(){
        $memberShips = ClientType::orderBy('created_at', 'desc')->get();
-    return view('frontend.pages.member', ['memberShips' => $memberShips]);
+       $opportunity = Opportunity::select('title',	'subtitle',	'description')->first();
+    return view('frontend.pages.member', compact('memberShips','opportunity'));
   }
 
   public function communityPage(){

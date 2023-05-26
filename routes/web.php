@@ -5,6 +5,7 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
+use App\Http\Controllers\CongratController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MembershipTypeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MiscellaneousController;
+use App\Http\Controllers\OpporcunityController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\ProfileController;
@@ -48,6 +50,9 @@ use Illuminate\Support\Facades\Route;
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('move_switzerland');
 
     });
+
+
+
 
     Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
     Route::get('/about', [FrontendControler::class, 'about'])->name('about');
@@ -121,6 +126,11 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::resource('stories', StoryController::class)->except('destroy');
     Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
 
+    // benefit and other Section title and subtitle
+    Route::resource('opportunitys', OpporcunityController::class); 
+
+    // Congrats Route
+    Route::resource('congrats', CongratController::class);
     //Setup
     Route::prefix('/setup')->name('setup.')->group(function(){
         //Client type

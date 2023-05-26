@@ -43,11 +43,15 @@
             <h3 class="text-5xl font-bold mt-5">Already Relocated ?</h3>
             <p class="font-semibold">At FYH service You Can Find All Necessary Information to Integrate Into Switzerland</p> --}}
             <div class="flex">
-            <div class="mt-10 text-white w-72 rounded flex justify-center items-center h-16 font-semibold" style="background-color:#D1052C"><button class="mr-1 font-lg"><a href="{{route('member')}}">Join FYH now</a></button>
+                <a href="{{route('member')}}">
+            <div class="mt-10 text-white w-72 rounded flex justify-center items-center h-16 font-semibold" style="background-color:#D1052C"><button class="mr-1 font-lg">Join FYH now</button>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
         </div>
+    </a>
+    <a href="{{route('about')}}">
             <p class="mt-10 flex justify-center items-center ml-12 font-semibold underline decoration-3" style="color:
-                #D1052C"><a href="">Learn More</a></p>
+                #D1052C">Learn More</p>
+                </a>
 
             </div>
             </div>

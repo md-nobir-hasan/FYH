@@ -23,7 +23,7 @@ class AboutFactory extends Factory
             'heading_description' => $this->faker->text(300),
             // 'images' => 'image/demo.png',
             'images_description' => $this->faker->text(600),
-            'youtube' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/GnodscC2p-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+            'youtube' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/rIfdg_Ot-LI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
             'youtube_description' => $this->faker->text(500),
             'first_image' => 'image/demo.png',
             'first_image_story' => $this->faker->text(300),

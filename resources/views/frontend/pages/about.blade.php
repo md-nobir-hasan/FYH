@@ -6,8 +6,9 @@
 <style>
 
 iframe{
-         width: 70% !important;
+         width: 80% !important;
          margin: auto;
+         border-radius: 1%;
 }
 
 </style>

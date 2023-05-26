@@ -17,15 +17,14 @@
                 <div class="ml-[83px] mb-[40px]">
                     <h1 class="text-xl font-bold">Welcome to FYH membership page</h1>
                     <h1 class="font-extrabold text-4xl text-[#0BC040]">
-                        Select your Best plan
+                       @if($opportunity !==null)   {{$opportunity->title}}   @endif
                     </h1>
                     <h1 class="text-xl font-bold">
-                        What You Get when You become a Member of <br />
-                        the FYH:
+                        @if($opportunity !==null)   {{$opportunity->subtitle}}   @endif
                     </h1>
                 </div>
                 <div class="ml-[110px]">
-                    <p class="mb-[17px]">
+                    {{-- <p class="mb-[17px]">
                         <i class="fa-solid fa-check"></i> High standard of living
                         Geographical location
                     </p>
@@ -53,7 +52,9 @@
                     </p>
                     <p class="mb-[17px]">
                         <i class="fa-solid fa-check"></i> If You are moving with a family
-                    </p>
+                    </p> --}}
+
+               @if($opportunity !==null)   {!!$opportunity->description !!}   @endif
                 </div>
             </div>
             <!-- right side -->
