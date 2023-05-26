@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Benefit;
 use App\Models\ClientType;
+use App\Models\Congrat;
 use App\Models\Content;
 use App\Models\Home;
 use App\Models\Opportunity;
@@ -46,7 +47,9 @@ class FrontendControler extends Controller
     return view('frontend.pages.payment');
   }
   public function congratsPage($planId=null){
-    return view('frontend.pages.congrats');
+
+    $Congrat = Congrat::first();
+    return view('frontend.pages.congrats', compact('Congrat'));
   }
 
   public function about(){
