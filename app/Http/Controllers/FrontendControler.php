@@ -62,8 +62,11 @@ class FrontendControler extends Controller
       return view('frontend.pages.benefit', ['Benefits' => $Benefits]);
   }
   public function singleStory($slug){
-       $story = Story::where('slug', $slug)->first(); 
+       $story = Story::where('slug', $slug)->first();
     return view('frontend.pages.single-story', ['story' => $story]);
+  }
+  public function shareStory(){
+    return view('frontend.pages.share-story');
   }
 
   public function moveSwitzerland(){
@@ -95,7 +98,7 @@ class FrontendControler extends Controller
         'plan' => $plan,
       ]);
     }
-  
+
   }
 
 
