@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BenefitController;
+use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
 use App\Http\Controllers\CongratController;
@@ -35,15 +36,15 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [FrontendControler::class,'homePage'])->name('home');
     Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
-    Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
+   // Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
 
     Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
 
     // checkout
-    Route::get('/checkout/{planId}', [FrontendControler::class,'checkout'])->name('checkout')->middleware('auth');
-    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment')->middleware('auth');
+    Route::get('/checkout/{planId}', [FrontendControler::class,'checkout'])->name('checkout');
+    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
     
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
@@ -52,7 +53,8 @@ use Illuminate\Support\Facades\Route;
     });
 
 
-
+     Route::get('billings/{planId?}', [FrontendControler::class, 'billingPage'])->name('billing');
+     Route::post('billings/{planId?}', [FrontendControler::class, 'billingStore'])->name('billing.store');
 
     Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
     Route::get('/about', [FrontendControler::class, 'about'])->name('about');

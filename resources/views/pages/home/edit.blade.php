@@ -3,6 +3,17 @@
         Home Section
        
     </x-slot>
+ 
+     <x-slot name='style'>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+     </x-slot>
 
     <div class="p-4">
         <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
@@ -40,7 +51,7 @@
                         </div>
                         <div class="mb-6">
                             <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Deatils: </label>
-                                <textarea id="editor" name="details" rows="4" class="@error('details') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                <textarea id="summernote" name="details" rows="4" class="@error('details') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                                  placeholder="Enter Home Section deatils">
                                  @if($homeSection!==null)  {!!$homeSection->details  !!}  @endif
                                 </textarea>
@@ -80,12 +91,20 @@
                     })
                 </script>
 
-<script src="{{asset('js/ckeditor5/ckeditor.js')}}"></script>
+{{-- <script src="{{asset('js/ckeditor5/ckeditor.js')}}"></script>
 <script>
     ClassicEditor.create( document.querySelector( '#editor' ) ).catch( error => {
             console.error( error );
         } );
-</script>
+</script> --}}
+
+<script>
+    $('#summernote').summernote({
+      placeholder: '',
+      tabsize: 2,
+      height: 100
+    });
+  </script>
 
 
             </s-slot>

@@ -18,12 +18,12 @@ class CongratFactory extends Factory
     {
         return [
             'image' => 'image/badge.png',	
-             'title' => $this->faker->text(20),
-             'subtitle' => $this->faker->text(80),
+             'title' => 'congratulation',
+             'subtitle' => 'On Subscribing To FYh',
                'description' => '<p>✅ High standard of living Geographical location</p><p>✅ Beautiful nature and opportunity to relax without<br>✅ leaving the country</p><p>✅ Medicine of the highest level</p><p>✅ Education based on high standards</p>',
-               	'option_title' => $this->faker->text(25),
-                	'button_one' => $this->faker->text(15),
-                     'button_two' =>$this->faker->text(15)
+               	'option_title' => 'What Is More Relevant For You ',
+                	'button_one' => 'Plan To Move',
+                     'button_two' => 'Already Relocated'
         ];
     }
 }

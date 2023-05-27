@@ -2,6 +2,31 @@
 @push('title')
     Home
 @endpush
+<style>
+
+     .editor h1{
+          font-size: 36px;
+          font-weight: 700px;
+     }
+     .editor h2{
+          font-size: 30px;
+          font-weight: 600px;
+     }
+     .editor h3{
+          font-size: 24px;
+          font-weight: 500px;
+     }
+     .editor h4{
+          font-size: 18px;
+          font-weight: 500px;
+     }
+     .editor h5{
+          font-size: 14px;
+          font-weight: 500px;
+     }
+</style>
+
+
 @section('content')
     <!-- <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         @if (Route::has('login'))
@@ -36,7 +61,7 @@
 
     <!-- hero section -->
         <div class="mt-16 grid grid-cols-2">
-            <div>
+            <div class="editor">
                   @if($home !== null) {!! $home->details!!} @endif
             {{-- <h3 class="text-5xl font-bold">Do you want to move <br> in Switzerland ?</h3>
             <p class="font-semibold">At Fyh service you Can Find All Necessary information to take the Decision That can Change Your life</p>
@@ -65,8 +90,8 @@
 
         <div class="mt-40">
             <div>
-                <h1 class="text-4xl font-bold text-center">Benefits of living in Switzerland</h1>
-                <p class=" text-center text-lg font-normal">Why is Switzerland so attractive for living and working?</p>
+                <h1 class="text-4xl font-bold text-center"> @if($allTitle !==null) {{$allTitle->benefit_title}} @endif </h1>
+                <p class=" text-center text-lg font-normal"> @if($allTitle !==null) {{$allTitle->benefit_subtitle}} @endif</p>
             </div>
             <!-- benifit card section -->
             <div class="grid grid-cols-3 gap-8 mt-10">
@@ -96,8 +121,8 @@
 
         <!-- Success section start -->
         <div class="mt-10">
-            <h1 class="font-bold text-4xl text-center">Our Success Story</h1>
-            <p class="text-lg text-center font-normal">Here’s all of the successful stories of our cusomers</p>
+            <h1 class="font-bold text-4xl text-center"> @if($allTitle !==null) {{$allTitle->story_title}} @endif</h1>
+            <p class="text-lg text-center font-normal"> @if($allTitle !==null) {{$allTitle->story_subtitle}} @endif</p>
 
             <!-- success card  -->
             <div class="grid grid-cols-3 gap-8 mt-10">
@@ -130,8 +155,8 @@
 
         <!-- services section start -->
                 <div class="mt-20">
-                    <h1 class="text-4xl font-bold text-center">How To Get The Services</h1>
-                    <p class="text-lg font-normal text-center">Our Application process is very easy to use and user friendly. Let’s start...</p>
+                    <h1 class="text-4xl font-bold text-center"> @if($allTitle !==null) {{$allTitle->service_title}} @endif</h1>
+                    <p class="text-lg font-normal text-center"> @if($allTitle !==null) {{$allTitle->service_subtitle}} @endif</p>
                     
                     <!-- services here -->
                     <div class="mt-10 grid grid-cols-4 mx-auto">
@@ -143,7 +168,7 @@
                                 <img src="{{'/storage/'.$item->image}}" alt="" class="h-56 w-56  rounded-full p-16 mr-16" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                                 <h1 class="text-center text-2xl font-bold mt-5 mr-5"> {{$item->title ?? null}} </h1>
                                 <p class="font-normal text-justify w-56">
-                                                {{$item->description}}    
+                                                {{Str::limit($item->description,200)}}    
                                 </p>
                                </div>
                                      

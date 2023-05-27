@@ -24,35 +24,7 @@
                     </h1>
                 </div>
                 <div class="ml-[110px]">
-                    {{-- <p class="mb-[17px]">
-                        <i class="fa-solid fa-check"></i> High standard of living
-                        Geographical location
-                    </p>
-                    <p class="mb-[17px]">
-                        <i class="fa-solid fa-check"></i> Beautiful nature and opportunity
-                        to relax without <br /><span class="ml-5">
-                            leaving the country</span>
-                    </p>
-                    <p class="mb-[17px]">
-                        <i class="fa-solid fa-check"></i> Medicine of the highest level
-                    </p>
-                    <p class="mb-[17px]">
-                        <i class="fa-solid fa-check"></i> Education based on high standards
-                    </p>
-                    <p class="mb-[17px]">
-                        <i class="fa-solid fa-check"></i> Political neutrality
-                    </p>
-                    <p class="mb-[17px]">
-                        <i class="fa-solid fa-check"></i> Types of visas and residence
-                        permits
-                    </p>
-                    <p class="mb-[17px]">
-                        <i class="fa-solid fa-check"></i> How to find a job before you move
-                        to Switzerland
-                    </p>
-                    <p class="mb-[17px]">
-                        <i class="fa-solid fa-check"></i> If You are moving with a family
-                    </p> --}}
+                
 
                @if($opportunity !==null)   {!!$opportunity->description !!}   @endif
                 </div>
@@ -81,7 +53,7 @@
                         </div>
                         
                     </div>
-                    <a  href="{{ route('checkout', $member->plan_id) }}"
+                    <a  href="{{ route('billing', $member->plan_id) }}"
                         class="text-center w-[472px] h-[48px] bg-[#D1052C] rounded-[10px] text-white text-[16px] font-bold px-5 py-3 m-2">
                            GET STARTED</a>
                 @endforeach

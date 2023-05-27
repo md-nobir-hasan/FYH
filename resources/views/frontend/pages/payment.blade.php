@@ -8,20 +8,20 @@
     <div class="col-span-2 p-10">
         <div class="border-2 border-gray-500 rounded-xl p-5">
             <h1 class="font-bold text-xl ml-4">Your Account</h1>
-            <p class="ml-4">Thomas Tsangaras</p>
-            <p class="ml-4">thomastsangaras@mail.com</p>
+            <p class="ml-4"> {{auth()->user()->name}} </p>
+            <p class="ml-4">{{auth()->user()->email}}</p>
         </div>
         <div class="border-2 border-gray-500 mt-5 rounded-xl p-5">
         <div class="flex">
             <h1 class="font-bold text-xl ml-4">Billing Details</h1>
-            <button class="ml-auto text-white p-1 rounded bg-[#D1052C]">Edit</button>
+            {{-- <button class="ml-auto text-white p-1 rounded bg-[#D1052C]">Edit</button> --}}
         </div>
-            <p class="ml-4">Thomas Tsangaras</p>
-            <p class="ml-4">thomastsangaras@mail.com</p>
-            <p class="ml-4">+1258544111 151515</p>
-            <p class="ml-4">Switzerland</p>
-            <p class="ml-4">Zurich</p>
-            <p class="ml-4">8000</p>
+            <p class="ml-4"> {{$billing->f_name}} {{$billing->l_name}}</p>
+            <p class="ml-4"> {{$billing->email}} </p>
+            <p class="ml-4"> {{$billing->phone}} </p>
+            <p class="ml-4">{{$billing->country}}</p>
+            <p class="ml-4"> {{$billing->city}} </p>
+            <p class="ml-4"> {{$billing->zip}} </p>
             
         </div>
         <!-- payment -->
@@ -44,38 +44,46 @@
         </div>
         <hr class="h-px my-8 bg-gray-400 border-0 mt-[-10px]">
         <div id="hideShow" class="hidden">
-            <h1 class="text-base font-semibold mt-[-10px]">Card Number</h1>
-            <input type="number" placeholder="e.g. 12025151002" class="w-full border-none mb-6 border-rounded">
-                <div class="flex mt-3">
-                    <div>
-                    <h1 class="text-base font-semibold mt-[-10px] mb-[-26px]">Expiration Date</h1>
-                    <hr class="h-px my-8 bg-gray-400 border-0 ">
-                    </div>
-                    <input type="date" class="border-none ml-3 bg-[#F5F5F5] mt-[-30px]">
+         
+                <div class="card bg-blue-600 mt-3 p-4 rounded-xl" style="width:500px !important; margin:auto !important;">
+                    <form action="{{route('checkout.payment')}}" method="post" id="payment-form" class="p-4">
+                        @csrf                    
+                        <div class="form-group">
+                            <div class="card-header p-2">
+                                <label for="card-element">
+                                       
+
+                                </label>
+                            </div>
+                
+                
+                       
+                            <div class="card-body">
+                                 <input type="hidden" name="plan_id" value="{{$planId->plan_id}}">
+                                <input type="hidden" name="biling_id" value="{{$billing->id}}">
+                                <div id="card-element">
+                                <!-- A Stripe Element will be inserted here. -->
+                                </div>
+                                <!-- Used to display form errors. -->
+                                <div id="card-errors" role="alert"></div>
+                                
+                            </div>
+                        </div>
+                        <div class="card-footer text-center ">
+                          <button
+                          id="card-button"
+                          class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold" 
+                          type="submit"
+                          data-secret="{{ $intent->client_secret }}"
+                        > PAY & GO </button>
+                        </div>
+                    </form>
+                  
                 </div>
-                <h1 class="text-base font-semibold mt-[-10px]">CVV<h1>
-                <input type="number" placeholder="e.g. 2025123" class="w-full border-none mb-6 border-rounded">
-                <div>
-                    <input id="radio" type="radio" class="w-3 h-3">
-                    <label for="radio">Save card for next time</label>
-                    <hr class="h-px my-8 bg-black border-0 mt-0">
+
+        
+       
                 </div>
-                <div class="flex mt-[-20px]">
-                    <h1>Your Order</h1>
-                    <p class="ml-auto text-sm">CHF 29.00</p>
-                </div>
-                <div class="flex">
-                    <h1>Others Fee</h1>
-                    <p class="ml-auto text-sm">CHF 0.00</p>
-                </div>
-                <hr class="h-px my-8 bg-black border-0 mt-0">
-                <div class="flex">
-                    <h1 class="font-bold mt-[-25px]">Total:</h1>
-                    <p class="ml-auto font-bold text-sm mt-[-25px]">CHF 29.00</p>
-                </div>
-                <button
-                    class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold"><a href="/congratulations">PAY & GO</a></button>
-        </div>
         <div id="ahideShow" >
             <div class="flex items-center">
                 <input onclick=anotherFunction()  id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 focus:ring-2">
@@ -86,7 +94,7 @@
             <div id="paypal" class="hidden">
             <div class="flex mt-[-20px]">
                     <h1>Your Order</h1>
-                    <p class="ml-auto text-sm">CHF 29.00</p>
+                    <p class="ml-auto text-sm uppercase">{{$planId->currency}} {{$planId->price}}.00</p>
                 </div>
                 <div class="flex">
                     <h1>Others Fee</h1>
@@ -111,8 +119,8 @@
         <div class="border-2 border-gray-500 rounded-xl p-3">
             <h1 class="font-bold text-xl ml-4">Order Summary</h1>
             <div class="flex mt-2">
-                <h1 class="pl-4">Starter Package - Online Payment... </h1>     
-                <h1 class="ml-auto">CHF 29.00</h1>     
+                <h1 class="pl-4"> {{$planId->name}}  - Online Payment... </h1>     
+                <h1 class="ml-auto uppercase">{{$planId->currency}}.00 {{$planId->price}}.00</h1>     
             </div>
             <div class="flex mt-2">
                 <h1 class="pl-4">Other fee</h1>     
@@ -125,7 +133,7 @@
             <hr class="mt-3 h-px my-1 bg-gray-700 border-0">
             <div class="flex">
                 <h1 class="font-bold text-xl ml-4">Total</h1>
-                <h1 class="ml-auto">CHF 29.00</h1>
+                <h1 class="ml-auto uppercase">{{$planId->currency}}.00 {{$planId->price}}.00</h1>
             </div>
         </div>
     </div>
@@ -161,5 +169,89 @@ function anotherFunction() {
 }
 
 </script>
+
+{{-- stripe js --}}
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+        base: {
+            color: '#32325d',
+            lineHeight: '18px',
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#aab7c4'
+            }
+        },
+        invalid: {
+            color: '#fa755a',
+            iconColor: '#fa755a'
+        }
+    };
+
+    const stripe = Stripe('{{ env("STRIPE_KEY") }}', { locale: 'en' }); // Create a Stripe client.
+    const elements = stripe.elements(); // Create an instance of Elements.
+    const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
+    const cardButton = document.getElementById('card-button');
+    const clientSecret = cardButton.dataset.secret;
+
+    cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
+
+    // Handle real-time validation errors from the card Element.
+    cardElement.addEventListener('change', function(event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+
+    // Handle form submission.
+    var form = document.getElementById('payment-form');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        stripe
+            .handleCardSetup(clientSecret, cardElement, {
+                payment_method_data: {
+                    //billing_details: { name: cardHolderName.value }
+                }
+            })
+            .then(function(result) {
+                console.log(result);
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    console.log(result);
+                    // Send the token to your server.
+                    stripeTokenHandler(result.setupIntent.payment_method);
+                }
+            });
+    });
+
+    // Submit the form with the token ID.
+    function stripeTokenHandler(paymentMethod) {
+        // Insert the token ID into the form so it gets submitted to the server
+        var form = document.getElementById('payment-form');
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'paymentMethod');
+        hiddenInput.setAttribute('value', paymentMethod);
+        form.appendChild(hiddenInput);
+
+        // Submit the form
+        form.submit();
+    }
+
+    </script>
+
+
 <!-- flowbite cdn end -->
 @endpush

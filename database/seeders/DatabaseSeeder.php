@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\About;
 use App\Models\Benefit;
 use App\Models\Congrat;
+use App\Models\Opportunity;
 use App\Models\Service;
 use App\Models\Story;
 use Illuminate\Database\Seeder;
@@ -33,12 +34,12 @@ class DatabaseSeeder extends Seeder
         $this->call(MenuSeeder::class);
         $this->call(SettingSeeder::class);
         $this->call(HomeSeeder::class);
-        $this->call(HomeSeeder::class);
 
-        Benefit::factory(15)->create();
+        Benefit::factory(16)->create();
         Service::factory(15)->create();
         Story::factory(15)->create();
         About::factory(1)->create();
-        Congrat::factory(1);
+        Congrat::factory(1)->create();
+        Opportunity::factory(1)->create();
     }
 }
