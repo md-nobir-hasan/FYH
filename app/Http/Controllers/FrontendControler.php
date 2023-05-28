@@ -82,6 +82,9 @@ class FrontendControler extends Controller
     if($planId ==null){
       return Redirect::back();
   }
+   if(auth()->user() == null){
+     return to_route('register');
+   }
    $plan = ClientType::where('plan_id', $planId)->first();
     return view('frontend.pages.billing', ['plan' => $plan]);
   }

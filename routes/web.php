@@ -110,6 +110,8 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
    
 
+    Route::resource('billings', BillingController::class)->only('index', 'destroy');
+
     Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
     Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
     Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');

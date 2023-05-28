@@ -97,7 +97,7 @@ iframe{
                 </div>
                 <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
                 <p class="font-medium text-sm dark:text-gray-400">
-                     {{$item->description}}    
+                     {{Str::limit($item->description, 200)}}    
                 </p>
                 </a>
             </div>
