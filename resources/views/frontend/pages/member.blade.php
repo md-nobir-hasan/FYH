@@ -53,7 +53,7 @@
                         </div>
                         
                     </div>
-                    <a  href="{{ route('billing', $member->plan_id) }}"
+                    <a  href="{{ route('web.billing', $member->plan_id) }}"
                         class="text-center w-[472px] h-[48px] bg-[#D1052C] rounded-[10px] text-white text-[16px] font-bold px-5 py-3 m-2">
                            GET STARTED</a>
                 @endforeach

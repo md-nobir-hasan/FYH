@@ -89,12 +89,14 @@ class FrontendControler extends Controller
     return view('frontend.pages.billing', ['plan' => $plan]);
   }
 
-  public function billingStore(Request $request, $planId)
+  public function billingSto(Request $request, $planId)
   {
+
+ 
         if($planId==null){
            return Redirect::back();
         }
-       $id =  Billing::insertGetId([
+       $billing =  Billing::create([
           'f_name' => $request->f_name,
            'l_name' => $request->l_name,
             'email' => $request->email,
@@ -105,53 +107,33 @@ class FrontendControler extends Controller
             'user_id' => auth()->user()->id,	
             'plan_id' => $planId,
         ]);
-      
-          $user = auth()->user();
-         $intent = $user->createSetupIntent();
-        $stripe_key = config('services.stripe.key');
-         
-         return view('frontend.pages.payment',[
-       
-        'billing' => Billing::findOrFail($id),
-         'intent' => $user->createSetupIntent(),
-         'stripe_key' => config('services.stripe.key'),
-         'planId' => ClientType::where('plan_id', $planId)->first(),
-         ]);
+      return to_route('payment.Page', $billing->id);
   }
 
-  public function paymentPage($planId, $billing){
-         
-    return "all done";
+  
+  public function paymentPage($billing){
+   if($billing ==null){
+     return Redirect::back();
+   }
+     
+    $user = auth()->user();
     
-    // $billing = Billing::findOrFail($billing);
-    // $user = auth()->user();
-    //  $intent = $user->createSetupIntent();
-    //     $stripe_key = config('services.stripe.key');
+    $billing = Billing::findOrFail($billing);
+   
+    $planId = ClientType::where('plan_id', $billing->plan_id)->first();
+    $user = auth()->user();
+     $intent = $user->createSetupIntent();
+        $stripe_key = config('services.stripe.key');
+     
         
     return view('frontend.pages.payment',compact('planId', 'billing', 'stripe_key', 'intent'));
   }
 
-  // checkout
-  public function checkout($planId)
-  {
-    $user  = auth()->user() ?? null;
-    $plan = ClientType::where('plan_id', $planId)->first();
-    if(!$plan){
-          Session::flash('error', 'unable To Locate Membership');
-        return redirect()->back();
-    }
 
-    if($user==null){
-        return to_route('register');
-    }else{
-      return view('frontend.pages.checkout', [
-        'intent' => $user->createSetupIntent(),
-        'stripe_key' => config('services.stripe.key'),
-        'plan' => $plan,
-      ]);
-    }
+
+
   
-  }
+  
 
 
 }

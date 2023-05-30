@@ -25,7 +25,7 @@
                             <p class="text-base">FYH collects and uses personal data in accordance with our Privacy Policy. By creating an account, you agree to our Terms and Conditions.</p>
 
                             <!-- input Name-->
-                            <form action="{{route('billing.store',$plan->plan_id)}}" method="post">
+                            <form action="{{route('web.billing.store',$plan->plan_id)}}" method="post">
                            @csrf
                                 <div class="mt-5">
                                 <label for="first_name" class="block mb-2 text-sm text-black font-semibold">First name</label>

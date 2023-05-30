@@ -14,7 +14,7 @@
         <div class="border-2 border-gray-500 mt-5 rounded-xl p-5">
         <div class="flex">
             <h1 class="font-bold text-xl ml-4">Billing Details</h1>
-            {{-- <button class="ml-auto text-white p-1 rounded bg-[#D1052C]">Edit</button> --}}
+           
         </div>
             <p class="ml-4"> {{$billing->f_name}} {{$billing->l_name}}</p>
             <p class="ml-4"> {{$billing->email}} </p>
@@ -45,7 +45,7 @@
         <hr class="h-px my-8 bg-gray-400 border-0 mt-[-10px]">
         <div id="hideShow" class="hidden">
          
-                <div class="card bg-blue-600 mt-3 p-4 rounded-xl" style="width:500px !important; margin:auto !important;">
+                <div class="card  mt-3 p-4 rounded-xl" style="width:500px !important; margin:auto !important;">
                     <form action="{{route('checkout.payment')}}" method="post" id="payment-form" class="p-4">
                         @csrf                    
                         <div class="form-group">

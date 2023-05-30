@@ -36,28 +36,31 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [FrontendControler::class,'homePage'])->name('home');
     Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
-   // Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
+ 
 
     Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
 
-    // checkout
-    Route::get('/checkout/{planId}', [FrontendControler::class,'checkout'])->name('checkout');
-    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
+  
     
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
-        Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('move_switzerland');
+        Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
 
     });
 
+     Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
+     Route::get('/about', [FrontendControler::class, 'about'])->name('about');
+       
+     Route::get('billings/{planId?}', [FrontendControler::class, 'billingPage'])->name('web.billing');
+     Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store');
 
-     Route::get('billings/{planId?}', [FrontendControler::class, 'billingPage'])->name('billing');
-     Route::post('billings/{planId?}', [FrontendControler::class, 'billingStore'])->name('billing.store');
+     // checkout
+    Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page'); //checkout page
+    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
 
-    Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
-    Route::get('/about', [FrontendControler::class, 'about'])->name('about');
+  
 
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
 //End frontend controller
