@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Benefit;
+use App\Models\Billing;
 use App\Models\ClientType;
+use App\Models\Congrat;
 use App\Models\Content;
 use App\Models\Home;
+use App\Models\Opportunity;
 use App\Models\Service;
 use App\Models\Story;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class FrontendControler extends Controller
@@ -19,12 +23,14 @@ class FrontendControler extends Controller
      $services = Service::orderBy('priority','asc')->take(4)->get() ?? null;
      $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ?? null;
      $stories = Story::select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','asc')->take(15)->get();
-    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories'));
+     $allTitle = Opportunity::select('benefit_title',	'benefit_subtitle',	'story_title',	'story_subtitle',	'service_title',	'service_subtitle')->first();
+    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories', 'allTitle'));
   }
 
   public function membershipPage(){
        $memberShips = ClientType::orderBy('created_at', 'desc')->get();
-    return view('frontend.pages.member', ['memberShips' => $memberShips]);
+       $opportunity = Opportunity::select('title',	'subtitle',	'description')->first();
+    return view('frontend.pages.member', compact('memberShips','opportunity'));
   }
 
   public function communityPage(){
@@ -40,11 +46,11 @@ class FrontendControler extends Controller
   }
 
 
-  public function paymentPage(){
-    return view('frontend.pages.payment');
-  }
+ 
   public function congratsPage($planId=null){
-    return view('frontend.pages.congrats');
+
+    $Congrat = Congrat::first();
+    return view('frontend.pages.congrats', compact('Congrat'));
   }
 
   public function about(){
@@ -75,31 +81,60 @@ class FrontendControler extends Controller
   public function integrationSwitzerland(){
     return view('frontend.pages.integration-ch');
   }
-  public function billingPage(){
-    return view('frontend.pages.billing');
+  public function billingPage($planId =null){
+    if($planId ==null){
+      return Redirect::back();
+  }
+   if(auth()->user() == null){
+     return to_route('register');
+   }
+   $plan = ClientType::where('plan_id', $planId)->first();
+    return view('frontend.pages.billing', ['plan' => $plan]);
   }
 
-  // checkout
-  public function checkout($planId)
+  public function billingSto(Request $request, $planId)
   {
-    $user  = auth()->user() ?? null;
-    $plan = ClientType::where('plan_id', $planId)->first();
-    if(!$plan){
-          Session::flash('error', 'unable To Locate Membership');
-        return redirect()->back();
-    }
-
-    if($user==null){
-        return to_route('login');
-    }else{
-      return view('frontend.pages.checkout', [
-        'intent' => $user->createSetupIntent(),
-        'stripe_key' => config('services.stripe.key'),
-        'plan' => $plan,
-      ]);
-    }
-
+        if($planId==null){
+           return Redirect::back();
+        }
+       $billing =  Billing::create([
+          'f_name' => $request->f_name,
+           'l_name' => $request->l_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'country' => $request->country,
+            'city' => $request->city,
+            'zip' => $request->zip,
+            'user_id' => auth()->user()->id,	
+            'plan_id' => $planId,
+        ]);
+      return to_route('payment.Page', $billing->id);
   }
+
+  
+  public function paymentPage($billing){
+   if($billing ==null){
+     return Redirect::back();
+   }
+     
+    $user = auth()->user();
+    
+    $billing = Billing::findOrFail($billing);
+   
+    $planId = ClientType::where('plan_id', $billing->plan_id)->first();
+    $user = auth()->user();
+     $intent = $user->createSetupIntent();
+        $stripe_key = config('services.stripe.key');
+     
+        
+    return view('frontend.pages.payment',compact('planId', 'billing', 'stripe_key', 'intent'));
+  }
+
+
+
+
+  
+  
 
 
 }

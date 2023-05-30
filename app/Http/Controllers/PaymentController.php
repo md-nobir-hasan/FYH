@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Billing;
 use Illuminate\Http\Request;
 use Stripe;
 use Session;
@@ -14,7 +15,7 @@ class PaymentController extends Controller
        {
               $user = auth()->user() ?? null;
               if($user == null){
-                      return to_route('login');
+                      return to_route('register');
               }
        }
 
@@ -38,6 +39,10 @@ class PaymentController extends Controller
 
              $user->newSubscription( 'default', $plan )
              ->create($paymentMethod != null ? $paymentMethod->id: '');
+
+              $bil = Billing::find($request->biling_id);
+              $bil->payment = 1;
+              $bil->save();
              
               return to_route('congrats', $plan)->with('success', 'Payment successful!');
            }

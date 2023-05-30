@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateClientTypeRequest;
 use App\Models\Currency;
 use App\Models\PaymentDuration;
 use exception;
+use Illuminate\Support\Facades\Redirect;
 use Stripe;
 use Stripe\Plan;
 
@@ -77,7 +78,7 @@ class ClientTypeController extends Controller
         }
 
         catch(exception $ex){
-            return dd($ex->getMessage());
+            return Redirect::back()->with('success', $ex->getMessage());
        }
       
 

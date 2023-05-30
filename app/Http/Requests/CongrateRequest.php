@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreClientTypeRequest extends FormRequest
+class CongrateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,13 @@ class StoreClientTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' =>'required|string|max:255|unique:client_types,name',
-            'currency' =>'required',
-            'billing_period' =>'required',
-            'price'=>"required|numeric",
-           // 'dis'=>"required|numeric",
-            'des'=>"required|string",
-            'interval_count' => "required|min:1|max:7"
+            'image' => 'nullable',
+            	'title' => 'required',
+             'subtitle' => 'required',
+              'description' => 'required',
+            	'option_title' => 'nullable',
+            	'button_one' => 'required',
+             'button_two' => 'required'
 
         ];
     }

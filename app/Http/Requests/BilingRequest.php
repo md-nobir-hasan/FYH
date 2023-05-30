@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreClientTypeRequest extends FormRequest
+class BilingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,14 @@ class StoreClientTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' =>'required|string|max:255|unique:client_types,name',
-            'currency' =>'required',
-            'billing_period' =>'required',
-            'price'=>"required|numeric",
-           // 'dis'=>"required|numeric",
-            'des'=>"required|string",
-            'interval_count' => "required|min:1|max:7"
+            'f_name' => 'required',
+             'l_name' => 'required',
+            	'email' => 'required|email',
+            	'phone' => 'required|min:10|max:16',
+            	'country' => 'required',
+            	'city' => 'required',
+            	'zip' => 'required',
+                 
 
         ];
     }
