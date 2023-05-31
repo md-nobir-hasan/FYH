@@ -13,7 +13,7 @@
         <div class="text-center text-5xl text-[#D1052C] font-bold mt-[-20px]">  @if($Congrat !==null)  {{$Congrat->title}}   @endif</div>
         <h1 class="text-center text-3xl font-semibold"> @if($Congrat){{$Congrat->subtitle}} @endif </h1>
         <h1 class="text-center text-xl font-semibold mt-7">Now You Have Access To:</h1>
-        <div class="font-normal mt-5 text-center">
+        <div class="font-normal mt-5 " style="text-align: center">
              @if($Congrat !==null) {!! $Congrat->description !!} @endif
         </div>
         <h1 class="text-center text-3xl font-bold mt-3"> @if($Congrat !==null) {{$Congrat->option_title}} @endif</h1>

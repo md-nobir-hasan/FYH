@@ -103,11 +103,11 @@
                 <hr class="h-px my-8 bg-black border-0 mt-0">
                 <div class="flex">
                     <h1 class="font-bold mt-[-25px]">Total:</h1>
-                    <p class="ml-auto font-bold text-sm mt-[-25px]">CHF 29.00</p>
+                    <p class="ml-auto font-bold text-sm mt-[-25px] uppercase">{{$planId->currency}} {{$planId->price}}.00</p>
                 </div>
                 <hr class="h-px my-8 bg-black border-0 mt-0 mb-0">
                 <button
-                    class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold"><a href="/congratulations">PAY & GO</a></button>
+                    class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold">PAY & GO</button>
             </div>
         </div>
                 
