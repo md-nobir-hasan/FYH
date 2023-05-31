@@ -36,14 +36,12 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [FrontendControler::class,'homePage'])->name('home');
     Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
- 
-
+    Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
     Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
+    Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('sharestory');
 
-  
-    
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
@@ -59,9 +57,6 @@ use Illuminate\Support\Facades\Route;
      // checkout
     Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page'); //checkout page
     Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
-
-  
-
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
 //End frontend controller
 
@@ -111,7 +106,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::get('/index',[CustomerController::class,'index'])->name('index');
     });
 
-   
+
 
     Route::resource('billings', BillingController::class)->only('index', 'destroy');
 
@@ -119,7 +114,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
     Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');
 
-    // admin First Section 
+    // admin First Section
     Route::resource('/home', HomeController::class)->only('create', 'update', 'store');
 
      // about
@@ -129,7 +124,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::resource('/services', ServiceController::class)->except('destroy');
     Route::get('services/destroy/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
 
-    // Story 
+    // Story
     Route::resource('stories', StoryController::class)->except('destroy');
     Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
 
