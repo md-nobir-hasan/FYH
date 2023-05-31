@@ -62,7 +62,7 @@
                                         <input type="number" required name="zip" id="zip" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="zip" required>
                                     </div>
                                     </div>
-                                    <button class="w-full text-xl p-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white mt-5"><a href="/payment">Save & Continue</a></button>
+                                    <button class="w-full text-xl p-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white mt-5">Save & Continue</button>
                             </form>
                         </div>
 

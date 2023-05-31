@@ -321,7 +321,7 @@
         @endif
 
 
-        @if ($n = check('Home'))
+        {{-- @if ($n = check('About')) --}}
         <li class="relative">
             <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem]  outline-none
         transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600
@@ -338,11 +338,11 @@
                 </span>
                 <span class="text-lg font-semibold">About Section</span></a>
         </li>
-    @endif      
+    {{-- @endif       --}}
 
 
     
-    @if ($n = check('Home'))
+    {{-- @if ($n = check('Opportunity')) --}}
     <li class="relative">
         <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem]  outline-none
     transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600
@@ -359,7 +359,7 @@
             </span>
             <span class="text-lg font-semibold">Opportinity Section </span></a>
     </li>
-@endif     
+ {{-- @endif      --}}
 
 @if ($n = check('Home'))
 <li class="relative">

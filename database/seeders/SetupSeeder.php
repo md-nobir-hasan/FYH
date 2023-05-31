@@ -29,7 +29,7 @@ class SetupSeeder extends Seeder
 
         //client type seeder
             $ct = [
-                ['name'=>'Starter','currency_id'=>1,'pay_duration_id'=>1,'price'=>29,
+                ['name'=>'Basic','plan_id'=>'plan_NzMovXZ9gkaiG2','interval_count'=>4,'price'=>300,
                 'des'=>' <p class="w-[236px] ml-[30px]">It’s the starter package for new comer. You can pay monthly and
                         cancel anytime...</p>
                         <p class="w-[400px] border-t-2 border-black mx-[30px] my-2"></p>
@@ -47,32 +47,34 @@ class SetupSeeder extends Seeder
                                 <i class="fa-solid fa-check"></i> Customer Support via Email
                             </p>
                         </div>',
-                'dis'=>0],
-                ['name'=>'Pro','currency_id'=>1,'pay_duration_id'=>1,'price'=>199,
-                'des'=>'<div class="flex justify-between">
-                        <p class="w-[236px] ml-[30px]">It’s the starter package for new comer. You can pay monthly
-                            and
-                            cancel anytime...</p>
-                        <h1 class="font-bold text-[20px] line-through text-[#848484] mr-[16px]">199 CHF/yr.</h1>
-                        </div>
-                        <p class="w-[400px] border-t-2 border-black mx-[30px] my-2"></p>
-                        <div class="text-[14px] ml-[40px]">
-                            <p class="mb-[6px]">
-                                <i class="fa-solid fa-check"></i>Access to A limited selection of Services
-                            </p>
-                            <p class="mb-[6px]">
-                                <i class="fa-solid fa-check"></i> Access to A limited selection of Services
-                            </p>
-                            <p class="mb-[6px]">
-                                <i class="fa-solid fa-check"></i> Access to Community Discussion Forum
-                            </p>
-                            <p class="mb-[6px]">
-                                <i class="fa-solid fa-check"></i> Customer Support via Email
-                            </p>
-                        </div>',
-                'dis'=>182]
+                        'billing_period' => 'month',
+                        'currency' => 'chf',
+            ],
+
+            ['name'=>'Pro','plan_id'=>'plan_Nzm4CehIehiNIF','interval_count'=>1,'price'=>1000,
+            'des'=>' <p class="w-[236px] ml-[30px]">It’s the starter package for new comer. You can pay monthly and
+                    cancel anytime...</p>
+                    <p class="w-[400px] border-t-2 border-black mx-[30px] my-2"></p>
+                    <div class="text-[14px] ml-[40px]">
+                        <p class="mb-[6px]">
+                            <i class="fa-solid fa-check"></i> Access to A limited selection of Services
+                        </p>
+                        <p class="mb-[6px]">
+                            <i class="fa-solid fa-check"></i> Access to A limited selection of Services
+                        </p>
+                        <p class="mb-[6px]">
+                            <i class="fa-solid fa-check"></i> Access to Community Discussion Forum
+                        </p>
+                        <p class="mb-[6px]">
+                            <i class="fa-solid fa-check"></i> Customer Support via Email
+                        </p>
+                    </div>',
+                    'billing_period' => 'year',
+                    'currency' => 'chf',
+        ],
+               
             ];
-            // DB::table('client_types')->insert($ct);
+            DB::table('client_types')->insert($ct);
 
         //membership type seeder
             $mt = [

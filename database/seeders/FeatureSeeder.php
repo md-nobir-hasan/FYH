@@ -33,6 +33,11 @@ class FeatureSeeder extends Seeder
                 ['title'=>'Sub-menu','name' => 'Sub-menu','status' => 1],
             ['title'=>'Setting','name' => 'setting','status' => 1],
                 ['title'=>'Site Setting','name' => 'site setting','status' => 1],
+                ['title'=>'Congrat','name' => 'Congrat','status' => 1],
+                ['title'=>'Opportunity','name' => 'Opportunity','status' => 1],
+                ['title'=>'Service','name' => 'Service','status' => 1],
+                ['title'=>'Story','name' => 'Story','status' => 1],
+                ['title'=>'About','name' => 'About','status' => 1],
         ];
 
         DB::table('features')->insert($n);
