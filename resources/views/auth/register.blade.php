@@ -32,6 +32,9 @@
     <hr class="h-px my-8 bg-black col-span-1 border-0">
     </div>
 
+
+ <input type="hidden" name="planId"     @if($planId!==null)value="{{$planId->plan_id}}" @endif>  
+
         <!-- Name -->
         <div>
             <x-input-label for="name" : />
@@ -51,7 +54,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-       
+      
 
         <!-- Password -->
         <div class="">
@@ -100,21 +103,21 @@
         <div class="border-2 border-black rounded-xl p-3">
             <h1 class="font-bold text-xl ml-4">Order Summary</h1>
             <div class="flex mt-2">
-                <h1 class="pl-4">Starter Package - Online Payment... </h1>     
-                <h1 class="ml-auto">CHF 29.00</h1>     
+                <h1 class="pl-4 uppercase"> @if($planId !==null){{$planId->name }} @endif - Online Payment... </h1>     
+                <h1 class="ml-auto uppercase">@if($planId !==null){{$planId->currency }} @endif @if($planId !==null){{$planId->price }} @endif</h1>     
             </div>
             <div class="flex mt-2">
                 <h1 class="pl-4">Other fee</h1>     
-                <h1 class="ml-auto">CHF 0.00</h1>     
+                <h1 class="ml-auto uppercase">@if($planId !==null){{$planId->currency }}.00 @endif</h1>     
             </div>
             <div class="flex mt-2">
                 <h1 class="pl-4">Vat & Tax</h1>     
-                <h1 class="ml-auto">CHF 0.00</h1>     
+                <h1 class="ml-auto uppercase">@if($planId !==null){{$planId->currency }}. 00 @endif</h1>     
             </div>
             <hr class="mt-3 h-px my-1 bg-gray-700 border-0">
             <div class="flex">
                 <h1 class="font-bold text-xl ml-4">Total</h1>
-                <h1 class="ml-auto">CHF 29.00</h1>
+                <h1 class="ml-auto">@if($planId !==null){{$planId->currency }} @endif @if($planId !==null){{$planId->price }} @endif</h1>
             </div>
         </div>
     </div>
