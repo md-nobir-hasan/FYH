@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\Auth\GoogleSocialController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BrotcastController;
@@ -51,7 +52,7 @@ use Illuminate\Support\Facades\Route;
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
        
-     Route::get('billings/{planId?}', [FrontendControler::class, 'billingPage'])->name('web.billing');
+     Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing');
      Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store');
 
      // checkout
@@ -81,6 +82,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified','admin'])->name('dashboard');
 //end dashoard
+
+// google Login
+Route::get('/redirect/{planId?}', [GoogleSocialController::class, 'redirect'])->name('google.auth');
+Route::get('/auth/callback', [GoogleSocialController::class, 'callBack'])->name('google.callback');
+
 
 
 // Admin route ===============================================

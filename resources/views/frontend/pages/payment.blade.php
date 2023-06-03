@@ -120,7 +120,7 @@
             <h1 class="font-bold text-xl ml-4">Order Summary</h1>
             <div class="flex mt-2">
                 <h1 class="pl-4"> {{$planId->name}}  - Online Payment... </h1>     
-                <h1 class="ml-auto uppercase">{{$planId->currency}}.00 {{$planId->price}}.00</h1>     
+                <h1 class="ml-auto uppercase">{{$planId->currency}} {{$planId->price}}.00</h1>     
             </div>
             <div class="flex mt-2">
                 <h1 class="pl-4">Other fee</h1>     
@@ -133,7 +133,7 @@
             <hr class="mt-3 h-px my-1 bg-gray-700 border-0">
             <div class="flex">
                 <h1 class="font-bold text-xl ml-4">Total</h1>
-                <h1 class="ml-auto uppercase">{{$planId->currency}}.00 {{$planId->price}}.00</h1>
+                <h1 class="ml-auto uppercase">{{$planId->currency}} {{$planId->price}}.00</h1>
             </div>
         </div>
     </div>
