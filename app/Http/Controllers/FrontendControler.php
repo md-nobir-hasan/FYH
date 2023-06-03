@@ -46,7 +46,7 @@ class FrontendControler extends Controller
   }
 
 
- 
+
   public function congratsPage($planId=null){
 
     $Congrat = Congrat::first();
@@ -105,36 +105,36 @@ class FrontendControler extends Controller
             'country' => $request->country,
             'city' => $request->city,
             'zip' => $request->zip,
-            'user_id' => auth()->user()->id,	
+            'user_id' => auth()->user()->id,
             'plan_id' => $planId,
         ]);
       return to_route('payment.Page', $billing->id);
   }
 
-  
+
   public function paymentPage($billing){
    if($billing ==null){
      return Redirect::back();
    }
-     
+
     $user = auth()->user();
-    
+
     $billing = Billing::findOrFail($billing);
-   
+
     $planId = ClientType::where('plan_id', $billing->plan_id)->first();
     $user = auth()->user();
      $intent = $user->createSetupIntent();
         $stripe_key = config('services.stripe.key');
-     
-        
+
+
     return view('frontend.pages.payment',compact('planId', 'billing', 'stripe_key', 'intent'));
   }
 
 
 
 
-  
-  
+
+
 
 
 }

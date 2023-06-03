@@ -30,16 +30,18 @@ use SebastianBergmann\FileIterator\Facade;
 final class TestSuiteMapper
 {
     /**
+     * @psalm-param non-empty-string $xmlConfigurationFile,
+     *
      * @throws RuntimeException
      * @throws TestDirectoryNotFoundException
      * @throws TestFileNotFoundException
      */
-    public function map(TestSuiteCollection $configuration, string $filter, string $excludedTestSuites): TestSuiteObject
+    public function map(string $xmlConfigurationFile, TestSuiteCollection $configuration, string $filter, string $excludedTestSuites): TestSuiteObject
     {
         try {
             $filterAsArray         = $filter ? explode(',', $filter) : [];
             $excludedFilterAsArray = $excludedTestSuites ? explode(',', $excludedTestSuites) : [];
-            $result                = TestSuiteObject::empty();
+            $result                = TestSuiteObject::empty($xmlConfigurationFile);
 
             foreach ($configuration as $testSuiteConfiguration) {
                 if (!empty($filterAsArray) && !in_array($testSuiteConfiguration->name(), $filterAsArray, true)) {
@@ -68,7 +70,7 @@ final class TestSuiteMapper
                         $directory->path(),
                         $directory->suffix(),
                         $directory->prefix(),
-                        $exclude
+                        $exclude,
                     );
 
                     if (!empty($files)) {
@@ -104,7 +106,7 @@ final class TestSuiteMapper
             throw new RuntimeException(
                 $e->getMessage(),
                 $e->getCode(),
-                $e
+                $e,
             );
         }
     }

@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.8",
         "maatwebsite/excel": "^3.1",
         "pusher/pusher-php-server": "^7.2",
+        "srmklive/paypal": "^3.0",
         "stripe/stripe-php": "^10.13"
     },
     "require-dev": {

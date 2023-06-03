@@ -30,6 +30,7 @@ use PHPUnit\Event\Test\PhpWarningTriggered;
 use PHPUnit\Event\Test\PreparationStarted;
 use PHPUnit\Event\Test\Skipped;
 use PHPUnit\Event\Test\WarningTriggered;
+use PHPUnit\Event\TestRunner\DeprecationTriggered as TestRunnerDeprecationTriggered;
 use PHPUnit\Event\TestRunner\ExecutionFinished;
 use PHPUnit\Event\TestRunner\ExecutionStarted;
 use PHPUnit\Event\TestRunner\WarningTriggered as TestRunnerWarningTriggered;
@@ -238,6 +239,14 @@ final class DefaultPrinter
     }
 
     /**
+     * Listen to the test runner deprecation triggered.
+     */
+    public function testRunnerDeprecationTriggered(TestRunnerDeprecationTriggered $event): void
+    {
+        $this->style->writeWarning($event->message());
+    }
+
+    /**
      * Listen to the test runner warning triggered.
      */
     public function testRunnerWarningTriggered(TestRunnerWarningTriggered $event): void
@@ -367,7 +376,6 @@ final class DefaultPrinter
         }
 
         if (class_exists(Result::class)) {
-            // @phpstan-ignore-next-line
             $failed = Result::failed(Registry::get(), Facade::result());
         } else {
             $failed = ! Facade::result()->wasSuccessful();

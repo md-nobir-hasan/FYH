@@ -2,7 +2,6 @@
 
 namespace Laravel\Cashier;
 
-use App\Models\ClientType;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use DateTimeInterface;
@@ -43,7 +42,7 @@ class Subscription extends Model
      *
      * @var array
      */
-    protected $with = ['items', 'membership'];
+    protected $with = ['items'];
 
     /**
      * The attributes that should be cast to native types.
@@ -71,12 +70,6 @@ class Subscription extends Model
     public function user()
     {
         return $this->owner();
-    }
-
-
-    public function membership()
-    {
-         return $this->hasOne(ClientType::class, 'plan_id', 'stripe_price');
     }
 
     /**

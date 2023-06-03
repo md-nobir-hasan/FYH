@@ -51,7 +51,7 @@ use Illuminate\Support\Facades\Route;
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
-       
+
      Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing');
      Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store');
 
@@ -135,7 +135,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
 
     // benefit and other Section title and subtitle
-    Route::resource('opportunitys', OpporcunityController::class); 
+    Route::resource('opportunitys', OpporcunityController::class);
 
     // Congrats Route
     Route::resource('congrats', CongratController::class);
