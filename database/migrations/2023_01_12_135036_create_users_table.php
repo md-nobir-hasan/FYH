@@ -25,7 +25,8 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('user_info_id')->nullable();
             $table->unsignedBigInteger('role_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('google_id')->nullable();
             $table->rememberToken();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();

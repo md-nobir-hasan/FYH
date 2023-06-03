@@ -81,15 +81,15 @@ class FrontendControler extends Controller
   public function integrationSwitzerland(){
     return view('frontend.pages.integration-ch');
   }
-  public function billingPage($planId =null){
-    if($planId ==null){
-      return Redirect::back();
-  }
-   if(auth()->user() == null){
-     return to_route('register', $planId);
-   }
-   $plan = ClientType::where('plan_id', $planId)->first();
-    return view('frontend.pages.billing', ['plan' => $plan]);
+  public function billingPage(Request $request){
+
+    $plan = $request->plan;
+    $user = auth()->user();
+     if($user == null){
+       return to_route('register',$plan);
+     }
+    $planId = ClientType::where('plan_id', $plan)->first();
+    return view('frontend.pages.billing', ['planId' => $planId]);
   }
 
   public function billingSto(Request $request, $planId)

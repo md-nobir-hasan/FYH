@@ -26,7 +26,7 @@ class RegisteredUserController extends Controller
              return Redirect::back();
         }
         $planId = ClientType::where('plan_id', $planId)->first();
-        return view('auth.register', compact('planId'));
+        return view('auth.register', ['planId' => $planId]);
     }
 
     /**
@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -61,9 +61,11 @@ class RegisteredUserController extends Controller
      
         $loginUser = auth()->user();
 
-        $planId = $request->planId;
+        $plan = $request->planId;
+        $planId = ClientType::where('plan_id', $plan)->first();
+
         if($loginUser->role_id ==null){
-            return Redirect::route('web.billing',$planId);
+            return view('frontend.pages.billing', ['planId' => $planId]);
         }
 
         return redirect(RouteServiceProvider::HOME);

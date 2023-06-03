@@ -25,7 +25,7 @@
                             <p class="text-base">FYH collects and uses personal data in accordance with our Privacy Policy. By creating an account, you agree to our Terms and Conditions.</p>
 
                             <!-- input Name-->
-                            <form action="{{route('web.billing.store',$plan->plan_id)}}" method="post">
+                            <form action="{{route('web.billing.store',$planId->plan_id)}}" method="post">
                            @csrf
                                 <div class="mt-5">
                                 <label for="first_name" class="block mb-2 text-sm text-black font-semibold">First name</label>
@@ -72,8 +72,8 @@
         <div class="border-2  border-gray-300 rounded-xl p-3">
             <h1 class="font-bold text-xl ml-4">Order Summary</h1>
             <div class="flex mt-2">
-                <h1 class="pl-4"> {{$plan->name}}  - Online Payment... </h1>     
-                <h1 class="ml-auto"> {{$plan->price}}.00 </h1>     
+                <h1 class="pl-4"> {{$planId->name}}  - Online Payment... </h1>     
+                <h1 class="ml-auto"> {{$planId->price}}.00 </h1>     
             </div>
             <div class="flex mt-2">
                 <h1 class="pl-4">Other fee</h1>     
@@ -86,7 +86,7 @@
             <hr class="mt-3 h-px my-1 bg-gray-700 border-0">
             <div class="flex">
                 <h1 class="font-bold text-xl ml-4">Total</h1>
-                <h1 class="ml-auto">{{$plan->price}}.00</h1>
+                <h1 class="ml-auto">{{$planId->price}}.00</h1>
             </div>
         </div>
     </div>

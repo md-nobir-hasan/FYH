@@ -32,14 +32,18 @@
             <!-- right side -->
             <div class="col-span 1 mt-[90px] mr-[60px]">
                 <h3 class="text-center font-bold text-2xl m-2 bg-slate-100 uppercase text-red-600"> <span class="bg-blue-200 rounded-md">{{ Session::get('error') }}</span></h3>
-                @foreach ($memberShips as $member)
+              
+                <form action="{{ route('web.billing') }}" method="post">
+                    @csrf
+                    @foreach ($memberShips as $member)
+                 
                     <!-- card 1 -->
                     <div class="w-[472px] h-[280px] border-2 border-black rounded-lg mb-[32px] mt-5">
                         <div class="mt-[20px] ml-[14px]">
                             <!-- card 1 -->
                             <div class="flex justify-between mr-[16px]">
                                 <div class="flex text-align items-center ">
-                                    <input type="radio" name="membership" class="accent-gray-300 w-[22px] h-[22px]">
+                                    <input type="radio" name="plan" value="{{$member->plan_id}}" class="accent-gray-300 w-[22px] h-[22px]">
                                     <p class="text-[25px] ml-2">{{ $member->name }}</p>
                                 </div>
                                 <h1 class="font-bold text-[25px]">{{ $member->price }}
@@ -53,11 +57,13 @@
                         </div>
                         
                     </div>
-                    <a  href="{{ route('web.billing', $member->plan_id) }}"
-                        class="text-center w-[472px] h-[48px] bg-[#D1052C] rounded-[10px] text-white text-[16px] font-bold px-5 py-3 m-2">
-                           GET STARTED</a>
-                @endforeach
               
+                   
+                @endforeach
+                <button type="submit"
+                class="text-center w-[472px] h-[48px] bg-[#D1052C] rounded-[10px] text-white text-[16px] font-bold px-5 py-3 m-2">
+                   GET STARTED</button>
+                </form>
            
             </div>
         </div>
