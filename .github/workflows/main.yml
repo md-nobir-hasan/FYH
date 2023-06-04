@@ -1,20 +1,3 @@
-# on: push
-# name: 🚀 Deploy website on push
-# jobs:
-#   web-deploy:
-#     name: 🎉 Deploy
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: 🚚 Get latest code
-#       uses: actions/checkout@v3
-
-#     - name: 📂 Sync files
-#       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-#       with:
-#         server: ftp.nobir-hasan.com
-#         username: fyh1@fyh.security-fast.com
-#         password: ${{ secrets.ftp_password }}
-
 
 name: 🚀 Deploy to Nobir by FTP
 on:
@@ -45,8 +28,6 @@ jobs:
 
       - name: Install npm dependencies
         run: npm ci
-
-      - name: Set environment variables
 
       - name: Build assets with npm
         run: npm run build
