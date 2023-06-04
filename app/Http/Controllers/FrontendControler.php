@@ -24,8 +24,7 @@ class FrontendControler extends Controller
      $services = Service::orderBy('priority','asc')->take(4)->get() ?? null;
      $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ?? null;
      $stories = Story::select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','asc')->take(15)->get();
-     $allTitle = Opportunity::select('benefit_title',	'benefit_subtitle',	'story_title',	'story_subtitle',	'service_title',	'service_subtitle')->first();
-    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories', 'allTitle'));
+    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories'));
   }
 
   public function membershipPage(){

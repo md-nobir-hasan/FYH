@@ -5,14 +5,14 @@
     </x-slot>
  
      <x-slot name='style'>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+   
+
+image_title
+image_subtitle
+service_title
+service_subtitle
+share_title
+share_subtitle
      </x-slot>
 
     <div class="p-4">
@@ -31,7 +31,240 @@
                                 class="max-w-sm max-h-[200px] mx-auto rounded border bg-white p-1 dark:border-neutral-700 dark:bg-neutral-800"
                                 alt="" />@endif
                         </div>
-                        <div class="grid gap-6 mb-6 md:grid-cols-1">
+                        <div class="grid gap-6 mb-6 md:grid-cols-2">
+
+                            <div class="text-left">
+                                <label
+                                for="title_one"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Title One: </label
+                              >
+                              <input name="title_one"     @if($homeSection!==null) value="{{$homeSection->title_one}}" @endif 
+                                class="@error('title_one') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="title_one" placeholder="Enter title One" />
+
+                                @error('title_one')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="title_one_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Title One Description: </label>
+                                    <textarea  name="title_one_description" rows="1" class="@error('title_one_description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Title One Description">
+                                     @if($homeSection!==null)  {!!$homeSection->title_one_description  !!}  @endif
+                                    </textarea>
+                                    @error('title_one_description')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label
+                                for="title_one"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Title Two: </label
+                              >
+                              <input name="title_two"  @if($homeSection!==null) value="{{$homeSection->title_two}}" @endif 
+                                class="@error('title_two') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="title_two" placeholder="Enter title Two" />
+
+                                @error('title_two')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="title_two_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Title One Description: </label>
+                                    <textarea  name="title_two_description" rows="1" class="@error('title_one_description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Title Two Description">
+                                     @if($homeSection!==null)  {!!$homeSection->title_two_description  !!}  @endif
+                                    </textarea>
+                                    @error('title_two_description')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+
+                            {{-- benifit and Other Titile And description --}}
+                            
+                            <div class="text-left">
+                                <label
+                                for="benefit_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Benefit Title : </label
+                              >
+                              <input name="benefit_title"  @if($homeSection!==null) value="{{$homeSection->benefit_title}}" @endif 
+                                class="@error('benefit_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="title_two" placeholder="Enter Bemefit title " />
+
+                                @error('benefit_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="benefit_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Benefit SubTitle : </label>
+                                    <textarea  name="benefit_subtitle" rows="1" class="@error('benefit_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Benefit SubTitle ">
+                                     @if($homeSection!==null)  {!!$homeSection->benefit_subtitle  !!}  @endif
+                                    </textarea>
+                                    @error('benefit_subtitle')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                            
+                            {{-- story Title AND SUBTITLE --}}
+                            <div class="text-left">
+                                <label
+                                for="story_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Story title : </label
+                              >
+                              <input name="story_title"  @if($homeSection!==null) value="{{$homeSection->story_title}}" @endif 
+                                class="@error('story_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="story_title" placeholder="Enter Story title " />
+
+                                @error('story_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="story_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Story SubTitle : </label>
+                                    <textarea  name="story_subtitle" rows="1" class="@error('story_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Title Two Description">
+                                     @if($homeSection!==null)  {!!$homeSection->story_subtitle  !!}  @endif
+                                    </textarea>
+                                    @error('story_subtitle')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+                            
+
+                            {{-- fature title and subtitle --}}
+                            <div class="text-left">
+                                <label
+                                for="feature_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Feature Title : </label
+                              >
+                              <input name="feature_title"  @if($homeSection!==null) value="{{$homeSection->feature_title}}" @endif 
+                                class="@error('feature_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="feature_title" placeholder="Enter Feature title " />
+
+                                @error('feature_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="feature_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Feature Subtitle: </label>
+                                    <textarea  name="feature_subtitle" rows="2" class="@error('feature_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Feature SubTitle ">
+                                     @if($homeSection!==null)  {!!$homeSection->feature_subtitle  !!}  @endif
+                                    </textarea>
+                                    @error('feature_subtitle')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                           {{--Image Section title and subtitle  --}}
+                            <div class="text-left">
+                                <label
+                                for="image_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Image Title : </label
+                              >
+                              <input name="image_title"  @if($homeSection!==null) value="{{$homeSection->image_title}}" @endif 
+                                class="@error('image_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="image_title" placeholder="Enter Iamge title " />
+
+                                @error('image_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="image_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Image Subtitle: </label>
+                                    <textarea  name="image_subtitle" rows="2" class="@error('image_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Image SubTitle ">
+                                     @if($homeSection!==null)  {!!$homeSection->image_subtitle  !!}  @endif
+                                    </textarea>
+                                    @error('image_subtitle')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+
+                            {{-- service title and subtitle --}}
+
+                            <div class="text-left">
+                                <label
+                                for="service_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Service Title : </label
+                              >
+                              <input name="service_title"  @if($homeSection!==null) value="{{$homeSection->service_title}}" @endif 
+                                class="@error('service_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="service_title" placeholder="Enter Service title " />
+
+                                @error('service_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="service_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Feature Subtitle: </label>
+                                    <textarea  name="service_subtitle" rows="2" class="@error('service_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Feature SubTitle ">
+                                     @if($homeSection!==null)  {!!$homeSection->service_subtitle  !!}  @endif
+                                    </textarea>
+                                    @error('service_subtitle')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+
+                            {{-- share title and subtitle --}}
+                            <div class="text-left">
+                                <label
+                                for="share_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Share Title : </label
+                              >
+                              <input name="share_title"  @if($homeSection!==null) value="{{$homeSection->share_title}}" @endif 
+                                class="@error('share_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="share_title" placeholder="Enter Share title " />
+
+                                @error('share_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="share_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Share Subtitle: </label>
+                                    <textarea  name="share_subtitle" rows="2" class="@error('share_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Share SubTitle ">
+                                     @if($homeSection!==null)  {!!$homeSection->share_subtitle  !!}  @endif
+                                    </textarea>
+                                    @error('share_subtitle')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                        </div>
+
+
                             <div class="text-left">
                                 <label
                                 for="logo"
@@ -49,16 +282,7 @@
                      
                           
                         </div>
-                        <div class="mb-6">
-                            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Deatils: </label>
-                                <textarea id="summernote" name="details" rows="4" class="@error('details') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                                 placeholder="Enter Home Section deatils">
-                                 @if($homeSection!==null)  {!!$homeSection->details  !!}  @endif
-                                </textarea>
-                                @error('details')
-                                <div class="text-left text-red-600">{{ $message }}</div>
-                               @enderror
-                        </div>
+                
 
                      
                         <div class="mt-10">
@@ -91,20 +315,9 @@
                     })
                 </script>
 
-{{-- <script src="{{asset('js/ckeditor5/ckeditor.js')}}"></script>
-<script>
-    ClassicEditor.create( document.querySelector( '#editor' ) ).catch( error => {
-            console.error( error );
-        } );
-</script> --}}
 
-<script>
-    $('#summernote').summernote({
-      placeholder: '',
-      tabsize: 2,
-      height: 100
-    });
-  </script>
+
+
 
 
             </s-slot>

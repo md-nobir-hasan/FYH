@@ -22,6 +22,7 @@ use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\OpporcunityController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentDurationController;
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
@@ -59,6 +60,15 @@ use Illuminate\Support\Facades\Route;
     Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page'); //checkout page
     Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
+
+    // paypal
+    Route::prefix('/paypal')->name('paypal.')->group(function(){
+        Route::post('/checkout',[PaypalController::class,'checkout'])->name('checkout');
+        Route::get('/payment',[PaypalController::class,'payment'])->name('payment');
+        Route::get('/success',[PaypalController::class,'success'])->name('success');
+        Route::get('/cancel',[PaypalController::class,'cancel'])->name('cancel');
+
+    });
 //End frontend controller
 
 //broadcast
