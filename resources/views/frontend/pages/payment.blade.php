@@ -14,7 +14,7 @@
         <div class="border-2 border-gray-500 mt-5 rounded-xl p-5">
         <div class="flex">
             <h1 class="font-bold text-xl ml-4">Billing Details</h1>
-           
+
         </div>
             <p class="ml-4"> {{$billing->f_name}} {{$billing->l_name}}</p>
             <p class="ml-4"> {{$billing->email}} </p>
@@ -22,7 +22,7 @@
             <p class="ml-4">{{$billing->country}}</p>
             <p class="ml-4"> {{$billing->city}} </p>
             <p class="ml-4"> {{$billing->zip}} </p>
-            
+
         </div>
         <!-- payment -->
 
@@ -44,20 +44,20 @@
         </div>
         <hr class="h-px my-8 bg-gray-400 border-0 mt-[-10px]">
         <div id="hideShow" class="hidden">
-         
+
                 <div class="card  mt-3 p-4 rounded-xl" style="width:500px !important; margin:auto !important;">
                     <form action="{{route('checkout.payment')}}" method="post" id="payment-form" class="p-4">
-                        @csrf                    
+                        @csrf
                         <div class="form-group">
                             <div class="card-header p-2">
                                 <label for="card-element">
-                                       
+
 
                                 </label>
                             </div>
-                
-                
-                       
+
+
+
                             <div class="card-body">
                                  <input type="hidden" name="plan_id" value="{{$planId->plan_id}}">
                                 <input type="hidden" name="biling_id" value="{{$billing->id}}">
@@ -66,23 +66,23 @@
                                 </div>
                                 <!-- Used to display form errors. -->
                                 <div id="card-errors" role="alert"></div>
-                                
+
                             </div>
                         </div>
                         <div class="card-footer text-center ">
                           <button
                           id="card-button"
-                          class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold" 
+                          class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold"
                           type="submit"
                           data-secret="{{ $intent->client_secret }}"
                         > PAY & GO </button>
                         </div>
                     </form>
-                  
+
                 </div>
 
-        
-       
+
+
                 </div>
         <div id="ahideShow" >
             <div class="flex items-center">
@@ -92,7 +92,9 @@
             <img src="{{asset('/images/paypal.png')}}" alt="" class="h-5 ml-auto">
             <hr class="h-px my-8 bg-gray-400 border-0 mt-0">
             <div id="paypal" class="hidden">
-            <div class="flex mt-[-20px]">
+              <form action="{{route('paypal.checkout')}}" method="POST">
+                @csrf
+                <div class="flex mt-[-20px]">
                     <h1>Your Order</h1>
                     <p class="ml-auto text-sm uppercase">{{$planId->currency}} {{$planId->price}}.00</p>
                 </div>
@@ -105,12 +107,16 @@
                     <h1 class="font-bold mt-[-25px]">Total:</h1>
                     <p class="ml-auto font-bold text-sm mt-[-25px] uppercase">{{$planId->currency}} {{$planId->price}}.00</p>
                 </div>
+
+                <input type="hidden" name="total" value="{{$planId->price}}">
+                <input type="hidden" name="plan_id" value="{{$planId->id}}">
                 <hr class="h-px my-8 bg-black border-0 mt-0 mb-0">
                 <button
                     class="text-center w-full h-[48px] bg-green-500 mt-6 rounded-[10px] text-white text-[16px] font-bold">PAY & GO</button>
             </div>
+              </form>
         </div>
-                
+
         </div>
         </div>
         <!-- payment end -->
@@ -119,16 +125,16 @@
         <div class="border-2 border-gray-500 rounded-xl p-3">
             <h1 class="font-bold text-xl ml-4">Order Summary</h1>
             <div class="flex mt-2">
-                <h1 class="pl-4"> {{$planId->name}}  - Online Payment... </h1>     
-                <h1 class="ml-auto uppercase">{{$planId->currency}} {{$planId->price}}.00</h1>     
+                <h1 class="pl-4"> {{$planId->name}}  - Online Payment... </h1>
+                <h1 class="ml-auto uppercase">{{$planId->currency}} {{$planId->price}}.00</h1>
             </div>
             <div class="flex mt-2">
-                <h1 class="pl-4">Other fee</h1>     
-                <h1 class="ml-auto">CHF 0.00</h1>     
+                <h1 class="pl-4">Other fee</h1>
+                <h1 class="ml-auto">CHF 0.00</h1>
             </div>
             <div class="flex mt-2">
-                <h1 class="pl-4">Vat & Tax</h1>     
-                <h1 class="ml-auto">CHF 0.00</h1>     
+                <h1 class="pl-4">Vat & Tax</h1>
+                <h1 class="ml-auto">CHF 0.00</h1>
             </div>
             <hr class="mt-3 h-px my-1 bg-gray-700 border-0">
             <div class="flex">
@@ -137,7 +143,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 @endsection

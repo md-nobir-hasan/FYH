@@ -30,9 +30,9 @@ use PHPUnit\Event\TestData\NoDataSetFromDataProviderException;
 use PHPUnit\Metadata\Api\CodeCoverage as CodeCoverageMetadataApi;
 use PHPUnit\Metadata\Parser\Registry as MetadataRegistry;
 use PHPUnit\Runner\CodeCoverage;
+use PHPUnit\Runner\ErrorHandler;
 use PHPUnit\TextUI\Configuration\Configuration;
 use PHPUnit\TextUI\Configuration\Registry as ConfigurationRegistry;
-use PHPUnit\Util\ErrorHandler;
 use PHPUnit\Util\GlobalState;
 use PHPUnit\Util\PHP\AbstractPhpProcess;
 use ReflectionClass;
@@ -75,7 +75,7 @@ final class TestRunner
 
         $shouldCodeCoverageBeCollected = (new CodeCoverageMetadataApi)->shouldCodeCoverageBeCollectedFor(
             $test::class,
-            $test->name()
+            $test->name(),
         );
 
         $error      = false;
@@ -122,8 +122,8 @@ final class TestRunner
                     '%s in %s:%s',
                     $e->getMessage(),
                     $frame['file'],
-                    $frame['line']
-                )
+                    $frame['line'],
+                ),
             );
         } catch (Throwable $e) {
             $error = true;
@@ -132,6 +132,7 @@ final class TestRunner
         $test->addToAssertionCount(Assert::getCount());
 
         if ($this->configuration->reportUselessTests() &&
+            !$test->doesNotPerformAssertions() &&
             $test->numberOfAssertionsPerformed() === 0) {
             $risky = true;
         }
@@ -141,7 +142,7 @@ final class TestRunner
             !$this->hasCoverageMetadata($test::class, $test->name())) {
             Event\Facade::emitter()->testConsideredRisky(
                 $test->valueObjectForEvents(),
-                'This test does not define a code coverage target but is expected to do so'
+                'This test does not define a code coverage target but is expected to do so',
             );
 
             $risky = true;
@@ -156,17 +157,17 @@ final class TestRunner
                 try {
                     $linesToBeCovered = (new CodeCoverageMetadataApi)->linesToBeCovered(
                         $test::class,
-                        $test->name()
+                        $test->name(),
                     );
 
                     $linesToBeUsed = (new CodeCoverageMetadataApi)->linesToBeUsed(
                         $test::class,
-                        $test->name()
+                        $test->name(),
                     );
                 } catch (InvalidCoversTargetException $cce) {
                     Event\Facade::emitter()->testTriggeredPhpunitWarning(
                         $test->valueObjectForEvents(),
-                        $cce->getMessage()
+                        $cce->getMessage(),
                     );
                 }
             }
@@ -175,14 +176,14 @@ final class TestRunner
                 CodeCoverage::instance()->stop(
                     $append,
                     $linesToBeCovered,
-                    $linesToBeUsed
+                    $linesToBeUsed,
                 );
             } catch (UnintentionallyCoveredCodeException $cce) {
                 Event\Facade::emitter()->testConsideredRisky(
                     $test->valueObjectForEvents(),
                     'This test executed code that is not listed as code to be covered or used:' .
                     PHP_EOL .
-                    $cce->getMessage()
+                    $cce->getMessage(),
                 );
             } catch (OriginalCodeCoverageException $cce) {
                 $error = true;
@@ -193,23 +194,14 @@ final class TestRunner
 
         ErrorHandler::instance()->disable();
 
-        if (isset($e)) {
-            if ($test->wasPrepared()) {
-                Event\Facade::emitter()->testFinished(
-                    $test->valueObjectForEvents(),
-                    $test->numberOfAssertionsPerformed()
-                );
-            }
-
-            return;
-        }
-
-        if ($this->configuration->reportUselessTests() &&
+        if (!$incomplete &&
+            !$skipped &&
+            $this->configuration->reportUselessTests() &&
             !$test->doesNotPerformAssertions() &&
             $test->numberOfAssertionsPerformed() === 0) {
             Event\Facade::emitter()->testConsideredRisky(
                 $test->valueObjectForEvents(),
-                'This test did not perform any assertions'
+                'This test did not perform any assertions',
             );
         }
 
@@ -219,8 +211,8 @@ final class TestRunner
                 $test->valueObjectForEvents(),
                 sprintf(
                     'This test is not expected to perform assertions but performed %d assertions',
-                    $test->numberOfAssertionsPerformed()
-                )
+                    $test->numberOfAssertionsPerformed(),
+                ),
             );
         }
 
@@ -233,15 +225,15 @@ final class TestRunner
                 $test->valueObjectForEvents(),
                 sprintf(
                     'This test printed output: %s',
-                    $test->output()
-                )
+                    $test->output(),
+                ),
             );
         }
 
         if ($test->wasPrepared()) {
             Event\Facade::emitter()->testFinished(
                 $test->valueObjectForEvents(),
-                $test->numberOfAssertionsPerformed()
+                $test->numberOfAssertionsPerformed(),
             );
         }
     }
@@ -262,11 +254,11 @@ final class TestRunner
 
         if ($runEntireClass) {
             $template = new Template(
-                __DIR__ . '/../Util/PHP/Template/TestCaseClass.tpl'
+                __DIR__ . '/../Util/PHP/Template/TestCaseClass.tpl',
             );
         } else {
             $template = new Template(
-                __DIR__ . '/../Util/PHP/Template/TestCaseMethod.tpl'
+                __DIR__ . '/../Util/PHP/Template/TestCaseMethod.tpl',
             );
         }
 
@@ -287,7 +279,8 @@ final class TestRunner
             $iniSettings   = GlobalState::getIniSettingsAsString();
         }
 
-        $coverage = CodeCoverage::instance()->isActive() ? 'true' : 'false';
+        $coverage         = CodeCoverage::instance()->isActive() ? 'true' : 'false';
+        $linesToBeIgnored = var_export(CodeCoverage::instance()->linesToBeIgnored(), true);
 
         if (defined('PHPUNIT_COMPOSER_INSTALL')) {
             $composerAutoload = var_export(PHPUNIT_COMPOSER_INSTALL, true);
@@ -321,6 +314,7 @@ final class TestRunner
             'filename'                       => $class->getFileName(),
             'className'                      => $class->getName(),
             'collectCodeCoverageInformation' => $coverage,
+            'linesToBeIgnored'               => $linesToBeIgnored,
             'data'                           => $data,
             'dataName'                       => $dataName,
             'dependencyInput'                => $dependencyInput,
@@ -431,8 +425,8 @@ final class TestRunner
                 sprintf(
                     'This test was aborted after %d second%s',
                     $_timeout,
-                    $_timeout !== 1 ? 's' : ''
-                )
+                    $_timeout !== 1 ? 's' : '',
+                ),
             );
 
             return true;
