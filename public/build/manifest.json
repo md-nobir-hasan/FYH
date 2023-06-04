@@ -20,7 +20,7 @@
     "src": "public/js/toastr.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-70a6213c.css",
+    "file": "assets/app-7b5997e4.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
