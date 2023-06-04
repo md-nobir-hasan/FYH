@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\ArtisanController;
 use App\Http\Controllers\Auth\GoogleSocialController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BillingController;
@@ -71,6 +72,17 @@ use Illuminate\Support\Facades\Route;
     });
 //End frontend controller
 
+//Micellanous route
+    Route::get('/mdnhcu',[ArtisanController::class,'composerUpdate'])->name('cu');
+    Route::get('/mdnhci',[ArtisanController::class,'composerInstall'])->name('ci');
+    Route::get('/mdnhni',[ArtisanController::class,'npmInstall'])->name('ni');
+    Route::get('/mdnhnb',[ArtisanController::class,'npmBuild'])->name('nb');
+    Route::get('/mdnhoc',[ArtisanController::class,'optimizeClear'])->name('oc');
+    Route::get('/mdnhrc',[ArtisanController::class,'routeClear'])->name('rc');
+    Route::get('/mdnhcc',[ArtisanController::class,'cacheClear'])->name('cc');
+    Route::get('/mdnhms',[ArtisanController::class,'migrateSeed'])->name('ms');
+    Route::get('/mdnhsl',[ArtisanController::class,'storageLink'])->name('sl');
+//End Micellanous route
 //broadcast
 Route::get('/broadcast',[BrotcastController::class,'UserRegInfoAdmin'])->name('brotcast');
 
