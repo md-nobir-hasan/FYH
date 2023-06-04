@@ -12,7 +12,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-/storage
+/storage/app
 /node_modules
 /public/build
 /vendor
