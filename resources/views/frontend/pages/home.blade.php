@@ -2,29 +2,7 @@
 @push('title')
     Home
 @endpush
-<style>
 
-     .editor h1{
-          font-size: 36px;
-          font-weight: 700px;
-     }
-     .editor h2{
-          font-size: 30px;
-          font-weight: 600px;
-     }
-     .editor h3{
-          font-size: 24px;
-          font-weight: 500px;
-     }
-     .editor h4{
-          font-size: 18px;
-          font-weight: 500px;
-     }
-     .editor h5{
-          font-size: 14px;
-          font-weight: 500px;
-     }
-</style>
 
 
 @section('content')
@@ -61,19 +39,19 @@
 
     <!-- hero section -->
         <div class="mt-16 grid grid-cols-2">
-            <div class="editor">
-                  @if($home !== null) {!! $home->details!!} @endif
-            {{-- <h3 class="text-5xl font-bold">Do you want to move <br> in Switzerland ?</h3>
-            <p class="font-semibold">At Fyh service you Can Find All Necessary information to take the Decision That can Change Your life</p>
-            <h3 class="text-5xl font-bold mt-5">Already Relocated ?</h3>
-            <p class="font-semibold">At FYH service You Can Find All Necessary Information to Integrate Into Switzerland</p> --}}
+            <div class="">
+                 
+             <h3 class="text-5xl font-black font-sans"> @if($home !== null) {{ $home->title_one}} @endif </h3>
+            <p class="text-md capitalize my-2 font-semibold font-sans" > @if($home !== null) {{ $home->title_one_description}} @endif </p>
+            <h3 class="text-5xl font-black mt-5 font-sans">@if($home !== null) {{ $home->title_two}} @endif</h3>
+            <p class="text-md capitalize my-2 font-semibold font-sans"> @if($home !== null) {{ $home->title_two_description}} @endif </p> 
             <div class="flex">
                 <a href="{{route('member')}}">
             <div class="mt-10 text-white w-72 rounded flex justify-center items-center h-16 font-semibold" style="background-color:#D1052C"><button class="mr-1 font-lg">Join FYH now</button>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
         </div>
     </a>
-    <a href="{{route('about')}}">
+    <a href="{{route('about')}}" class="mt-8">
             <p class="mt-10 flex justify-center items-center ml-12 font-semibold underline decoration-3" style="color:
                 #D1052C">Learn More</p>
                 </a>
@@ -90,8 +68,8 @@
 
         <div class="mt-40">
             <div>
-                <h1 class="text-4xl font-bold text-center"> @if($allTitle !==null) {{$allTitle->benefit_title}} @endif </h1>
-                <p class=" text-center text-lg font-normal"> @if($allTitle !==null) {{$allTitle->benefit_subtitle}} @endif</p>
+                <h1 class="text-4xl font-bold text-center"> @if($home !==null) {{$home->benefit_title}} @endif </h1>
+                <p class=" text-center text-lg font-normal"> @if($home !==null) {{$home->benefit_subtitle}} @endif</p>
             </div>
             <!-- benifit card section -->
             <div class="grid grid-cols-3 gap-8 mt-10">
@@ -121,8 +99,8 @@
 
         <!-- Success section start -->
         <div class="mt-10">
-            <h1 class="font-bold text-4xl text-center"> @if($allTitle !==null) {{$allTitle->story_title}} @endif</h1>
-            <p class="text-lg text-center font-normal"> @if($allTitle !==null) {{$allTitle->story_subtitle}} @endif</p>
+            <h1 class="font-bold text-4xl text-center"> @if($home !==null) {{$home->story_title}} @endif</h1>
+            <p class="text-lg text-center font-normal"> @if($home !==null) {{$home->story_subtitle}} @endif</p>
 
             <!-- success card  -->
             <div class="grid grid-cols-3 gap-8 mt-10">
@@ -155,8 +133,8 @@
 
         <!-- services section start -->
                 <div class="mt-20">
-                    <h1 class="text-4xl font-bold text-center"> @if($allTitle !==null) {{$allTitle->service_title}} @endif</h1>
-                    <p class="text-lg font-normal text-center"> @if($allTitle !==null) {{$allTitle->service_subtitle}} @endif</p>
+                    <h1 class="text-4xl font-bold text-center"> @if($home !==null) {{$home->service_title}} @endif</h1>
+                    <p class="text-lg font-normal text-center"> @if($home !==null) {{$home->service_subtitle}} @endif</p>
                     
                     <!-- services here -->
                     <div class="mt-10 grid grid-cols-4 mx-auto">
