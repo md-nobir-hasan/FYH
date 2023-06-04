@@ -11,9 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
+
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
-            $table->longText('details')->nullable();
+            $table->longText('title_one')->nullable();
+            $table->longText('title_one_description')->nullable();
+            $table->longText('title_two')->nullable();
+            $table->longText('title_two_description')->nullable();
+            $table->longText('benefit_title')->nullable();
+            $table->longText('benefit_subtitle')->nullable();
+            $table->longText('story_title')->nullable();
+            $table->longText('story_subtitle')->nullable();
+            $table->longText('feature_title')->nullable();
+            $table->longText('feature_subtitle')->nullable();
+            $table->longText('image_title')->nullable();
+            $table->longText('image_subtitle')->nullable();
+            $table->longText('service_title')->nullable();
+            $table->longText('service_subtitle')->nullable();
+            $table->longText('share_title')->nullable();
+            $table->longText('share_subtitle')->nullable();
             $table->longText('image')->nullable();
             $table->timestamps();
         });

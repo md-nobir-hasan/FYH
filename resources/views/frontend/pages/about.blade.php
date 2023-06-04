@@ -6,9 +6,12 @@
 <style>
 
 iframe{
-         width: 80% !important;
+         width: 85% !important;
          margin: auto;
-         border-radius: 1%;
+         border-radius: 10px;
+         padding: 10px;
+         background: #ECF9FF;
+         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 </style>
@@ -18,15 +21,15 @@ iframe{
 
 
 
-<div style="font-family:'Poppins'" class=" px-10 py-5 mx-auto">
-    <h1 class="text-center text-5xl font-black mt-10">
+<div  style="width: 90% ;margin: auto;">
+    <h1 class="text-center text-5xl font-black mt-10 ">
         @if($about!==null)  {{$about->title}}  @endif    
     </h1>
-    <p class="text-center text-xl font-normal"> 
+    <p class="text-center text-xl font-medium capitalize my-2"> 
         @if($about!==null)  {{$about->title_description}}  @endif      
     </p>
-    <h1 class="text-center text-5xl font-black mt-10">   @if($about!==null)  {{$about->heading}}  @endif  </h1>
-    <p class="text-center text-xl font-normal my-5">
+    <h1 class="text-center text-5xl font-black mt-10 w-8/12 mx-auto whitespace-break-spaces">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
+    <p class="text-center text-xl font-normal my-5 w-8/12 mx-auto">
         @if($about!==null)  {{$about->heading_description}}  @endif
     </p>
 
@@ -36,13 +39,13 @@ iframe{
   
         @if($about->images!==null)
         @foreach (json_decode($about->images)  as $item)
-             <img src="{{'/storage/'.$item}}" alt="" class="rounded-lg"  style="width: 100%; height: 180px;">
+             <img src="{{'/storage/'.$item}}" alt="" class="rounded-lg p-1"  style="width: 100%; height: 180px;">
           
         @endforeach
         @endif
     </div>
 
-    <p class="lg:mx-48 mx-20 mt-4 text-justify text-sm font-normal">
+    <p class=" mx-20 mt-4 text-justify text-sm font-normal">
         @if($about!==null)  {{$about->images_description}}  @endif     
     </p>
 

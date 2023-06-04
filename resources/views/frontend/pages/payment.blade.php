@@ -112,7 +112,7 @@
                 <input type="hidden" name="plan_id" value="{{$planId->id}}">
                 <hr class="h-px my-8 bg-black border-0 mt-0 mb-0">
                 <button
-                    class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold">PAY & GO</button>
+                    class="text-center w-full h-[48px] bg-green-500 mt-6 rounded-[10px] text-white text-[16px] font-bold">PAY & GO</button>
             </div>
               </form>
         </div>
