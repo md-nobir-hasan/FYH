@@ -6,8 +6,9 @@
 <style>
 
 iframe{
-         width: 70% !important;
+         width: 80% !important;
          margin: auto;
+         border-radius: 1%;
 }
 
 </style>
@@ -17,15 +18,15 @@ iframe{
 
 
 
-<div style="font-family:'Poppins'">
-    <h1 class="text-center text-4xl font-black mt-10">
+<div style="font-family:'Poppins'" class=" px-10 py-5 mx-auto">
+    <h1 class="text-center text-5xl font-black mt-10">
         @if($about!==null)  {{$about->title}}  @endif    
     </h1>
     <p class="text-center text-xl font-normal"> 
         @if($about!==null)  {{$about->title_description}}  @endif      
     </p>
     <h1 class="text-center text-5xl font-black mt-10">   @if($about!==null)  {{$about->heading}}  @endif  </h1>
-    <p class="text-center text-xl font-normal">
+    <p class="text-center text-xl font-normal my-5">
         @if($about!==null)  {{$about->heading_description}}  @endif
     </p>
 
@@ -49,7 +50,7 @@ iframe{
   <source src="movie.mp4" type="video/mp4">
 </video> --}}
 
-        <div class="lg:mx-48 mt-5 mx-20 md:w-[600px] lg:w-[960px]">
+        <div class=" mt-5 md:w-[600px] lg:w-[960px] mx-auto" >
             @if($about!==null)  {!!$about->youtube !!}  @endif   
         </div>
 
@@ -96,7 +97,7 @@ iframe{
                 </div>
                 <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
                 <p class="font-medium text-sm dark:text-gray-400">
-                     {{$item->description}}    
+                     {{Str::limit($item->description, 200)}}    
                 </p>
                 </a>
             </div>

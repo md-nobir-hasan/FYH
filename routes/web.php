@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\Auth\GoogleSocialController;
 use App\Http\Controllers\BenefitController;
+use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
+use App\Http\Controllers\CongratController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
@@ -16,6 +19,7 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MembershipTypeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MiscellaneousController;
+use App\Http\Controllers\OpporcunityController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\ProfileController;
@@ -39,17 +43,21 @@ use Illuminate\Support\Facades\Route;
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
     Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('sharestory');
 
-    // checkout
-    Route::get('/checkout/{planId}', [FrontendControler::class,'checkout'])->name('checkout')->middleware('auth');
-    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment')->middleware('auth');
-
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
-        Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('move_switzerland');
+        Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
+
     });
 
-    Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
-    Route::get('/about', [FrontendControler::class, 'about'])->name('about');
+     Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
+     Route::get('/about', [FrontendControler::class, 'about'])->name('about');
+
+     Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing');
+     Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store');
+
+     // checkout
+    Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page'); //checkout page
+    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
 //End frontend controller
 
@@ -74,6 +82,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified','admin'])->name('dashboard');
 //end dashoard
+
+// google Login
+Route::get('/redirect/{planId?}', [GoogleSocialController::class, 'redirect'])->name('google.auth');
+Route::get('/auth/callback', [GoogleSocialController::class, 'callBack'])->name('google.callback');
+
 
 
 // Admin route ===============================================
@@ -101,6 +114,8 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
 
 
+    Route::resource('billings', BillingController::class)->only('index', 'destroy');
+
     Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
     Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
     Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');
@@ -119,6 +134,11 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::resource('stories', StoryController::class)->except('destroy');
     Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
 
+    // benefit and other Section title and subtitle
+    Route::resource('opportunitys', OpporcunityController::class);
+
+    // Congrats Route
+    Route::resource('congrats', CongratController::class);
     //Setup
     Route::prefix('/setup')->name('setup.')->group(function(){
         //Client type

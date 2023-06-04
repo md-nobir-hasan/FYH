@@ -28,7 +28,7 @@ class StoreClientTypeRequest extends FormRequest
             'price'=>"required|numeric",
            // 'dis'=>"required|numeric",
             'des'=>"required|string",
-            'interval_count' => "required"
+            'interval_count' => "required|min:1|max:7"
 
         ];
     }

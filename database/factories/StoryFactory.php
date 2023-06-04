@@ -18,6 +18,7 @@ class StoryFactory extends Factory
     public function definition(): array
     {
         $name = $this->faker->name();
+        $image = $this->faker->randomElement(['image/man1.png','image/man2.png','image/man3.png','image/man4.png', 'image/man5.png', 'image/man6.png', 'image/man7.png', 'image/man8.png', 'image/man9.png', 'image/man10.png', 'image/man11.png']);
         return [
              'name' =>$name,
              'slug' => Str::slug($name, '-'),
@@ -26,7 +27,7 @@ class StoryFactory extends Factory
             'priority' => $this->faker->numberBetween(1, 100),
             'address' => $this->faker->address(),
             'profession' => 'teacher',
-            'image' => 'image/demo.png',
+            'image' => $image,
             
         ];
     }

@@ -12,7 +12,7 @@
         </div>
         <h1 class="mb-2">Describe yourself as clearly so that there are no mistakes.</h1>
         <!-- google icon -->
-        <button class="w-full border hover:bg-[#D1052C] hover:text-white border-[#000000] p-3 rounded-lg font-semibold flex justify-center items-center"><svg class="mr-1" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="{{route('google.auth',$planId->plan_id)}}" class="w-full border hover:bg-[#D1052C] hover:text-white border-[#000000] p-3 rounded-lg font-semibold flex justify-center items-center"><svg class="mr-1" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_468_289)">
     <path d="M5.09729 13.8991L4.29669 16.8879L1.37052 16.9498C0.496027 15.3278 0 13.472 0 11.4999C0 9.59294 0.463773 7.79463 1.28584 6.21118H1.28647L3.89158 6.68879L5.03278 9.27827C4.79393 9.9746 4.66374 10.7221 4.66374 11.4999C4.66383 12.3441 4.81675 13.1529 5.09729 13.8991Z" fill="#FFD500"/>
     <path d="M22.7991 9.35156C22.9311 10.0472 23 10.7657 23 11.4999C23 12.3232 22.9134 13.1263 22.7485 13.901C22.1887 16.5372 20.7259 18.8391 18.6995 20.468L18.6989 20.4674L15.4176 20.3L14.9532 17.4009C16.2978 16.6124 17.3486 15.3783 17.9022 13.901H11.7528V9.35156H17.9919H22.7991Z" fill="#167EE6"/>
@@ -24,13 +24,16 @@
     <rect width="23" height="23" fill="white"/>
     </clipPath>
     </defs>
-    </svg>Continue with Google</button>
+    </svg>Continue with Google</a>
         <!-- google icon end -->
         <div class="grid grid-cols-4">
     <hr class="h-px my-8 bg-black col-span-1 border-0">
     <p class="col-span-2 flex justify-center items-center font-medium">or continue with email</p>
     <hr class="h-px my-8 bg-black col-span-1 border-0">
     </div>
+
+
+ <input type="hidden" name="planId"     @if($planId!==null)value="{{$planId->plan_id}}" @endif>  
 
         <!-- Name -->
         <div>
@@ -51,7 +54,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-       
+      
 
         <!-- Password -->
         <div class="">
@@ -100,21 +103,21 @@
         <div class="border-2 border-black rounded-xl p-3">
             <h1 class="font-bold text-xl ml-4">Order Summary</h1>
             <div class="flex mt-2">
-                <h1 class="pl-4">Starter Package - Online Payment... </h1>     
-                <h1 class="ml-auto">CHF 29.00</h1>     
+                <h1 class="pl-4 uppercase"> @if($planId !==null){{$planId->name }} @endif - Online Payment... </h1>     
+                <h1 class="ml-auto uppercase">@if($planId !==null){{$planId->currency }} @endif @if($planId !==null){{$planId->price }} @endif</h1>     
             </div>
             <div class="flex mt-2">
                 <h1 class="pl-4">Other fee</h1>     
-                <h1 class="ml-auto">CHF 0.00</h1>     
+                <h1 class="ml-auto uppercase">@if($planId !==null){{$planId->currency }}.00 @endif</h1>     
             </div>
             <div class="flex mt-2">
                 <h1 class="pl-4">Vat & Tax</h1>     
-                <h1 class="ml-auto">CHF 0.00</h1>     
+                <h1 class="ml-auto uppercase">@if($planId !==null){{$planId->currency }}. 00 @endif</h1>     
             </div>
             <hr class="mt-3 h-px my-1 bg-gray-700 border-0">
             <div class="flex">
                 <h1 class="font-bold text-xl ml-4">Total</h1>
-                <h1 class="ml-auto">CHF 29.00</h1>
+                <h1 class="ml-auto">@if($planId !==null){{$planId->currency }} @endif @if($planId !==null){{$planId->price }} @endif</h1>
             </div>
         </div>
     </div>

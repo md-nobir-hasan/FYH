@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClientType;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -10,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -18,9 +20,13 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create($planId=null)
     {
-        return view('auth.register');
+        if($planId==null){
+             return Redirect::back();
+        }
+        $planId = ClientType::where('plan_id', $planId)->first();
+        return view('auth.register', ['planId' => $planId]);
     }
 
     /**
@@ -28,7 +34,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -48,9 +54,19 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+
         event(new Registered($user));
 
         Auth::login($user);
+
+        $loginUser = auth()->user();
+
+        $plan = $request->planId;
+        $planId = ClientType::where('plan_id', $plan)->first();
+
+        if($loginUser->role_id ==null){
+            return view('frontend.pages.billing', ['planId' => $planId]);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }

@@ -7,6 +7,7 @@ use Carbon\CarbonPeriod;
 use Closure;
 use DateTimeInterface;
 use Illuminate\Contracts\Database\Query\Builder as BuilderContract;
+use Illuminate\Contracts\Database\Query\ConditionExpression;
 use Illuminate\Contracts\Database\Query\Expression as ExpressionContract;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Concerns\BuildsQueries;
@@ -753,6 +754,14 @@ class Builder implements BuilderContract
      */
     public function where($column, $operator = null, $value = null, $boolean = 'and')
     {
+        if ($column instanceof ConditionExpression) {
+            $type = 'Expression';
+
+            $this->wheres[] = compact('type', 'column', 'boolean');
+
+            return $this;
+        }
+
         // If the column is an array, we will assume it is an array of key-value pairs
         // and can add them each as a where clause. We will maintain the boolean we
         // received when the method was called and pass it into the nested where.
@@ -1253,7 +1262,7 @@ class Builder implements BuilderContract
         $type = 'between';
 
         if ($values instanceof CarbonPeriod) {
-            $values = $values->toArray();
+            $values = [$values->start, $values->end];
         }
 
         $this->wheres[] = compact('type', 'column', 'values', 'boolean', 'not');
@@ -2083,6 +2092,14 @@ class Builder implements BuilderContract
     {
         $type = 'Basic';
 
+        if ($column instanceof ConditionExpression) {
+            $type = 'Expression';
+
+            $this->havings[] = compact('type', 'column', 'boolean');
+
+            return $this;
+        }
+
         // Here we will make some assumptions about the operator. If only 2 values are
         // passed to the method, we will assume that the operator is an equals sign
         // and keep going. Otherwise, we'll require the operator to be passed in.
@@ -2232,7 +2249,7 @@ class Builder implements BuilderContract
         $type = 'between';
 
         if ($values instanceof CarbonPeriod) {
-            $values = $values->toArray();
+            $values = [$values->start, $values->end];
         }
 
         $this->havings[] = compact('type', 'column', 'values', 'boolean', 'not');
@@ -2793,17 +2810,30 @@ class Builder implements BuilderContract
      */
     protected function ensureOrderForCursorPagination($shouldReverse = false)
     {
-        $this->enforceOrderBy();
+        if (empty($this->orders) && empty($this->unionOrders)) {
+            $this->enforceOrderBy();
+        }
 
-        return collect($this->orders ?? $this->unionOrders ?? [])->filter(function ($order) {
-            return Arr::has($order, 'direction');
-        })->when($shouldReverse, function (Collection $orders) {
-            return $orders->map(function ($order) {
-                $order['direction'] = $order['direction'] === 'asc' ? 'desc' : 'asc';
-
+        $reverseDirection = function ($order) {
+            if (! isset($order['direction'])) {
                 return $order;
-            });
-        })->values();
+            }
+
+            $order['direction'] = $order['direction'] === 'asc' ? 'desc' : 'asc';
+
+            return $order;
+        };
+
+        if ($shouldReverse) {
+            $this->orders = collect($this->orders)->map($reverseDirection)->toArray();
+            $this->unionOrders = collect($this->unionOrders)->map($reverseDirection)->toArray();
+        }
+
+        $orders = ! empty($this->unionOrders) ? $this->unionOrders : $this->orders;
+
+        return collect($orders)
+            ->filter(fn ($order) => Arr::has($order, 'direction'))
+            ->values();
     }
 
     /**

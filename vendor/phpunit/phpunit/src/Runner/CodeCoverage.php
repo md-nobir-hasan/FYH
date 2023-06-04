@@ -50,6 +50,11 @@ final class CodeCoverage
     private ?TestCase $test                                             = null;
     private ?Timer $timer                                               = null;
 
+    /**
+     * @psalm-var array<string,list<int>>
+     */
+    private array $linesToBeIgnored = [];
+
     public static function instance(): self
     {
         if (self::$instance === null) {
@@ -59,11 +64,11 @@ final class CodeCoverage
         return self::$instance;
     }
 
-    public function init(Configuration $configuration, CodeCoverageFilterRegistry $codeCoverageFilterRegistry): void
+    public function init(Configuration $configuration, CodeCoverageFilterRegistry $codeCoverageFilterRegistry, bool $extensionRequiresCodeCoverageCollection): void
     {
         $codeCoverageFilterRegistry->init($configuration);
 
-        if (!$configuration->hasCoverageReport()) {
+        if (!$configuration->hasCoverageReport() && !$extensionRequiresCodeCoverageCollection) {
             return;
         }
 
@@ -104,11 +109,11 @@ final class CodeCoverage
         if ($codeCoverageFilterRegistry->get()->isEmpty()) {
             if (!$codeCoverageFilterRegistry->configured()) {
                 EventFacade::emitter()->testRunnerTriggeredWarning(
-                    'No filter is configured, code coverage will not be processed'
+                    'No filter is configured, code coverage will not be processed',
                 );
             } else {
                 EventFacade::emitter()->testRunnerTriggeredWarning(
-                    'Incorrect filter configuration, code coverage will not be processed'
+                    'Incorrect filter configuration, code coverage will not be processed',
                 );
             }
 
@@ -158,7 +163,7 @@ final class CodeCoverage
 
         $this->codeCoverage->start(
             $test->valueObjectForEvents()->id(),
-            $size
+            $size,
         );
 
         $this->collecting = true;
@@ -181,7 +186,7 @@ final class CodeCoverage
         }
 
         /* @noinspection UnusedFunctionResultInspection */
-        $this->codeCoverage->stop($append, $status, $linesToBeCovered, $linesToBeUsed);
+        $this->codeCoverage->stop($append, $status, $linesToBeCovered, $linesToBeUsed, $this->linesToBeIgnored);
 
         $this->test       = null;
         $this->collecting = false;
@@ -258,7 +263,7 @@ final class CodeCoverage
                 $writer = new HtmlReport(
                     sprintf(
                         ' and <a href="https://phpunit.de/">PHPUnit %s</a>',
-                        Version::id()
+                        Version::id(),
                     ),
                     Colors::from(
                         $configuration->coverageHtmlColorSuccessLow(),
@@ -269,9 +274,9 @@ final class CodeCoverage
                     ),
                     Thresholds::from(
                         $configuration->coverageHtmlLowUpperBound(),
-                        $configuration->coverageHtmlHighLowerBound()
+                        $configuration->coverageHtmlHighLowerBound(),
                     ),
-                    $customCssFile
+                    $customCssFile,
                 );
 
                 $writer->process($this->codeCoverage(), $configuration->coverageHtml());
@@ -303,7 +308,7 @@ final class CodeCoverage
             $processor = new TextReport(
                 Thresholds::default(),
                 $configuration->coverageTextShowUncoveredFiles(),
-                $configuration->coverageTextShowOnlySummary()
+                $configuration->coverageTextShowOnlySummary(),
             );
 
             $textReport = $processor->process($this->codeCoverage(), $configuration->colors());
@@ -331,6 +336,22 @@ final class CodeCoverage
         }
     }
 
+    /**
+     * @psalm-param array<string,list<int>> $linesToBeIgnored
+     */
+    public function ignoreLines(array $linesToBeIgnored): void
+    {
+        $this->linesToBeIgnored = $linesToBeIgnored;
+    }
+
+    /**
+     * @psalm-return array<string,list<int>>
+     */
+    public function linesToBeIgnored(): array
+    {
+        return $this->linesToBeIgnored;
+    }
+
     private function activate(Filter $filter, bool $pathCoverage): void
     {
         try {
@@ -342,11 +363,11 @@ final class CodeCoverage
 
             $this->codeCoverage = new \SebastianBergmann\CodeCoverage\CodeCoverage(
                 $this->driver,
-                $filter
+                $filter,
             );
         } catch (CodeCoverageException $e) {
             EventFacade::emitter()->testRunnerTriggeredWarning(
-                $e->getMessage()
+                $e->getMessage(),
             );
         }
     }
@@ -356,8 +377,8 @@ final class CodeCoverage
         $printer->print(
             sprintf(
                 "\nGenerating code coverage report in %s format ... ",
-                $format
-            )
+                $format,
+            ),
         );
 
         $this->timer()->start();
@@ -371,8 +392,8 @@ final class CodeCoverage
         $printer->print(
             sprintf(
                 "done [%s]\n",
-                $this->timer()->stop()->asString()
-            )
+                $this->timer()->stop()->asString(),
+            ),
         );
     }
 
@@ -385,8 +406,8 @@ final class CodeCoverage
             sprintf(
                 "failed [%s]\n%s\n",
                 $this->timer()->stop()->asString(),
-                $e->getMessage()
-            )
+                $e->getMessage(),
+            ),
         );
     }
 
