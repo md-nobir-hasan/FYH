@@ -25,19 +25,23 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-       if(Schema::hasTable('users')) {
-        $user = User::where('role_id',null)->orderBy('id','desc')->get() ?? null;
-            View::share('customers',$user);
-        }
-       if(Schema::hasTable('settings')) {
-        $n['setting'] = Setting::first() ?? null;
-            View::share($n);
-        }
-
-        if(Schema::hasTable('contents')) {
-            $homeContents = Content::orderBy('priority','asc')->get() ?? null;
-                View::share('homeContents',$homeContents);
+       try{
+        if(Schema::hasTable('users')) {
+            $user = User::where('role_id',null)->orderBy('id','desc')->get() ?? null;
+                View::share('customers',$user);
             }
+           if(Schema::hasTable('settings')) {
+            $n['setting'] = Setting::first() ?? null;
+                View::share($n);
+            }
+
+            if(Schema::hasTable('contents')) {
+                $homeContents = Content::orderBy('priority','asc')->get() ?? null;
+                    View::share('homeContents',$homeContents);
+            }
+       }catch(\Exception $e){
+
+       }
 
     }
 }
