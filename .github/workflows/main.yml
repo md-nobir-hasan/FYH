@@ -19,7 +19,7 @@ jobs:
           php-version: '8.2'  # Change this to your desired PHP version
 
       - name: Install Composer dependencies
-        run: composer install #--no-dev --prefer-dist --no-scripts --no-progress --no-interaction
+        run: composer update #--no-dev --prefer-dist --no-scripts --no-progress --no-interaction
 
       - name: Install Node.js
         uses: actions/setup-node@v3
