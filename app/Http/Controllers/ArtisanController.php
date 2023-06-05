@@ -37,7 +37,9 @@ class ArtisanController extends Controller
         echo 'Successfully server cache cleared';
     }
     public function migrateSeed(){
-        Artisan::call('migrate:fresh --seed');
+        Artisan::call('migrate:fresh', [
+            '--seed' => true,
+        ]);
         echo 'Successfully migrated and seed the data';
     }
     public function storageLink(){
