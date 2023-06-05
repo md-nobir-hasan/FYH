@@ -1,5 +1,5 @@
 on: push
-name: 🚀 Deploy to nobir on push
+name: 🚀 Deploy to nobir on pushes
 jobs:
   web-deploy:
     name: 🎉 Deploy
