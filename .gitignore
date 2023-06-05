@@ -15,4 +15,5 @@ yarn-error.log
 /storage/app
 /node_modules
 /public/build
+/public/storage
 /vendor
