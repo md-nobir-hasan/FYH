@@ -70,6 +70,11 @@
                             <tbody>
                                 @if($subscriptions->count() > 0)
                                 @foreach ($subscriptions as $value)
+                                
+                                @php
+                                   $plan = App\Models\ClientType::where('plan_id', $value->stripe_price)->first() ?? null;
+                                @endphp
+
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <td scope="row"
@@ -79,7 +84,7 @@
 
                                         <td scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{$value->membership->name}}
+                                        @if($plan !==null)     {{$plan->name}} @endif    
                                         </td>
                                         <td scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">

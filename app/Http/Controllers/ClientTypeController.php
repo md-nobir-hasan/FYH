@@ -149,6 +149,6 @@ class ClientTypeController extends Controller
      */
     public function destroy(ClientType $clientType)
     {
-        //
+             
     }
 }

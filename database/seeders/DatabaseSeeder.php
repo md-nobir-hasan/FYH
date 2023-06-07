@@ -7,10 +7,13 @@ namespace Database\Seeders;
 use App\Models\About;
 use App\Models\Benefit;
 use App\Models\Congrat;
+use App\Models\Integration;
+use App\Models\MoveTo;
 use App\Models\Opportunity;
 use App\Models\Service;
 use App\Models\Story;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -41,5 +44,7 @@ class DatabaseSeeder extends Seeder
         About::factory(1)->create();
         Congrat::factory(1)->create();
         Opportunity::factory(1)->create();
+        MoveTo::factory(8)->create();
+        Integration::factory(8)->create();
     }
 }

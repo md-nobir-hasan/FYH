@@ -22,12 +22,14 @@ class StoryFactory extends Factory
         return [
              'name' =>$name,
              'slug' => Str::slug($name, '-'),
-            'title' => $this->faker->text(25),
+            'title' => $this->faker->text(10),
             'description' => $this->faker->text(350),
             'priority' => $this->faker->numberBetween(1, 100),
             'address' => $this->faker->address(),
+            'city' => $this->faker->city(),
             'profession' => 'teacher',
             'image' => $image,
+            'status' => 1,
             
         ];
     }

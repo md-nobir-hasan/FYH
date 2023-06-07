@@ -28,7 +28,7 @@ iframe{
     <p class="text-center text-xl font-medium capitalize my-2"> 
         @if($about!==null)  {{$about->title_description}}  @endif      
     </p>
-    <h1 class="text-center text-5xl font-black mt-10 w-8/12 mx-auto whitespace-break-spaces">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
+    <h1 class="text-center text-5xl font-black mt-10 w-8/12 mx-auto ">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
     <p class="text-center text-xl font-normal my-5 w-8/12 mx-auto">
         @if($about!==null)  {{$about->heading_description}}  @endif
     </p>
