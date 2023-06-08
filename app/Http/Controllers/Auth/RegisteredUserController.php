@@ -68,6 +68,6 @@ class RegisteredUserController extends Controller
             return view('frontend.pages.billing', ['planId' => $planId]);
         }
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('user.home');
     }
 }

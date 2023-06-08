@@ -7,7 +7,7 @@
         <p class="text-lg">Stories of People Who Have Successfully Moved to Switzerland</p>
         <h1 class="text-4xl font-bold text-center">Our Success Stories</h1>
 
-        <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 mx-36 mt-5">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mx-36 mt-5">
 
             @if($stories->count() > 0)
 

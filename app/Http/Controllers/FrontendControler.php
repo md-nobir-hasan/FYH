@@ -34,7 +34,7 @@ class FrontendControler extends Controller
 
   public function membershipPage(){
        $memberShips = ClientType::orderBy('created_at', 'desc')->get();
-       $opportunity = Opportunity::select('title',	'subtitle',	'description')->first();
+       $opportunity = Opportunity::orderBy('id', 'asc')->first();
     return view('frontend.pages.member', compact('memberShips','opportunity'));
   }
 
@@ -107,7 +107,12 @@ class FrontendControler extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-         return Redirect::back()->with('success',' Successfully created');
+         return to_route('thank.you');
+  }
+
+  public function thank()
+  {
+    return view('frontend.pages.thank');
   }
 
   public function moveSwitzerland(){
@@ -166,6 +171,50 @@ class FrontendControler extends Controller
 
     return view('frontend.pages.payment',compact('planId', 'billing', 'stripe_key', 'intent'));
   }
+
+
+
+
+
+  // authorize user function
+  public function userHome()
+  {
+    return view('frontend.pages.user-home');
+  }
+
+  public function myStory()
+  {
+    return view('frontend.pages.my-story');
+  }
+  public function profile()
+  {
+    return view('frontend.pages.profile');
+  }
+  public function editProfile()
+  {
+    return view('frontend.pages.profile-edit');
+  }
+   public function memberShipUpdate()
+  {
+    return view('frontend.pages.membership-update');
+  }
+
+  public function helpSupport()
+  {
+    return view('frontend.pages.help_support');
+  }
+  public function termsCondition()
+  {
+    return view('frontend.pages.terms');
+  }
+  public function cookies()
+  {
+    return view('frontend.pages.cookies');
+  }
+
+
+
+
 
 
 

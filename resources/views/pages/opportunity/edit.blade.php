@@ -33,6 +33,22 @@
                                @enderror
                             </div>
 
+                            <div class="text-left">
+                                <label
+                                for="title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Heading: </label
+                              >
+                              <input name="heading"  @if($opportunity!==null) value="{{$opportunity->heading}}" @endif
+                                class="@error('heading') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="heading" />
+
+                                @error('heading')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
                             <div class=" mb-6">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left"> Subtitle: </label>
                                     <textarea  name="subtitle" rows="1" class="@error('subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -44,13 +60,97 @@
                                    @enderror
                             </div>
 
-                            <div class="mb-6 col-span-2">
-                                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Description: </label>
-                                    <textarea id="editor" name="description" rows="4" class="@error('details') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                                     placeholder="Enter Description">
-                                     @if($opportunity!==null)  {!!$opportunity->description  !!}  @endif
+                            <div class="mb-6 ">
+                                <label for="opOne" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity One: </label>
+                                    <textarea  name="opOne" rows="4" class="@error('opOne') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity One">
+                                     @if($opportunity!==null)  {{$opportunity->opOne  }}  @endif
                                     </textarea>
-                                    @error('description')
+                                    @error('opOne')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+                            <div class="mb-6 ">
+                                <label for="opTwo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity Two: </label>
+                                    <textarea  name="opTwo" rows="4" class="@error('opOne') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity One">
+                                     @if($opportunity!==null)  {{$opportunity->opTwo}}  @endif
+                                    </textarea>
+                                    @error('opTwo')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+                            <div class="mb-6 ">
+                                <label for="opThree" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity Three: </label>
+                                    <textarea  name="opThree" rows="4" class="@error('opThree') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity Three">
+                                     @if($opportunity!==null)  {{$opportunity->opTwo}}  @endif
+                                    </textarea>
+                                    @error('opThree')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+                            <div class="mb-6 ">
+                                <label for="opFour" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity Four: </label>
+                                    <textarea  name="opFour" rows="4" class="@error('opOne') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity Four">
+                                     @if($opportunity!==null)  {{$opportunity->opFour}}  @endif
+                                    </textarea>
+                                    @error('opFour')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                            <div class="mb-6 ">
+                                <label for="opFive" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity Five: </label>
+                                    <textarea  name="opFive" rows="4" class="@error('opFive') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity Five">
+                                     @if($opportunity!==null)  {{$opportunity->opFive}}  @endif
+                                    </textarea>
+                                    @error('opFive')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+                            <div class="mb-6 ">
+                                <label for="opSix" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity Six: </label>
+                                    <textarea  name="opSix" rows="4" class="@error('opOne') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity Six">
+                                     @if($opportunity!==null)  {{$opportunity->opSix}}  @endif
+                                    </textarea>
+                                    @error('opSix')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                            <div class="mb-6 ">
+                                <label for="opSeven" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity Seven: </label>
+                                    <textarea  name="opSeven" rows="4" class="@error('opSeven') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity Seven">
+                                     @if($opportunity!==null)  {{$opportunity->opSeven}}  @endif
+                                    </textarea>
+                                    @error('opSeven')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                            <div class="mb-6 ">
+                                <label for="opEight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity Eight: </label>
+                                    <textarea  name="opEight" rows="4" class="@error('opOne') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity Eight">
+                                     @if($opportunity!==null)  {{$opportunity->opEight}}  @endif
+                                    </textarea>
+                                    @error('opEight')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                            <div class="mb-6 ">
+                                <label for="opNine" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Opporttinity Nine: </label>
+                                    <textarea  name="opNine" rows="4" class="@error('opOne') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Opporttinity One">
+                                     @if($opportunity!==null)  {{$opportunity->opNine}}  @endif
+                                    </textarea>
+                                    @error('opNine')
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
                             </div>
@@ -63,85 +163,26 @@
                        
                             <div class="text-left">
                                 <label
-                                for="title"
+                                for="icon"
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
-                                >Benefit Title: </label
+                                >Icon: </label
                               >
-                              <input name="benefit_title"  @if($opportunity!==null) value="{{$opportunity->benefit_title}}" @endif
-                                class="@error('benefit_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                              <input name="icon"  @if($opportunity!==null) value="{{$opportunity->icon}}" @endif
+                                class="@error('icon') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
-                                id="benefit_title" />
+                                id="icon" />
 
-                                @error('benefit_title')
+                                @error('icon')
                                 <div class="text-left text-red-600">{{ $message }}</div>
                                @enderror
                             </div>
 
-                            <div class="mb-6">
-                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left"> Benefit Subtitle: </label>
-                                    <textarea  name="benefit_subtitle" rows="1" class="@error('benefit_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                                     placeholder="Enter Benefit subtitle">
-                                     @if($opportunity!==null)  {!!$opportunity->benefit_subtitle  !!}  @endif
-                                    </textarea>
-                                    @error('benefit_subtitle')
-                                    <div class="text-left text-red-600">{{ $message }}</div>
-                                   @enderror
-                            </div>
+                         
 
                           
-                            <div class="text-left">
-                                <label
-                                for="story_title"
-                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
-                                >Story Title: </label
-                              >
-                              <input name="story_title"  @if($opportunity!==null) value="{{$opportunity->story_title}}" @endif
-                                class="@error('story_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                                type="text"
-                                id="story_title" />
+                           
 
-                                @error('story_title')
-                                <div class="text-left text-red-600">{{ $message }}</div>
-                               @enderror
-                            </div>
-
-                            <div class="mb-6">
-                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left"> Story Subtitle: </label>
-                                    <textarea  name="story_subtitle" rows="1" class="@error('benefit_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                                     placeholder="Enter Story subtitle">
-                                     @if($opportunity!==null)  {!!$opportunity->story_subtitle  !!}  @endif
-                                    </textarea>
-                                    @error('story_subtitle')
-                                    <div class="text-left text-red-600">{{ $message }}</div>
-                                   @enderror
-                            </div>
-
-                            <div class="text-left">
-                                <label
-                                for="service_title"
-                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
-                                >Service Title: </label
-                              >
-                              <input name="service_title"  @if($opportunity!==null) value="{{$opportunity->service_title}}" @endif
-                                class="@error('service_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                                type="text"
-                                id="service_title" />
-
-                                @error('service_title')
-                                <div class="text-left text-red-600">{{ $message }}</div>
-                               @enderror
-                            </div>
-
-                            <div class="mb-6">
-                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left"> Service Subtitle: </label>
-                                    <textarea  name="service_subtitle" rows="1" class="@error('service_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                                     placeholder="Enter Service subtitle">
-                                     @if($opportunity!==null)  {!!$opportunity->service_subtitle  !!}  @endif
-                                    </textarea>
-                                    @error('service_subtitle')
-                                    <div class="text-left text-red-600">{{ $message }}</div>
-                                   @enderror
-                            </div>
+                           
                           
                         </div>
                      

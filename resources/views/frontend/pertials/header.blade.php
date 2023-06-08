@@ -77,14 +77,7 @@
 
 
             @auth
-            <form action="{{route('logout')}}" method="POST">
-              @csrf
-              <button class="ml-12 font-semibold px-1 py-2 text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">
-                 
-                     Logout
-                  
-              </button>
-          </form>
+         
                 
            
             <!-- love icon svg -->
@@ -103,7 +96,7 @@
             <div class="flex items-center ml-8 md:order-2">
       <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-2 focus:ring-[#D1052C] dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <span class="sr-only">Open user menu</span>
-        <img class="w-11 h-11 border border-[#D1052C] " src="/images/thomas.png" >
+        <img class="w-11 h-11 border border-[#D1052C] rounded-full " src="/images/thomas.png" >
       </button>
       <!-- Dropdown menu -->
       <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow" id="user-dropdown">
@@ -113,35 +106,43 @@
         </div>
         <hr class="h-px bg-black mx-4 border-0">
         <ul class="py-1" aria-labelledby="user-menu-button">
+          
+
+
+
+
           <li>
-            <a href="#" class="block text-lg px-4 py-1 font-medium text-black hover:bg-gray-100">Profile</a>
+            <a href="{{route('user.profile')}}" class="block text-lg px-4 py-1 font-medium text-black hover:bg-gray-100">Profile</a>
           </li>
           <li>
-            <a href="#" class="block text-lg px-4  text-black font-medium hover:bg-gray-100">Edit Profile</a>
+            <a href="{{route('user.profile.edit')}}" class="block text-lg px-4  text-black font-medium hover:bg-gray-100">Edit Profile</a>
           </li>
           <hr class="h-px bg-black mx-4 border-0">
           <li class="flex ml-4">
           
             <img src="/images/profileLogo.png" class="h-3 flex w-3 mt-4"/>
-            <a href="#" class="block text-lg px-2 py-2 text-black font-medium hover:bg-gray-100">My Story</a>
+            <a href="{{route('user.myStroy')}}" class="block text-lg px-2 py-2 text-black font-medium hover:bg-gray-100">My Story</a>
           </li>
           <li class="flex ml-4">
           <img src="/images/profileLogo2.png" class="h-3 flex w-3 mt-1"/>
-            <a href="#" class="block text-lg px-2 font-medium text-black hover:bg-gray-100">Membership Update</a>
+            <a href="{{route('user.membership.update')}}" class="block text-lg px-2 font-medium text-black hover:bg-gray-100">Membership Update</a>
           </li>
           <li class="flex ml-4">
           <img src="/images/profileLogo3.png" class="h-3 flex w-3 mt-3"/>
-            <a href="#" class="block text-lg px-2 pt-2 font-medium text-black hover:bg-gray-100">Help & Support</a>
+            <a href="{{route('help.support')}}" class="block text-lg px-2 pt-2 font-medium text-black hover:bg-gray-100">Help & Support</a>
           </li>
           <li class="flex ml-4">
-          <img src="/images/logout.png" class="h-3 flex w-3 mt-3"/>
-            <a href="#" class="block text-lg px-2 pt-2 font-medium text-black hover:bg-gray-100">Sign out</a>
+            <img src="/images/logout.png" class="h-3 flex w-3 mt-3"/>
+          <form action="{{route('logout')}}" method="POST">
+             @csrf
+            <button type="submit" class="block text-lg px-2 pt-2 font-medium text-black hover:bg-gray-100">Sign out</a>
+          </form>
           </li>
         </ul>
         <hr class="h-px bg-black mx-4 border-0">
         <div class="flex justify-center items-center">
-        <h1 class="">Terms & Condition</h1>
-        <p class="ml-3">Cookie</p>
+        <h1 class=""> <a href="{{route('terms.condition')}}">Terms & Condition</a></h1>
+        <p class="ml-3"> <a href="{{route('cookies')}}">Cookie</a> </p>
         </div>
       </div>
   </div>

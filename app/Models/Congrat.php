@@ -10,5 +10,7 @@ class Congrat extends Model
     use HasFactory;
 
 
-    protected $fillable = ['image',	'title', 'subtitle',  'description',	'option_title',	'button_one', 'button_two'];
+    protected $fillable = [
+    'image','heading','title','subtitle','opOne','opTwo','opThree','opFour','opFive','icon','option_title','button_one','button_two',
+    ];
 }

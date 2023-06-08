@@ -49,7 +49,7 @@ class GoogleSocialController extends Controller
 
                  }
                     else{
-                    return redirect()->intended('dashboard');
+                    return redirect()->intended('user/home');
                  }
                  $request->session()->forget('planId');
                 
@@ -61,7 +61,7 @@ class GoogleSocialController extends Controller
                     $planId = ClientType::where('plan_id', $Id)->first();
                     return view('frontend.pages.billing', ['planId' => $planId]);
                  }else{
-                    return redirect()->intended('dashboard');
+                    return redirect()->intended('user/home');
                  }
                
              }

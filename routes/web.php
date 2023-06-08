@@ -48,12 +48,25 @@ use Illuminate\Support\Facades\Route;
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
     Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('share.story');
     Route::post('/share-story/store', [FrontendControler::class,'storyStore'])->name('share.story.store');
+    Route::get('/thankYou', [FrontendControler::class,'thank'])->name('thank.you');
 
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
 
     });
+
+    // authorize user route 
+     Route::get('user/home', [FrontendControler::class, 'userHome'])->name('user.home');
+    Route::get('my-story', [FrontendControler::class, 'myStory'])->name('user.myStroy');
+    Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
+    Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
+    Route::get('user/membership/update', [FrontendControler::class, 'memberShipUpdate'])->name('user.membership.update');
+    Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
+    Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
+    Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
+
+
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
