@@ -42,9 +42,6 @@
 
 
 
-           
-
-
             <a href="{{route('about')}}">
                 <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
             </a>

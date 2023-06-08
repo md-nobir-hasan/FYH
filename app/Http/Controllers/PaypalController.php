@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ClientType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Srmklive\PayPal\Facades\PayPal;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 
@@ -42,6 +43,11 @@ class PaypalController extends Controller
         return redirect($order['links'][1]['href']);
     }
     public function success(Request $req){
-        dd($req->all());
+        $provider = new PayPalClient();
+        $provider->setApiCredentials(config('paypal'));
+        $provider->getAccessToken();
+        $response = $provider->capturePaymentOrder($req->token);
+        // dd($response);
+        echo 'Payment successfully';
     }
 }

@@ -21,7 +21,7 @@ iframe{
 
 
 
-<div  style="width: 90% ;margin: auto;">
+<div  style="width: 90% ;margin: auto;font-family:'Poppins'">
     <h1 class="text-center text-5xl font-black mt-10 ">
         @if($about!==null)  {{$about->title}}  @endif    
     </h1>
@@ -29,6 +29,7 @@ iframe{
         @if($about!==null)  {{$about->title_description}}  @endif      
     </p>
     <h1 class="text-center text-5xl font-black mt-10 w-8/12 mx-auto ">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
+
     <p class="text-center text-xl font-normal my-5 w-8/12 mx-auto">
         @if($about!==null)  {{$about->heading_description}}  @endif
     </p>
@@ -45,7 +46,7 @@ iframe{
         @endif
     </div>
 
-    <p class=" mx-20 mt-4 text-justify text-sm font-normal">
+    <p class=" lg:mx-52 mt-4 text-justify text-sm font-normal">
         @if($about!==null)  {{$about->images_description}}  @endif     
     </p>
 
@@ -59,21 +60,27 @@ iframe{
 
 
 <div class="mt-10 lg:mx-48 mx-20 px-10 py-5 " style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-    @if($about!==null)  {!!$about->youtube_description !!}  @endif   
+    <!-- @if($about!==null)  {!!$about->youtube_description !!}  @endif    -->
+    <h1 class="font-bold text-lg">“We’re constantly exploring, inventing, and optimizing personal transformation to ultimately unite our species, save our planet, and usher in a new golden age for humanity.”</h1>
+    <p>- Thomas Tsangaras, Founder of FYH</p>
   </div>
 
 
-  <div class="mt-5 lg:mx-36 mx-10 grid lg:grid-cols-3 grid-cols-1">
-    @if($about!==null)   <img src="{{'/storage/'. $about->first_image}}" alt="" class=""> @endif    
-    <div class="lg:mt-7 lg:ml-5 col-span-2">
+  <div class="mt-10 lg:mx-36 mx-10 grid lg:grid-cols-3 grid-cols-1">
+    <!-- {{'/storage/'. $about->first_image}} -->
+    @if($about!==null)   <img src="/images/story2.png" alt="" class=""> @endif    
+    <div class="lg:mt-4 lg:ml-5 col-span-2">
+    <h1 class=" text-4xl font-black">At FYH, learning is a lifelong adventure</h1>
         @if($about!==null)  {!!$about->first_image_story!!}  @endif   
     </div>
   </div>
   <div class="mt-5 lg:mx-36 mx-10 grid lg:grid-cols-3 grid-cols-1">
   <div class="lg:mt-7 lg:mr-5 col-span-2">
+    <!-- {{'/storage/'. $about->second_image}} -->
+    <h1 class=" text-4xl font-black">At FYH, learning is a lifelong adventure</h1>
     @if($about!==null)  {!!$about->second_image_story!!}  @endif  
     </div>
-    @if($about!==null)    <img src="{{'/storage/'. $about->second_image}}" alt="" class=""> @endif  
+    @if($about!==null)    <img src="/images/story3.png" alt="" class=""> @endif  
     
   </div>
 
@@ -83,14 +90,14 @@ iframe{
             <p class="text-lg text-center font-normal">Here’s all of the successful stories of our cusomers</p>
 
             <!-- success card  -->
-            <div class="grid lg:grid-cols-3 grid-cols-1 lg:mx-36 mx-10 mt-10">
+            <div class="grid lg:grid-cols-3 grid-cols-1 gap-10  lg:mx-20 mt-10">
 
            @if($stories->count() > 0)
            @foreach ($stories as $item)
                
          
             <div class="lg:mb-1 mb-5">
-                <a href="#" class="block w-80  px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+                <a href="#" class="block lg:w-80 lg:h-64  px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
                 <div class="flex">
                 <img src="{{'/storage/'. $item->image}}" alt="" class="h-16 w-16 rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                 <div class="ml-2">
@@ -113,11 +120,13 @@ iframe{
         <!-- Success section end -->
 
 
-        <div class="mt-10">
+        <div class="mt-28 mb-[-100px]">
+        <div class="">
             <h1 class="font-bold text-4xl text-center">We Are Excited For your Story</h1>
             <p class="font-normal text-xl text-center text-[#D1052C]">Our community runs on voices like yours. It keep us going, and keeps us grounded.<br>Tell us like it is. What's your story?</p>
         </div>
         <div class="text-center mt-3"><button class=" font-semibold text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="/membership">Share Your Story</a></button></div>
+        </div>
 </div>
 
 @endsection

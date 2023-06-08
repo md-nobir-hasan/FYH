@@ -13,11 +13,13 @@
     @endif
         <div class=" h-[815px] bg-[#F5F5F5] mx-40 rounded-xl mt-[107px] grid grid-cols-2">
             <div class="col-span-1">
+                
                 <img class="ml-[63px] mt-[23px] mb-[58px]" src="/images/Logo.png" alt="" />
                 <div class="ml-[83px] mb-[40px]">
-                    <h1 class="text-xl font-bold">  @if($opportunity !==null)   {{$opportunity->title}}   @endif</h1>
+                    <h1 class="text-xl font-bold font-black">  @if($opportunity !==null)   {{$opportunity->title}}   @endif</h1>
                     <h1 class="font-extrabold text-4xl text-[#0BC040]">
                        @if($opportunity !==null)   {{$opportunity->heading}}   @endif
+
                     </h1>
                     <h1 class="text-xl font-bold">
                         @if($opportunity !==null)   {{$opportunity->subtitle}}   @endif
