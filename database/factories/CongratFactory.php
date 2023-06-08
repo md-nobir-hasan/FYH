@@ -18,9 +18,14 @@ class CongratFactory extends Factory
     {
         return [
             'image' => 'image/badge.png',	
-             'title' => 'congratulation',
-             'subtitle' => 'On Subscribing To FYh',
-               'description' => '<p>✅ High standard of living Geographical location</p><p>✅ Beautiful nature and opportunity to relax without<br>✅ leaving the country</p><p>✅ Medicine of the highest level</p><p>✅ Education based on high standards</p>',
+             'heading' => 'congratulation',
+             'title' => 'On Subscribing To FYh',
+             'subtitle' => 'Now You Have Access To:',
+               'opOne' => 'High standard of living Geographical location',
+               'opTwo' => ' Beautiful nature and opportunity to relax without leaving the country',
+               'opThree' => 'Medicine of the highest level',
+               'opFour' => 'Education based on high standards',
+               	'icon' => '✓',
                	'option_title' => 'What Is More Relevant For You ',
                 	'button_one' => 'Plan To Move',
                      'button_two' => 'Already Relocated'

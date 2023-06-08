@@ -46,6 +46,8 @@ class StoryController extends Controller
                'priority' => $request->priority,
                'profession' =>$request->profession,
                'address' => $request->address,
+               'city' =>$request->city,
+               'user_id' => auth()->user()->id
            ]);
 
            return Redirect::back()->with('success',' Successfully created');
@@ -80,6 +82,7 @@ class StoryController extends Controller
             'priority' => $request->priority,
             'profession' =>$request->profession,
             'address' => $request->address,
+            'city' =>$request->city
          ]);
 
          return to_route('admin.stories.index')->with('success',' Successfully Update');
@@ -104,5 +107,19 @@ class StoryController extends Controller
       $story->delete();
     
       return Redirect::back()->with('success',' Story Delete SuccessfullY');
+    }
+
+    public function status($id)
+    {
+         $story = Story::findOrFail($id);
+          if($story->status == 1){
+             $story->status = 0;
+             $story->save();
+          }elseif ($story->status == 0) {
+            $story->status = 1;
+            $story->save();
+          }
+
+          return Redirect::back()->with('success',' Status Update SuccessfullY');
     }
 }

@@ -13,11 +13,13 @@
     @endif
         <div class=" h-[815px] bg-[#F5F5F5] mx-40 rounded-xl mt-[107px] grid grid-cols-2">
             <div class="col-span-1">
+                
                 <img class="ml-[63px] mt-[23px] mb-[58px]" src="/images/Logo.png" alt="" />
                 <div class="ml-[83px] mb-[40px]">
-                    <h1 class="text-xl font-bold">Welcome to FYH membership page</h1>
+                    <h1 class="text-xl font-bold font-black">  @if($opportunity !==null)   {{$opportunity->title}}   @endif</h1>
                     <h1 class="font-extrabold text-4xl text-[#0BC040]">
-                       @if($opportunity !==null)   {{$opportunity->title}}   @endif
+                       @if($opportunity !==null)   {{$opportunity->heading}}   @endif
+
                     </h1>
                     <h1 class="text-xl font-bold">
                         @if($opportunity !==null)   {{$opportunity->subtitle}}   @endif
@@ -25,8 +27,19 @@
                 </div>
                 <div class="ml-[110px]">
                 
-
-               @if($opportunity !==null)   {!!$opportunity->description !!}   @endif
+                    {{-- <div class="font-normal mt-5 w-4/12 mx-auto" style="text-align: center"> --}}
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }}  {{ $opportunity->opOne }} @endif</p>
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }}  {{ $opportunity->opTwo }} @endif</p>
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }} {{ $opportunity->opThree }} @endif</p>
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }} {{ $opportunity->opFour }} @endif</p>
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }} {{ $opportunity->opFive }} @endif</p>
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }} {{ $opportunity->opSix }} @endif</p>
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }} {{ $opportunity->opSeven }} @endif</p>
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }} {{ $opportunity->opEight }} @endif</p>
+                        <p class="text-left font-medium text-xl mb-1"> @if($opportunity !==null) {{ $opportunity->icon }} {{ $opportunity->opNine }} @endif</p>
+                     
+                    {{-- </div> --}}
+              
                 </div>
             </div>
             <!-- right side -->

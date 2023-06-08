@@ -29,19 +29,19 @@
                            @csrf
                                 <div class="mt-5">
                                 <label for="first_name" class="block mb-2 text-sm text-black font-semibold">First name</label>
-                                <input type="text" required name="f_name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name" required>
+                                <input type="text" value="{{auth()->user()->name}}" required name="f_name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name" required>
                             </div>
                             <div class="mt-5">
                                 <label for="last_name" class="block mb-2 text-sm text-black font-semibold">Last Name</label>
-                                <input type="text" required name="l_name" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name" required>
+                                <input type="text" required  name="l_name" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name" required>
                             </div>
                             <div class="mt-5">
                                 <label for="email" class="block mb-2 text-sm text-black font-semibold">Email</label>
-                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Email" required>
+                                <input type="email" value="{{auth()->user()->email}}" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Email" required>
                             </div>
                             <div class="mt-5">
                                 <label for="Number" class="block mb-2 text-sm text-black font-semibold">Phone Number</label>
-                                <input type="text" required id="number" name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Phone" required>
+                                <input type="text" value="{{auth()->user()->phone}}" required id="number" name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Phone" required>
                             </div>
                             
                                     <label for="countries" class="block mb-2 text-sm text-gray-900 mt-5 font-semibold">Select an option</label>

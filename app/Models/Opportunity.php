@@ -10,5 +10,7 @@ class Opportunity extends Model
     use HasFactory;
 
 
-    protected $fillable = ['title',	'subtitle',	'description',	'benefit_title',	'benefit_subtitle',	'story_title',	'story_subtitle' ,'service_title' ,'service_subtitle'];
+    protected $fillable = [
+        'title','heading','subtitle','opOne','opTwo','opThree','opFour','opFive','opSix','opSeven','opEight','opNine','icon',
+    ];
 }

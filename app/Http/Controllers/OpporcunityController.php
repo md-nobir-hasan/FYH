@@ -19,17 +19,24 @@ class OpporcunityController extends Controller
     public function store(OpportunityRequest $request)
     {
       
+         
 
           Opportunity::create([
             'title' => $request->title,
+            'heading' => $request->heading,
             'subtitle' => $request->subtitle,
-            'description' => $request->description,
-            'benefit_title' => $request->benefit_title,
-            'benefit_subtitle' => $request->benefit_subtitle,
-                'story_title' => $request->story_title,
-                'story_subtitle' => $request->story_subtitle,
-                'service_title' => $request->service_title,
-                'service_subtitle'	=> $request->service_subtitle,
+            'opOne' => $request->opOne,
+            'opTwo' => $request->opTwo,
+            'opThree' => $request->opThree,
+            'opFour' => $request->opFour,
+            'opFive' => $request->opFive,
+            'opSix' => $request->opSix,
+            'opSeven' => $request->opSeven,
+            'opEight' => $request->opEight,
+            'opEight' => $request->opEight,
+            'opNine' => $request->opNine,
+            'icon' => $request->icon,
+         
           ]);
 
            
@@ -41,14 +48,19 @@ class OpporcunityController extends Controller
         
           $opportunity->update([
             'title' => $request->title,
+            'heading' => $request->heading,
             'subtitle' => $request->subtitle,
-            'description' => $request->description,
-            'benefit_title' => $request->benefit_title,
-            'benefit_subtitle' => $request->benefit_subtitle,
-                'story_title' => $request->story_title,
-                'story_subtitle' => $request->story_subtitle,
-                'service_title' => $request->service_title,
-                'service_subtitle'	=> $request->service_subtitle,
+            'opOne' => $request->opOne,
+            'opTwo' => $request->opTwo,
+            'opThree' => $request->opThree,
+            'opFour' => $request->opFour,
+            'opFive' => $request->opFive,
+            'opSix' => $request->opSix,
+            'opSeven' => $request->opSeven,
+            'opEight' => $request->opEight,
+            'opEight' => $request->opEight,
+            'opNine' => $request->opNine,
+            'icon' => $request->icon,
           ]);
           return Redirect::back()->with('success',' Successfully Update');
     }

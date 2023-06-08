@@ -1,5 +1,4 @@
-<div class="flex justify-center items-center"><img src="{{ asset('/images/footer.png') }}" alt=""
-        class="mt-[400px] w-[900px] absolute"></div>
+
 <footer class="bg-black text-white mt-60 dark:bg-gray-900">
     <div class="mx-auto w-full p-4 py-6 lg:py-8">
         <div class="md:flex mt-20 md:justify-between">
