@@ -47,6 +47,7 @@ class PaypalController extends Controller
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($req->token);
-        dd($response);
+        // dd($response);
+        echo 'Payment successfully';
     }
 }
