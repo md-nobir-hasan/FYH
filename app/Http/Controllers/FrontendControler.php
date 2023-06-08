@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStoryRequest;
 use App\Models\About;
 use App\Models\Benefit;
 use App\Models\Billing;
@@ -9,13 +10,17 @@ use App\Models\ClientType;
 use App\Models\Congrat;
 use App\Models\Content;
 use App\Models\Home;
+use App\Models\Integration;
+use App\Models\MoveTo;
 use App\Models\Opportunity;
 use App\Models\Service;
 use App\Models\Story;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use Artisan;
+use Illuminate\Http\Client\Request as ClientRequest;
 
 class FrontendControler extends Controller
 {
@@ -29,12 +34,12 @@ class FrontendControler extends Controller
 
   public function membershipPage(){
        $memberShips = ClientType::orderBy('created_at', 'desc')->get();
-       $opportunity = Opportunity::select('title',	'subtitle',	'description')->first();
+       $opportunity = Opportunity::orderBy('id', 'asc')->first();
     return view('frontend.pages.member', compact('memberShips','opportunity'));
   }
 
   public function communityPage(){
-      $stories = Story::orderBy('priority','asc')->take(10)->get();
+      $stories = Story::where('status', 1)->orderBy('priority','asc')->take(10)->get();
     return view('frontend.pages.community',compact('stories'));
   }
 
@@ -67,6 +72,12 @@ class FrontendControler extends Controller
       $Benefits = Benefit::orderBy('priority','asc')->get();
       return view('frontend.pages.benefit', ['Benefits' => $Benefits]);
   }
+
+  public function singleBenefit($slug)
+  {
+    
+    return view('frontend.pages.single-benefit');
+  }
   public function singleStory($slug){
        $story = Story::where('slug', $slug)->first();
     return view('frontend.pages.single-story', ['story' => $story]);
@@ -75,11 +86,42 @@ class FrontendControler extends Controller
     return view('frontend.pages.share-story');
   }
 
+
+  public function storyStore(UserStoryRequest $request)
+  {
+          if($request->hasFile('image')){
+            $image = $request->file('image')->store('image');
+            }else{
+            $image = null;
+            }
+
+        Story::create([
+            'name' =>$request->name,
+            'slug' => Str::slug($request->name, '-'),
+            'title' => $request->title,
+            'image' => $image,
+            'description' => $request->description,
+            'profession' =>$request->profession,
+            'address' => $request->address,
+            'city' =>$request->city,
+            'user_id' => auth()->user()->id
+        ]);
+
+         return to_route('thank.you');
+  }
+
+  public function thank()
+  {
+    return view('frontend.pages.thank');
+  }
+
   public function moveSwitzerland(){
-    return view('frontend.pages.move-ch');
+        $moveTo = MoveTo::where('status', 1)->orderBy('priority', 'asc')->get();
+    return view('frontend.pages.move-ch', compact('moveTo'));
   }
   public function integrationSwitzerland(){
-    return view('frontend.pages.integration-ch');
+     $integration = Integration::where('status', 1)->orderBy('priority', 'asc')->get();
+    return view('frontend.pages.integration-ch',compact('integration'));
   }
   public function billingPage(Request $request){
 
@@ -129,6 +171,50 @@ class FrontendControler extends Controller
 
     return view('frontend.pages.payment',compact('planId', 'billing', 'stripe_key', 'intent'));
   }
+
+
+
+
+
+  // authorize user function
+  public function userHome()
+  {
+    return view('frontend.pages.user-home');
+  }
+
+  public function myStory()
+  {
+    return view('frontend.pages.my-story');
+  }
+  public function profile()
+  {
+    return view('frontend.pages.profile');
+  }
+  public function editProfile()
+  {
+    return view('frontend.pages.profile-edit');
+  }
+   public function memberShipUpdate()
+  {
+    return view('frontend.pages.membership-update');
+  }
+
+  public function helpSupport()
+  {
+    return view('frontend.pages.help_support');
+  }
+  public function termsCondition()
+  {
+    return view('frontend.pages.terms');
+  }
+  public function cookies()
+  {
+    return view('frontend.pages.cookies');
+  }
+
+
+
+
 
 
 

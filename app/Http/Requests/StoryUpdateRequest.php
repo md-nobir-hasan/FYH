@@ -28,7 +28,9 @@ class StoryUpdateRequest extends FormRequest
                  'description' => 'required',
                  'priority' => 'required',
                   'address' => 'required',
-                  'profession' => 'required'
+                  'profession' => 'required',
+                  'city' => 'required'
+
         ];
     }
 }

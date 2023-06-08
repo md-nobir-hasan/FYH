@@ -14,14 +14,18 @@ return new class extends Migration
         Schema::create('opportunities', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->longText('heading')->nullable();
             $table->longText('subtitle')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('benefit_title')->nullable();
-            $table->longText('benefit_subtitle')->nullable();
-            $table->string('story_title')->nullable();
-            $table->longText('story_subtitle')->nullable();
-            $table->string('service_title')->nullable();
-            $table->longText('service_subtitle')->nullable();
+            $table->longText('opOne')->nullable();
+            $table->longText('opTwo')->nullable();
+            $table->longText('opThree')->nullable();
+            $table->longText('opFour')->nullable();
+            $table->longText('opFive')->nullable();
+            $table->longText('opSix')->nullable();
+            $table->longText('opSeven')->nullable();
+            $table->longText('opEight')->nullable();
+            $table->longText('opNine')->nullable();
+            $table->longText('icon')->nullable();
 
             $table->timestamps();
         });

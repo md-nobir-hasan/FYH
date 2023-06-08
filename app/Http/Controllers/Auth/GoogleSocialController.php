@@ -3,29 +3,37 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClientType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request as inputRequest;
+use Illuminate\Support\Facades\Session;
 
 class GoogleSocialController extends Controller
 {
     public function redirect($planId=null)
     {
+          Session::put('planId', $planId);
         return Socialite::driver('google')->redirect();
+
     }
 
-    public function callBack()
+    public function callBack(Request $request)
     {
-
+        
          try {
              $google_user = Socialite::driver('google')->user();
 
              $user = User::where('google_id', $google_user->getId())->first();
 
              if(! $user){
+                $Id = $request->session()->get('planId');
+                 if($Id ==null){
+                     return Redirect::back();
+                 }
                  $newUser = User::create([
                       'name' => $google_user->getName(),
                       'email' => $google_user->getEmail(),
@@ -33,19 +41,27 @@ class GoogleSocialController extends Controller
                  ]);
                  Auth::login($newUser);
                  $UseRole = User::find($newUser->id);
-                 if($UseRole->role_id ==null){
-                     return redirect()->intended('membership');
-                 }else{
-                    return redirect()->intended('dashboard');
+
+
+                 if($Id !==null && $UseRole->role_id ==null){
+                    $planId = ClientType::where('plan_id', $Id)->first();
+                    return view('frontend.pages.billing', ['planId' => $planId]);
+
                  }
+                    else{
+                    return redirect()->intended('user/home');
+                 }
+                 $request->session()->forget('planId');
                 
              }else{
                   Auth::login($user);
                   $UseRole = User::find($user->id);
-                 if($UseRole->role_id ==null){
-                     return redirect()->intended('dashboard');
+                  $Id = $request->session()->get('planId');
+                 if($UseRole->role_id ==null && $Id !==null){
+                    $planId = ClientType::where('plan_id', $Id)->first();
+                    return view('frontend.pages.billing', ['planId' => $planId]);
                  }else{
-                    return redirect()->intended('dashboard');
+                    return redirect()->intended('user/home');
                  }
                
              }

@@ -21,16 +21,23 @@ class OpportunityRequest extends FormRequest
      */
     public function rules(): array
     {
+     
         return [
             'title' => 'required',
+            'heading' => 'required',
             	'subtitle' => 'required',
-            	'description' => 'required',
-            	'benefit_title' => 'required',
-            	'benefit_subtitle' => 'required',
-                	'story_title' => 'required',
-                	'story_subtitle' => 'required',
-                	'service_title' => 'required',
-                	'service_subtitle'	=> 'required'
+            	'opOne' => 'required',
+            	'opTwo' => 'required',
+            	'opThree' => 'required',
+            	'opFour' => 'required',
+            	'opFive' => 'required',
+            	'opSix' => 'required',
+            	'opSeven' => 'required',
+            	'opEight' => 'required',
+            	'opNine' => 'required',
+            	'icon' => 'required',
+            
+            
         ];
     }
 }

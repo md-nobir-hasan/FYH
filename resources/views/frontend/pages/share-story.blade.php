@@ -5,7 +5,8 @@
 @section('content')
 
 <div class="lg:mx-40 mx-10" style="font-family:'Poppins'">
-  <form class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+  <form action="{{route('share.story.store')}}" method="post" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+  @csrf
     <!-- image section -->
   <section class="col-span-1">
   <div class="border-2 rounded border-gray-200 mt-28 shadow-lg">
@@ -20,9 +21,12 @@
             <h1 class="text-center text-[#848484] text-xl font-semibold">Upload Your Image Here</h1>
             <div class="input_field flex flex-col w-max mx-auto text-center">
                 <label>
-                    <input id="fileInput" class="text-sm cursor-pointer w-36 hidden" type="file" multiple />
+                    <input id="fileInput" class="text-sm cursor-pointer w-36 hidden" type="file" name="image" />
                     <div class="text bg-[#D1052C] text-white border border-gray-300 rounded font-semibold cursor-pointer py-2 px-7 hover:bg-[#a73147]">Choose Image</div>
-                </label>
+                    @error('image')
+                    <div class="text-left text-red-600">{{ $message }}</div>
+                  @enderror
+                  </label>
                 <p id="filePreview"></p>
                 <p class="text-center text-[#848484] text-sm mt-1">Supports: JPG, JPEG, PNG</p>
             </div>
@@ -33,18 +37,51 @@
 <!-- img section end -->
 <section class="col-span-2">
   <div class="lg:mt-20 mt-10">
-    <h1 class="text-xl font-semibold">Hey Thomas Tsangaras,</h1>
-    <input type="text" placeholder="Your Job Tittle (e.g. Recruiter)" class="w-full rounded border mt-2 border-dotted border-[#848484]" required/>
-    <input type="text" placeholder="Where are you From?" class="w-full rounded border mt-5 border-dotted border-[#848484]" required/>
-    <input type="text" placeholder="City" class="w-full rounded border mt-5 border-dotted border-[#848484]" required/>
-    <input type="text" placeholder="Story Title" class="w-full rounded border mt-5 border-dotted border-[#848484]" required/>
-    
-<textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border border-dotted h-[386px] border-[#848484] focus:ring-blue-500 focus:border-blue-500 mt-5" placeholder="Write story here..." required></textarea>
+    <h1 class="text-xl font-semibold"> {{auth()->user()->name}} </h1>
+     <input type="hidden" name="name" value="{{auth()->user()->name}}">
 
-<div class="flex items-center mb-4 mt-5">
-    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+       <div class="">
+        <input type="text" name="profession" placeholder="Your Job Tittle (e.g. Recruiter)" class=" @error('profession') is-invalid @enderror w-full rounded border mt-2 border-dotted border-[#848484]" />
+        @error('profession')
+             <div class="text-left text-red-600">{{ $message }}</div>
+        @enderror
+       </div>
+
+
+        <div class="">
+          <input type="text" name="address" placeholder="Where are you From?" class="@error('address') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
+              @error('address')
+              <div class="text-left text-red-600">{{ $message }}</div>
+            @enderror
+        </div>
+         
+
+        <div>
+          <input type="text" name="city" placeholder="City" class="@error('city') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
+          @error('city')
+          <div class="text-left text-red-600">{{ $message }}</div>
+         @enderror
+        </div>
+
+
+        <div>
+          <input type="text" name="title" placeholder="Story Title" class="@error('title') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
+          @error('title')
+          <div class="text-left text-red-600">{{ $message }}</div>
+         @enderror
+        </div>
+        
+       <div>
+        <textarea id="message" name="description" rows="4" class="@error('description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border border-dotted h-[386px] border-[#848484] focus:ring-blue-500 focus:border-blue-500 mt-5" placeholder="Write story here..." ></textarea>
+          @error('description')
+          <div class="text-left text-red-600">{{ $message }}</div>
+          @enderror
+       </div>
+
+        <div class="flex items-center mb-4 mt-5">
+    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" >
     <label for="default-checkbox" class="ml-2 font-medium text-black">I agree to use my story and my photo</label>
-</div>
+  </div>
 <button type="submit" class="text bg-[#D1052C] text-white border border-gray-300 rounded font-semibold cursor-pointer py-2 px-7 hover:bg-[#a73147]">Post Story</button>
   </div>
 </section>

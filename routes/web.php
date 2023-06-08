@@ -16,10 +16,12 @@ use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FrontendControler;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IntegrationController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MembershipTypeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MiscellaneousController;
+use App\Http\Controllers\MoveToController;
 use App\Http\Controllers\OpporcunityController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentDurationController;
@@ -42,14 +44,29 @@ use Illuminate\Support\Facades\Route;
     Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
     Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
+    Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
-    Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('sharestory');
+    Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('share.story');
+    Route::post('/share-story/store', [FrontendControler::class,'storyStore'])->name('share.story.store');
+    Route::get('/thankYou', [FrontendControler::class,'thank'])->name('thank.you');
 
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
 
     });
+
+    // authorize user route 
+     Route::get('user/home', [FrontendControler::class, 'userHome'])->name('user.home');
+    Route::get('my-story', [FrontendControler::class, 'myStory'])->name('user.myStroy');
+    Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
+    Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
+    Route::get('user/membership/update', [FrontendControler::class, 'memberShipUpdate'])->name('user.membership.update');
+    Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
+    Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
+    Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
+
+
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
@@ -155,12 +172,25 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     // Story
     Route::resource('stories', StoryController::class)->except('destroy');
     Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
+    Route::get('/stories/status/{id}', [StoryController::class, 'status'])->name('stories.status');
 
     // benefit and other Section title and subtitle
     Route::resource('opportunitys', OpporcunityController::class);
 
     // Congrats Route
     Route::resource('congrats', CongratController::class);
+
+    // move to swizerland 
+    Route::resource('moves', MoveToController::class)->except('destroy');
+    Route::get('/moves/destroy/{id}', [MoveToController::class, 'destroy'])->name('moves.destroy');
+    Route::get('/moves/status/{id}', [MoveToController::class, 'status'])->name('moves.status');
+
+
+    // Switzerland integration 
+    Route::resource('integrations', IntegrationController::class);
+    Route::get('/integrations/destroy/{id}', [IntegrationController::class, 'destroy'])->name('integrations.destroy');
+    Route::get('/integrations/status/{id}', [IntegrationController::class, 'status'])->name('integrations.status');
+
     //Setup
     Route::prefix('/setup')->name('setup.')->group(function(){
         //Client type
@@ -188,6 +218,8 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::resource('menu',MenuController::class);
         Route::resource('submenu',Submenucontroller::class);
     });
+
+
 
 
     // content or Page Create Route
