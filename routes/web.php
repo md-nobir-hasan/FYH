@@ -111,10 +111,10 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //Comtomer route
-Route::prefix('/cumstomer')->name('customer.')->group(function(){
-    Route::get('/dashboard',[UserCommonController::class,'dashboard'])->name('dashboard');
-    // Route::get('/index',[UserCommonController::class,'index'])->name('index');
-});
+// Route::prefix('/cumstomer')->name('customer.')->group(function(){
+//     Route::get('/dashboard',[UserCommonController::class,'dashboard'])->name('dashboard');
+//     // Route::get('/index',[UserCommonController::class,'index'])->name('index');
+// });
 
 //dashboard
 Route::get('/dashboard', function () {

@@ -26,10 +26,14 @@ class FrontendControler extends Controller
 {
   public function homePage(){
      $home = Home::first() ?? null;
-     $services = Service::orderBy('priority','asc')->take(4)->get() ?? null;
-     $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ?? null;
+     $services = Service::orderBy('priority','asc')->take(4)->get() ;
+     $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ;
+     $featureStory  = Story::where('feature', '1')->where('status', 1)->orderBy('priority', 'asc')
+                     ->select('image', 'title', 'description', 'name', 'profession')->take(2)->get();
      $stories = Story::select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','asc')->take(15)->get();
-    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories'));
+     $popularStory = Story::where('status', 1)->OrderBy('views', 'desc')->take(3)->get();
+     $storyCount = Story::all()->count();
+    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories', 'featureStory', 'popularStory', 'storyCount'));
   }
 
   public function membershipPage(){
@@ -39,8 +43,9 @@ class FrontendControler extends Controller
   }
 
   public function communityPage(){
+       $storyHead = Home::select('story_title', 'story_subtitle')->first();
       $stories = Story::where('status', 1)->orderBy('priority','asc')->take(10)->get();
-    return view('frontend.pages.community',compact('stories'));
+    return view('frontend.pages.community',compact('stories', 'storyHead'));
   }
 
 
@@ -69,8 +74,9 @@ class FrontendControler extends Controller
   }
 
   public function benefitPage(){
+      $benefitHeader = Home::select('benefit_title', 'benefit_subtitle')->first();
       $Benefits = Benefit::orderBy('priority','asc')->get();
-      return view('frontend.pages.benefit', ['Benefits' => $Benefits]);
+      return view('frontend.pages.benefit', ['Benefits' => $Benefits, 'benefitHeader' => $benefitHeader]);
   }
 
   public function singleBenefit($slug)
@@ -79,10 +85,17 @@ class FrontendControler extends Controller
     return view('frontend.pages.single-benefit');
   }
   public function singleStory($slug){
+        
        $story = Story::where('slug', $slug)->first();
+        $story->views +=1;
+        $story->save(); 
+        
     return view('frontend.pages.single-story', ['story' => $story]);
   }
   public function shareStory(){
+      if(auth()->user() ==null){
+         return Redirect::back();
+      }
     return view('frontend.pages.share-story');
   }
 

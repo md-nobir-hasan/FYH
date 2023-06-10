@@ -16,7 +16,7 @@ class userSeeder extends Seeder
      */
     public function run()
     {
-        $n =['name' => "Super Admin",
+        $n =['fname' => "Super Admin",
             'email' => "admin@gmail.com",
             'phone' => "01518460933",
             'role_id' => 1,

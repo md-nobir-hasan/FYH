@@ -27,8 +27,11 @@ return new class extends Migration
             $table->longText('feature_subtitle')->nullable();
             $table->longText('image_title')->nullable();
             $table->longText('image_subtitle')->nullable();
+            $table->longText('lgImage')->nullable();
             $table->longText('service_title')->nullable();
             $table->longText('service_subtitle')->nullable();
+            $table->longText('customer_title')->nullable();
+            $table->longText('customer_subtitle')->nullable();
             $table->longText('share_title')->nullable();
             $table->longText('share_subtitle')->nullable();
             $table->longText('image')->nullable();

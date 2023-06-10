@@ -11,5 +11,6 @@ class Home extends Model
 
 
     protected $fillable = ['image', 'title_one','title_one_description','title_two','title_two_description','benefit_title','benefit_subtitle','story_title','story_subtitle','feature_title',
-    'feature_subtitle','image_title','image_subtitle','service_title','service_subtitle','share_title','share_subtitle'];
+    'feature_subtitle','image_title','image_subtitle','service_title','service_subtitle','share_title','share_subtitle', 'lgImage',
+    'customer_title', 'customer_subtitle'];
 }

@@ -4,6 +4,8 @@
 @endpush
 @section('content')
 
+@php  $user = auth()->user();           @endphp
+
     <div class="bg-[#F5F5F5] lg:mx-40 p-10 rounded mt-20" style="font-family: 'Poppins';">
     <!-- <img src="{{asset('/images/fyhlogo.png')}}" alt="" class="lg:ml-20 h-8 w-24"> -->
        <div class="">
@@ -16,8 +18,8 @@
                                 <h1 class="text-xl font-bold">Your Account</h1>
                                 <button class="ml-auto rounded p-2 text-gray-600 bg-white">Edit</button>
                             </div>
-                                <p> {{auth()->user()->name}} </p>
-                                <p> {{auth()->user()->email}} </p>
+                                <p class="m-2" > {{$user->fname}}  {{$user->lname}} </p>
+                                <p class="m-2" > {{$user->email}} </p>
                     </div>
                     <!-- billing section -->
                         <div class="mt-5 pl-10 rounded-lg border-gray-300 border-2 p-5">
@@ -29,11 +31,11 @@
                            @csrf
                                 <div class="mt-5">
                                 <label for="first_name" class="block mb-2 text-sm text-black font-semibold">First name</label>
-                                <input type="text" value="{{auth()->user()->name}}" required name="f_name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name" required>
+                                <input type="text" value="{{$user->fname}}" required name="fname" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name" required>
                             </div>
                             <div class="mt-5">
                                 <label for="last_name" class="block mb-2 text-sm text-black font-semibold">Last Name</label>
-                                <input type="text" required  name="l_name" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name" required>
+                                <input type="text" value="{{$user->lname}}" required  name="lname" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name" required>
                             </div>
                             <div class="mt-5">
                                 <label for="email" class="block mb-2 text-sm text-black font-semibold">Email</label>

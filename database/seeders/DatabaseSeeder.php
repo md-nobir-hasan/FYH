@@ -39,8 +39,8 @@ class DatabaseSeeder extends Seeder
         $this->call(HomeSeeder::class);
 
         Benefit::factory(16)->create();
-        Service::factory(15)->create();
-        Story::factory(15)->create();
+        Service::factory(8)->create();
+        Story::factory(18)->create();
         About::factory(1)->create();
         Congrat::factory(1)->create();
         Opportunity::factory(1)->create();
