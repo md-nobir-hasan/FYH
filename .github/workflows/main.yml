@@ -1,16 +1,35 @@
-on: push
-name: 🚀 Deploy to mdnh on push
+name: 🚀Deploy to fyh-nobir on push
+on:
+  push:
+    branches:
+      - master
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: 🎉Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
+    - name: 🚚Get Latest Code
+    - uses: actions/checkout@v3
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - name: 📂Sync files
+    - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.N_FTP_SERVER }}
         username: ${{ secrets.N_FTP_USERNAME }}
         password: ${{ secrets.N_FTP_PASSWORD }}
+# on: push
+# name: 🚀 Deploy to mdnh on push
+# jobs:
+#   web-deploy:
+#     name: 🎉 Deploy
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: 🚚 Get latest code
+#       uses: actions/checkout@v3
+
+#     - name: 📂 Sync files
+#       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+#       with:
+#         server: ${{ secrets.N_FTP_SERVER }}
+#         username: ${{ secrets.N_FTP_USERNAME }}
+#         password: ${{ secrets.N_FTP_PASSWORD }}
