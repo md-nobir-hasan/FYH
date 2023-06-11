@@ -22,8 +22,8 @@ class UserStoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'title' => 'required| unique:stories',
+             'name' => 'required',
+             'title' => 'required| unique:stories',
             'image' =>'required',
             'description' => 'required|min:30',
             'profession' => 'required',

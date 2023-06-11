@@ -38,9 +38,12 @@ class HomeRequest extends FormRequest
              'image_subtitle' => 'required',
              'service_title' => 'required',
              'service_subtitle' => 'required',
+             'customer_title' => 'required',
+              'customer_subtitle' => 'required',
              'share_title' => 'required',
              'share_subtitle' => 'required',
              'image' => 'nullable',
+             'lgImage' => 'nullable',
         ];
     }
 }

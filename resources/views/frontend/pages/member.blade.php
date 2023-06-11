@@ -16,7 +16,9 @@
                 
                 <img class="ml-[63px] mt-[23px] mb-[58px]" src="/images/Logo.png" alt="" />
                 <div class="ml-[83px] mb-[40px]">
+
                     <h1 class="text-xl font-black">  @if($opportunity !==null)   {{$opportunity->title}}   @endif</h1>
+
                     <h1 class="font-extrabold text-4xl text-[#0BC040]">
                        @if($opportunity !==null)   {{$opportunity->heading}}   @endif
 
@@ -48,7 +50,7 @@
               
                 <form action="{{ route('web.billing') }}" method="post">
                     @csrf
-                    @foreach ($memberShips as $member)
+                    @foreach ($memberShips as $key=>$member)
                  
                     <!-- card 1 -->
                     <div class="w-[472px] h-[280px] border-2 border-black rounded-lg mb-[32px] mt-5">
@@ -56,8 +58,10 @@
                             <!-- card 1 -->
                             <div class="flex justify-between mr-[16px]">
                                 <div class="flex text-align items-center ">
-                                    <input type="radio" name="plan" value="{{$member->plan_id}}" class="accent-gray-300 w-[22px] h-[22px]">
-                                    <label class="text-[25px] ml-2">{{ $member->name }}</label>
+
+                                    <input type="radio" id="{{$key}}" name="plan" value="{{$member->plan_id}}" class="accent-gray-300 w-[22px] h-[22px]">
+                                    <p class="text-[25px] ml-2"> <label for="{{$key}}">{{ $member->name }}</label> </p>
+
                                 </div>
                                 <h1 class="font-bold text-[25px]">{{ $member->price }}
                                     {{ $member->currency }}/ {{$member->interval_count}} {{ $member->billing_period }}</h1>

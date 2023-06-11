@@ -18,7 +18,7 @@ class ServiceFactory extends Factory
     public function definition(): array
     {
          $title = $this->faker->text(55);
-         $image = $this->faker->randomElement(['image/ser1.png','image/ser2.png','image/ser3.png','image/ser4.png', 'image/ser5.png', 'image/ser6.png', 'image/ser7.png', 'image/ser8.png', 'image/ser9.png', 'image/ser10.png', 'image/ser11.png', 'image/ser12.png']);
+         $image = $this->faker->randomElement(['image/ser1.png','image/ser2.png','image/ser3.png','image/ser4.png', 'image/ser5.png', 'image/ser6.png', 'image/ser7.png', 'image/ser8.png']);
         return [
             'title' => $title,
             'slug' => Str::slug($title, '-'),
