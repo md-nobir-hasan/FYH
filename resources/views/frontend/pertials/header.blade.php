@@ -16,9 +16,9 @@
 </head>
 <body class="antialiased">
     <div class="mt-12 lg:mx-40" style="font-family: 'Montserrat';">
-        <div class="flex justify-center">
+        <div class="flex justify-between">
             <a href="{{route('home')}}"><img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24"></a>
-            <div class="flex justify-center">
+            <div class="flex">
 
               @if (auth()->user() ==null)
             <a href="{{route('member')}}">
@@ -93,13 +93,13 @@
             <div class="flex items-center ml-8 md:order-2">
       <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-2 focus:ring-[#D1052C] dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <span class="sr-only">Open user menu</span>
-        <img class="w-11 h-11 border border-[#D1052C] rounded-full " src="/images/thomas.png" >
+        <img class="w-11 h-11 border border-[#D1052C] rounded-full " src="{{ auth()->user()->img}}" >
       </button>
       <!-- Dropdown menu -->
       <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow" id="user-dropdown">
         <div class="flex p-5">
-            <img src="/images/thomas.png" class="border p-0.5 rounded-full border-[#D1052C]"/>
-          <span class="flex justify-center items-center ml-2 text-lg text-black font-semibold dark:text-white">Thomas Tsangaras</span>
+            <img src="{{ auth()->user()->img}}" class="w-11 h-11 border p-0.5 rounded-full border-[#D1052C]"/>
+          <span class="flex justify-center items-center ml-2 text-lg text-black font-semibold dark:text-white"> {{auth()->user()->name}} </span>
         </div>
         <hr class="h-px bg-black mx-4 border-0">
         <ul class="py-1" aria-labelledby="user-menu-button">

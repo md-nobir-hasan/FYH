@@ -5,10 +5,10 @@
 @section('content')
     <div class=" mt-10 mb-[-200px]" style="font-family:'Poppins'">
         
-        <h1 class="text-5xl font-black text-center">The Most Popular Story</h1>
-        <p class="text-lg text-center">Stories of People Who Have Successfully Moved to Switzerland</p>
+        <h1 class="text-5xl font-black text-center"> @if($storyHead!==null) {{$storyHead->story_title}} @endif </h1>
+        <p class="text-lg text-center">  @if($storyHead!==null) {{$storyHead->story_subtitle}} @endif </p>
 
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mx-36 mt-5">
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 mx-36 mt-5">
 
             @if($stories->count() > 0)
 
@@ -23,7 +23,7 @@
                     </a>
                     <div class="">
                         <a href="#">
-                            <h5 class=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{$item->name}} </h5>
+                            <h5 class=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{Str::limit($item->name, 20)}} </h5>
                             <p class="font-medium"> {{$item->profession}} </p>
                             <p class="font-medium"> {{Str::limit($item->address, 15)}} </p>
                         </a>

@@ -21,11 +21,17 @@ class CongrateRequest extends FormRequest
      */
     public function rules(): array
     {
+        
         return [
             'image' => 'nullable',
             	'title' => 'required',
+                'heading' => 'required',
              'subtitle' => 'required',
-              'description' => 'required',
+             'opOne' => 'required|min:5',
+             'opTwo' => 'required|min:5',
+             'opThree' => 'required|min:5',
+             'opFour' => 'required|min:5',
+             'icon' => 'required',
             	'option_title' => 'nullable',
             	'button_one' => 'required',
              'button_two' => 'required'

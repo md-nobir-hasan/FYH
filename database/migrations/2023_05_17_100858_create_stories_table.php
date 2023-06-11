@@ -20,11 +20,13 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->text('address')->nullable();
             $table->text('city')->nullable();
+            $table->string('country')->nullable();
             $table->string('profession')->nullable();
             $table->integer('priority')->nullable();
             $table->bigInteger('user_id')->nullable();
             $table->integer('status')->default(0);
             $table->bigInteger('views')->default(0);
+            $table->integer('feature')->default(0);
             $table->timestamps();
         });
     }

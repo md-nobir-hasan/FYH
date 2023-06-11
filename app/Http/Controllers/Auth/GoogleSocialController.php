@@ -32,10 +32,10 @@ class GoogleSocialController extends Controller
              if(! $user){
                 $Id = $request->session()->get('planId');
                  if($Id ==null){
-                     return Redirect::back();
+                     return to_route('member');
                  }
                  $newUser = User::create([
-                      'name' => $google_user->getName(),
+                      'fname' => $google_user->getName(),
                       'email' => $google_user->getEmail(),
                       'google_id' => $google_user->getId(),
                  ]);
