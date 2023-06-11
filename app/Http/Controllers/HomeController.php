@@ -27,8 +27,15 @@ class HomeController extends Controller
             $image = null;
       }
 
+      if($request->hasFile('lgImage')){
+            $lgImage = $request->file('lgImage')->store('image');
+      }else{
+            $lgImage = null;
+      }
+
           Home::create([
               'image' => $image,
+              'lgImage' => $lgImage,
               'title_one' => $request->title_one,
               'title_one_description' => $request->title_one_description,
               'title_two' => $request->title_two,
@@ -43,6 +50,8 @@ class HomeController extends Controller
               'image_subtitle' => $request->image_subtitle,
               'service_title' => $request->service_title,
               'service_subtitle' => $request->service_subtitle,
+              'customer_title' => $request->customer_title,
+              'customer_subtitle' => $request->customer_subtitle,
               'share_title' => $request->share_title,
               'share_subtitle' => $request->share_subtitle,
           ]);
@@ -65,6 +74,16 @@ class HomeController extends Controller
         $image = $home->image;
   }
 
+  if($request->hasFile('lgImage')){
+      if($home->lgImage){
+           Storage::delete($home->lgImage);
+           
+      }
+      $lgImage = $request->file('lgImage')->store('image');
+}else{
+      $lgImage = $home->lgImage;
+}
+
           $home->update([
             'title_one' => $request->title_one,
             'title_one_description' => $request->title_one_description,
@@ -80,9 +99,12 @@ class HomeController extends Controller
             'image_subtitle' => $request->image_subtitle,
             'service_title' => $request->service_title,
             'service_subtitle' => $request->service_subtitle,
+            'customer_title' => $request->customer_title,
+            'customer_subtitle' => $request->customer_subtitle,
             'share_title' => $request->share_title,
             'share_subtitle' => $request->share_subtitle,
-            'image' => $image
+            'image' => $image,
+            'lgImage' => $lgImage,
           ]);
           return Redirect::back()->with('success',' Successfully Update');
     }

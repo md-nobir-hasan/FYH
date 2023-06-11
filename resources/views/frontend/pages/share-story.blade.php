@@ -37,8 +37,9 @@
 <!-- img section end -->
 <section class="col-span-2">
   <div class="lg:mt-20 mt-10">
-    <h1 class="text-xl font-semibold"> {{auth()->user()->name}} </h1>
-     <input type="hidden" name="name" value="{{auth()->user()->name}}">
+    <h1 class="text-xl font-semibold capitalize"> {{$user->fname}} {{$user->lname}}</h1>
+     <input type="hidden" name="name" value="{{$user->fname}}">
+   
 
        <div class="">
         <input type="text" name="profession" placeholder="Your Job Tittle (e.g. Recruiter)" class=" @error('profession') is-invalid @enderror w-full rounded border mt-2 border-dotted border-[#848484]" />

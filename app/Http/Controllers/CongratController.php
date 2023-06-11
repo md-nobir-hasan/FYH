@@ -30,8 +30,12 @@ class CongratController extends Controller
             'image' => $image,
             'title' => $request->title,
             'subtitle' => $request->subtitle,
-            'small_title' => $request->small_title,
-            'description' => $request->description,
+            'heading' => $request->heading,
+            'opOne' => $request->opOne,
+           'opTwo' => $request->opTwo,
+           'opThree' => $request->opThree,
+           'opFour' => $request->opFour,
+           'icon' => $request->icon,
             'option_title' => $request->option_title,
             'button_one' => $request->button_one,
             'button_two' => $request->button_two,
@@ -59,13 +63,17 @@ class CongratController extends Controller
             'image' => $image,
             'title' => $request->title,
             'subtitle' => $request->subtitle,
-            'small_title' => $request->small_title,
-            'description' => $request->description,
+            'heading' => $request->heading,
+            'opOne' => $request->opOne,
+           'opTwo' => $request->opTwo,
+           'opThree' => $request->opThree,
+           'opFour' => $request->opFour,
+           'icon' => $request->icon,
             'option_title' => $request->option_title,
             'button_one' => $request->button_one,
             'button_two' => $request->button_two,
           ]);
-          return Redirect::back()->with('success',' successfylly Update');
+          return Redirect::back()->with('success',' successfully Update');
     }
 
 }

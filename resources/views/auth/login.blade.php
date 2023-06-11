@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form class="p-10 sm:max-w-md bg-white mx-auto" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';">
+    <form class="p-10 sm:max-w-md bg-white mx-auto" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';" enctype="multipart/form-data">
     @csrf
         <img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24 mx-auto mb-14 mt-[-30px]">
 

@@ -18,18 +18,22 @@ class StoryFactory extends Factory
     public function definition(): array
     {
         $name = $this->faker->name();
-        $image = $this->faker->randomElement(['image/man1.png','image/man2.png','image/man3.png','image/man4.png', 'image/man5.png', 'image/man6.png', 'image/man7.png', 'image/man8.png', 'image/man9.png', 'image/man10.png', 'image/man11.png']);
+        $image = $this->faker->randomElement(['image/story1.png','image/story2.png','image/story3.png','image/story4.png', 'image/story5.png', 'image/story6.png', 'image/story7.png', 'image/story8.png', 'image/story9.png', 'image/story10.png', 'image/story11.png',
+        'image/story12.png','image/story13.png','image/story14.png','image/story15.png','image/story16.png', 'image/story17.png','image/story18.png'
+     ]);
         return [
              'name' =>$name,
              'slug' => Str::slug($name, '-'),
-            'title' => $this->faker->text(10),
-            'description' => $this->faker->text(350),
+            'title' => $this->faker->text(35),
+            'description' => $this->faker->text(800),
             'priority' => $this->faker->numberBetween(1, 100),
             'address' => $this->faker->address(),
             'city' => $this->faker->city(),
             'profession' => 'teacher',
             'image' => $image,
             'status' => 1,
+            'country' => $this->faker->country(),
+            'feature' => $this->faker->numberBetween(0,1)
             
         ];
     }
