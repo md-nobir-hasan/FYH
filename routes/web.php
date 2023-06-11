@@ -111,16 +111,12 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //Comtomer route
-// Route::prefix('/cumstomer')->name('customer.')->group(function(){
-//     Route::get('/dashboard',[UserCommonController::class,'dashboard'])->name('dashboard');
-//     // Route::get('/index',[UserCommonController::class,'index'])->name('index');
-// });
+Route::prefix('/cumstomer')->name('customer.')->group(function(){
+    Route::get('/dashboard',[UserCommonController::class,'dashboard'])->name('dashboard');
+    // Route::get('/index',[UserCommonController::class,'index'])->name('index');
+});
 
-//dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified','admin'])->name('dashboard');
-//end dashoard
+
 
 // google Login
 Route::get('/redirect/{planId?}', [GoogleSocialController::class, 'redirect'])->name('google.auth');
@@ -129,6 +125,13 @@ Route::get('/auth/callback', [GoogleSocialController::class, 'callBack'])->name(
 
 
 // Admin route ===============================================
+
+//dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified','admin'])->name('dashboard');
+//end dashoard
+
 Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(function () {
 
     //Settings

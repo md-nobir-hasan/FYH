@@ -15,12 +15,15 @@ use App\Models\MoveTo;
 use App\Models\Opportunity;
 use App\Models\Service;
 use App\Models\Story;
+use App\Models\User;
+use App\Notifications\StoryNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Artisan;
 use Illuminate\Http\Client\Request as ClientRequest;
+use Illuminate\Support\Facades\Notification;
 
 class FrontendControler extends Controller
 {
@@ -93,10 +96,11 @@ class FrontendControler extends Controller
     return view('frontend.pages.single-story', ['story' => $story]);
   }
   public function shareStory(){
-      if(auth()->user() ==null){
+     $user = auth()->user();
+      if($user ==null){
          return Redirect::back();
       }
-    return view('frontend.pages.share-story');
+    return view('frontend.pages.share-story', ['user' => $user]);
   }
 
 
@@ -108,9 +112,11 @@ class FrontendControler extends Controller
             $image = null;
             }
 
+            $slug = Str::slug($request->title, '-');
+
         Story::create([
             'name' =>$request->name,
-            'slug' => Str::slug($request->name, '-'),
+            'slug' => $slug ,
             'title' => $request->title,
             'image' => $image,
             'description' => $request->description,
@@ -119,6 +125,9 @@ class FrontendControler extends Controller
             'city' =>$request->city,
             'user_id' => auth()->user()->id
         ]);
+
+        $user = User::all();
+        Notification::send($user, new StoryNotification($slug));
 
          return to_route('thank.you');
   }

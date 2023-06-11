@@ -147,7 +147,9 @@
                             @endphp
                             <img src="{{ '/storage/' . $firstfeature->image }}" alt="" class="h-72">
                             <div class="absolute mt-[-120px] ml-[80px]">
-                                <h1 class=" text-white text-4xl font-black"> {{ $title[0] }} </h1>
+                                <h1 class=" text-white text-4xl font-black"> 
+                                    {{ $title[0] }} 
+                                </h1>
                                 <h1 class=" text-white ml-[30px] text-4xl font-black"> {{ $title[1] }} </h1>
                             </div>
                         </div>
@@ -263,7 +265,11 @@
                 $subtitle = str_split($home->image_subtitle, 50);
                @endphp
 
-                @if ($home !== null)     {{ $subtitle[0] }} <br> {{ $subtitle[1] }} <br> {{ $subtitle[2] }} <br> {{ $subtitle[3] }} @endif 
+                @if ($home !== null) 
+                      @foreach ($subtitle as $subItem)
+                          {{$subItem}} <br>
+                      @endforeach
+               @endif 
             </p>
             <div class="flex items-center justify-center mt-5">
                 @if ($home !== null)    <img src="{{'/storage/'. $home->lgImage}}" alt="" class="lg:h-[791px] lg:w-[845px]"> @endif
@@ -353,7 +359,10 @@
           @endphp
             <p class="text-xl text-center text-[#D1052C] uppercase">
                 @if ($home !== null)
-                {{ $shareSub[0] }} <br>   {{ $shareSub[1] }} <br> 
+                  @foreach ($shareSub as $Shitem)
+                       {{$Shitem}} <br>
+                  @endforeach
+         
             @endif 
             </p>
             <a href="/" class=" flex justify-center items-center"><button

@@ -21,6 +21,7 @@ class userSeeder extends Seeder
             'phone' => "01518460933",
             'role_id' => 1,
             'password' => Hash::make(12345678),
+            'img' => '/storage/user/profile.png',
             ];
 
         DB::table('users')->insert($n);
