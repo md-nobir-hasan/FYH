@@ -1,7 +1,8 @@
+<div class="">
 <x-guest-layout>
     
-    <div class="p-10">
-    <img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24 mx-auto mb-8 mt-[-40px]">
+    <div class="p-10 sm:max-w-md bg-white mx-auto">
+    <img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24 mx-auto mb-8 mt-[-20px]">
     <h1 class="text-2xl font-bold text-center">
         Forgot Password?
     </h1>
@@ -30,4 +31,5 @@
    </div>
     </div>
 </x-guest-layout>
+</div>
 

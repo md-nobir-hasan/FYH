@@ -16,9 +16,9 @@
 </head>
 <body class="antialiased">
     <div class="mt-12 lg:mx-40" style="font-family: 'Montserrat';">
-        <div class="flex justify-center">
+        <div class="flex justify-between">
             <a href="{{route('home')}}"><img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24"></a>
-            <div class="flex justify-center">
+            <div class="flex">
 
               @if (auth()->user() ==null)
             <a href="{{route('member')}}">
