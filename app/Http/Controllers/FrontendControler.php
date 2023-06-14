@@ -9,12 +9,14 @@ use App\Models\Billing;
 use App\Models\ClientType;
 use App\Models\Congrat;
 use App\Models\Content;
+use App\Models\Help;
 use App\Models\Home;
 use App\Models\Integration;
 use App\Models\MoveTo;
 use App\Models\Opportunity;
 use App\Models\Service;
 use App\Models\Story;
+use App\Models\Term;
 use App\Models\User;
 use App\Notifications\StoryNotification;
 use Illuminate\Http\Request;
@@ -24,6 +26,7 @@ use Illuminate\Support\Str;
 use Artisan;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\DB;
 
 class FrontendControler extends Controller
 {
@@ -92,8 +95,9 @@ class FrontendControler extends Controller
        $story = Story::where('slug', $slug)->first();
         $story->views +=1;
         $story->save(); 
-        
-    return view('frontend.pages.single-story', ['story' => $story]);
+      $stories = Story::latest()->take(9)->get();
+      $share = Home::select('share_title', 'share_subtitle')->first();
+    return view('frontend.pages.single-story', ['story' => $story, 'stories' => $stories, 'share' => $share]);
   }
   public function shareStory(){
      $user = auth()->user();
@@ -134,16 +138,20 @@ class FrontendControler extends Controller
 
   public function thank()
   {
-    return view('frontend.pages.thank');
+       $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
+    return view('frontend.pages.thank', compact('titles'));
   }
 
   public function moveSwitzerland(){
         $moveTo = MoveTo::where('status', 1)->orderBy('priority', 'asc')->get();
-    return view('frontend.pages.move-ch', compact('moveTo'));
+        $titles = Home::select('move_title', 'move_subtile')->first();
+    return view('frontend.pages.move-ch', compact('moveTo', 'titles'));
   }
   public function integrationSwitzerland(){
      $integration = Integration::where('status', 1)->orderBy('priority', 'asc')->get();
-    return view('frontend.pages.integration-ch',compact('integration'));
+     $titles = Home::select('intr_title', 'intr_subtile')->first();
+   
+     return view('frontend.pages.integration-ch',compact('integration', 'titles'));
   }
   public function billingPage(Request $request){
 
@@ -201,40 +209,68 @@ class FrontendControler extends Controller
   // authorize user function
   public function userHome()
   {
-    return view('frontend.pages.user-home');
+    $user = auth()->user();
+    if($user ==null){
+       return to_route('login');
+    }  
+
+    $shareImage = Home::select('lgImage' ,'customer_title', 'customer_subtitle', 'image_title','image_subtitle')->first();
+    $storyCount = Story::all()->count();
+    $popularStory = DB::table('stories')->where('status', 1)->orderBy('views', 'desc')->join('users', 'stories.user_id', '=', 'users.id')->select('stories.*', 'users.img')->take(3)->get();
+    $stories = Story::where('status', 1)->orderBy('priority','asc')->take(3)->get();
+ 
+    return view('frontend.pages.user-home', ['user' => $user, 'popularStory' => $popularStory, 'storyCount' => $storyCount, 'shareImage' => $shareImage, 'stories' => $stories]);
   }
 
   public function myStory()
   {
-    return view('frontend.pages.my-story');
+    $user = auth()->user();
+    if($user ==null){
+       return Redirect::back();
+    }
+   
+    $myStory = Story::where('user_id', $user->id)->get();
+    return view('frontend.pages.my-story', ['myStory' => $myStory]);
   }
   public function profile()
   {
-    return view('frontend.pages.profile');
+    $user = auth()->user();
+    if($user ==null){
+       return Redirect::back();
+    }
+     $profile = Story::where('user_id', $user->id)->first();
+    return view('frontend.pages.profile', ['profile' => $profile]);
   }
   public function editProfile()
   {
+    $user = auth()->user();
+    if($user ==null){
+       return Redirect::back();
+    }
     return view('frontend.pages.profile-edit');
   }
-   public function memberShipUpdate()
-  {
-    return view('frontend.pages.membership-update');
-  }
+ 
 
   public function helpSupport()
   {
-    return view('frontend.pages.help_support');
+         $helps = Help::take(6)->get();
+         $tittles = Home::select('help_image', 'help_title', 'help_subtile' )->first();
+    return view('frontend.pages.help_support', ['helps'=> $helps, 'tittles' => $tittles]);
   }
   public function termsCondition()
   {
-    return view('frontend.pages.terms');
+     $terms = Term::first();
+    return view('frontend.pages.terms', compact('terms'));
   }
   public function cookies()
   {
-    return view('frontend.pages.cookies');
+    $cookie = Term::first();
+    return view('frontend.pages.cookies', compact('cookie'));
   }
 
-
+ public function ticket()  {
+  return view('frontend.pages.ticket');
+  }
 
 
 

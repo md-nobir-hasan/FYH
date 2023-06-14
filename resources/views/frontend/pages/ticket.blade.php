@@ -1,9 +1,17 @@
 @extends('frontend.layout.app')
 @push('title')
-    Profile
+   ticket and support
 @endpush
 @section('content')
-                    <h2 class="bg-blue-600 p-4 m-4"> membership update</h2>
+<div class="lg:mx-40" style="font-family:'Poppins'">
+<section class="mt-[52px]">
+<div>
+      <h2 class="bg-blue-800 text-white p-4">Ticket Support</h2>
+</div>
+
+</section>
+
+</div>
 @endsection
 @push('js')
     <!-- flowbite cdn -->
