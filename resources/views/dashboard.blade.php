@@ -12,18 +12,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                    <button id="nobir">Nobir</button>
+                    <p>{{ __("You're logged in!") }}</p>
+                    <button class="text-center"> {{Auth::user()->fname}}</button>
                 </div>
             </div>
         </div>
     </div>
-   <x-slot:js>
-    <script type="module">
-        $('#nobir').on('click',function(){
-            alert('nobir');
-        })
-    </script>
-   </x-slot:js>
+
 </x-app-layout>
 

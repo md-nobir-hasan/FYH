@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ClientType;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,8 +16,26 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('name');
+            $table->foreignIdFor(ClientType::class)->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('paypal_token');
+            $table->string('order_id');
+            $table->string('order_status');
+            $table->string('pa_email');
+            $table->string('pa_id');
+            $table->string('pa_status');
+            $table->string('pa_fname');
+            $table->string('pa_lname');
+            $table->string('pa_country_code');
+            $table->string('capture_link');
+            $table->string('refund_link');
+            $table->string('order_link');
+            $table->string('amount');
+            $table->string('currency');
+            $table->string('paypal_fee');
+            $table->string('net_amount');
+            $table->timestamp('end_time');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -56,7 +56,7 @@ use Illuminate\Support\Facades\Route;
 
     });
 
-    // authorize user route 
+    // authorize user route
      Route::get('user/home', [FrontendControler::class, 'userHome'])->name('user.home');
     Route::get('my-story', [FrontendControler::class, 'myStory'])->name('user.myStroy');
     Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
@@ -81,14 +81,21 @@ use Illuminate\Support\Facades\Route;
 
     // paypal
     Route::prefix('/paypal')->name('paypal.')->group(function(){
-        Route::post('/checkout',[PaypalController::class,'checkout'])->name('checkout');
-        Route::get('/payment',[PaypalController::class,'payment'])->name('payment');
-        Route::get('/success',[PaypalController::class,'success'])->name('success');
-        Route::get('/cancel',[PaypalController::class,'cancel'])->name('cancel');
+        Route::post('/checkout',[PaypalController::class,'checkout'])->name('checkout')->withoutMiddleware('pdc');
+        Route::get('/payment',[PaypalController::class,'payment'])->name('payment')->withoutMiddleware('pdc');
+        Route::get('/success',[PaypalController::class,'success'])->name('success')->withoutMiddleware('pdc');
+        Route::get('/cancel',[PaypalController::class,'cancel'])->name('cancel')->withoutMiddleware('pdc');
 
     });
 //End frontend controller
 
+//Wthout middleware routes
+    Route::withoutMiddleware('pdc')->group(function(){
+        //Update Payment
+        Route::get('updatepayment/{ct_id}',[PaypalController::class,'updatePayment'])->name('update_payment');
+    });
+
+//End Without middleware routes
 //Micellanous route
     Route::get('/mdnhcu',[ArtisanController::class,'composerUpdate'])->name('cu');
     Route::get('/mdnhci',[ArtisanController::class,'composerInstall'])->name('ci');
@@ -183,13 +190,13 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     // Congrats Route
     Route::resource('congrats', CongratController::class);
 
-    // move to swizerland 
+    // move to swizerland
     Route::resource('moves', MoveToController::class)->except('destroy');
     Route::get('/moves/destroy/{id}', [MoveToController::class, 'destroy'])->name('moves.destroy');
     Route::get('/moves/status/{id}', [MoveToController::class, 'status'])->name('moves.status');
 
 
-    // Switzerland integration 
+    // Switzerland integration
     Route::resource('integrations', IntegrationController::class);
     Route::get('/integrations/destroy/{id}', [IntegrationController::class, 'destroy'])->name('integrations.destroy');
     Route::get('/integrations/status/{id}', [IntegrationController::class, 'status'])->name('integrations.status');

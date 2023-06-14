@@ -84,15 +84,15 @@ class FrontendControler extends Controller
 
   public function singleBenefit($slug)
   {
-    
+
     return view('frontend.pages.single-benefit');
   }
   public function singleStory($slug){
-        
+
        $story = Story::where('slug', $slug)->first();
         $story->views +=1;
-        $story->save(); 
-        
+        $story->save();
+
     return view('frontend.pages.single-story', ['story' => $story]);
   }
   public function shareStory(){
@@ -187,8 +187,8 @@ class FrontendControler extends Controller
 
     $planId = ClientType::where('plan_id', $billing->plan_id)->first();
     $user = auth()->user();
-     $intent = $user->createSetupIntent();
-        $stripe_key = config('services.stripe.key');
+    $intent = $user->createSetupIntent();
+    $stripe_key = config('services.stripe.key');
 
 
     return view('frontend.pages.payment',compact('planId', 'billing', 'stripe_key', 'intent'));
