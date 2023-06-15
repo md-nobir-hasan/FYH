@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
      @yield('styles')
 
     <!-- Styles -->
@@ -17,7 +18,14 @@
 <body class="antialiased">
     <div class="mt-12 lg:mx-40" style="font-family: 'Montserrat';">
         <div class="flex justify-between">
-            <a href="{{route('home')}}"><img src="{{asset('/images/logo.jpg')}}" alt="" class="h-8 w-24"></a>
+
+          @auth
+          <a href="{{route('user.home')}}"><img src="{{$setting->logo}}" alt="" class="h-8 w-24"></a>
+          @endauth
+          @guest
+          <a href="{{route('home')}}"><img src="{{$setting->logo}}" alt="" class="h-8 w-24"></a>
+          @endguest
+        
             <div class="flex">
 
               @if (auth()->user() ==null)
@@ -122,7 +130,7 @@
           </li>
           <li class="flex ml-4">
           <img src="/images/profileLogo2.png" class="h-3 flex w-3 mt-1"/>
-            <a href="{{route('user.membership.update')}}" class="block text-lg px-2 font-medium text-black hover:bg-gray-100">Membership Update</a>
+            <a href="{{route('member')}}" class="block text-lg px-2 font-medium text-black hover:bg-gray-100">Membership Update</a>
           </li>
           <li class="flex ml-4">
           <img src="/images/profileLogo3.png" class="h-3 flex w-3 mt-3"/>

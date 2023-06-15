@@ -22,9 +22,19 @@ class userSeeder extends Seeder
             'role_id' => 1,
             'password' => Hash::make(12345678),
             'img' => '/storage/user/profile.png',
-            ];
+    ];
+           
+
 
         DB::table('users')->insert($n);
+
+        $b =['fname' => "user",
+        'email' => "user@gmail.com",
+        'phone' => "01518440933",
+        'password' => Hash::make(12345678),
+        'img' => '/storage/user/profile.png',
+];
+       DB::table('users')->insert($b);
     //    User::factory()->count(5)->make();
     }
 }

@@ -35,10 +35,21 @@ return new class extends Migration
             $table->longText('share_title')->nullable();
             $table->longText('share_subtitle')->nullable();
             $table->longText('image')->nullable();
+            $table->string('move_title')->nullable();
+            $table->longText('move_subtile')->nullable();
+            $table->string('intr_title')->nullable();
+            $table->longText('intr_subtile')->nullable();
+            $table->string('help_image')->nullable();
+            $table->string('help_title')->nullable();
+            $table->longText('help_subtile')->nullable();
+            $table->string('thank_heading')->nullable();
+            $table->string('thank_image')->nullable();
+            $table->longText('thank_subtitle')->nullable();
+            $table->string('thank_title')->nullable();
             $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      */

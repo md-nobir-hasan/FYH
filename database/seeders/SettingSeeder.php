@@ -14,7 +14,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         $settings = [
-            ['title'=>'FYH','logo'=>'/images/fyhlogo.png','email'=>'support@fyh.ch','phone'=>'1245458425','address'=>'Switzerland'],
+            ['title'=>'FYH','logo'=>'/images/fyhlogo.png','email'=>'support@fyh.ch','phone'=>'1245458425','address'=>'FYH.com 8890 RoadHill St., Suite 100 Zurich, Switzerland-8000'],
         ];
         DB::table('settings')->insert($settings);
     }

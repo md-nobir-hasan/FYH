@@ -85,7 +85,7 @@
 
                 </div>
         <div id="ahideShow" >
-            <div class="flex items-center">
+            <div  class="flex items-center">
                 <input onclick=anotherFunction()  id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 focus:ring-2">
                 <label for="default-radio-2" class="ml-2 text-base font-medium text-black dark:text-gray-300">Paypal</label>
             </div>
@@ -151,25 +151,33 @@
 <!-- flowbite cdn -->
 <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 <script>
+    var bank = false ;
     function myFunction() {
   var x = document.getElementById("hideShow");
   var y= document.getElementById("ahideShow");
-  if (x.style.display === "none") {
+  if (bank) {
+    x.style.display = "none";
+    y.style.display="block";
+    bank = false
+  } else {
     x.style.display = "block";
     y.style.display="none"
-  } else {
-    x.style.display = "none";
-    y.style.display="block"
+    bank = true;
   }
 }
+var paypal=false;
 function anotherFunction() {
   var x = document.getElementById("paypal");
 
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  if (paypal) {
+     x.style.display = "none";
+     console.log("block")
+     paypal = false;
 
   } else {
-    x.style.display = "none";
+      x.style.display = "block";
+     console.log("none")
+     paypal= true;
 
   }
 }
