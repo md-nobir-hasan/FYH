@@ -85,7 +85,7 @@
 
                 </div>
         <div id="ahideShow" >
-            <div class="flex items-center">
+            <div  class="flex items-center">
                 <input onclick=anotherFunction()  id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 focus:ring-2">
                 <label for="default-radio-2" class="ml-2 text-base font-medium text-black dark:text-gray-300">Paypal</label>
             </div>
@@ -166,10 +166,10 @@ function anotherFunction() {
   var x = document.getElementById("paypal");
 
   if (x.style.display === "none") {
-    x.style.display = "block";
+    return x.style.display = "block";
 
   } else {
-    x.style.display = "none";
+     return x.style.display = "none";
 
   }
 }
