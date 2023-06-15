@@ -5,125 +5,90 @@
 @section('content')
        <div class="lg:mx-40 mt-[86px]" style="font-family:'Poppins'">
             <div>
-                <h1 class="text-5xl font-black">Hi Thomas,</h1>
+                <h1 class="text-5xl font-black ">Hi <span class="uppercase">{{$user->fname}}</span>,</h1>
                 <p class="text-2xl font-normal">What’s popular now</p>
             </div>
             <!-- card section -->
             <section class="mt-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-5">
-            <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
+                @if ($popularStory->count() > 0)
+                @foreach ($popularStory as $story)
+                    
+               
+                <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
 
-                    <img src="/images/featured1.png" alt="" class="">
+                    <img src="{{'/storage/' . $story->image}}" alt="" class="">
                     <div class="absolute mt-[-120px] ml-[55px]">
-                    <h1 class=" text-white text-3xl font-black">My Best Decision</h1>
-                    <h1 class=" text-white ml-[20px] text-3xl font-black"> of Relocating </h1>
+                        @php   $title = str_split($story->title, 10)      @endphp
+                        @foreach ($title as $key=>$item)
+                             @if($key==2) @break @endif
+                        <h1 class=" text-white text-3xl font-black @if($key==1)ml-[20px] @endif "> {{$item}} </h1>
+                        @endforeach
+       
+            
                     </div>
                     <div class="p-5">
                         <div class="flex">
-                            <img src="/images/user1.png" alt="" class="mt-[-40px]">
+                            <img src="{{$story->img}}" alt="" class="mt-[-40px]">
                             <div class="ml-3">
-                                <h1 class="text-lg mt-[-20px]">Thomas T.</h1>
-                                <p class="text-sm text-[#848484]">Marketing Manager</p>
+                                <h1 class="text-lg mt-[-20px]"> {{$story->name}} </h1>
+                                <p class="text-sm text-[#848484]"> {{$story->profession}} </p>
                             </div>
                         </div>
-                        <p class="mt-2">I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking </p>
+                        <p class="mt-2">
+                                 {{Str::limit($story->description, 250)}}
+                        </p>
                     </div>
             
                 </div>
-            <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
-
-                    <img src="/images/featured2.png" alt="" class="">
-                    <div class="absolute mt-[-120px] ml-[35px]">
-                    <h1 class=" text-white text-3xl font-black">Master Of Happiness</h1>
-                    <h1 class=" text-white ml-[80px] text-3xl font-black"> in Here </h1>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex">
-                            <img src="/images/user2.png" alt="" class="mt-[-40px]">
-                            <div class="ml-3">
-                                <h1 class="text-lg mt-[-20px]">Courtnei H.</h1>
-                                <p class="text-sm text-[#848484]">The Walt Disney Company</p>
-                            </div>
-                        </div>
-                        <p class="mt-2">I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking </p>
-                    </div>
-            
-                </div>
-            <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
-
-                    <img src="/images/featured3.png" alt="" class="w-full">
-                    <div class="absolute mt-[-120px] ml-[55px]">
-                    <h1 class=" text-white text-3xl font-black">My Best Decision</h1>
-                    <h1 class=" text-white ml-[30px] text-3xl font-black"> of Relocating </h1>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex">
-                            <img src="/images/user3.png" alt="" class="mt-[-40px]">
-                            <div class="ml-3">
-                                <h1 class="text-lg mt-[-20px]">Thomas T.</h1>
-                                <p class="text-sm text-[#848484]">Engineer at Apple</p>
-                            </div>
-                        </div>
-                        <p class="mt-2">I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking </p>
-                    </div>
-            
-                </div>
+                @endforeach
+                @endif
+       
+           
             </section>
             <!-- successfull section start -->
             <section class="mt-[140px]">
-                <h1 class="text-4xl font-black text-center text-[#D1052C]">15,365</h1>
-                <p class="text-center text-2xl">Successful stories of the candidates </p>
-                <p class="text-center text-sm">I was struggling to find a job that aligned with my <br> skills and experience, and I was starting Before this <br> program I was struggling to remember things, such as <br> PIN numbers, important dates.</p>
+                <h1 class="text-4xl font-black text-center text-[#D1052C]"> {{$storyCount}} </h1>
+                <p class="text-center text-2xl"> @if($shareImage !==null) {{$shareImage->image_title}}  @endif </p>
+                @php   $subtitle = str_split($shareImage->image_subtitle, 45)         @endphp
+                <p class="text-center text-sm"> 
+                    @if($shareImage !==null) 
+                             @foreach ($subtitle as $item)
+                                   {{$item}} <br>
+                             @endforeach
+                    @endif
+                </p>
                 <div class="flex items-center justify-center mt-5">
-                    <img src="/images/successStory.png" alt="" class="lg:h-[791px] lg:w-[845px]">
+                    <img src="{{ '/storage/' .$shareImage->lgImage}}" alt="" class="lg:h-[791px] lg:w-[845px]">
                 </div>
-                <a href="/" class=" flex justify-center items-center"><button class="lg:w-48 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Read The Stories</button></a>
+                <a href="{{route('community')}}" class=" flex justify-center items-center"><button class="lg:w-48 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Read The Stories</button></a>
         </section>
             <!-- successfull section end -->
             <!-- review section start -->
             <section class="mt-20">
-            <h1 class="text-5xl font-black text-center">What Our Member Say</h1>
-            <p class="text-center text-xl uppercase">Here’s all of the successful stories of our customers</p>
+            <h1 class="text-5xl font-black text-center">@if($shareImage !==null) {{$shareImage->customer_title}}  @endif</h1>
+            <p class="text-center text-xl uppercase">@if($shareImage !==null) {{$shareImage->customer_subtitle}}  @endif</p>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-7">
+
+        
+            @foreach ($stories as $sto)
+                
+           
 
             <a href="" class="block w-80 h-[250px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
             <div class="flex">
-            <img src="/images/Ellipse 36.png" alt="" class="h-16 w-16 rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+            <img src="{{'/storage/' . $sto->image}}" alt="" class="h-16 w-16 rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
             <div class="ml-2">
-            <h1 class="text-2xl font-bold">Thomas T.</h1>
-            <p class="font-medium text-lg">Marketing Manager</p>
+            <h1 class="text-2xl font-bold"> {{$sto->name}} </h1>
+            <p class="font-medium text-lg"> {{$sto->profession}} </p>
             </div>
             </div>
             <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
             <p class="font-medium text-sm text-justify"> 
-            Lorem Ipsum is simply dummy text of the printin and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since a the 1500s, when an unknown printer took a gallxe of type and scrambled it to make a ...
+                {{Str::limit($sto->description, 200)}}
             </p>
             </a>
-            <a href="" class="block w-80 h-[250px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div class="flex">
-            <img src="/images/angelia.png" alt="" class="h-16 w-16 rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-            <div class="ml-2">
-            <h1 class="text-2xl font-bold">Angelia F.</h1>
-            <p class="font-medium text-lg">Marketing Manager</p>
-            </div>
-            </div>
-            <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
-            <p class="font-medium text-sm text-justify"> 
-            Lorem Ipsum is simply dummy text of the printin and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since a the 1500s, when an unknown printer took a gallxe of type and scrambled it to make a ...
-            </p>
-            </a>
-            <a href="" class="block w-80 h-[250px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div class="flex">
-            <img src="/images/emma.png" alt="" class="h-16 w-16 rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-            <div class="ml-2">
-            <h1 class="text-2xl font-bold">Emma D.</h1>
-            <p class="font-medium text-lg">Engineer</p>
-            </div>
-            </div>
-            <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
-            <p class="font-medium text-sm text-justify"> 
-            Lorem Ipsum is simply dummy text of the printin and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since a the 1500s, when an unknown printer took a gallxe of type and scrambled it to make a ...
-            </p>
-            </a>
+            @endforeach
+       
  
             </div>
             </section>
@@ -134,19 +99,19 @@
          <h1 class="text-center text-4xl mt-5 font-black">That's your time</h1>
         <p class="text-center text-sm font-[600] mt-4">What do you think of th services of FYH?</p>
         <div class="lg:mx-48 mt-5 grid grid-cols-2 lg:grid-cols-5 gap-10">
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function1() id="btn1" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Terrible.png" alt="" class="p-5"/>
             </div>
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function2() id="btn2" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Bad.png" alt="" class="p-5"/>
             </div>
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function3() id="btn3" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Okay.png" alt="" class="p-5"/>
             </div>
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function4() id="btn4" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Good.png" alt="" class="p-5"/>
             </div>
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function5() id="btn5" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/amazing.png" alt="" class="p-5"/>
             </div>
             
@@ -168,4 +133,75 @@
     <!-- flowbite cdn -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <!-- flowbite cdn end -->
+    <script>
+        let btn1= document.getElementById("btn1")
+        let btn2= document.getElementById("btn2")
+        let btn3= document.getElementById("btn3")
+        let btn4= document.getElementById("btn4")
+        let btn5= document.getElementById("btn5")
+
+        const function1=()=>{
+            
+            if(btn1.style.backgroundColor === '' || btn2.style.backgroundColor || btn3.style.backgroundColor || btn4.style.backgroundColor || btn5.style.backgroundColor){
+                btn1.style.backgroundColor = '#D1052C';
+                btn2.style.backgroundColor = ''
+                btn3.style.backgroundColor=''
+                btn4.style.backgroundColor=''
+                btn5.style.backgroundColor=''
+            }
+            else{
+                btn1.style.backgroundColor='';
+ 
+            }
+            
+        }
+        const function2=()=>{
+            
+            if(btn2.style.backgroundColor === '' || btn1.style.backgroundColor || btn3.style.backgroundColor || btn4.style.backgroundColor || btn4.style.backgroundColor){
+                btn2.style.backgroundColor = '#D1052C';
+                btn1.style.backgroundColor = '';
+                btn3.style.backgroundColor='';
+                btn4.style.backgroundColor=''
+                btn5.style.backgroundColor=''
+            }else{
+                btn2.style.backgroundColor=''
+            }
+        }
+        const function3=()=>{
+            if(btn3.style.backgroundColor === '' || btn1.style.backgroundColor || btn2.style.backgroundColor || btn4.style.backgroundColor || btn5.style.backgroundColor){
+                btn3.style.backgroundColor = '#D1052C';
+                btn1.style.background = ''
+                btn2.style.backgroundColor=''
+                btn4.style.backgroundColor=''
+                btn5.style.backgroundColor=''
+            }else{
+                btn3.style.backgroundColor='';
+            }
+        }
+        const function4=()=>{
+            
+            if(btn4.style.backgroundColor === '' || btn1.style.backgroundColor || btn2.style.backgroundColor || btn3.style.backgroundColor || btn5.style.backgroundColor){
+                btn4.style.backgroundColor = '#D1052C';
+                btn1.style.backgroundColor =''
+                btn2.style.backgroundColor =''
+                btn3.style.backgroundColor =''
+                btn5.style.backgroundColor =''
+            }else{
+                btn4.style.backgroundColor='';
+            }
+        }
+        const function5=()=>{
+
+            if(btn5.style.backgroundColor === '' || btn1.style.backgroundColor || btn2.style.backgroundColor || btn3.style.backgroundColor || btn4.style.backgroundColor){
+                btn5.style.backgroundColor = '#D1052C';
+                btn1.style.backgroundColor='';
+                btn2.style.backgroundColor='';
+                btn3.style.backgroundColor='';
+                btn4.style.backgroundColor='';
+            }else{
+                btn5.style.backgroundColor='';
+                
+            }
+        }
+    </script>
 @endpush

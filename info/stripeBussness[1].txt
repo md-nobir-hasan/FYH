@@ -1,0 +1,36 @@
+    
+        
+     ##https://dashboard.stripe.com/register
+
+    1. Provide your email: Enter your email address and create a password for your Stripe account.
+
+    2. Verify your email: Check your email inbox for a verification email from Stripe. Click on the verification link provided to confirm your email address.
+
+    3. Provide business information: Fill in the required information about your business, such as the legal business name, address, and phone number. You may also need to provide additional details, including your business type, website URL, and industry.
+
+    4. Set up your account: Configure your account settings, such as the currency you'll be using, your preferred payment methods.
+
+    5. Add bank account details: Enter your business bank account details so that Stripe can transfer funds to your account. You'll need to provide your bank account number, routing number, and other relevant information.
+
+    6. Verify your identity: Depending on your location and business type, Stripe may require you to verify your identity. This typically involves providing additional documentation, such as a government-issued ID or business registration documents.
+
+    7. Review and submit: Carefully review all the information you've provided, ensuring its accuracy. Once you're satisfied, click on the "Submit" or "Activate Account" button to complete the process.
+
+    8. Activate your account: After submitting your information, Stripe will review your application. Once approved, you'll receive an email confirming that your account is active and ready to use.
+
+    9. Access the Developers section: Once you're logged in, navigate to the Dashboard. In the left sidebar, click on "Developers" and then select "API Keys."
+
+    10. View your API keys: On the API Keys page, you will see two sections: "Standard Keys" and "Restricted Keys." The standard keys include the publishable key and the secret key.
+
+    11. Copy your publishable key: Under the "Standard Keys" section, you will find the publishable key. Click the "Reveal Test Key Token" or "Reveal Live Key Token" button next to the publishable key to display the full key. Copy the publishable key to use in your client-side code or wherever it's needed 
+
+    12. And provide us the publishable keys
+
+Remember, the process may vary depending on your specific business type, location, and any additional requirements imposed by Stripe. If you have any questions or encounter any difficulties during the signup process, you can reach out to Stripe's customer support for assistance.
+
+
+
+
+
+
+

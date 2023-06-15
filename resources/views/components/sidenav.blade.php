@@ -69,21 +69,7 @@
                                     <span class="text-lg">Membership Type</span></a>
                             </li>
                         @endif
-                               {{-- membership they comment --}}
-                        {{-- @if ($n = check('Membership Type')) 
-                            <li class="relative">
-                                <a href="{{ route('admin.setup.membership.index') }}"
-                                    class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/setup/membership/*') || Request::is('admin/setup/membership')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
-                                    data-te-sidenav-link-ref>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-
-                                    <span class="text-lg">Membership</span></a>
-                            </li>
-                        @endif --}}
+                         
 
                         @if ($n = check('Benefit'))
                             <li class="relative">
@@ -383,6 +369,33 @@
                                 </svg>
 
                                 <span class="text-lg">Congratulation </span></a>
+                        </li>
+
+
+                        <li class="relative">
+                            <a href="{{ route('admin.helps.index') }}"
+                                class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/role/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+                                data-te-sidenav-link-ref>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+
+                                <span class="text-lg">Help & support</span></a>
+                        </li>
+
+                        <li class="relative">
+                            <a href="{{ route('admin.terms.create') }}"
+                                class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/role/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+                                data-te-sidenav-link-ref>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+
+                                <span class="text-lg">Terms and Cokki</span></a>
                         </li>
                        
                    </ul>

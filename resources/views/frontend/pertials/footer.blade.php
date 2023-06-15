@@ -6,7 +6,7 @@
                 <div class="flex">
                     <div>
                         <a href="/">
-                            <img src="{{ asset('/images/fyhlogo.png') }}" alt="FYH" class="h-8 w-24">
+                            <img src="{{ $setting->logo }}" alt="FYH" class="h-8 w-24">
                         </a>
                         <h1 class="font-bold text-[28px] mt-5">Newsletter Signup</h1>
                         <p class="font-semibold font-[16px] w-full">Subscribe our newsletter for hints, tips and the
@@ -69,17 +69,19 @@
                 </form>
 
             </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div class="grid grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div class="ml-20">
                     <h2 class="mb-6 text-sm font-semibold  uppercase dark:text-white">Our Contacts</h2>
                     <ul class="font-medium">
                         <li class="mb-4">
-                            <a href="https://flowbite.com/" class="hover:underline text-justify">FYH.com
+                            {{-- <a  class=" text-justify"> --}}
+                                {{-- FYH.com
                                 8890 RoadHill St., Suite 100
                                 Zurich, Switzerland-8000
                                 <br /><br />
                                 Email:info@fyh.com
-                                Tel: +1 54541 5545141</a>
+                                Tel: +1 54541 5545141</a> --}}
+                                {{$setting->address ??null}}
                         </li>
                     </ul>
                 </div>
@@ -87,22 +89,22 @@
                     <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Explore</h2>
                     <ul class=" dark:text-gray-400 font-medium">
                         <li>
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">About</a>
+                            <a href="{{route('about')}}" class="hover:underline ">About</a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Our Team</a>
+                            <a href="{{route('about')}}" class="hover:underline">Our Team</a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Gallery</a>
+                            <a href="{{route('about')}}" class="hover:underline">Gallery</a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Pricing</a>
+                            <a href="{{route('member')}}" class="hover:underline">Pricing</a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Events</a>
+                            <a href="{{route('about')}}" class="hover:underline">Events</a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">News & Blog</a>
+                            <a href="{{route('about')}}" class="hover:underline">News & Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -110,13 +112,13 @@
                     <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Support</h2>
                     <ul class=" dark:text-gray-400 font-medium">
                         <li>
-                            <a href="#" class="hover:underline">Help Center</a>
+                            <a href="{{route('help.support')}}" class="hover:underline">Help Center</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">My Account</a>
+                            <a href="{{route('user.profile')}}" class="hover:underline">My Account</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">Ticket Support</a>
+                            <a href="{{route('ticket')}}" class="hover:underline">Ticket Support</a>
                         </li>
                         <li>
                             <a href="#" class="hover:underline">Contact us</a>
@@ -127,17 +129,17 @@
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between mx-36">
-            <span class="text-sm  sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/"
-                    class="hover:underline">Copyright © 2023 FYH, All rights reserved. Powered by Fozlay.
+            <span class="text-sm  sm:text-center dark:text-gray-400">© {{date("Y")}} <a 
+                    class="hover:underline">Copyright © {{date("Y")}} FYH, All rights reserved. Powered by Fozlay.
             </span>
             <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                 <h1>Terms of use</h1>
 
-                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                <a href="{{route('terms.condition')}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
 
                     <span class="text-white">privacy Policy</span>
                 </a>
-                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                <a href="{{route('cookies')}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
 
                     <span class="text-white">Cookie Policy</span>
                 </a>
