@@ -21,8 +21,10 @@ class PaymentDurationCheck
         // dd(Auth::user());
         if(Auth::user()){
             $paypal = Payment::where('user_id',Auth::user()->id)->first();
-            if(Carbon::now()>$paypal->end_time){
-            return redirect()->route('update_payment',[$paypal->client_type_id]);
+            if($paypal){
+                if(Carbon::now()>$paypal->end_time){
+                    return redirect()->route('update_payment',[$paypal->client_type_id]);
+                    }
             }
         }
         return $next($request);
