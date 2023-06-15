@@ -151,25 +151,33 @@
 <!-- flowbite cdn -->
 <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 <script>
+    var bank = false ;
     function myFunction() {
   var x = document.getElementById("hideShow");
   var y= document.getElementById("ahideShow");
-  if (x.style.display === "none") {
+  if (bank) {
+    x.style.display = "none";
+    y.style.display="block";
+    bank = false
+  } else {
     x.style.display = "block";
     y.style.display="none"
-  } else {
-    x.style.display = "none";
-    y.style.display="block"
+    bank = true;
   }
 }
+var paypal=false;
 function anotherFunction() {
   var x = document.getElementById("paypal");
 
-  if (x.style.display === "none") {
-    return x.style.display = "block";
+  if (paypal) {
+     x.style.display = "none";
+     console.log("block")
+     paypal = false;
 
   } else {
-     return x.style.display = "none";
+      x.style.display = "block";
+     console.log("none")
+     paypal= true;
 
   }
 }
