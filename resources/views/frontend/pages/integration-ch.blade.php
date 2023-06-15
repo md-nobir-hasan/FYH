@@ -5,8 +5,8 @@
 @section('content')
 
 <div class="" style="font-family:'Poppins'">
-<h1 class="text-center text-5xl font-black mt-16">Integration In Switzerland</h1>
-    <p class="text-center text-2xl font-normal">This guide will help you to integrate easier, more meaningful and fun</p>
+<h1 class="text-center text-5xl font-black mt-16">@if($titles!==null) {{$titles->intr_title}}  @endif</h1>
+    <p class="text-center text-2xl font-normal"> @if($titles!==null) {{$titles->intr_subtile}}  @endif </p>
 <!-- Integration design 2 -->
 
 <div class="grid grid-cols-1 lg:grid-cols-2 mx-5 lg:mx-36 gap-5 mt-10">

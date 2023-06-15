@@ -122,4 +122,18 @@ class StoryController extends Controller
 
           return Redirect::back()->with('success',' Status Update SuccessfullY');
     }
+
+
+   public function feature($id)  {
+    $story = Story::findOrFail($id);
+    if($story->feature == 1){
+       $story->feature = 0;
+       $story->save();
+    }elseif ($story->feature == 0) {
+      $story->feature = 1;
+      $story->save();
+    }
+
+    return Redirect::back()->with('success',' Feature Update SuccessfullY');
+    }
 }

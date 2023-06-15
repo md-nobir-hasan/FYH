@@ -44,6 +44,17 @@ class HomeRequest extends FormRequest
              'share_subtitle' => 'required',
              'image' => 'nullable',
              'lgImage' => 'nullable',
+             'move_title' => 'required',
+             'move_subtile' => 'required',
+             'intr_title' => 'required',
+             'intr_subtile' => 'required',
+             'help_image' => 'nullable',
+             'help_title' => 'required',
+             'help_subtile' => 'required',
+             'thank_heading' => 'required',
+             'thank_image' => 'nullable',
+             'thank_subtitle' => 'required',
+             'thank_title' => 'required',
         ];
     }
 }

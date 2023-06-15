@@ -18,7 +18,7 @@ class UserHasRole
     {
 
         if($request->user()->role_id == null){
-            return redirect()->route('customer.dashboard');
+            return redirect()->route('user.home');
         }
         return $next($request);
     }

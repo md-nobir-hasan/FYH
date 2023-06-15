@@ -15,6 +15,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FrontendControler;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IntegrationController;
 use App\Http\Controllers\LinkController;
@@ -33,6 +34,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\SubcriptionController;
 use App\Http\Controllers\Submenucontroller;
+use App\Http\Controllers\TermController;
 use App\Http\Controllers\UserCommonController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,15 +58,15 @@ use Illuminate\Support\Facades\Route;
 
     });
 
-    // authorize user route
-     Route::get('user/home', [FrontendControler::class, 'userHome'])->name('user.home');
+    // authorize user route 
+     Route::get('home', [FrontendControler::class, 'userHome'])->name('user.home');
     Route::get('my-story', [FrontendControler::class, 'myStory'])->name('user.myStroy');
     Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
     Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
-    Route::get('user/membership/update', [FrontendControler::class, 'memberShipUpdate'])->name('user.membership.update');
     Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
+    Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
 
 
 
@@ -117,11 +119,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Comtomer route
-Route::prefix('/cumstomer')->name('customer.')->group(function(){
-    Route::get('/dashboard',[UserCommonController::class,'dashboard'])->name('dashboard');
-    // Route::get('/index',[UserCommonController::class,'index'])->name('index');
-});
+// Redirect route
+
+    Route::get('/redirect/route',[UserCommonController::class,'redirect']);
+
 
 
 
@@ -145,7 +146,8 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::prefix('/setting')->name('setting.')->group(function(){
         Route::resource('setting',SettingsController::class);
     });
-    //Delete
+    // 
+
     Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
 
     //ajax throug axios
@@ -183,6 +185,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::resource('stories', StoryController::class)->except('destroy');
     Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
     Route::get('/stories/status/{id}', [StoryController::class, 'status'])->name('stories.status');
+    Route::get('/stories/feature/{id}', [StoryController::class, 'feature'])->name('stories.feature');
 
     // benefit and other Section title and subtitle
     Route::resource('opportunitys', OpporcunityController::class);
@@ -200,6 +203,15 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::resource('integrations', IntegrationController::class);
     Route::get('/integrations/destroy/{id}', [IntegrationController::class, 'destroy'])->name('integrations.destroy');
     Route::get('/integrations/status/{id}', [IntegrationController::class, 'status'])->name('integrations.status');
+
+
+    //Help and support
+    Route::resource('/helps', HelpController::class);
+    Route::get('helps/destroy/{id}', [HelpController::class, 'destroy'])->name('helps.destroy');
+
+
+    // term and Condition
+    Route::resource('terms', TermController::class);
 
     //Setup
     Route::prefix('/setup')->name('setup.')->group(function(){

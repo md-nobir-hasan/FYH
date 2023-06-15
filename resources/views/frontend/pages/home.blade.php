@@ -365,7 +365,7 @@
          
             @endif 
             </p>
-            <a href="/" class=" flex justify-center items-center"><button
+            <a href="{{route('share.story')}}" class=" flex justify-center items-center"><button
                     class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
                     Story</button></a>
         </section>
