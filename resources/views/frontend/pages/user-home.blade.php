@@ -134,19 +134,19 @@
          <h1 class="text-center text-4xl mt-5 font-black">That's your time</h1>
         <p class="text-center text-sm font-[600] mt-4">What do you think of th services of FYH?</p>
         <div class="lg:mx-48 mt-5 grid grid-cols-2 lg:grid-cols-5 gap-10">
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function1() id="btn1" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Terrible.png" alt="" class="p-5"/>
             </div>
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function2() id="btn2" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Bad.png" alt="" class="p-5"/>
             </div>
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function3() id="btn3" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Okay.png" alt="" class="p-5"/>
             </div>
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function4() id="btn4" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Good.png" alt="" class="p-5"/>
             </div>
-            <div class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
+            <div onclick=function5() id="btn5" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/amazing.png" alt="" class="p-5"/>
             </div>
             
@@ -168,4 +168,75 @@
     <!-- flowbite cdn -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <!-- flowbite cdn end -->
+    <script>
+        let btn1= document.getElementById("btn1")
+        let btn2= document.getElementById("btn2")
+        let btn3= document.getElementById("btn3")
+        let btn4= document.getElementById("btn4")
+        let btn5= document.getElementById("btn5")
+
+        const function1=()=>{
+            
+            if(btn1.style.backgroundColor === '' || btn2.style.backgroundColor || btn3.style.backgroundColor || btn4.style.backgroundColor || btn5.style.backgroundColor){
+                btn1.style.backgroundColor = '#D1052C';
+                btn2.style.backgroundColor = ''
+                btn3.style.backgroundColor=''
+                btn4.style.backgroundColor=''
+                btn5.style.backgroundColor=''
+            }
+            else{
+                btn1.style.backgroundColor='';
+ 
+            }
+            
+        }
+        const function2=()=>{
+            
+            if(btn2.style.backgroundColor === '' || btn1.style.backgroundColor || btn3.style.backgroundColor || btn4.style.backgroundColor || btn4.style.backgroundColor){
+                btn2.style.backgroundColor = '#D1052C';
+                btn1.style.backgroundColor = '';
+                btn3.style.backgroundColor='';
+                btn4.style.backgroundColor=''
+                btn5.style.backgroundColor=''
+            }else{
+                btn2.style.backgroundColor=''
+            }
+        }
+        const function3=()=>{
+            if(btn3.style.backgroundColor === '' || btn1.style.backgroundColor || btn2.style.backgroundColor || btn4.style.backgroundColor || btn5.style.backgroundColor){
+                btn3.style.backgroundColor = '#D1052C';
+                btn1.style.background = ''
+                btn2.style.backgroundColor=''
+                btn4.style.backgroundColor=''
+                btn5.style.backgroundColor=''
+            }else{
+                btn3.style.backgroundColor='';
+            }
+        }
+        const function4=()=>{
+            
+            if(btn4.style.backgroundColor === '' || btn1.style.backgroundColor || btn2.style.backgroundColor || btn3.style.backgroundColor || btn5.style.backgroundColor){
+                btn4.style.backgroundColor = '#D1052C';
+                btn1.style.backgroundColor =''
+                btn2.style.backgroundColor =''
+                btn3.style.backgroundColor =''
+                btn5.style.backgroundColor =''
+            }else{
+                btn4.style.backgroundColor='';
+            }
+        }
+        const function5=()=>{
+
+            if(btn5.style.backgroundColor === '' || btn1.style.backgroundColor || btn2.style.backgroundColor || btn3.style.backgroundColor || btn4.style.backgroundColor){
+                btn5.style.backgroundColor = '#D1052C';
+                btn1.style.backgroundColor='';
+                btn2.style.backgroundColor='';
+                btn3.style.backgroundColor='';
+                btn4.style.backgroundColor='';
+            }else{
+                btn5.style.backgroundColor='';
+                
+            }
+        }
+    </script>
 @endpush
