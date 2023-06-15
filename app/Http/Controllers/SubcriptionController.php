@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Cashier\Subscription;
-
 class SubcriptionController extends Controller
 {
     public function index()
     {
-          $subscriptions = Subscription::orderBy('created_at', 'desc')->paginate(50);
-          return view('pages.subscribe.index', ['subscriptions' => $subscriptions]);
+
+        $n['paypal_subscriptions'] = Payment::with('user')->where('order_status','COMPLETED')->orderBy('id','desc')->paginate(50);
+        $n['subscriptions'] = Subscription::orderBy('created_at', 'desc')->paginate(50);
+        // dd($n);
+        return view('pages.subscribe.index', $n);
     }
 
     public function cancel($userId, $subName)
@@ -35,5 +39,5 @@ class SubcriptionController extends Controller
 
 
 
-  
+
 }

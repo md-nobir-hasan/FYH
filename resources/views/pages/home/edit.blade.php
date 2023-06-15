@@ -280,7 +280,7 @@
 
                             <div class="text-left">
                                 <label for="share_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Share Subtitle: </label>
-                                    <textarea  name="share_subtitle" rows="2" class="@error('share_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                    <textarea id="editor"  name="share_subtitle" rows="2" class="@error('share_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                                      placeholder="Enter Share SubTitle ">
                                      @if($homeSection!==null)  {!!$homeSection->share_subtitle  !!}  @endif
                                     </textarea>
@@ -289,10 +289,143 @@
                                    @enderror
                             </div>
 
+                              {{-- Move title and subtitle --}}
+                              <div class="text-left">
+                                <label
+                                for="move_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Move Title : </label
+                              >
+                              <input name="move_title"  @if($homeSection!==null) value="{{$homeSection->move_title}}" @endif 
+                                class="@error('move_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="move_title" placeholder="Enter Move title " />
+
+                                @error('move_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="move_subtile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Move Subtitle: </label>
+                                    <textarea id="editor"  name="move_subtile" rows="2" class="@error('move_subtile') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Share SubTitle ">
+                                     @if($homeSection!==null)  {!!$homeSection->move_subtile  !!}  @endif
+                                    </textarea>
+                                    @error('move_subtile')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+
+                              {{-- intregation and subtitle --}}
+                              <div class="text-left">
+                                <label
+                                for="intr_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Integation Title : </label
+                              >
+                              <input name="intr_title"  @if($homeSection!==null) value="{{$homeSection->intr_title}}" @endif 
+                                class="@error('intr_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="intr_title" placeholder="Enter integation title " />
+
+                                @error('intr_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="intr_subtile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Integation Subtitle: </label>
+                                    <textarea id="editor"  name="intr_subtile" rows="2" class="@error('intr_subtile') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Share SubTitle ">
+                                     @if($homeSection!==null)  {!!$homeSection->intr_subtile  !!}  @endif
+                                    </textarea>
+                                    @error('intr_subtile')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+
+
+                              {{-- help title and subtitle --}}
+                              <div class="text-left">
+                                <label
+                                for="help_title"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Help Title : </label
+                              >
+                              <input name="help_title"  @if($homeSection!==null) value="{{$homeSection->help_title}}" @endif 
+                                class="@error('help_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="text"
+                                id="help_title" placeholder="Enter Help title " />
+
+                                @error('help_title')
+                                <div class="text-left text-red-600">{{ $message }}</div>
+                               @enderror
+                            </div>
+
+                            <div class="text-left">
+                                <label for="help_subtile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Help Subtitle: </label>
+                                    <textarea id="editor"  name="help_subtile" rows="2" class="@error('help_subtile') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Help SubTitle ">
+                                     @if($homeSection!==null)  {!!$homeSection->help_subtile  !!}  @endif
+                                    </textarea>
+                                    @error('help_subtile')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+                                   {{-- Thanks title and subtitle --}}
+                                   <div class="text-left">
+                                    <label
+                                    for="thank_heading"
+                                    class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                    >Thank Heading : </label
+                                  >
+                                  <input name="thank_heading"  @if($homeSection!==null) value="{{$homeSection->thank_heading}}" @endif 
+                                    class="@error('thank_heading') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                    type="text"
+                                    id="thank_heading" placeholder="Enter Thank heading " />
+    
+                                    @error('thank_heading')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                                </div>
+
+                                <div class="text-left">
+                                    <label
+                                    for="thank_title"
+                                    class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                    >Thank Title : </label
+                                  >
+                                  <input name="thank_title"  @if($homeSection!==null) value="{{$homeSection->thank_title}}" @endif 
+                                    class="@error('thank_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                    type="text"
+                                    id="thank_title" placeholder="Enter Thank title " />
+    
+                                    @error('thank_title')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                                </div>
+    
+                                <div class="text-left">
+                                    <label for="thank_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Thank Subtitle: </label>
+                                        <textarea id="editor"  name="thank_subtitle" rows="2" class="@error('thank_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                         placeholder="Enter Share SubTitle ">
+                                         @if($homeSection!==null)  {!!$homeSection->thank_subtitle  !!}  @endif
+                                        </textarea>
+                                        @error('thank_subtitle')
+                                        <div class="text-left text-red-600">{{ $message }}</div>
+                                       @enderror
+                                </div>
+
+
+
                         </div>
 
 
-                            <div class="text-left">
+                            <div class="mb-3 text-left">
                                 <label
                                 for="logo"
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
@@ -307,7 +440,7 @@
                                 @enderror
                             </div>
                      
-                            <div class="text-left">
+                            <div class="mb-3 text-left">
                                 <label
                                 for="lgImage"
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
@@ -322,6 +455,36 @@
                                 @enderror
                             </div>
                           
+
+                            <div class="mb-3 text-left">
+                                <label
+                                for="lgImage"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Help Image: </label
+                              >
+                              <input name="help_image" value=""
+                                class="@error('help_image') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="file"
+                                id="help_image" />
+                                @error('help_image')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3 text-left">
+                                <label
+                                for="thank_image"
+                                class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                >Thank Image: </label
+                              >
+                              <input name="thank_image" value=""
+                                class="@error('thank_image') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                type="file"
+                                id="thank_image" />
+                                @error('thank_image')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                 
 
@@ -356,7 +519,12 @@
                     })
                 </script>
 
-
+<script src="{{asset('js/ckeditor5/ckeditor.js')}}"></script>
+<script>
+    ClassicEditor.create( document.querySelector( '#editor' ) ).catch( error => {
+            console.error( error );
+        } );
+</script>
 
 
 

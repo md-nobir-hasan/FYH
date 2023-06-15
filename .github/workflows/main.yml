@@ -1,5 +1,8 @@
-on: push
-name: 🚀 Deploy to mdnh on push
+name: 🚀Deploy to fyh-nobir on push
+on:
+  push:
+    branches:
+      - master
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -14,3 +17,4 @@ jobs:
         server: ${{ secrets.N_FTP_SERVER }}
         username: ${{ secrets.N_FTP_USERNAME }}
         password: ${{ secrets.N_FTP_PASSWORD }}
+

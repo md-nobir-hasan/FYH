@@ -53,6 +53,9 @@
                                                  <th scope="col" class="px-6 py-3">
                                                     Status
                                                       </th>
+                                                      <th scope="col" class="px-6 py-3">
+                                                        Feature
+                                                          </th>
                                     @if ($n->edit || $n->delete)
                                         <th scope="col" class="px-6 py-3 text-bold text-md">
                                             Action
@@ -101,6 +104,17 @@
                                         <a href="{{route('admin.stories.status', $item->id)}}" class="bg-red-800 px-4 py-2 rounded-lg text-white">Dective</a>
                                         @endif
                                     </th>
+
+
+                                    <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    @if($item->feature ==1)
+                                    <a href="{{route('admin.stories.feature', $item->id)}}" class="bg-blue-800 px-4 py-2 rounded-lg text-white">Active</a>
+                                    @else
+                                    <a href="{{route('admin.stories.feature', $item->id)}}" class="bg-red-800 px-4 py-2 rounded-lg text-white">Dective</a>
+                                    @endif
+                                </th>
+
                                         @if ($n->edit || $n->delete)
                                             <td class="px-6 py-4 text-center ">
                                                 <div class="flex justify-center">
