@@ -272,6 +272,18 @@ class FrontendControler extends Controller
   return view('frontend.pages.ticket');
   }
 
+  public function refuse()  {
+    return view('frontend.pages.refuse');
+  }
+
+
+ public function createRequest()  {
+  return view('frontend.pages.createRequest');
+  }
+
+ public function problem()  {
+  return view('frontend.pages.problem');
+  }
 
 
 

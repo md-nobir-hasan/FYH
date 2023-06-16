@@ -39,8 +39,9 @@ use App\Http\Controllers\UserCommonController;
 use Illuminate\Support\Facades\Route;
 
 
+
 // Frontend controller
-    Route::get('/', [FrontendControler::class,'homePage'])->name('home');
+    Route::get('/', [FrontendControler::class,'homePage'])->name('home')->withoutMiddleware('pdc');
     Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
     Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
@@ -48,27 +49,36 @@ use Illuminate\Support\Facades\Route;
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
-    Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('share.story');
-    Route::post('/share-story/store', [FrontendControler::class,'storyStore'])->name('share.story.store');
-    Route::get('/thankYou', [FrontendControler::class,'thank'])->name('thank.you');
+    Route::get('/refuse', [FrontendControler::class,'refuse'])->name('refuse');
 
+    
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
 
     });
 
+    // Subscriber Route
+    // Route::group(['middleware' => 'subscriptionGuard'], function () {
+        Route::get('home', [FrontendControler::class, 'userHome'])->name('user.home');
+        Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('share.story');
+        Route::post('/share-story/store', [FrontendControler::class,'storyStore'])->name('share.story.store');
+        Route::get('/thankYou', [FrontendControler::class,'thank'])->name('thank.you');
+         Route::get('my-story', [FrontendControler::class, 'myStory'])->name('user.myStroy');
+         Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
+         Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
+         Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
+    // });
+
     // authorize user route 
-     Route::get('home', [FrontendControler::class, 'userHome'])->name('user.home');
-    Route::get('my-story', [FrontendControler::class, 'myStory'])->name('user.myStroy');
-    Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
-    Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
-    Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
+    
+   
+  
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
     Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
-
-
+    Route::get('/createRequest', [FrontendControler::class, 'createRequest'])->name('createRequest');
+    Route::get('/problem', [FrontendControler::class, 'problem'])->name('problem');
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');

@@ -25,6 +25,13 @@ class PaymentDurationCheck
                 if(Carbon::now()>$paypal->end_time){
                     return redirect()->route('update_payment',[$paypal->client_type_id]);
                     }
+            }else{
+                $user = $request->user();
+        
+                if ($user && $user->subscribed('default') ) {
+                    return $next($request);
+                }
+                abort(403, 'Your subscription is not active.');
             }
         }
         return $next($request);
