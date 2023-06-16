@@ -44,8 +44,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [FrontendControler::class,'homePage'])->name('home')->withoutMiddleware('pdc');
     Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
-    Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
-    Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
+    Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment')->withoutMiddleware('pdc');
+    Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats')->withoutMiddleware('pdc');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
@@ -83,12 +83,12 @@ use Illuminate\Support\Facades\Route;
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
 
-     Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing');
-     Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store');
+     Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing')->withoutMiddleware('pdc');
+     Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store')->withoutMiddleware('pdc');
 
      // checkout
-    Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page'); //checkout page
-    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
+    Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page')->withoutMiddleware('pdc'); //checkout page
+    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment')->withoutMiddleware('pdc');
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
 
     // paypal
