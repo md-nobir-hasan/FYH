@@ -94,7 +94,7 @@ class FrontendControler extends Controller
 
        $story = Story::where('slug', $slug)->first();
         $story->views +=1;
-        $story->save(); 
+        $story->save();
       $stories = Story::latest()->take(9)->get();
       $share = Home::select('share_title', 'share_subtitle')->first();
     return view('frontend.pages.single-story', ['story' => $story, 'stories' => $stories, 'share' => $share]);
@@ -150,7 +150,7 @@ class FrontendControler extends Controller
   public function integrationSwitzerland(){
      $integration = Integration::where('status', 1)->orderBy('priority', 'asc')->get();
      $titles = Home::select('intr_title', 'intr_subtile')->first();
-   
+
      return view('frontend.pages.integration-ch',compact('integration', 'titles'));
   }
   public function billingPage(Request $request){
@@ -212,13 +212,13 @@ class FrontendControler extends Controller
     $user = auth()->user();
     if($user ==null){
        return to_route('login');
-    }  
+    }
 
     $shareImage = Home::select('lgImage' ,'customer_title', 'customer_subtitle', 'image_title','image_subtitle')->first();
     $storyCount = Story::all()->count();
     $popularStory = DB::table('stories')->where('status', 1)->orderBy('views', 'desc')->join('users', 'stories.user_id', '=', 'users.id')->select('stories.*', 'users.img')->take(3)->get();
     $stories = Story::where('status', 1)->orderBy('priority','asc')->take(3)->get();
- 
+
     return view('frontend.pages.user-home', ['user' => $user, 'popularStory' => $popularStory, 'storyCount' => $storyCount, 'shareImage' => $shareImage, 'stories' => $stories]);
   }
 
@@ -228,7 +228,7 @@ class FrontendControler extends Controller
     if($user ==null){
        return Redirect::back();
     }
-   
+
     $myStory = Story::where('user_id', $user->id)->get();
     return view('frontend.pages.my-story', ['myStory' => $myStory]);
   }
@@ -249,7 +249,7 @@ class FrontendControler extends Controller
     }
     return view('frontend.pages.profile-edit');
   }
- 
+
 
   public function helpSupport()
   {
@@ -283,6 +283,10 @@ class FrontendControler extends Controller
 
  public function problem()  {
   return view('frontend.pages.problem');
+  }
+
+  public function passRessDone(){
+    return view('frontend.pages.pass-reset-done');
   }
 
 

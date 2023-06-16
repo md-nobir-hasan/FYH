@@ -51,7 +51,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
     Route::get('/refuse', [FrontendControler::class,'refuse'])->name('refuse');
 
-    
+    Route::get('/password-reset-done',[FrontendControler::class,'passRessDone'])->name('pass_reset_done');
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
@@ -70,10 +70,10 @@ use Illuminate\Support\Facades\Route;
          Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
     // });
 
-    // authorize user route 
-    
-   
-  
+    // authorize user route
+
+
+
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
     Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
