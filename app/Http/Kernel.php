@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Http\Middleware\SubscriptionGuard;
 
 class Kernel extends HttpKernel
 {
@@ -40,6 +41,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\PaymentDurationCheck::class
+            
         ],
 
         'api' => [
@@ -71,5 +73,6 @@ class Kernel extends HttpKernel
         'check' => \App\Http\Middleware\UserCheck::class,
         'admin' => \App\Http\Middleware\UserHasRole::class,
         'pdc' => \App\Http\Middleware\PaymentDurationCheck::class,
+        'subscriptionGuard' => SubscriptionGuard::class,
     ];
 }

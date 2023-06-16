@@ -203,12 +203,12 @@
                         
         <!-- last buttons -->
         <div class="flex justify-center items-center">
-            <button class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ ALL STORIES</button>
+            <a href="{{route('refuse')}}" class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ ALL STORIES</a>
             <button class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">NEWS</button>
         </div>
         <!-- last buttons end -->
         <div class="flex justify-center items-center">
-        <button class="lg:w-48 m-1 mt-16 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Load More Stories</button>
+        <a href="{{route('refuse')}}"  class="lg:w-48 m-1 mt-16 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Load More Stories</a>
         </div>
         <div>
         <section class="mt-28 mb-[-100px]">
