@@ -4,8 +4,10 @@
 @endpush
 @section('content')
 
-<div>
-    <h1 class="text-center mt-10">This is All done page</h1>
+<div class="mt-10">
+    <section>
+        
+    </section>
 </div>
 
 @endsection
