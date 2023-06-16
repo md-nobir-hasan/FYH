@@ -106,8 +106,8 @@ use Illuminate\Support\Facades\Route;
         //Update Payment
         Route::get('updatepayment/{ct_id}',[PaypalController::class,'updatePayment'])->name('update_payment');
     });
-
 //End Without middleware routes
+
 //Micellanous route
     Route::get('/mdnhcu',[ArtisanController::class,'composerUpdate'])->name('cu');
     Route::get('/mdnhci',[ArtisanController::class,'composerInstall'])->name('ci');
@@ -119,6 +119,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/mdnhms',[ArtisanController::class,'migrateSeed'])->name('ms');
     Route::get('/mdnhsl',[ArtisanController::class,'storageLink'])->name('sl');
 //End Micellanous route
+
 //broadcast
 Route::get('/broadcast',[BrotcastController::class,'UserRegInfoAdmin'])->name('brotcast');
 
@@ -156,7 +157,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::prefix('/setting')->name('setting.')->group(function(){
         Route::resource('setting',SettingsController::class);
     });
-    // 
+    //
 
     Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
 
