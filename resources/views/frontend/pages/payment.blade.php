@@ -19,7 +19,7 @@
             <p class="ml-4"> {{$billing->f_name}} {{$billing->l_name}}</p>
             <p class="ml-4"> {{$billing->email}} </p>
             <p class="ml-4"> {{$billing->phone}} </p>
-            <p class="ml-4">{{$billing->country}}</p>
+            <p class="ml-4">{{$billing->country->country}}</p>
             <p class="ml-4"> {{$billing->city}} </p>
             <p class="ml-4"> {{$billing->zip}} </p>
 

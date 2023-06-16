@@ -32,7 +32,7 @@ class StoryFactory extends Factory
             'profession' => 'teacher',
             'image' => $image,
             'status' => 1,
-            'country' => $this->faker->country(),
+            'country_id' => $this->faker->numberBetween(1,10),
             'feature' => $this->faker->numberBetween(0,1),
             'user_id' => 2,
             

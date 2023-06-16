@@ -31,7 +31,7 @@ class PaymentDurationCheck
                 if ($user && $user->subscribed('default') ) {
                     return $next($request);
                 }
-                abort(403, 'Your subscription is not active.');
+                return to_route('refuse');
             }
         }
         return $next($request);
