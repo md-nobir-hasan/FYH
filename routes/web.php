@@ -28,6 +28,7 @@ use App\Http\Controllers\OpporcunityController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
@@ -78,7 +79,7 @@ use Illuminate\Support\Facades\Route;
          Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
          Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
          Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
-
+         Route::post('feedback', [FrontendControler::class, 'feedback'])->name('feedback');
         //  benefit  Search
         Route::any('/community/search', [FrontendControler::class, 'communitySearch'])->name('community.search');
     });
@@ -91,7 +92,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
     Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
     Route::get('/createRequest', [FrontendControler::class, 'createRequest'])->name('createRequest');
-    Route::get('/problem', [FrontendControler::class, 'problem'])->name('problem');
+    Route::get('/problem/{id}', [FrontendControler::class, 'problem'])->name('problem');
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
@@ -188,6 +189,9 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     });
 
 
+    // problem and solving
+    Route::resource('problem', ProblemController::class)->except('create', 'destroy');
+    Route::get('/problem/destroy/{id}', [ProblemController::class, 'destroy'])->name('problem.destroy');
 
     Route::resource('billings', BillingController::class)->only('index');
     Route::get('/billings/destroy/{id}', [BillingController::class, 'destroy'])->name('billings.destroy');

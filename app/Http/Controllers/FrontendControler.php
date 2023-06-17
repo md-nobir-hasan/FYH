@@ -15,6 +15,7 @@ use App\Models\Home;
 use App\Models\Integration;
 use App\Models\MoveTo;
 use App\Models\Opportunity;
+use App\Models\Problem;
 use App\Models\Service;
 use App\Models\Story;
 use App\Models\Term;
@@ -95,7 +96,7 @@ class FrontendControler extends Controller
     $country = Country::all();
     $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
     $query = DB::table('stories');
-
+  
     // sort story
     if ($request->stories !==null ) {
        if($request->stories =='latest'){
@@ -312,7 +313,8 @@ class FrontendControler extends Controller
   }
 
  public function ticket()  {
-  return view('frontend.pages.ticket');
+  $problems = Problem::orderBy('status', 'asc')->paginate(10);
+  return view('frontend.pages.ticket', ['problems' => $problems]);
   }
 
   public function refuse()  {
@@ -324,8 +326,9 @@ class FrontendControler extends Controller
   return view('frontend.pages.createRequest');
   }
 
- public function problem()  {
-  return view('frontend.pages.problem');
+ public function problem($id)  {
+   $problemShow = Problem::findOrFail($id);
+  return view('frontend.pages.problem',compact('problemShow'));
   }
 
   public function passRessDone(){
@@ -334,8 +337,10 @@ class FrontendControler extends Controller
 
 
 
-
-
+// feedback store
+  public function feedback(Request $request)  {
+      return $request;
+  }
 
 
 

@@ -120,7 +120,7 @@
             <a href="{{route('user.profile')}}" class="block text-lg px-4 py-1 font-medium text-black hover:bg-gray-100">Profile</a>
           </li>
           <li>
-            <a href="{{route('user.profile.edit')}}" class="block text-lg px-4  text-black font-medium hover:bg-gray-100">Edit Profile</a>
+            <a href="{{route('share.story')}}" class="block text-lg px-4  text-black font-medium hover:bg-gray-100">Edit Profile</a>
           </li>
           <hr class="h-px bg-black mx-4 border-0">
           <li class="flex ml-4">

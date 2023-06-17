@@ -15,14 +15,14 @@
                 
                     <select name="stories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option class="text-lg" value="latest" >Most Recent</option>
-                    <option class="text-lg" value="MostRelevant">Most Relevant</option>
+                    <option class="text-lg" value="">Most Relevant</option>
                 </select>
             </div>
             <div class="lg:ml-24 lg:w-64">
                 <p>By Country</p>
 
                 <select id="countries" name="country_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option class="text-lg" selected>All Country</option>
+                <option class="text-lg" selected value="" >All Country</option>
                  @foreach ($country as $item)
                      <option value="{{$item->id}}">{{$item->country}}</option>
                  @endforeach
@@ -32,8 +32,8 @@
             <div class="lg:w-64 lg:ml-44">
                 <p>By Time</p>
                 <select  name="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option class="text-lg" selected>By Time</option>
-                <option class="text-lg mb-1" >Any Time</option>
+            
+                <option class="text-lg mb-1" value="" >Any Time</option>
                 <option class="text-lg mb-1" value="1">Past 24 Hours</option>
                 <option class="text-lg mb-1" value="7">Past Week</option>
                 <option class="text-lg mb-1" value="30">Past Month</option>
@@ -59,7 +59,7 @@
             @if($stories->count() > 0)
 
             @foreach ($stories as $item) 
-          @php  $countryName = App\Models\Country::find($item->country_id)->first(); @endphp
+          @php  $countryName = App\Models\Country::where('id', $item->country_id)->first(); @endphp
 
             <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
