@@ -90,7 +90,6 @@ class HelpController extends Controller
 
     public function destroy($id)
     {
-      return $id;
      
        $help = Help::findOrFail($id);
      

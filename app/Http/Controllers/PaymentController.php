@@ -8,6 +8,8 @@ use Stripe;
 use Session;
 use Laravel\Cashier\Cashier;
 use exception;
+use Event;
+use App\Events\SubscriptionCreated;
 
 class PaymentController extends Controller
 {
@@ -43,7 +45,11 @@ class PaymentController extends Controller
               $bil = Billing::find($request->biling_id);
               $bil->payment = 1;
               $bil->save();
+                  
              
+              Event::dispatch(new SubscriptionCreated($user->id));
+
+            
               return to_route('congrats', $plan)->with('success', 'Payment successful!');
            }
 

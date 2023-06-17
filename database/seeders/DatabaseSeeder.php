@@ -7,10 +7,12 @@ namespace Database\Seeders;
 use App\Models\About;
 use App\Models\Benefit;
 use App\Models\Congrat;
+use App\Models\Country;
 use App\Models\Help;
 use App\Models\Integration;
 use App\Models\MoveTo;
 use App\Models\Opportunity;
+use App\Models\Problem;
 use App\Models\Service;
 use App\Models\Story;
 use App\Models\Term;
@@ -50,5 +52,8 @@ class DatabaseSeeder extends Seeder
         Integration::factory(8)->create();
         Help::factory(6)->create();
         Term::factory(1)->create();
+        Country::factory(10)->create();
+        Problem::factory(10)->create();
+
     }
 }

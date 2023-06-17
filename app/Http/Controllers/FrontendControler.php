@@ -9,11 +9,14 @@ use App\Models\Billing;
 use App\Models\ClientType;
 use App\Models\Congrat;
 use App\Models\Content;
+use App\Models\Country;
+use App\Models\FeedBack;
 use App\Models\Help;
 use App\Models\Home;
 use App\Models\Integration;
 use App\Models\MoveTo;
 use App\Models\Opportunity;
+use App\Models\Problem;
 use App\Models\Service;
 use App\Models\Story;
 use App\Models\Term;
@@ -27,6 +30,9 @@ use Artisan;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Illuminate\Support\Carbon as SupportCarbon;
+
 
 class FrontendControler extends Controller
 {
@@ -49,9 +55,10 @@ class FrontendControler extends Controller
   }
 
   public function communityPage(){
-       $storyHead = Home::select('story_title', 'story_subtitle')->first();
+       $country = Country::all();
+       $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
       $stories = Story::where('status', 1)->orderBy('priority','asc')->take(10)->get();
-    return view('frontend.pages.community',compact('stories', 'storyHead'));
+    return view('frontend.pages.community',compact('stories', 'storyHead', 'country'));
   }
 
 
@@ -85,6 +92,42 @@ class FrontendControler extends Controller
       return view('frontend.pages.benefit', ['Benefits' => $Benefits, 'benefitHeader' => $benefitHeader]);
   }
 
+  public function communitySearch(Request $request){
+   
+    $country = Country::all();
+    $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
+    $query = DB::table('stories');
+  
+    // sort story
+    if ($request->stories !==null ) {
+       if($request->stories =='latest'){
+            $query->where('status', 1)->latest();
+       }
+  }
+
+// country sorting
+     if ($request->country_id !==null ) {
+    $query->where('country_id', $request->country_id);
+     }
+  
+
+     // time sorting
+     if ($request->time !==null ) {
+        
+         $days = $request->time;
+          $Date = Carbon::now()->subDays($days); 
+            $query->where('created_at', '>=', $Date);
+       
+          
+       }
+   
+   $stories = $query->where('status', 1)->take(15)->get();
+   // $stories->appends(array('stories'=> InputRequest::input('stories'),'country_id'=> InputRequest::input('country_id'),'time'=> InputRequest::input('time')));
+ return view('frontend.pages.community',compact('stories', 'storyHead', 'country'));
+}
+
+
+
   public function singleBenefit($slug)
   {
 
@@ -94,7 +137,8 @@ class FrontendControler extends Controller
 
        $story = Story::where('slug', $slug)->first();
         $story->views +=1;
-        $story->save(); 
+        $story->save();
+
       $stories = Story::latest()->take(9)->get();
       $share = Home::select('share_title', 'share_subtitle')->first();
     return view('frontend.pages.single-story', ['story' => $story, 'stories' => $stories, 'share' => $share]);
@@ -104,7 +148,8 @@ class FrontendControler extends Controller
       if($user ==null){
          return Redirect::back();
       }
-    return view('frontend.pages.share-story', ['user' => $user]);
+      $country = Country::all();
+    return view('frontend.pages.share-story', ['user' => $user, 'country' => $country]);
   }
 
 
@@ -127,7 +172,8 @@ class FrontendControler extends Controller
             'profession' =>$request->profession,
             'address' => $request->address,
             'city' =>$request->city,
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
+            'country_id' => $request->country_id
         ]);
 
         $user = User::all();
@@ -150,7 +196,7 @@ class FrontendControler extends Controller
   public function integrationSwitzerland(){
      $integration = Integration::where('status', 1)->orderBy('priority', 'asc')->get();
      $titles = Home::select('intr_title', 'intr_subtile')->first();
-   
+
      return view('frontend.pages.integration-ch',compact('integration', 'titles'));
   }
   public function billingPage(Request $request){
@@ -170,11 +216,11 @@ class FrontendControler extends Controller
            return Redirect::back();
         }
        $billing =  Billing::create([
-          'f_name' => $request->f_name,
-           'l_name' => $request->l_name,
+          'f_name' => $request->fname,
+           'l_name' => $request->lname,
             'email' => $request->email,
             'phone' => $request->phone,
-            'country' => $request->country,
+            'country_id' => $request->country_id,
             'city' => $request->city,
             'zip' => $request->zip,
             'user_id' => auth()->user()->id,
@@ -212,13 +258,16 @@ class FrontendControler extends Controller
     $user = auth()->user();
     if($user ==null){
        return to_route('login');
-    }  
+
+    }
+
+
 
     $shareImage = Home::select('lgImage' ,'customer_title', 'customer_subtitle', 'image_title','image_subtitle')->first();
     $storyCount = Story::all()->count();
     $popularStory = DB::table('stories')->where('status', 1)->orderBy('views', 'desc')->join('users', 'stories.user_id', '=', 'users.id')->select('stories.*', 'users.img')->take(3)->get();
     $stories = Story::where('status', 1)->orderBy('priority','asc')->take(3)->get();
- 
+
     return view('frontend.pages.user-home', ['user' => $user, 'popularStory' => $popularStory, 'storyCount' => $storyCount, 'shareImage' => $shareImage, 'stories' => $stories]);
   }
 
@@ -228,7 +277,7 @@ class FrontendControler extends Controller
     if($user ==null){
        return Redirect::back();
     }
-   
+
     $myStory = Story::where('user_id', $user->id)->get();
     return view('frontend.pages.my-story', ['myStory' => $myStory]);
   }
@@ -249,7 +298,7 @@ class FrontendControler extends Controller
     }
     return view('frontend.pages.profile-edit');
   }
- 
+
 
   public function helpSupport()
   {
@@ -269,14 +318,53 @@ class FrontendControler extends Controller
   }
 
  public function ticket()  {
-  return view('frontend.pages.ticket');
+  $problems = Problem::orderBy('status', 'asc')->paginate(10);
+  return view('frontend.pages.ticket', ['problems' => $problems]);
+  }
+
+  public function refuse()  {
+    return view('frontend.pages.refuse');
+  }
+
+
+ public function createRequest()  {
+  return view('frontend.pages.createRequest');
   }
 
 
 
+  public function problemStore(Request $request) {
+          $problem = Problem::create([
+              'subject' => $request->subject,
+              'description' => $request->description,
+              'user_id' => auth()->user()->id, 
+              'solveDate' => Carbon::now(),
+          ]);
+
+          return to_route('thank.you');
+  }
+
+ public function problem($id)  {
+   $problemShow = Problem::findOrFail($id);
+   $user = User::where('id', $problemShow->user_id)->first();
+  return view('frontend.pages.problem',compact('problemShow', 'user'));
+  }
+
+  public function passRessDone(){
+    return view('frontend.pages.pass-reset-done');
+  }
 
 
 
+// feedback store
+  public function feedback(Request $request)  {
+        FeedBack::create([
+            'description' => $request->description,
+            'reaction' => $request->reaction,
+            'user_id' => auth()->user()->id,
+        ]);
+        return to_route('thank.you');
+  }
 
 
 

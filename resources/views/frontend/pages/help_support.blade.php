@@ -6,7 +6,10 @@
 <div class="lg:mx-40" style="font-family:'Poppins'">
 <section class="mt-[52px]">
 <div>
+   <a href="{{route('ticket')}}">
     <img src="{{'/storage/'. $tittles->help_image}}" alt="" class=""/>
+</a>
+
 </div>
 <div class="mt-[100px]">
     <h1 class="text-5xl font-black text-center"> @if($tittles !==null)  {{$tittles->help_title}}  @endif</h1>
@@ -14,7 +17,8 @@
     <div class="mt-10 mb-[-100px]">
 
             <!-- benifit card section -->
-            <div class="grid grid-cols-3 gap-8 mt-10">
+            <div class="lg:mx-40 grid grid-cols-3 gap-8 mt-10">
+
          @if($helps->count() > 0)
          @foreach ($helps as $help)
              

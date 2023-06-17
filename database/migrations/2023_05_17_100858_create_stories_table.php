@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->text('address')->nullable();
             $table->text('city')->nullable();
-            $table->string('country')->nullable();
+            $table->unsignedBigInteger('country_id')->nullable();
             $table->string('profession')->nullable();
             $table->integer('priority')->nullable();
             $table->bigInteger('user_id')->nullable();

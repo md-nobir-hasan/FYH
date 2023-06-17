@@ -10,10 +10,12 @@ use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
 use App\Http\Controllers\CongratController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FeedBackController;
 use App\Http\Controllers\FrontendControler;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\HomeController;
@@ -27,6 +29,7 @@ use App\Http\Controllers\OpporcunityController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
@@ -39,7 +42,9 @@ use App\Http\Controllers\UserCommonController;
 use Illuminate\Support\Facades\Route;
 
 
+
 // Frontend controller
+
     Route::get('/', [FrontendControler::class,'homePage'])->name('home');
     Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
@@ -48,27 +53,37 @@ use Illuminate\Support\Facades\Route;
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
-    Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('share.story');
-    Route::post('/share-story/store', [FrontendControler::class,'storyStore'])->name('share.story.store');
-    Route::get('/thankYou', [FrontendControler::class,'thank'])->name('thank.you');
+    Route::get('/refuse', [FrontendControler::class,'refuse'])->name('refuse');
 
+    Route::get('/password-reset-done',[FrontendControler::class,'passRessDone'])->name('pass_reset_done');
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
-
     });
 
-    // authorize user route 
-     Route::get('home', [FrontendControler::class, 'userHome'])->name('user.home');
-    Route::get('my-story', [FrontendControler::class, 'myStory'])->name('user.myStroy');
-    Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
-    Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
-    Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
+    // Subscriber Route
+     Route::group(['middleware' => 'pdc'], function () {
+        Route::get('home', [FrontendControler::class, 'userHome'])->name('user.home');
+        Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('share.story');
+        Route::post('/share-story/store', [FrontendControler::class,'storyStore'])->name('share.story.store');
+        Route::get('/thankYou', [FrontendControler::class,'thank'])->name('thank.you');
+         Route::get('my-story', [FrontendControler::class, 'myStory'])->name('user.myStroy');
+         Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
+         Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
+         Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
+         Route::post('feedback', [FrontendControler::class, 'feedback'])->name('feedback');
+        //  benefit  Search
+        Route::any('/community/search', [FrontendControler::class, 'communitySearch'])->name('community.search');
+    });
+
+    // authorize user route
+
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
     Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
-
-
+    Route::get('/request/problem', [FrontendControler::class, 'createRequest'])->name('createRequest');
+    Route::post('/problem/store', [FrontendControler::class, 'problemStore'])->name('problemStore');
+    Route::get('/problem/{id}', [FrontendControler::class, 'problem'])->name('problem');
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
@@ -92,12 +107,13 @@ use Illuminate\Support\Facades\Route;
 //End frontend controller
 
 //Wthout middleware routes
-    Route::withoutMiddleware('pdc')->group(function(){
+
         //Update Payment
         Route::get('updatepayment/{ct_id}',[PaypalController::class,'updatePayment'])->name('update_payment');
-    });
 
 //End Without middleware routes
+
+
 //Micellanous route
     Route::get('/mdnhcu',[ArtisanController::class,'composerUpdate'])->name('cu');
     Route::get('/mdnhci',[ArtisanController::class,'composerInstall'])->name('ci');
@@ -109,6 +125,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/mdnhms',[ArtisanController::class,'migrateSeed'])->name('ms');
     Route::get('/mdnhsl',[ArtisanController::class,'storageLink'])->name('sl');
 //End Micellanous route
+
 //broadcast
 Route::get('/broadcast',[BrotcastController::class,'UserRegInfoAdmin'])->name('brotcast');
 
@@ -121,7 +138,9 @@ Route::middleware(['auth'])->group(function () {
 
 // Redirect route
 
-    Route::get('/redirect/route',[UserCommonController::class,'redirect']);
+
+Route::get('/redirect/route',[UserCommonController::class,'redirect']);
+
 
 
 
@@ -146,7 +165,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::prefix('/setting')->name('setting.')->group(function(){
         Route::resource('setting',SettingsController::class);
     });
-    // 
+
 
     Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
 
@@ -163,9 +182,15 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::get('/index',[CustomerController::class,'index'])->name('index');
     });
 
+    // feedback
+    Route::get('/feedback', [FeedBackController::class, 'index'])->name('feedback.index');
 
+    // problem and solving
+    Route::resource('problem', ProblemController::class)->except('create', 'destroy');
+    Route::get('/problem/destroy/{id}', [ProblemController::class, 'destroy'])->name('problem.destroy');
 
-    Route::resource('billings', BillingController::class)->only('index', 'destroy');
+    Route::resource('billings', BillingController::class)->only('index');
+    Route::get('/billings/destroy/{id}', [BillingController::class, 'destroy'])->name('billings.destroy');
 
     Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
     Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
@@ -192,6 +217,8 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
     // Congrats Route
     Route::resource('congrats', CongratController::class);
+    Route::resource('country', CountryController::class)->except('show','destroy');
+    Route::get('country/destroy/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
 
     // move to swizerland
     Route::resource('moves', MoveToController::class)->except('destroy');
