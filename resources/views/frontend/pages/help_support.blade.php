@@ -6,11 +6,9 @@
 <div class="lg:mx-40" style="font-family:'Poppins'">
 <section class="mt-[52px]">
 <div>
+   <a href="{{route('ticket')}}">
     <img src="{{'/storage/'. $tittles->help_image}}" alt="" class=""/>
-    <div class="lg:mt-[-110px] lg:ml-[350px]">
-    <a href="/ticket"  class="px-6 m-1 mt-16 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">+ Open Ticket</a>
-    </div>
-        </div>
+</a>
 </div>
 <div class="mt-[100px]">
     <h1 class="text-5xl font-black text-center"> @if($tittles !==null)  {{$tittles->help_title}}  @endif</h1>

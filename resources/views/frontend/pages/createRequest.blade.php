@@ -1,40 +1,35 @@
 @extends('frontend.layout.app')
 @push('title')
-   ticket and support
+    Problem 
 @endpush
 @section('content')
 
-<section class="mt-[27px] lg:mx-40 mb-[-150px]" style="font-family:'Poppins'">
 
-<div class="border px-20 py-14">
-    <div class="">
-        <a href="/ticket" class=""><button class=" flex items-center px-2 py-2 shadow-lg"><span class="mr-1"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.292892 7.29289C-0.0976315 7.68342 -0.0976315 8.31658 0.292892 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292892 7.29289ZM17 7L1 7V9L17 9V7Z" fill="#666565"/>
-</svg>
-</span>Back</button></a>
-    </div>
 
-    <div>
-        <h1 class="text-2xl mt-5 font-bold text-[#212427]">Open Case</h1>
-        <h1 class="text-xl mt-2 font-bold text-[#212427]">Can’t share the story.</h1>
-        <p class="text-[#212427]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu <br>
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.</p>
-<p class="text-[#848484] text-sm">Created by: Thomas Tsangaras <br>
-Date: 20/06/2023, 12:20 pm</p>
-        <h1 class="text-xl mt-2 font-bold text-[#212427]">Solve Case:</h1>
-        <p class="text-[#212427]">We are very sorry for this problem.<br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu<br>
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu<br>
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.</p>
-<p class="text-[#848484] text-sm">Solved by: FYH Support Team<br>
-Date: 20/06/2023, 02:20 pm</p>
 
-    </div>
+
+<div class="lg:mx-72" style="font-family:'Poppins'">
+    <form action="{{route('problemStore')}}" method="post">
+        @csrf
+    <section class="mt-[57px]">
+        <h1 class="text-2xl font-bold">Submit Your Problem Here</h1>
+        <div class="my-5">
+    <input type="text" name="subject" max="200" required id="default-input" class="bg-gray-50 border-dotted border-[#848484] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Subject (e.g. Can’t share story)">
 </div>
-   
+
+<textarea id="message" name="description" required rows="4" class="block mb-4 p-2.5 h-[336px] w-full text-sm text-[#848484] bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write the details in here..."></textarea>
+
+<div class="flex items-center mb-4">
+    <input id="default-checkbox" type="checkbox" required class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+    <label for="default-checkbox" class="ml-2 font-medium text-gray-900 dark:text-gray-300">I agree to save my case in FYH server</label>
+</div>
+
+<div class="mt-7 mb-[-100px]">
+<button type="submit"  class="lg:w-48 m-1 mt-16 p-3 px-10 rounded font-semibold  bg-[#D1052C] text-white">Submit Case</button>
+        </div>
+</div>
 </section>
-
-
+</form>
 @endsection
 @push('js')
     <!-- flowbite cdn -->

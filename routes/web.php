@@ -10,10 +10,12 @@ use App\Http\Controllers\BrotcastController;
 use App\Http\Controllers\ClientTypeController;
 use App\Http\Controllers\CongratController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FeedBackController;
 use App\Http\Controllers\FrontendControler;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\HomeController;
@@ -27,6 +29,7 @@ use App\Http\Controllers\OpporcunityController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentDurationController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
@@ -41,11 +44,12 @@ use Illuminate\Support\Facades\Route;
 
 
 // Frontend controller
-    Route::get('/', [FrontendControler::class,'homePage'])->name('home')->withoutMiddleware('pdc');
+
+    Route::get('/', [FrontendControler::class,'homePage'])->name('home');
     Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
     Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
-    Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment')->withoutMiddleware('pdc');
-    Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats')->withoutMiddleware('pdc');
+    Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
+    Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
     Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
@@ -55,11 +59,10 @@ use Illuminate\Support\Facades\Route;
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
-
     });
 
     // Subscriber Route
-    // Route::group(['middleware' => 'subscriptionGuard'], function () {
+     Route::group(['middleware' => 'pdc'], function () {
         Route::get('home', [FrontendControler::class, 'userHome'])->name('user.home');
         Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('share.story');
         Route::post('/share-story/store', [FrontendControler::class,'storyStore'])->name('share.story.store');
@@ -68,7 +71,10 @@ use Illuminate\Support\Facades\Route;
          Route::get('user/profile', [FrontendControler::class, 'profile'])->name('user.profile');
          Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
          Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
-    // });
+         Route::post('feedback', [FrontendControler::class, 'feedback'])->name('feedback');
+        //  benefit  Search
+        Route::any('/community/search', [FrontendControler::class, 'communitySearch'])->name('community.search');
+    });
 
     // authorize user route
 
@@ -77,35 +83,36 @@ use Illuminate\Support\Facades\Route;
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
     Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
-    Route::get('/createRequest', [FrontendControler::class, 'createRequest'])->name('createRequest');
-    Route::get('/problem', [FrontendControler::class, 'problem'])->name('problem');
+    Route::get('/request/problem', [FrontendControler::class, 'createRequest'])->name('createRequest');
+    Route::post('/problem/store', [FrontendControler::class, 'problemStore'])->name('problemStore');
+    Route::get('/problem/{id}', [FrontendControler::class, 'problem'])->name('problem');
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
 
-     Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing')->withoutMiddleware('pdc');
-     Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store')->withoutMiddleware('pdc');
+     Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing');
+     Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store');
 
      // checkout
-    Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page')->withoutMiddleware('pdc'); //checkout page
-    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment')->withoutMiddleware('pdc');
+    Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page'); //checkout page
+    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
 
     // paypal
     Route::prefix('/paypal')->name('paypal.')->group(function(){
-        Route::post('/checkout',[PaypalController::class,'checkout'])->name('checkout')->withoutMiddleware('pdc');
-        Route::get('/payment',[PaypalController::class,'payment'])->name('payment')->withoutMiddleware('pdc');
-        Route::get('/success',[PaypalController::class,'success'])->name('success')->withoutMiddleware('pdc');
-        Route::get('/cancel',[PaypalController::class,'cancel'])->name('cancel')->withoutMiddleware('pdc');
+        Route::post('/checkout',[PaypalController::class,'checkout'])->name('checkout');
+        Route::get('/payment',[PaypalController::class,'payment'])->name('payment');
+        Route::get('/success',[PaypalController::class,'success'])->name('success');
+        Route::get('/cancel',[PaypalController::class,'cancel'])->name('cancel');
 
     });
 //End frontend controller
 
 //Wthout middleware routes
-    Route::withoutMiddleware('pdc')->group(function(){
+
         //Update Payment
         Route::get('updatepayment/{ct_id}',[PaypalController::class,'updatePayment'])->name('update_payment');
-    });
+
 //End Without middleware routes
 
 //Micellanous route
@@ -132,7 +139,7 @@ Route::middleware(['auth'])->group(function () {
 
 // Redirect route
 
-    Route::get('/redirect/route',[UserCommonController::class,'redirect']);
+Route::get('/redirect/route',[UserCommonController::class,'redirect']);
 
 
 
@@ -174,9 +181,15 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::get('/index',[CustomerController::class,'index'])->name('index');
     });
 
+    // feedback
+    Route::get('/feedback', [FeedBackController::class, 'index'])->name('feedback.index');
 
+    // problem and solving
+    Route::resource('problem', ProblemController::class)->except('create', 'destroy');
+    Route::get('/problem/destroy/{id}', [ProblemController::class, 'destroy'])->name('problem.destroy');
 
-    Route::resource('billings', BillingController::class)->only('index', 'destroy');
+    Route::resource('billings', BillingController::class)->only('index');
+    Route::get('/billings/destroy/{id}', [BillingController::class, 'destroy'])->name('billings.destroy');
 
     Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
     Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
@@ -203,6 +216,8 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
     // Congrats Route
     Route::resource('congrats', CongratController::class);
+    Route::resource('country', CountryController::class)->except('show','destroy');
+    Route::get('country/destroy/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
 
     // move to swizerland
     Route::resource('moves', MoveToController::class)->except('destroy');

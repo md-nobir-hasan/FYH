@@ -4,7 +4,10 @@
 @endpush
 @section('content')
 
-@php  $user = auth()->user();           @endphp
+@php  
+               $user = auth()->user();   
+               $countrys = App\Models\Country::all();
+    @endphp
 
     <div class="bg-[#F5F5F5] lg:mx-40 p-10 rounded mt-20" style="font-family: 'Poppins';">
     <!-- <img src="{{asset('/images/fyhlogo.png')}}" alt="" class="lg:ml-20 h-8 w-24"> -->
@@ -46,13 +49,12 @@
                                 <input type="text" value="{{auth()->user()->phone}}" required id="number" name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Phone" required>
                             </div>
                             
-                                    <label for="countries" class="block mb-2 text-sm text-gray-900 mt-5 font-semibold">Select an option</label>
-                                    <select id="countries" required name="country" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " style="border-top:0;border-right:0; border-left:0">
-                                    <option selected>Choose a country</option>
-                                    <option value="US">United States</option>
-                                    <option value="CA">Canada</option>
-                                    <option value="FR">France</option>
-                                    <option value="GE">Germany</option>
+                                    <label for="countries" class="block mb-2 text-sm text-gray-900 mt-5 font-semibold">Select an Country</label>
+                                    <select id="countries" required name="country_id" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " style="border-top:0;border-right:0; border-left:0">
+                        
+                                        @foreach ($countrys as $item)
+                                            <option value="{{$item->id}}" class="capitalize"> {{$item->country}} </option>
+                                        @endforeach
                                     </select>
                                     <div class="flex justify-between">
                                     <div class="mt-5">

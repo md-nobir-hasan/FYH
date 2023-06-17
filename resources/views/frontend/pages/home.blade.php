@@ -241,7 +241,7 @@
                         </a>
                         <h1 class="text-xl font-bold mt-2"> {{$pStory->name}} <h1>
                                 <p class="capitalize">{{$pStory->profession}}</p>
-                                <p class="capitalize">{{$pStory->city}} ,{{$pStory->country}}</p>
+                                <p class="capitalize">{{$pStory->city}} ,{{$pStory->country->country}}</p>
                     </div>
                 </div>
 

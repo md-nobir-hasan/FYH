@@ -13,47 +13,47 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('register/{planId?}', [RegisteredUserController::class, 'create'])
-                ->name('register')->withoutMiddleware('pdc');
+                ->name('register');
 
-    Route::post('register', [RegisteredUserController::class, 'store'])->withoutMiddleware('pdc');
+    Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login')->withoutMiddleware('pdc');
+                ->name('login');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store'])->withoutMiddleware('pdc');
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->name('password.request')->withoutMiddleware('pdc');
+                ->name('password.request');
 
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name('password.email')->withoutMiddleware('pdc');
+                ->name('password.email');
 
     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-                ->name('password.reset')->withoutMiddleware('pdc');
+                ->name('password.reset');
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
-                ->name('password.store')->withoutMiddleware('pdc');
+                ->name('password.store');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
-                ->name('verification.notice')->withoutMiddleware('pdc');
+                ->name('verification.notice');
 
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
                 ->middleware(['signed', 'throttle:6,1'])
-                ->name('verification.verify')->withoutMiddleware('pdc');
+                ->name('verification.verify');
 
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
                 ->middleware('throttle:6,1')
-                ->name('verification.send')->withoutMiddleware('pdc');
+                ->name('verification.send');
 
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-                ->name('password.confirm')->withoutMiddleware('pdc');
+                ->name('password.confirm');
 
-    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store'])->withoutMiddleware('pdc');
+    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    Route::put('password', [PasswordController::class, 'update'])->name('password.update')->withoutMiddleware('pdc');
+    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout')->withoutMiddleware('pdc')->withoutMiddleware('pdc');
+                ->name('logout');
 });

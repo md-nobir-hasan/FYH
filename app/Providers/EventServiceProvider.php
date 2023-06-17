@@ -8,6 +8,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Events\SubscriptionCreated;
+use App\Listeners\SendSubscriptionEmail;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
             SendNotificationToAdmin::class,
         ],
         // UserRegister::class =>[UserRegInfoToAdmin::class],
+        SubscriptionCreated::class => [
+            SendSubscriptionEmail::class,
+        ],
     ];
 
     /**
