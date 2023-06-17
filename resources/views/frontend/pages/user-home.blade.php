@@ -112,12 +112,14 @@
         </label>
 
         <label for="bc">
+
             <div onclick=function2() id="btn2" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Bad.png" alt="" class="p-5"/>
                 <input type="radio" name="reaction" value="bad" id="bc" class="hidden">
             </div>
         </label>
         <label for="cd">
+
             <div onclick=function3() id="btn3" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Okay.png" alt="" class="p-5"/>
                 <input type="radio" name="reaction" value="oky" id="cd" class="hidden">
@@ -125,6 +127,7 @@
         </label>
 
         <label for="de">
+
             <div onclick=function4() id="btn4" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Good.png" alt="" class="p-5"/>
                 <input type="radio" name="reaction" value="good" id="de" class="hidden">
@@ -132,6 +135,7 @@
         </label>
 
         <label for="ef">
+
             <div onclick=function5() id="btn5" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/amazing.png" alt="" class="p-5"/>
                 <input type="radio" name="reaction" value="amazing" id="ef" class="hidden">

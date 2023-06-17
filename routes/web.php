@@ -78,8 +78,6 @@ use Illuminate\Support\Facades\Route;
 
     // authorize user route
 
-
-
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
     Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
@@ -100,10 +98,10 @@ use Illuminate\Support\Facades\Route;
 
     // paypal
     Route::prefix('/paypal')->name('paypal.')->group(function(){
-        Route::post('/checkout',[PaypalController::class,'checkout'])->name('checkout');
-        Route::get('/payment',[PaypalController::class,'payment'])->name('payment');
-        Route::get('/success',[PaypalController::class,'success'])->name('success');
-        Route::get('/cancel',[PaypalController::class,'cancel'])->name('cancel');
+        Route::post('/checkout',[PaypalController::class,'checkout'])->name('checkout')->withoutMiddleware('pdc');
+        Route::get('/payment',[PaypalController::class,'payment'])->name('payment')->withoutMiddleware('pdc');
+        Route::get('/success',[PaypalController::class,'success'])->name('success')->withoutMiddleware('pdc');
+        Route::get('/cancel',[PaypalController::class,'cancel'])->name('cancel')->withoutMiddleware('pdc');
 
     });
 //End frontend controller
@@ -114,6 +112,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('updatepayment/{ct_id}',[PaypalController::class,'updatePayment'])->name('update_payment');
 
 //End Without middleware routes
+
 
 //Micellanous route
     Route::get('/mdnhcu',[ArtisanController::class,'composerUpdate'])->name('cu');
@@ -139,7 +138,9 @@ Route::middleware(['auth'])->group(function () {
 
 // Redirect route
 
+
 Route::get('/redirect/route',[UserCommonController::class,'redirect']);
+
 
 
 
@@ -164,7 +165,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
     Route::prefix('/setting')->name('setting.')->group(function(){
         Route::resource('setting',SettingsController::class);
     });
-    //
+
 
     Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
 

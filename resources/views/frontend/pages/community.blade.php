@@ -7,12 +7,13 @@
         
         <h1 class="text-5xl font-black text-center"> @if($storyHead!==null) {{$storyHead->story_title}} @endif </h1>
         <p class="text-lg text-center">  @if($storyHead!==null) {{$storyHead->story_subtitle}} @endif </p>
-       
+
         @auth
             
        
         <form action="{{route('community.search')}}" method="post">
             @csrf
+
         <div class="lg:mx-36 grid lg:grid-cols-5 gap-5">
             <div class="lg:w-64">
                 <p class="font-medium">Sort Stories</p>
@@ -20,21 +21,25 @@
                     <select name="stories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option class="text-lg" value="latest" >Most Recent</option>
                     <option class="text-lg" value="">Most Relevant</option>
+
                 </select>
             </div>
             <div class="lg:ml-24 lg:w-64">
                 <p>By Country</p>
 
+<<
                 <select id="countries" name="country_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option class="text-lg" selected value="" >All Country</option>
                  @foreach ($country as $item)
                      <option value="{{$item->id}}">{{$item->country}}</option>
                  @endforeach
+
                 </select>
 
             </div>
             <div class="lg:w-64 lg:ml-44">
                 <p>By Time</p>
+
                 <select  name="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             
                 <option class="text-lg mb-1" value="" >Any Time</option>
@@ -44,6 +49,7 @@
                 <option class="text-lg mb-1" value="90">Past 0-3 months</option>
                 <option class="text-lg mb-1" value="180">Past 0-6 months</option>
                 <option class="text-lg mb-1" value="365">Past Year</option>
+
 
                 </select>
             </div>
@@ -76,6 +82,7 @@
                     <p class=" text-sm font-normal text-[#212427] text-justify"> {{Str::limit($item->description, 400)}} </p>
                     <a href="{{route('single-story', $item->slug)}}" class="text-[#D1052C] font-black">
                         Read more
+
                     </a>
                     <h1 class="text-xl font-bold mt-2"> {{$item->name}} <h1>
                             <p class="capitalize">{{$item->profession}} </p>
@@ -88,6 +95,7 @@
               @endforeach
             @endif
         
+
 
             
           
@@ -102,6 +110,7 @@
         <!-- last buttons end -->
         <div class="flex justify-center items-center">
         <a href="{{route('refuse')}}"  class="lg:w-48 m-1 mt-16 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Load More Stories</a>
+
         </div>
         <div>
         <section class="mt-28 mb-[-100px]">
@@ -116,6 +125,7 @@
                     class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">  
                     @if($storyHead!==null) {{$storyHead->share_title}} @endif
                 </button></a>
+
         </section>
         </div>
 

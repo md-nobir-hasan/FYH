@@ -32,6 +32,7 @@ class PaymentDurationCheck
                     return $next($request);
                 }
                 return to_route('refuse');
+
             }
         }
         return $next($request);

@@ -34,7 +34,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Carbon as SupportCarbon;
 
 
-
 class FrontendControler extends Controller
 {
   public function homePage(){
@@ -139,6 +138,7 @@ class FrontendControler extends Controller
        $story = Story::where('slug', $slug)->first();
         $story->views +=1;
         $story->save();
+
       $stories = Story::latest()->take(9)->get();
       $share = Home::select('share_title', 'share_subtitle')->first();
     return view('frontend.pages.single-story', ['story' => $story, 'stories' => $stories, 'share' => $share]);
@@ -258,7 +258,10 @@ class FrontendControler extends Controller
     $user = auth()->user();
     if($user ==null){
        return to_route('login');
+
     }
+
+
 
     $shareImage = Home::select('lgImage' ,'customer_title', 'customer_subtitle', 'image_title','image_subtitle')->first();
     $storyCount = Story::all()->count();
@@ -327,6 +330,7 @@ class FrontendControler extends Controller
  public function createRequest()  {
   return view('frontend.pages.createRequest');
   }
+
 
 
   public function problemStore(Request $request) {

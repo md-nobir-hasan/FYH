@@ -54,5 +54,6 @@ class DatabaseSeeder extends Seeder
         Term::factory(1)->create();
         Country::factory(10)->create();
         Problem::factory(10)->create();
+
     }
 }

@@ -21,7 +21,9 @@
                </p>
 <h1 class="text-xl font-bold my-2"> {{$story->name}} </h1>
 <p class="text-[#666565] capitalize "> {{$story->profession}} </p>
+
 <p class="text-[#666565] capitalize ">{{$story->city}}, {{$story->country->country}}</p>
+
     </div>
 </section>
 
@@ -53,7 +55,9 @@
             </a>
             <h1 class="text-xl font-bold mt-2"> {{$story->name}} <h1>
                 <p class="capitalize"> {{$story->profession}} </p>
+
                 <p class="capitalize">{{$story->city}}, {{$story->country->country}}</p>
+
         </div>
     </div>
     @endforeach
