@@ -94,6 +94,7 @@ class FrontendControler extends Controller
   }
 
   public function communitySearch(Request $request){
+
    
     $country = Country::all();
     $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
@@ -110,6 +111,7 @@ class FrontendControler extends Controller
      if ($request->country_id !==null ) {
     $query->where('country_id', $request->country_id);
      }
+
   
 
      // time sorting
@@ -122,6 +124,7 @@ class FrontendControler extends Controller
           
        }
    
+
    $stories = $query->where('status', 1)->take(15)->get();
    // $stories->appends(array('stories'=> InputRequest::input('stories'),'country_id'=> InputRequest::input('country_id'),'time'=> InputRequest::input('time')));
  return view('frontend.pages.community',compact('stories', 'storyHead', 'country'));
@@ -326,6 +329,7 @@ class FrontendControler extends Controller
 
   public function refuse()  {
     return view('frontend.pages.refuse');
+
   }
 
 
@@ -334,9 +338,7 @@ class FrontendControler extends Controller
 
   }
 
- public function ticket()  {
-  return view('frontend.pages.ticket');
-  }
+ 
 
   public function problemStore(Request $request) {
           $problem = Problem::create([
@@ -345,6 +347,7 @@ class FrontendControler extends Controller
               'user_id' => auth()->user()->id, 
               'solveDate' => Carbon::now(),
           ]);
+
 
           return to_route('thank.you');
   }
@@ -358,6 +361,23 @@ class FrontendControler extends Controller
   public function passRessDone(){
     return view('frontend.pages.pass-reset-done');
   }
+
+//  public function ticket()  {
+//   return view('frontend.pages.ticket');
+//   }
+
+  public function problemStore(Request $request) {
+          $problem = Problem::create([
+              'subject' => $request->subject,
+              'description' => $request->description,
+              'user_id' => auth()->user()->id,
+              'solveDate' => Carbon::now(),
+          ]);
+
+          return to_route('thank.you');
+  }
+
+
 
 
 
