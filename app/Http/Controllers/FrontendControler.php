@@ -334,9 +334,7 @@ class FrontendControler extends Controller
 
   }
 
-//  public function ticket()  {
-//   return view('frontend.pages.ticket');
-//   }
+
 
   public function problemStore(Request $request) {
           $problem = Problem::create([
@@ -370,8 +368,5 @@ class FrontendControler extends Controller
         ]);
         return to_route('thank.you');
   }
-
-
-
 
 }
