@@ -44,29 +44,20 @@ use Illuminate\Support\Facades\Route;
 
 // Frontend controller
 
-    
-    
-        Route::get('/', [FrontendControler::class,'homePage'])->name('home');
-        Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
-        Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
-        Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
-        Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
-        Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
-        Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
-        Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
-        Route::get('/refuse', [FrontendControler::class,'refuse'])->name('refuse');
- 
-   
-   
-   
-
- 
+    Route::get('/', [FrontendControler::class,'homePage'])->name('home');
+    Route::get('/membership', [FrontendControler::class,'membershipPage'])->name('member');
+    Route::get('/community', [FrontendControler::class,'communityPage'])->name('community');
+    Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
+    Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
+    Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
+    Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
+    Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
+    Route::get('/refuse', [FrontendControler::class,'refuse'])->name('refuse');
 
     Route::get('/password-reset-done',[FrontendControler::class,'passRessDone'])->name('pass_reset_done');
     Route::prefix('/guide')->name('guide.')->group(function(){
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
-
     });
 
     // Subscriber Route
@@ -98,11 +89,11 @@ use Illuminate\Support\Facades\Route;
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
 
      Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing');
-     Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store')->withoutMiddleware('pdc');
+     Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store');
 
      // checkout
-    Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page')->withoutMiddleware('pdc'); //checkout page
-    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment')->withoutMiddleware('pdc');
+    Route::get('/payment/page/{billing}', [FrontendControler::class,'paymentPage'])->name('payment.Page'); //checkout page
+    Route::post('/checkout/paid', [PaymentController::class, 'Payment'])->name('checkout.payment');
     Route::get('/menu/page/{slug}', [FrontendControler::class, 'dynamicMenu'])->name('dynamicMenu');
 
     // paypal
@@ -116,10 +107,10 @@ use Illuminate\Support\Facades\Route;
 //End frontend controller
 
 //Wthout middleware routes
-  
+
         //Update Payment
         Route::get('updatepayment/{ct_id}',[PaypalController::class,'updatePayment'])->name('update_payment');
-  
+
 //End Without middleware routes
 
 //Micellanous route
