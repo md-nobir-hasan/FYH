@@ -95,11 +95,11 @@ class FrontendControler extends Controller
 
   public function communitySearch(Request $request){
 
-   
+
     $country = Country::all();
     $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
     $query = DB::table('stories');
-  
+
     // sort story
     if ($request->stories !==null ) {
        if($request->stories =='latest'){
@@ -112,18 +112,18 @@ class FrontendControler extends Controller
     $query->where('country_id', $request->country_id);
      }
 
-  
+
 
      // time sorting
      if ($request->time !==null ) {
-        
+
          $days = $request->time;
-          $Date = Carbon::now()->subDays($days); 
+          $Date = Carbon::now()->subDays($days);
             $query->where('created_at', '>=', $Date);
-       
-          
+
+
        }
-   
+
 
    $stories = $query->where('status', 1)->take(15)->get();
    // $stories->appends(array('stories'=> InputRequest::input('stories'),'country_id'=> InputRequest::input('country_id'),'time'=> InputRequest::input('time')));
@@ -338,13 +338,13 @@ class FrontendControler extends Controller
 
   }
 
- 
+
 
   public function problemStore(Request $request) {
           $problem = Problem::create([
               'subject' => $request->subject,
               'description' => $request->description,
-              'user_id' => auth()->user()->id, 
+              'user_id' => auth()->user()->id,
               'solveDate' => Carbon::now(),
           ]);
 
@@ -362,20 +362,6 @@ class FrontendControler extends Controller
     return view('frontend.pages.pass-reset-done');
   }
 
-//  public function ticket()  {
-//   return view('frontend.pages.ticket');
-//   }
-
-  public function problemStore(Request $request) {
-          $problem = Problem::create([
-              'subject' => $request->subject,
-              'description' => $request->description,
-              'user_id' => auth()->user()->id,
-              'solveDate' => Carbon::now(),
-          ]);
-
-          return to_route('thank.you');
-  }
 
 
 
