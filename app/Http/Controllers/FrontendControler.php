@@ -94,7 +94,6 @@ class FrontendControler extends Controller
   }
 
   public function communitySearch(Request $request){
-
     $country = Country::all();
     $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
     $query = DB::table('stories');
@@ -110,7 +109,6 @@ class FrontendControler extends Controller
      if ($request->country_id !==null ) {
     $query->where('country_id', $request->country_id);
      }
-
 
      // time sorting
      if ($request->time !==null ) {
@@ -326,6 +324,7 @@ class FrontendControler extends Controller
 
   public function refuse()  {
     return view('frontend.pages.refuse');
+
   }
 
 
@@ -344,6 +343,7 @@ class FrontendControler extends Controller
               'solveDate' => Carbon::now(),
           ]);
 
+
           return to_route('thank.you');
   }
 
@@ -359,6 +359,7 @@ class FrontendControler extends Controller
 
 
 
+
 // feedback store
   public function feedback(Request $request)  {
         FeedBack::create([
@@ -368,5 +369,4 @@ class FrontendControler extends Controller
         ]);
         return to_route('thank.you');
   }
-
 }
