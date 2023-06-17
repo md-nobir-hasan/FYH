@@ -18,11 +18,11 @@ class SubscriptionCreated
      * Create a new event instance.
      */
 
-     public $planId;
+
      public $userId;
-    public function __construct($planId,$userId)
+    public function __construct($userId)
     {
-        $this->planId = $planId;
+       
         $this->userId = $userId;
     }
 

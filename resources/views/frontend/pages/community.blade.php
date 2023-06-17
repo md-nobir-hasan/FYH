@@ -7,6 +7,10 @@
         
         <h1 class="text-5xl font-black text-center"> @if($storyHead!==null) {{$storyHead->story_title}} @endif </h1>
         <p class="text-lg text-center">  @if($storyHead!==null) {{$storyHead->story_subtitle}} @endif </p>
+       
+        @auth
+            
+       
         <form action="{{route('community.search')}}" method="post">
             @csrf
         <div class="lg:mx-36 grid lg:grid-cols-5 gap-5">
@@ -52,7 +56,7 @@
             
         </div>
     </form>
-       
+    @endauth
         <div class="lg:mx-36 grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
 
 

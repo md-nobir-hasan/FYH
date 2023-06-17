@@ -49,9 +49,9 @@
                                 <input type="text" value="{{auth()->user()->phone}}" required id="number" name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Phone" required>
                             </div>
                             
-                                    <label for="countries" class="block mb-2 text-sm text-gray-900 mt-5 font-semibold">Select an option</label>
+                                    <label for="countries" class="block mb-2 text-sm text-gray-900 mt-5 font-semibold">Select an Country</label>
                                     <select id="countries" required name="country_id" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " style="border-top:0;border-right:0; border-left:0">
-                                    <option selected disabled>Choose a country</option>
+                        
                                         @foreach ($countrys as $item)
                                             <option value="{{$item->id}}" class="capitalize"> {{$item->country}} </option>
                                         @endforeach
