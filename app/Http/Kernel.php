@@ -75,7 +75,9 @@ class Kernel extends HttpKernel
         'check' => \App\Http\Middleware\UserCheck::class,
         'admin' => \App\Http\Middleware\UserHasRole::class,
         'pdc' => \App\Http\Middleware\PaymentDurationCheck::class,
+
         'subscriptionGuard' => SubscriptionGuard::class,
+
 
     ];
 }

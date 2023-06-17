@@ -76,6 +76,7 @@ use Illuminate\Support\Facades\Route;
         Route::any('/community/search', [FrontendControler::class, 'communitySearch'])->name('community.search');
     });
 
+
     // authorize user route
 
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
@@ -84,6 +85,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/request/problem', [FrontendControler::class, 'createRequest'])->name('createRequest');
     Route::post('/problem/store', [FrontendControler::class, 'problemStore'])->name('problemStore');
     Route::get('/problem/{id}', [FrontendControler::class, 'problem'])->name('problem');
+
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
@@ -108,11 +110,11 @@ use Illuminate\Support\Facades\Route;
 
 //Wthout middleware routes
 
+
         //Update Payment
         Route::get('updatepayment/{ct_id}',[PaypalController::class,'updatePayment'])->name('update_payment');
 
 //End Without middleware routes
-
 
 //Micellanous route
     Route::get('/mdnhcu',[ArtisanController::class,'composerUpdate'])->name('cu');
@@ -137,7 +139,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Redirect route
-
 
 Route::get('/redirect/route',[UserCommonController::class,'redirect']);
 

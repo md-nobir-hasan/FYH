@@ -101,6 +101,7 @@
          <h1 class="text-center text-4xl mt-5 font-black">That's your time</h1>
         <p class="text-center text-sm font-[600] mt-4">What do you think of th services of FYH?</p>
         <div class="lg:mx-48 mt-5 grid grid-cols-2 lg:grid-cols-5 gap-10">
+
             <label for="ab">
             <div onclick=function1() id="btn1" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                
@@ -113,17 +114,21 @@
 
         <label for="bc">
 
+
             <div onclick=function2() id="btn2" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Bad.png" alt="" class="p-5"/>
                 <input type="radio" name="reaction" value="bad" id="bc" class="hidden">
             </div>
+
         </label>
         <label for="cd">
+
 
             <div onclick=function3() id="btn3" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Okay.png" alt="" class="p-5"/>
                 <input type="radio" name="reaction" value="oky" id="cd" class="hidden">
             </div>
+
         </label>
 
         <label for="de">
@@ -132,9 +137,11 @@
                 <img src="/images/Good.png" alt="" class="p-5"/>
                 <input type="radio" name="reaction" value="good" id="de" class="hidden">
             </div>
+
         </label>
 
         <label for="ef">
+
 
             <div onclick=function5() id="btn5" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/amazing.png" alt="" class="p-5"/>

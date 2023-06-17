@@ -6,6 +6,7 @@
 <div class="lg:mx-40" style="font-family:'Poppins'">
 <section class="mt-[52px]">
 <div>
+
    <a href="{{route('ticket')}}">
     <img src="{{'/storage/'. $tittles->help_image}}" alt="" class=""/>
 </a>

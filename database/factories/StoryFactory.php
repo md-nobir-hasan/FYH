@@ -33,6 +33,7 @@ class StoryFactory extends Factory
             'image' => $image,
             'status' => 1,
             'country_id' => $this->faker->numberBetween(1,10),
+
             'feature' => $this->faker->numberBetween(0,1),
             'user_id' => 2,
             

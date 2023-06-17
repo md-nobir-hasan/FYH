@@ -25,6 +25,7 @@ class PaymentDurationCheck
                 if(Carbon::now()>$paypal->end_time){
                     return redirect()->route('update_payment',[$paypal->client_type_id]);
                     }
+
             }else{
                 $user = $request->user();
         
@@ -32,6 +33,7 @@ class PaymentDurationCheck
                     return $next($request);
                 }
                 return to_route('refuse');
+
 
             }
         }

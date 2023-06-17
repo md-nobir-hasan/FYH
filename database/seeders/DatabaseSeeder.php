@@ -8,6 +8,7 @@ use App\Models\About;
 use App\Models\Benefit;
 use App\Models\Congrat;
 use App\Models\Country;
+
 use App\Models\Help;
 use App\Models\Integration;
 use App\Models\MoveTo;
@@ -54,6 +55,7 @@ class DatabaseSeeder extends Seeder
         Term::factory(1)->create();
         Country::factory(10)->create();
         Problem::factory(10)->create();
+
 
     }
 }

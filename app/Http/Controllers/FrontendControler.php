@@ -34,6 +34,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Carbon as SupportCarbon;
 
 
+
 class FrontendControler extends Controller
 {
   public function homePage(){
@@ -138,6 +139,7 @@ class FrontendControler extends Controller
        $story = Story::where('slug', $slug)->first();
         $story->views +=1;
         $story->save();
+
 
       $stories = Story::latest()->take(9)->get();
       $share = Home::select('share_title', 'share_subtitle')->first();
@@ -329,9 +331,12 @@ class FrontendControler extends Controller
 
  public function createRequest()  {
   return view('frontend.pages.createRequest');
+
   }
 
-
+ public function ticket()  {
+  return view('frontend.pages.ticket');
+  }
 
   public function problemStore(Request $request) {
           $problem = Problem::create([
