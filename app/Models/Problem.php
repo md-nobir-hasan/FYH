@@ -19,7 +19,7 @@ class Problem extends Model
 ];
 
     protected $casts = [
-        'email_verified_at' => 'solveDate',
+        'solveDate' => 'date',
     ];
 
 

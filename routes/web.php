@@ -15,6 +15,7 @@ use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FeedBackController;
 use App\Http\Controllers\FrontendControler;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\HomeController;
@@ -82,7 +83,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
     Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
-    Route::get('/createRequest', [FrontendControler::class, 'createRequest'])->name('createRequest');
+    Route::get('/request/problem', [FrontendControler::class, 'createRequest'])->name('createRequest');
+    Route::post('/problem/store', [FrontendControler::class, 'problemStore'])->name('problemStore');
     Route::get('/problem/{id}', [FrontendControler::class, 'problem'])->name('problem');
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
@@ -179,6 +181,8 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::get('/index',[CustomerController::class,'index'])->name('index');
     });
 
+    // feedback
+    Route::get('/feedback', [FeedBackController::class, 'index'])->name('feedback.index');
 
     // problem and solving
     Route::resource('problem', ProblemController::class)->except('create', 'destroy');

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class FeedBack extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['description',
+    'reaction',
+    'user_id'];
 }

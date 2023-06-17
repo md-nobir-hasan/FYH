@@ -107,7 +107,7 @@
       <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow" id="user-dropdown">
         <div class="flex p-5">
             <img src="{{ auth()->user()->img}}" class="w-11 h-11 border p-0.5 rounded-full border-[#D1052C]"/>
-          <span class="flex justify-center items-center ml-2 text-lg text-black font-semibold dark:text-white"> {{auth()->user()->name}} </span>
+          <span class="flex justify-center items-center ml-2 text-lg text-black font-semibold dark:text-white capitalize"> {{auth()->user()->fname}} </span>
         </div>
         <hr class="h-px bg-black mx-4 border-0">
         <ul class="py-1" aria-labelledby="user-menu-button">

@@ -10,6 +10,7 @@ use App\Models\ClientType;
 use App\Models\Congrat;
 use App\Models\Content;
 use App\Models\Country;
+use App\Models\FeedBack;
 use App\Models\Help;
 use App\Models\Home;
 use App\Models\Integration;
@@ -30,7 +31,8 @@ use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Request as InputRequest;
+use Illuminate\Support\Carbon as SupportCarbon;
+
 
 
 class FrontendControler extends Controller
@@ -326,9 +328,22 @@ class FrontendControler extends Controller
   return view('frontend.pages.createRequest');
   }
 
+
+  public function problemStore(Request $request) {
+          $problem = Problem::create([
+              'subject' => $request->subject,
+              'description' => $request->description,
+              'user_id' => auth()->user()->id, 
+              'solveDate' => Carbon::now(),
+          ]);
+
+          return to_route('thank.you');
+  }
+
  public function problem($id)  {
    $problemShow = Problem::findOrFail($id);
-  return view('frontend.pages.problem',compact('problemShow'));
+   $user = User::where('id', $problemShow->user_id)->first();
+  return view('frontend.pages.problem',compact('problemShow', 'user'));
   }
 
   public function passRessDone(){
@@ -339,7 +354,12 @@ class FrontendControler extends Controller
 
 // feedback store
   public function feedback(Request $request)  {
-      return $request;
+        FeedBack::create([
+            'description' => $request->description,
+            'reaction' => $request->reaction,
+            'user_id' => auth()->user()->id,
+        ]);
+        return to_route('thank.you');
   }
 
 
