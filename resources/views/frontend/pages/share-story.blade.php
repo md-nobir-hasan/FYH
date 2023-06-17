@@ -56,6 +56,18 @@
             @enderror
         </div>
          
+        <div>
+          <select name="country_id"  class="@error('city') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]">
+                  <option  selected disabled value="">Choose Country</option>
+                  @foreach ($country as $item)
+                       <option value="{{$item->id}}">{{$item->country}}</option>
+                  @endforeach
+          </select>
+        
+          @error('country_id')
+          <div class="text-left text-red-600">{{ $message }}</div>
+         @enderror
+        </div>
 
         <div>
           <input type="text" name="city" placeholder="City" class="@error('city') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />

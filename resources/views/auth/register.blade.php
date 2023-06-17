@@ -1,5 +1,7 @@
 <x-guest-layout>
-<img src="{{asset('/images/fyhlogo.png')}}" alt="" class="lg:ml-20 h-8 w-24">
+<a href="{{route('home')}}">
+    <img src="{{$setting->logo}}" alt="" class="lg:ml-20 h-8 w-24">
+</a>
     <div class="grid lg:grid-cols-3 lg:gap-3 grid-cols-1 bg-white lg:mx-20 rounded-lg lg:p-10" style="font-family: 'Montserrat';">
     <form class="lg:col-span-2 p-10 border-2 border-black rounded-xl" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf

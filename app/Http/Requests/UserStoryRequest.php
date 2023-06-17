@@ -29,6 +29,7 @@ class UserStoryRequest extends FormRequest
             'profession' => 'required',
             'address' => 'required',
             'city' => 'required',
+            'country_id' => 'required',
         ];
     }
 }
