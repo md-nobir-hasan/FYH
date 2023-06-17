@@ -4,9 +4,33 @@
 @endpush
 @section('content')
 
-<section class="mt-[27px]">
+<section class="mt-[27px] lg:mx-40 mb-[-150px]" style="font-family:'Poppins'">
 
-<h2 class="w-4/12 mx-auto bg-blue-800 p-3 m-4 text-white font-bold rounded"> Create reqest</h2>
+<div class="border px-20 py-14">
+    <div class="">
+        <a href="/ticket" class=""><button class=" flex items-center px-2 py-2 shadow-lg"><span class="mr-1"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.292892 7.29289C-0.0976315 7.68342 -0.0976315 8.31658 0.292892 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292892 7.29289ZM17 7L1 7V9L17 9V7Z" fill="#666565"/>
+</svg>
+</span>Back</button></a>
+    </div>
+
+    <div>
+        <h1 class="text-2xl mt-5 font-bold text-[#212427]">Open Case</h1>
+        <h1 class="text-xl mt-2 font-bold text-[#212427]">Can’t share the story.</h1>
+        <p class="text-[#212427]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu <br>
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.</p>
+<p class="text-[#848484] text-sm">Created by: Thomas Tsangaras <br>
+Date: 20/06/2023, 12:20 pm</p>
+        <h1 class="text-xl mt-2 font-bold text-[#212427]">Solve Case:</h1>
+        <p class="text-[#212427]">We are very sorry for this problem.<br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu<br>
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu<br>
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.</p>
+<p class="text-[#848484] text-sm">Solved by: FYH Support Team<br>
+Date: 20/06/2023, 02:20 pm</p>
+
+    </div>
+</div>
    
 </section>
 
