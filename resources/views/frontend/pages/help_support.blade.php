@@ -16,7 +16,7 @@
     <div class="mt-10 mb-[-100px]">
 
             <!-- benifit card section -->
-            <div class="grid grid-cols-3 gap-8 mt-10">
+            <div class="lg:mx-40 grid grid-cols-3 gap-8 mt-10">
          @if($helps->count() > 0)
          @foreach ($helps as $help)
              

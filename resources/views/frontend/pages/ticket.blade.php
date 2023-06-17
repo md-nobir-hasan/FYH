@@ -3,7 +3,7 @@
    ticket and support
 @endpush
 @section('content')
-<div class="lg:mx-40" style="font-family:'Poppins'">
+<div class="lg:mx-40 mb-[-150px]" style="font-family:'Poppins'">
 <section class="mt-[52px]">
 <section>
    <a href="{{route('createRequest')}}"> 
