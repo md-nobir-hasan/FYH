@@ -101,9 +101,15 @@
          <h1 class="text-center text-4xl mt-5 font-black">That's your time</h1>
         <p class="text-center text-sm font-[600] mt-4">What do you think of th services of FYH?</p>
         <div class="lg:mx-48 mt-5 grid grid-cols-2 lg:grid-cols-5 gap-10">
+            <label for="btn1">
             <div onclick=function1() id="btn1" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
-                <img src="/images/Terrible.png" alt="" class="p-5"/>
+               
+                    <img src="/images/Terrible.png" alt="" class="p-5"/>
+                    <input type="radio" name="reaction" value="teriable" id="btn1" class="">
+               
+               
             </div>
+        </label>
             <div onclick=function2() id="btn2" class=" border h-28 w-24 shadow-lg hover:shadow-2xl">
                 <img src="/images/Bad.png" alt="" class="p-5"/>
             </div>
