@@ -58,13 +58,13 @@ class FrontendControler extends Controller
   public function communityPage(){
        $country = Country::all();
        $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title', 'community_sub_title', 'community_sub_subtitle')->first();
-      
+
       if(auth()->user() !==null){
         $stories = Story::where('status', 1)->orderBy('priority','asc')->get();
       }else{
         $stories = Story::where('status', 1)->orderBy('priority','asc')->take(6)->get();
       }
-      
+
     return view('frontend.pages.community',compact('stories', 'storyHead', 'country'));
   }
 
@@ -102,11 +102,11 @@ class FrontendControler extends Controller
 
   public function communitySearch(Request $request){
 
-   
+
     $country = Country::all();
     $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
     $query = DB::table('stories');
-  
+
     // sort story
     if ($request->stories !==null ) {
        if($request->stories =='latest'){
@@ -119,18 +119,18 @@ class FrontendControler extends Controller
     $query->where('country_id', $request->country_id);
      }
 
-  
+
 
      // time sorting
      if ($request->time !==null ) {
-        
+
          $days = $request->time;
-          $Date = Carbon::now()->subDays($days); 
+          $Date = Carbon::now()->subDays($days);
             $query->where('created_at', '>=', $Date);
-       
-          
+
+
        }
-   
+
 
    $stories = $query->where('status', 1)->take(15)->get();
    // $stories->appends(array('stories'=> InputRequest::input('stories'),'country_id'=> InputRequest::input('country_id'),'time'=> InputRequest::input('time')));
@@ -155,7 +155,7 @@ class FrontendControler extends Controller
       }else{
         $stories = Story::latest()->take(3)->get();
       }
-   
+
       $share = Home::select('share_title', 'share_subtitle')->first();
     return view('frontend.pages.single-story', ['story' => $story, 'stories' => $stories, 'share' => $share]);
   }
@@ -349,18 +349,15 @@ class FrontendControler extends Controller
 
   }
 
- 
-
  public function problemStore(Request $request) {
-         $problem = Problem::create([
-             'subject' => $request->subject,
-             'description' => $request->description,
-             'user_id' => auth()->user()->id, 
-             'solveDate' => Carbon::now(),
-          ]);
+        $problem = Problem::create([
+            'subject' => $request->subject,
+            'description' => $request->description,
+            'user_id' => auth()->user()->id,
+            'solveDate' => Carbon::now(),
 
-
-          return to_route('thank.you');
+        ]);
+        return to_route('thank.you');
   }
 
  public function problem($id)  {
@@ -373,27 +370,6 @@ class FrontendControler extends Controller
     return view('frontend.pages.pass-reset-done');
   }
 
-//  public function ticket()  {
-//   return view('frontend.pages.ticket');
-//   }
-
-  // public function problemStore(Request $request) {
-         
-    
-  //   $problem = Problem::create([
-  //             'subject' => $request->subject,
-  //             'description' => $request->description,
-  //             'user_id' => auth()->user()->id,
-  //             'solveDate' => Carbon::now(),
-  //         ]);
-
-  //         return to_route('thank.you');
-  // }
-
-
-
-
-
 // feedback store
   public function feedback(Request $request)  {
         FeedBack::create([
@@ -403,8 +379,4 @@ class FrontendControler extends Controller
         ]);
         return to_route('thank.you');
   }
-
-
-
-
 }
