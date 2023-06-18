@@ -21,7 +21,8 @@
                </p>
 <h1 class="text-xl font-bold my-2"> {{$story->name}} </h1>
 <p class="text-[#666565] capitalize "> {{$story->profession}} </p>
-<p class="text-[#666565] capitalize ">{{$story->city}}, {{$story->country->country}}</p>
+<p class="text-[#666565] capitalize ">{{$story->city}}, @if($story->country !==null) {{$story->country->country}} @endif
+</p>
 
     </div>
 </section>
@@ -55,7 +56,7 @@
             <h1 class="text-xl font-bold mt-2"> {{$story->name}} <h1>
                 <p class="capitalize"> {{$story->profession}} </p>
 
-                <p class="capitalize">{{$story->city}}, {{$story->country->country}}</p>
+                <p class="capitalize">{{$story->city}}, @if($story->country !==null) {{$story->country->country}} @endif</p>
 
         </div>
     </div>
@@ -65,7 +66,10 @@
 
    </div>
    <div class="mt-2 flex justify-center items-center mb-10">
-            <button  class="bg-[#D1052C] mt-2 text-white px-6 py-2 rounded loadmoredata">Load More Stories</button>
+    @auth
+    <button  class="bg-[#D1052C] mt-2 text-white px-6 py-2 rounded loadmoredata">Load More Stories</button>
+    @endauth
+           
         </div>
      
 </section>
@@ -75,7 +79,7 @@
             <h1 class="font-black text-5xl text-center">
                    @if($share !==null)   {{$share->share_title}}    @endif 
             </h1>
-            <p class="font-medium text-2xl text-center text-[#D1052C]"> @if($share !==null) {{$share->share_subtitle}} @endif </p>
+            <p class="font-medium text-2xl text-center text-[#D1052C]"> @if($share !==null) {!!$share->share_subtitle !!} @endif </p>
         </div>
         <div class="text-center mt-3"> <a href="{{route('share.story')}}"> <button class=" font-semibold text-white px-7 py-2 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Share Your Story</button> </a></div>
         </div>

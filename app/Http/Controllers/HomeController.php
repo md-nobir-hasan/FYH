@@ -76,6 +76,11 @@ class HomeController extends Controller
 'thank_image' => $thank_image,
 'thank_subtitle' => $request->thank_subtitle,
 'thank_title' => $request->thank_title,
+'reaction_heading' => $request->reaction_heading,
+'reaction_titleOne' => $request->reaction_titleOne,
+'reaction_titleTwo' => $request->reaction_titleTwo,
+'community_sub_title' => $request->community_sub_title,
+'community_sub_subtitle' => $request->community_sub_subtitle,
           ]);
 
            
@@ -159,6 +164,11 @@ if($request->hasFile('thank_image')){
            'thank_image' => $thank_image,
            'thank_subtitle' => $request->thank_subtitle,
            'thank_title' => $request->thank_title,
+           'reaction_heading' => $request->reaction_heading,
+          'reaction_titleOne' => $request->reaction_titleOne,
+          'reaction_titleTwo' => $request->reaction_titleTwo,
+          'community_sub_title' => $request->community_sub_title,
+          'community_sub_subtitle' => $request->community_sub_subtitle,
           ]);
           return Redirect::back()->with('success',' Successfully Update');
     }

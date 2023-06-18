@@ -41,8 +41,9 @@ class ProblemController extends Controller
 
     public function show(Problem $problem)
     {
-         $user = User::find($problem->user_id);
-        return view('pages.problem.show',compact('problem', 'user'));
+         $userData = User::where('id', $problem['user_id'])->first();
+         
+        return view('pages.problem.show',compact('problem', 'userData'));
     }
 
 
