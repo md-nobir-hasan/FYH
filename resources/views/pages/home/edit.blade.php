@@ -280,9 +280,9 @@
 
                             <div class="text-left">
                                 <label for="share_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Share Subtitle: </label>
-                                    <textarea id="editor"  name="share_subtitle" rows="2" class="@error('share_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                    <textarea   name="share_subtitle" rows="2" class="@error('share_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                                      placeholder="Enter Share SubTitle ">
-                                     @if($homeSection!==null)  {!!$homeSection->share_subtitle  !!}  @endif
+                                     @if($homeSection!==null)  {{$homeSection->share_subtitle  }}  @endif
                                     </textarea>
                                     @error('share_subtitle')
                                     <div class="text-left text-red-600">{{ $message }}</div>
@@ -421,6 +421,75 @@
                                 </div>
 
 
+                                {{-- reation title and subtitle --}}
+                                <div class="text-left">
+                                  <label
+                                  for="reaction_heading"
+                                  class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                  >Reaction Heading  : </label
+                                >
+                                <input name="reaction_heading"  @if($homeSection!==null) value="{{$homeSection->reaction_heading}}" @endif 
+                                  class="@error('reaction_heading') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                  type="text"
+                                  id="reaction_heading" placeholder="Enter Reaction Heading " />
+  
+                                  @error('reaction_heading')
+                                  <div class="text-left text-red-600">{{ $message }}</div>
+                                 @enderror
+                              </div>
+  
+                              <div class="text-left">
+                                  <label for="reaction_titleOne" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Reation Title One: </label>
+                                      <textarea  name="reaction_titleOne" rows="2" class="@error('reaction_titleOne') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                       placeholder="Enter Share SubTitle ">
+                                       @if($homeSection!==null)  {!!$homeSection->reaction_titleOne  !!}  @endif
+                                      </textarea>
+                                      @error('reaction_titleOne')
+                                      <div class="text-left text-red-600">{{ $message }}</div>
+                                     @enderror
+                              </div>
+
+                              <div class="text-left">
+                                <label for="reaction_titleTwo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Reation Title Two: </label>
+                                    <textarea  name="reaction_titleTwo" rows="2" class="@error('reaction_titleTwo') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter Reation Title Two ">
+                                     @if($homeSection!==null)  {!!$homeSection->reaction_titleTwo  !!}  @endif
+                                    </textarea>
+                                    @error('reaction_titleTwo')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
+
+
+                            {{-- communuty after subcription title subtitle  --}}
+                            
+                                 <div class="text-left">
+                                  <label
+                                  for="community_sub_title"
+                                  class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
+                                  >community Subcription title  : </label
+                                >
+                                <input name="community_sub_title"  @if($homeSection!==null) value="{{$homeSection->community_sub_title}}" @endif 
+                                  class="@error('community_sub_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                  type="text"
+                                  id="community_sub_title" placeholder="Enter Community Subcription Title " />
+  
+                                  @error('community_sub_title')
+                                  <div class="text-left text-red-600">{{ $message }}</div>
+                                 @enderror
+                              </div>
+  
+                              <div class="text-left">
+                                  <label for="community_sub_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Community Subcription Subtitle : </label>
+                                      <textarea  name="community_sub_subtitle" rows="2" class="@error('community_sub_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                       placeholder="Enter Share SubTitle ">
+                                       @if($homeSection!==null)  {!!$homeSection->community_sub_subtitle  !!}  @endif
+                                      </textarea>
+                                      @error('community_sub_subtitle')
+                                      <div class="text-left text-red-600">{{ $message }}</div>
+                                     @enderror
+                              </div>
 
                         </div>
 

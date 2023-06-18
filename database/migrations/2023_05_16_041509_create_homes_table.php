@@ -46,6 +46,11 @@ return new class extends Migration
             $table->string('thank_image')->nullable();
             $table->longText('thank_subtitle')->nullable();
             $table->string('thank_title')->nullable();
+            $table->string('reaction_heading')->nullable();
+            $table->string('reaction_titleOne')->nullable();  
+            $table->string('reaction_titleTwo')->nullable();
+            $table->string('community_sub_title')->nullable(); 
+            $table->longText('community_sub_subtitle')->nullable();  
             $table->timestamps();
         });
     }

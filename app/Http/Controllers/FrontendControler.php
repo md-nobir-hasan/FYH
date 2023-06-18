@@ -57,8 +57,14 @@ class FrontendControler extends Controller
 
   public function communityPage(){
        $country = Country::all();
-       $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
-      $stories = Story::where('status', 1)->orderBy('priority','asc')->take(10)->get();
+       $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title', 'community_sub_title', 'community_sub_subtitle')->first();
+
+      if(auth()->user() !==null){
+        $stories = Story::where('status', 1)->orderBy('priority','asc')->get();
+      }else{
+        $stories = Story::where('status', 1)->orderBy('priority','asc')->take(6)->get();
+      }
+
     return view('frontend.pages.community',compact('stories', 'storyHead', 'country'));
   }
 
@@ -79,8 +85,9 @@ class FrontendControler extends Controller
 
   public function about(){
      $about = About::first();
+     $shareStory = Home::select('share_title', 'share_subtitle')->first();
      $stories = Story::orderBy('priority','asc')->take(3)->get();
-    return view('frontend.pages.about', compact('about', 'stories'));
+    return view('frontend.pages.about', compact('about', 'stories', 'shareStory'));
   }
 
   public function discover(){
@@ -94,6 +101,7 @@ class FrontendControler extends Controller
   }
 
   public function communitySearch(Request $request){
+
     $country = Country::all();
     $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title')->first();
     $query = DB::table('stories');
@@ -138,8 +146,12 @@ class FrontendControler extends Controller
         $story->views +=1;
         $story->save();
 
+      if(auth()->user() !==null){
+        $stories = Story::latest()->take(9)->get();
+      }else{
+        $stories = Story::latest()->take(3)->get();
+      }
 
-      $stories = Story::latest()->take(9)->get();
       $share = Home::select('share_title', 'share_subtitle')->first();
     return view('frontend.pages.single-story', ['story' => $story, 'stories' => $stories, 'share' => $share]);
   }
@@ -263,7 +275,7 @@ class FrontendControler extends Controller
 
 
 
-    $shareImage = Home::select('lgImage' ,'customer_title', 'customer_subtitle', 'image_title','image_subtitle')->first();
+    $shareImage = Home::select('lgImage' ,'customer_title', 'customer_subtitle', 'image_title','image_subtitle', 'reaction_heading', 'reaction_titleOne', 'reaction_titleTwo')->first();
     $storyCount = Story::all()->count();
     $popularStory = DB::table('stories')->where('status', 1)->orderBy('views', 'desc')->join('users', 'stories.user_id', '=', 'users.id')->select('stories.*', 'users.img')->take(3)->get();
     $stories = Story::where('status', 1)->orderBy('priority','asc')->take(3)->get();
@@ -334,17 +346,15 @@ class FrontendControler extends Controller
   }
 
 
+ public function problemStore(Request $request) {
+        $problem = Problem::create([
+            'subject' => $request->subject,
+            'description' => $request->description,
+            'user_id' => auth()->user()->id,
+            'solveDate' => Carbon::now(),
 
-  public function problemStore(Request $request) {
-          $problem = Problem::create([
-              'subject' => $request->subject,
-              'description' => $request->description,
-              'user_id' => auth()->user()->id,
-              'solveDate' => Carbon::now(),
-          ]);
-
-
-          return to_route('thank.you');
+        ]);
+        return to_route('thank.you');
   }
 
  public function problem($id)  {
@@ -356,9 +366,6 @@ class FrontendControler extends Controller
   public function passRessDone(){
     return view('frontend.pages.pass-reset-done');
   }
-
-
-
 
 // feedback store
   public function feedback(Request $request)  {

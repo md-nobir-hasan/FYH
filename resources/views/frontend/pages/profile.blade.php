@@ -13,13 +13,13 @@
         <div class="col-span-3">
         <h1 class="text-4xl font-black"> {{$profile->name}},</h1>
         <p class="capitalize" > {{$profile->profession}} </p>
-        <p class="capitalize" >{{$profile->city}} , {{$profile->country}} </p>
+        <p class="capitalize" >{{$profile->city}} , @if($profile->country !==null){{$profile->country->country}} @endif </p>
         <h1 class="text-xl font-bold mt-5 capitalize">“ {{$profile->title  }} ”</h1>
         <p class="mt-2 text-lg text-justify">
             {{$profile->description}}
         </p>
         <div class="mt-5">
-        <a href="" class="bg-[#D1052C] text-white px-6 py-2 rounded">Edit Story</a>
+        <a href="{{route('share.story')}}" class="bg-[#D1052C] text-white px-6 py-2 rounded">Edit Story</a>
     </div>
         </div>
     </div>
