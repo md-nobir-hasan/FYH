@@ -10,11 +10,11 @@
     <p class="text-center text-lg font-medium">Only 5 best stories will be published for free.<br>
 If you want to read all stories, Please subscribe.</p>
 <div class="mt-1 flex justify-center">
-<a href=""  class="px-16 py-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Subscribe</a>
+<a href="{{route('member')}}"  class="px-16 py-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Subscribe</a>
         </div>
         <p class="text-center text-lg font-medium">All Ready Subscribed?  Please Login to your FYH Account.</p>
         <div class=" flex justify-center mt-1">
-<a href=""  class="px-20 py-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Login</a>
+<a href="{{route('login')}}"  class="px-20 py-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Login</a>
         </div>
   </div>
 </div>

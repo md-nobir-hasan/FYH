@@ -22,5 +22,11 @@ class Home extends Model
     'thank_image',
     'thank_subtitle',
     'thank_title',
-    'customer_title', 'customer_subtitle'];
+    'customer_title', 'customer_subtitle',
+    'reaction_heading',
+    'reaction_titleOne',
+    'reaction_titleTwo',
+    'community_sub_title',
+    'community_sub_subtitle',
+];
 }

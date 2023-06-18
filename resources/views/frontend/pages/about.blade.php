@@ -122,10 +122,10 @@ iframe{
 
         <div class="mt-28 mb-[-100px]">
         <div class="">
-            <h1 class="font-bold text-4xl text-center">We Are Excited For your Story</h1>
-            <p class="font-normal text-xl text-center text-[#D1052C]">Our community runs on voices like yours. It keep us going, and keeps us grounded.<br>Tell us like it is. What's your story?</p>
+            <h1 class="font-bold text-4xl text-center"> @if($shareStory !==null) {{$shareStory->share_title}}  @endif</h1>
+            <p class="font-normal text-xl text-center text-[#D1052C]">  @if($shareStory !==null) {{$shareStory->share_subtitle}}  @endif </p>
         </div>
-        <div class="text-center mt-3"><button class=" font-semibold text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="/membership">Share Your Story</a></button></div>
+        <div class="text-center mt-3"><a href="{{route('member')}}"><button class=" font-semibold text-white px-4 py-2 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Share Your Story</button> </a></div>
         </div>
 </div>
 

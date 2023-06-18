@@ -92,14 +92,15 @@
  
             </div>
             </section>
+          
 
             <!-- review section end -->
             <!-- Time section start -->
 <section class="mt-20 lg:mx-10 mb-[-150px] border shadow-xl">
     <form action="{{route('feedback')}}" method="post">
         @csrf
-         <h1 class="text-center text-4xl mt-5 font-black">That's your time</h1>
-        <p class="text-center text-sm font-[600] mt-4">What do you think of th services of FYH?</p>
+         <h1 class="text-center text-4xl mt-5 font-black capitalize "> @if($shareImage !==null) {{$shareImage->reaction_heading}}  @endif </h1>
+        <p class="text-center text-sm font-[600] mt-4"> @if($shareImage !==null) {{$shareImage->reaction_titleOne}}  @endif </p>
         <div class="lg:mx-48 mt-5 grid grid-cols-2 lg:grid-cols-5 gap-10">
 
             <label for="ab">
@@ -149,7 +150,7 @@
             </div>
         </label>
         </div>
-        <h1 class="text-center font-semibold mt-4 text-lg">What are the main reasons for your rating?</h1>
+        <h1 class="text-center font-semibold mt-4 text-lg"> @if($shareImage !==null) {{$shareImage->reaction_titleTwo}}  @endif</h1>
 
         <div class="lg:mx-48 mt-2">
         <textarea id="message" name="description" rows="4" class="block p-2.5 w-full text-sm shadow-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Left Your Feedback here..."></textarea>
