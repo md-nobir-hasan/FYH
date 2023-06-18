@@ -74,7 +74,7 @@
             @if (auth()->user() ==null)
             <a href="{{route('login')}}">
 
-                <button class="ml-12 font-semibold p-1 text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);"><a href="{{route('login')}}">Login</a></button>
+                <button class="ml-12 font-semibold p-1 text-white pl-5 pr-5 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Login</button>
 
             </a>
             @endif

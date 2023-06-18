@@ -6,9 +6,9 @@
         <s-slot name='style'>
 
         </s-slot>
-        <div class="p-4">
+        <div class="p-4">               
             <div class="flex items-center justify-center">
-                <h1 class=" bg-white shadow-lg text-bold font-xl p-4 mb-4 rounded-lg uppercase">{{$user->fname}}</h1>
+                <h1 class=" bg-white shadow-lg text-bold font-xl p-4 mb-4 rounded-lg uppercase">@if($userData !==null){{$userData->fname}} @endif</h1>
             </div>
             <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
                 <div class="p-6">
@@ -48,7 +48,7 @@
                                                     <th> creator </th>
                                                     <th>:</th>
                                                     <td class="whitespace-nowrap px-6 py-4 font-medium text-left">
-                                                        {{ $user->fname }}   {{ $user->lname }}
+                                                     @if($userData !==null)   {{ $userData->fname }}   {{ $userData->lname }} @endif
                                                     </td>
                                                 </tr>
 

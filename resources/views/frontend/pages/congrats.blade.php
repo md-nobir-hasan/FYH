@@ -22,8 +22,8 @@
         </div>
         <h1 class="text-center text-xl font-medium mt-6"> @if($Congrat !==null) {{$Congrat->option_title}} @endif</h1>
         <div class="flex justify-center items-center">
-            <button type="button" class="text-white w-48 bg-[#D1052C] font-medium rounded-lg text-base px-1 py-2.5 mr-2 mb-2"> @if($Congrat !==null) {{$Congrat->button_one}} @endif </button>
-            <button type="button" class="text-white w-48 bg-[#D1052C] font-medium rounded-lg text-base px-1 py-2.5 mr-2 mb-2">@if($Congrat !==null) {{$Congrat->button_two}} @endif</button>
+           <a href="{{route('guide.move_switzerland')}}"> <button type="button" class="text-white w-48 bg-[#D1052C] font-medium rounded-lg text-base px-1 py-2.5 mr-2 mb-2"> @if($Congrat !==null) {{$Congrat->button_one}} @endif </button></a>
+          <a href="{{route('guide.intro.move_switzerland')}}">  <button type="button" class="text-white w-48 bg-[#D1052C] font-medium rounded-lg text-base px-1 py-2.5 mr-2 mb-2">@if($Congrat !==null) {{$Congrat->button_two}} @endif</button></a>
         </div>
     </div>
 </body>

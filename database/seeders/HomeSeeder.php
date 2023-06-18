@@ -40,12 +40,17 @@ class HomeSeeder extends Seeder
          'intr_title' => 'Integration In Switzerland',
          'intr_subtile' => 'This guide will help you to integrate easier, more meaningful and fun',
          'help_image' => 'image/helpBanner.png',
-         'help_title' => 'How can we help you, Thomas?',
+         'help_title' => 'How can we help you',
           'help_subtile' => 'CHOOSE A CATEGORY TO FIND THE HELP YOU NEED',
          'thank_heading' => 'Thank you',
          'thank_image' => 'image/thanks.png',
           'thank_subtitle' => 'Work hard and Follow Your Heart!',
           'thank_title' => 'For sharing your story!',
+          'reaction_heading' => "That's your time",
+          'reaction_titleOne' => "What do you think of th services of FYH?",
+          'reaction_titleTwo' => 'What are the main reasons for your rating?',
+          'community_sub_title' => 'Our Success Stories',
+          'community_sub_subtitle' => 'All Stories od Pepole Who have successfullY moved swizerlan',
     ]; 
         DB::table('homes')->insert($n);
     }
