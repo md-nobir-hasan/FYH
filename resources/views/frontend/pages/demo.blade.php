@@ -11,6 +11,6 @@
 @endsection
 @push('js')
 <!-- flowbite cdn -->
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+{{-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> --}}
 <!-- flowbite cdn end -->
 @endpush
