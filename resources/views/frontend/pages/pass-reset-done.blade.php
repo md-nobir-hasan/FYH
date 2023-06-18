@@ -1,9 +1,11 @@
-@extends('frontend.layout.app')
-@push('title')
-    FYH
-@endpush
-@section('content')
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+@vite(['resources/css/app.css'])
+</head>
+<body>
 <div class="mt-20 lg:mx-[400px] mb-[-150px]" style="font-family:'Poppins'">
     <section class="border rounded-lg shadow-lg p-5">
         <div class="flex justify-center items-center ">
@@ -26,8 +28,5 @@
                     </a>
     </section>
 </div>
-
-@endsection
-@push('js')
-
-@endpush
+</body>
+</html>
