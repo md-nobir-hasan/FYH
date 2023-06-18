@@ -145,7 +145,7 @@
                             @php
                                 $title = str_split($firstfeature->title, 15);
                             @endphp
-                            <img src="{{ '/storage/' . $firstfeature->image }}" alt="" class="h-72">
+                            <img src="{{ '/storage/' . $firstfeature->image }}" alt="" class="h-72 lg:w-96">
                             <div class="absolute mt-[-120px] ml-[80px]">
                                 <h1 class=" text-white text-4xl font-black"> 
                                     {{ $title[0] }} 
@@ -229,7 +229,7 @@
 
                 <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="{{'/storage/'. $pStory->image}}" alt="" />
+                        <img class="rounded-t-lg" src="{{'/storage/'. $pStory->image}}" alt=""  class=""/>
                     </a>
                     <div class="p-3">
                         <a href="#">

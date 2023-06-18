@@ -35,28 +35,7 @@
 
     <!-- benifit section end -->
 
-    <!-- design 2 card -->
-    
-    <div class="grid grid-cols-1 lg:grid-cols-2 mx-5 lg:mx-36 gap-5 mt-20">
-
-        
-        @if($Benefits->count() > 0)
-        @foreach ($Benefits->slice(6, 10) as $item)
-        <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <img src="{{'/storage/'.$item->image}}" alt="" class="h-16 ml-2 w-16 mx-auto rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-        <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-extrabold tracking-tight  dark:text-white "> {{$item->title}}</h5>
-            <p class="mb-3 text-justify font-normal text-sm">
-                {{$item->description}}
-            </p>
-        </div>
-    </a>
-     
-    @endforeach
-    @endif
-        
-
-    <!-- design 2 card end -->
+   
 
 </div>
 
