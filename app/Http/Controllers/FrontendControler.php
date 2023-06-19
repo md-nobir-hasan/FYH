@@ -32,6 +32,8 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Carbon as SupportCarbon;
+use Event;
+use App\Events\SubscriptionCreated;
 
 
 
@@ -330,8 +332,13 @@ class FrontendControler extends Controller
   }
 
  public function ticket()  {
-  $problems = Problem::orderBy('status', 'asc')->paginate(10);
-  return view('frontend.pages.ticket', ['problems' => $problems]);
+   if(auth()->user() !== null){
+    $problems = Problem::orderBy('status', 'asc')->paginate(10);
+    return view('frontend.pages.ticket', ['problems' => $problems]);
+   }else{
+      return to_route('member');
+   }
+
   }
 
   public function refuse()  {
@@ -341,26 +348,43 @@ class FrontendControler extends Controller
 
 
  public function createRequest()  {
-  return view('frontend.pages.createRequest');
 
+      if(auth()->user() !== null){
+        return view('frontend.pages.createRequest');
+      }else{
+        return to_route('member');
+      }
   }
 
 
  public function problemStore(Request $request) {
-        $problem = Problem::create([
-            'subject' => $request->subject,
-            'description' => $request->description,
-            'user_id' => auth()->user()->id,
-            'solveDate' => Carbon::now(),
 
-        ]);
-        return to_route('thank.you');
+    if(auth()->user() !== null){
+      $problem = Problem::create([
+        'subject' => $request->subject,
+        'description' => $request->description,
+        'user_id' => auth()->user()->id,
+        'solveDate' => Carbon::now(),
+
+    ]);
+    return to_route('problem.thank');
+    }else{
+      return to_route('member');
+    }
+
   }
 
  public function problem($id)  {
    $problemShow = Problem::findOrFail($id);
    $user = User::where('id', $problemShow->user_id)->first();
   return view('frontend.pages.problem',compact('problemShow', 'user'));
+  }
+
+
+  public function problemThank() {
+
+    $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
+     return view('frontend.pages.thankYouProblem', compact('titles'));
   }
 
   public function passRessDone(){
@@ -376,4 +400,22 @@ class FrontendControler extends Controller
         ]);
         return to_route('thank.you');
   }
+
+ public function mailSubscribe(Request $request){
+
+        if(auth()->user() !==null){
+            $user = User::where('email', $request->email)->first();
+            if($user){
+              Event::dispatch(new SubscriptionCreated($user->id));
+              return to_route('mail.subscribe.thank');
+            }
+
+        }
+  }
+
+
+  public function mailSubscribeThank() {
+    $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
+    return view('frontend.pages.thanksubscribe', compact('titles'));
+
 }

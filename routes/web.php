@@ -72,19 +72,25 @@ use Illuminate\Support\Facades\Route;
          Route::get('user/edit/profile', [FrontendControler::class, 'editProfile'])->name('user.profile.edit');
          Route::get('help/support', [FrontendControler::class, 'helpSupport'])->name('help.support');
          Route::post('feedback', [FrontendControler::class, 'feedback'])->name('feedback');
-        //  benefit  Search
+         Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
+         //  benefit  Search
         Route::any('/community/search', [FrontendControler::class, 'communitySearch'])->name('community.search');
+
+        // problem route
+        Route::get('/request/problem', [FrontendControler::class, 'createRequest'])->name('createRequest');
+        Route::post('/problem/store', [FrontendControler::class, 'problemStore'])->name('problemStore');
+        Route::get('/problem/{id}', [FrontendControler::class, 'problem'])->name('problem');
+
     });
 
-
+    Route::get('/Share/problem/thankyou', [FrontendControler::class, 'problemThank'])->name('problem.thank');
     // authorize user route
 
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
-    Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
-    Route::get('/request/problem', [FrontendControler::class, 'createRequest'])->name('createRequest');
-    Route::post('/problem/store', [FrontendControler::class, 'problemStore'])->name('problemStore');
-    Route::get('/problem/{id}', [FrontendControler::class, 'problem'])->name('problem');
+
+    Route::post('/mail/subscribe', [FrontendControler::class, 'mailSubscribe'])->name('mail.subscribe');
+    Route::get('/subscribe/thank', [FrontendControler::class, 'mailSubscribeThank'])->name('mail.subscribe.thank');
 
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');

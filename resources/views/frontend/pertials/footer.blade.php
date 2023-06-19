@@ -55,16 +55,17 @@
                 </div>
 
 
-                <form class="mt-10">
+                <form action="{{route('mail.subscribe')}}"  method="post" class="mt-10">
+                   @csrf
                     <label for="search" class="mb-2 text-sm font-medium sr-only "></label>
                     <div class="relative">
 
-                        <input type="search" id="search"
+                        <input type="email" id="search" name="email"
                             class="block rounded-3xl w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="your email adress..." required>
-                        <a href="#"
+                        <button type="submit"
                             class="text-[#D1052C] absolute right-2.5 bottom-2.5 font-bold focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Subscribe<i
-                                class="fas fa-arrow-right ml-1"></i></a>
+                                class="fas fa-arrow-right ml-1"></i></button>
                     </div>
                 </form>
 

@@ -30,30 +30,30 @@
 
               @if (auth()->user() ==null)
             <a href="{{route('member')}}">
-                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Membership</button>
+                <button class="ml-12 font-semibold p-2 rounded {{ (request()->is('membership')) ? 'active' : '' }} " style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Membership</button>
             </a>
             @endif
        
 
             @auth
             <a href="{{route('share.story')}}">
-              <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">ShareStory</button>
+              <button class="ml-12 font-semibold p-2 rounded {{ (request()->is('share-story')) ? 'active' : '' }}"" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">ShareStory</button>
              </a>
              @endauth
              <a href="{{route('community')}}">
-              <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Community</button>
+              <button class=" ml-12 font-semibold p-2 rounded {{ (request()->is('community')) ? 'active' : '' }}" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Community</button>
           </a>
            
             <a href="{{route('benefit')}}">
-                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Benefits</button>
+                <button class="ml-12 font-semibold p-2 rounded {{ (request()->is('benefits')) ? 'active' : '' }}" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Benefits</button>
             </a>
 
 
 
             <a href="{{route('about')}}">
-                <button class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
+                <button class="ml-12 font-semibold p-2 rounded {{ (request()->is('about')) ? 'active' : '' }}" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
             </a>
-            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="ml-12 font-semibold p-2 rounded" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="ml-12 font-semibold p-2 rounded {{ (request()->is('guide*')) ? 'active' : '' }}" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
                        <div class="flex">
                         Guide <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                        </div>
@@ -116,25 +116,25 @@
 
 
 
-          <li>
-            <a href="{{route('user.profile')}}" class="block text-lg px-4 py-1 font-medium text-black hover:bg-gray-100">Profile</a>
+          <li class="mb-1">
+            <a href="{{route('user.profile')}}" class="{{ (request()->is('user/profile')) ? 'tgactive' : '' }} block text-lg px-4  font-medium hover:text-black hover:bg-gray-100">Profile</a>
           </li>
-          <li>
-            <a href="{{route('share.story')}}" class="block text-lg px-4  text-black font-medium hover:bg-gray-100">Edit Profile</a>
+          <li class="mb-1">
+            <a href="{{route('share.story')}}" class="{{ (request()->is('share-story')) ? 'tgactive' : '' }} block text-lg px-4  hover:text-black font-medium hover:bg-gray-100">Edit Profile</a>
           </li>
           <hr class="h-px bg-black mx-4 border-0">
-          <li class="flex ml-4">
+          <li class="flex  ml-4 {{ (request()->is('my-story')) ? 'tgactive' : '' }} hover:bg-gray-100 hover:text-black mt-1">
           
-            <img src="/images/profileLogo.png" class="h-3 flex w-3 mt-4"/>
-            <a href="{{route('user.myStroy')}}" class="block text-lg px-2 py-2 text-black font-medium hover:bg-gray-100">My Story</a>
+            <img src="/images/profileLogo.png" class="h-2 flex w-3 mt-3"/>
+            <a href="{{route('user.myStroy')}}" class="block text-lg px-2   font-medium ">My Story</a>
           </li>
-          <li class="flex ml-4">
-          <img src="/images/profileLogo2.png" class="h-3 flex w-3 mt-1"/>
-            <a href="{{route('member')}}" class="block text-lg px-2 font-medium text-black hover:bg-gray-100">Membership Update</a>
+          <li class="flex ml-4 {{ (request()->is('membership')) ? 'tgactive' : '' }} hover:text-black hover:bg-gray-100">
+          <img src="/images/profileLogo2.png" class="h-3 flex w-3 mt-2"/>
+            <a href="{{route('member')}}" class="block text-lg px-2 font-medium ">Membership Update</a>
           </li>
-          <li class="flex ml-4">
-          <img src="/images/profileLogo3.png" class="h-3 flex w-3 mt-3"/>
-            <a href="{{route('help.support')}}" class="block text-lg px-2 pt-2 font-medium text-black hover:bg-gray-100">Help & Support</a>
+          <li class="flex ml-4 {{ (request()->is('help/support')) ? 'tgactive' : '' }} hover:text-black hover:bg-gray-100">
+          <img src="/images/profileLogo3.png" class="h-2 flex w-3 mt-3"/>
+            <a href="{{route('help.support')}}" class="block text-lg px-2  font-medium ">Help & Support</a>
           </li>
           <li class="flex ml-4">
             <img src="/images/logout.png" class="h-3 flex w-3 mt-3"/>
