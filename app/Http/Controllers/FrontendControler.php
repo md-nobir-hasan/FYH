@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendSubscribe;
 use App\Http\Requests\UserStoryRequest;
 use App\Models\About;
 use App\Models\Benefit;
@@ -401,25 +402,23 @@ class FrontendControler extends Controller
             'reaction' => $request->reaction,
             'user_id' => auth()->user()->id,
         ]);
-        return to_route('thank.you');
+        return to_route('problem.thank');
   }
 
- public function mailSubscribe(Request $request){
 
-        if(auth()->user() !==null){
-            $user = User::where('email', $request->email)->first();
-            if($user){
-              Event::dispatch(new SubscriptionCreated($user->id));
+
+ public function mailSubscribe(Request $request){    
+              Event::dispatch(new SendSubscribe($request->email));
               return to_route('mail.subscribe.thank');
-            }
-
-        }
+     
+         
   }
 
 
   public function mailSubscribeThank() {
     $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
     return view('frontend.pages.thanksubscribe', compact('titles'));
-  }
+
+}
 
 }

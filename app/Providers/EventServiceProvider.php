@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\SendSubscribe;
 use App\Events\UserRegister;
 use App\Listeners\UserRegInfoToAdmin;
 use Illuminate\Auth\Events\Registered;
@@ -10,6 +11,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use App\Events\SubscriptionCreated;
 use App\Listeners\SendSubscriptionEmail;
+use App\Listeners\SendSubscriptionMail;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,11 @@ class EventServiceProvider extends ServiceProvider
         SubscriptionCreated::class => [
             SendSubscriptionEmail::class,
         ],
+
+        //footer subscription 
+          SendSubscribe::class => [
+              SendSubscriptionMail::class,
+          ],
     ];
 
     /**
