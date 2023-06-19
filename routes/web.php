@@ -89,8 +89,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
 
-    Route::get('/mail/subscribe', [FrontendControler::class, 'mailSubscribe'])->name('mail.subscribe');
-  
+    Route::post('/mail/subscribe', [FrontendControler::class, 'mailSubscribe'])->name('mail.subscribe');
+    Route::get('/subscribe/thank', [FrontendControler::class, 'mailSubscribeThank'])->name('mail.subscribe.thank');
 
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');

@@ -32,6 +32,8 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Carbon as SupportCarbon;
+use Event;
+use App\Events\SubscriptionCreated;
 
 
 
@@ -404,7 +406,21 @@ class FrontendControler extends Controller
 
 
 
- public function mailSubscribe(){
-      return 'fkj';
+ public function mailSubscribe(Request $request){
+    
+        if(auth()->user() !==null){
+            $user = User::where('email', $request->email)->first();
+            if($user){
+              Event::dispatch(new SubscriptionCreated($user->id));
+              return to_route('mail.subscribe.thank');
+            }
+         
+        }
+  }
+
+
+  public function mailSubscribeThank() {
+    $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
+    return view('frontend.pages.thanksubscribe', compact('titles'));
   }
 }
