@@ -4,7 +4,9 @@
 @endpush
 @section('content')
 <div class="lg:mx-40 mt-20" style="font-family:'Poppins'">
+    @if($myStory->count() > 0)
 <section class="border-2 rounded grid grid-cols-1 lg:grid-cols-4 p-4 gap-10">
+         
            @foreach ($myStory->slice(0,1) as $story)
            <div class="col-span-1">
             <img src="{{'/storage/'. $story->image}}" alt="" class="w-full"/>
@@ -20,6 +22,8 @@
     <p class="text-[#666565] capitalize">{{$story->city}} , @if($story->country !==null) {{$story->country->country}} @endif</p>
         </div>
            @endforeach
+         
+         
 </section>
 <section class="">
     <h1 class="text-2xl my-5 font-bold">Related Stories</h1>
@@ -56,6 +60,7 @@
             <button type="submit" class="bg-[#D1052C] mt-2 text-white px-6 py-2 rounded">Load More Stories</button>
         </div>
 </section>
+@endif
 <section>
 <div class="mt-28 mb-[-100px]">
         <div class="">
