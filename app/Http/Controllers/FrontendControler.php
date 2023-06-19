@@ -420,5 +420,6 @@ class FrontendControler extends Controller
   public function mailSubscribeThank() {
     $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
     return view('frontend.pages.thanksubscribe', compact('titles'));
+  }
 
 }
