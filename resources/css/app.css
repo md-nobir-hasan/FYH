@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+
+.active{
+    @apply bg-blue-500  rounded-lg text-white ;
+   } 
+   .tgactive{
+    @apply bg-blue-500  rounded-lg text-white;
+   } 
