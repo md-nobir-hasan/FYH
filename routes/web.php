@@ -75,7 +75,7 @@ use Illuminate\Support\Facades\Route;
          Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
          //  benefit  Search
         Route::any('/community/search', [FrontendControler::class, 'communitySearch'])->name('community.search');
-   
+
         // problem route
         Route::get('/request/problem', [FrontendControler::class, 'createRequest'])->name('createRequest');
         Route::post('/problem/store', [FrontendControler::class, 'problemStore'])->name('problemStore');
