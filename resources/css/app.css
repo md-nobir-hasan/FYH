@@ -8,7 +8,8 @@
 
 .active{
     @apply bg-blue-500  rounded-lg text-white ;
-   } 
+   }
    .tgactive{
-    @apply bg-blue-500  rounded-lg text-white;
-   } 
+    @apply bg-blue-500  rounded-sm text-white;
+
+   }

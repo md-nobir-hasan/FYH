@@ -32,6 +32,8 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Carbon as SupportCarbon;
+use Event;
+use App\Events\SubscriptionCreated;
 
 
 
@@ -340,7 +342,7 @@ class FrontendControler extends Controller
    }else{
       return to_route('member');
    }
- 
+
   }
 
   public function refuse()  {
@@ -350,7 +352,7 @@ class FrontendControler extends Controller
 
 
  public function createRequest()  {
- 
+
       if(auth()->user() !== null){
         return view('frontend.pages.createRequest');
       }else{
@@ -372,7 +374,7 @@ class FrontendControler extends Controller
     }else{
       return to_route('member');
     }
-     
+
   }
 
  public function problem($id)  {
@@ -383,7 +385,7 @@ class FrontendControler extends Controller
 
 
   public function problemThank() {
-   
+
     $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
      return view('frontend.pages.thankYouProblem', compact('titles'));
   }
@@ -402,9 +404,21 @@ class FrontendControler extends Controller
         return to_route('thank.you');
   }
 
+ public function mailSubscribe(Request $request){
 
+        if(auth()->user() !==null){
+            $user = User::where('email', $request->email)->first();
+            if($user){
+              Event::dispatch(new SubscriptionCreated($user->id));
+              return to_route('mail.subscribe.thank');
+            }
 
- public function mailSubscribe(){
-      return 'fkj';
+        }
   }
+
+
+  public function mailSubscribeThank() {
+    $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
+    return view('frontend.pages.thanksubscribe', compact('titles'));
+
 }

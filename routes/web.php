@@ -75,7 +75,7 @@ use Illuminate\Support\Facades\Route;
          Route::get('ticket', [FrontendControler::class, 'ticket'])->name('ticket');
          //  benefit  Search
         Route::any('/community/search', [FrontendControler::class, 'communitySearch'])->name('community.search');
-   
+
         // problem route
         Route::get('/request/problem', [FrontendControler::class, 'createRequest'])->name('createRequest');
         Route::post('/problem/store', [FrontendControler::class, 'problemStore'])->name('problemStore');
@@ -89,8 +89,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
     Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
 
-    Route::get('/mail/subscribe', [FrontendControler::class, 'mailSubscribe'])->name('mail.subscribe');
-  
+    Route::post('/mail/subscribe', [FrontendControler::class, 'mailSubscribe'])->name('mail.subscribe');
+    Route::get('/subscribe/thank', [FrontendControler::class, 'mailSubscribeThank'])->name('mail.subscribe.thank');
 
 
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
