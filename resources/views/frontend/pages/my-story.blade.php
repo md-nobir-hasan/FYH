@@ -17,7 +17,7 @@
             </p>
     <h1 class="text-xl font-bold my-2"> {{$story->name}} </h1>
     <p class="text-[#666565] capitalize"> {{$story->profession}} </p>
-    <p class="text-[#666565] capitalize">{{$story->city}} , {{$story->country}}</p>
+    <p class="text-[#666565] capitalize">{{$story->city}} , @if($story->country !==null) {{$story->country->country}} @endif</p>
         </div>
            @endforeach
 </section>
@@ -44,7 +44,7 @@
         </a>
         <h1 class="text-xl font-bold mt-2"> {{$item->name}} <h1>
             <p class="capitalize"> {{$item->profession}} </p>
-            <p class="capitalize"> {{$item->city}} , {{$item->country}}</p>
+            <p class="capitalize"> {{$item->city}} , @if($item->country !==null) {{$item->country->country}} @endif</p>
     </div>
 </div>
 @endforeach
