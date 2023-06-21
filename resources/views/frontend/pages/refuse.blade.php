@@ -1,6 +1,6 @@
 @extends('frontend.layout.app')
 @push('title')
- 
+ Refuse
 @endpush
 @section('content')
 
