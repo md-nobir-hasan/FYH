@@ -218,6 +218,11 @@ class FrontendControler extends Controller
 
      return view('frontend.pages.integration-ch',compact('integration', 'titles'));
   }
+
+  public function survivalGuide(){
+    return view('frontend.pages.survival');
+    }
+
   public function billingPage(Request $request){
 
     $plan = $request->plan;
@@ -407,18 +412,22 @@ class FrontendControler extends Controller
 
 
 
- public function mailSubscribe(Request $request){    
+ public function mailSubscribe(Request $request){
               Event::dispatch(new SendSubscribe($request->email));
               return to_route('mail.subscribe.thank');
-     
-         
+
+
   }
 
 
   public function mailSubscribeThank() {
     $titles = Home::select('thank_heading', 'thank_image', 'thank_subtitle', 'thank_title')->first();
     return view('frontend.pages.thanksubscribe', compact('titles'));
-
 }
+
+public function error(){
+    return view('errors.404');
+}
+
 
 }

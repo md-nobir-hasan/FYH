@@ -28,10 +28,11 @@ class PaymentDurationCheck
 
             }else{
                 $user = $request->user();
-        
+
                 if ($user && $user->subscribed('default') ) {
                     return $next($request);
                 }
+                abort(404);
                 return to_route('refuse');
 
 
