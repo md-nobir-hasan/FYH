@@ -106,6 +106,13 @@
                                 <input type="checkbox" @checked($mdata->trail) name="trail" id="trail" class="bg-gray-50 border ml-1 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                  title="Trail">
                             </div>
+                            <div class="flex">
+                                <label for="user_trail" class="block text-left mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    User Trail (Month):
+                                </label>
+                                <input type="number" name="user_trail" step="1" id="user_trail" value="{{$mdata->user_trail}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="User Trail for ... Month">
+                            </div>
                         </div>
 
                         <div class="mt-10">

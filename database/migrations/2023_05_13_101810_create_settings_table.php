@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('trail')->nullable();
-            $table->integer('user_trail')->nullable();
+            $table->integer('user_trail')->default(0);
             $table->string('logo');
             $table->string('email')->nullable();
             $table->longText('address')->nullable();

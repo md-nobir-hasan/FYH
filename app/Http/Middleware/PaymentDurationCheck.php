@@ -23,7 +23,8 @@ class PaymentDurationCheck
         // dd(Auth::user());
         if(Auth::user()){
            if(Schema::hasTable('settings')){
-                if(Setting::first()->trail == null ){
+            $setting = Setting::first();
+                if($setting->trail == null){
                     $paypal = Payment::where('user_id',Auth::user()->id)->first();
                     if($paypal){
                         if(Carbon::now()>$paypal->end_time){
@@ -40,6 +41,8 @@ class PaymentDurationCheck
 
 
                     }
+                }else{
+                    if(Auth::user()->create_at >)
                 }
            }
         }
