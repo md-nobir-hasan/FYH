@@ -297,9 +297,11 @@
                             <h1 class="font-semibold text-xl"> {{ Str::limit($item->title, 12) }} </h1>
                             <p class="w-56 text-justify"> {{ Str::limit($item->description, 140) }} </p>
                         </div>
+                       @if (!$loop->last)
                         <div class="mt-16">
                             <hr class="h-px ml-[-10px] mr-[27px] bg-[#D9D9D9] border-0">
                         </div>
+                       @endif
                     @endforeach
                 @endif
 
