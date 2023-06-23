@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('trail')->nullable();
             $table->string('logo');
             $table->string('email')->nullable();
             $table->longText('address')->nullable();

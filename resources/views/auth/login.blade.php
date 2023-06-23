@@ -65,7 +65,7 @@
             @endif
 
             <button class="w-full  p-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white">{{ __('Log in') }}</button>
-            <p class="mt-2 text-lg">Don't have an account?<a href="/register" class="text-[#D1052C] hover:text-orange-600">Create an account</a></p>
+            <p class="mt-2 text-lg">Don't have an account?<a href="{{route('member')}}" class="text-[#D1052C] hover:text-orange-600">Create an account</a></p>
         </div>
     </form>
 </x-guest-layout>

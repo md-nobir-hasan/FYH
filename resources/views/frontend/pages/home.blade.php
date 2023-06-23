@@ -62,9 +62,9 @@
                     @endif
                 </p>
                 <div class="flex">
-                    <a href="{{ route('member') }}">
+                    <a href="{{$setting->trail ? route('register') : route('member') }}">
                         <div class="mt-10 text-white w-72 rounded flex justify-center items-center h-16 font-semibold"
-                            style="background-color:#D1052C"><button class="mr-1 font-lg">Join FYH now</button>
+                            style="background-color:#D1052C"><button class="mr-1 font-lg">{{$setting->trail ? 'Start Free Trail' : 'Join FYH now'}}</button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -131,10 +131,10 @@
         <!-- Featured story start -->
         <section class="mt-[164px]">
             <div>
-                <h1 class="text-5xl font-bold text-center text-[#212427]">   
+                <h1 class="text-5xl font-bold text-center text-[#212427]">
                     @if ($home !== null)   {{ $home->feature_title }} @endif </h1>
                 <p class="text-center text-2xl">
-                    @if ($home !== null)   {{ $home->feature_subtitle }} @endif 
+                    @if ($home !== null)   {{ $home->feature_subtitle }} @endif
                 </p>
             </div>
 
@@ -147,8 +147,8 @@
                             @endphp
                             <img src="{{ '/storage/' . $firstfeature->image }}" alt="" class="h-72 lg:w-96">
                             <div class="absolute mt-[-120px] ml-[80px]">
-                                <h1 class=" text-white text-4xl font-black"> 
-                                    {{ $title[0] }} 
+                                <h1 class=" text-white text-4xl font-black">
+                                    {{ $title[0] }}
                                 </h1>
                                 <h1 class=" text-white ml-[30px] text-4xl font-black"> {{ $title[1] }} </h1>
                             </div>
@@ -189,9 +189,9 @@
                         <div class="col-span-2">
 
                             @php
-                                
+
                                 $title = str_split($secondfeture->title, 15);
-                                
+
                             @endphp
 
 
@@ -212,7 +212,7 @@
         <!-- Popular story start -->
         <section class="mt-[164px]">
             <div>
-                <h1 class="text-5xl font-bold text-center text-[#212427]">  
+                <h1 class="text-5xl font-bold text-center text-[#212427]">
                       @if ($home !== null)     {{ $home->story_title }} @endif
                     </h1>
                 <p class="text-center text-2xl">
@@ -220,12 +220,12 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
-            
+
 
                 @if ($popularStory->count() > 0)
                      @foreach ($popularStory as $pStory)
-                         
-                
+
+
 
                 <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
@@ -247,17 +247,17 @@
 
                 @endforeach
                 @endif
-              
+
 
             </div>
         </section>
         <!-- Popular story end -->
         <!-- successfull story Candidate start -->
         <section class="mt-[140px]">
-            <h1 class="text-4xl font-black text-center text-[#D1052C]"> 
-                @if ($storyCount !== null)     {{ number_format($storyCount) }} @endif    
+            <h1 class="text-4xl font-black text-center text-[#D1052C]">
+                @if ($storyCount !== null)     {{ number_format($storyCount) }} @endif
             </h1>
-          
+
             <p class="text-center text-2xl">    @if ($home !== null)     {{ $home->image_title }} @endif </p>
             <p class="text-center text-sm">
 
@@ -265,11 +265,11 @@
                 $subtitle = str_split($home->image_subtitle, 50);
                @endphp
 
-                @if ($home !== null) 
+                @if ($home !== null)
                       @foreach ($subtitle as $subItem)
                           {{$subItem}} <br>
                       @endforeach
-               @endif 
+               @endif
             </p>
             <div class="flex items-center justify-center mt-5">
                 @if ($home !== null)    <img src="{{'/storage/'. $home->lgImage}}" alt="" class="lg:h-[791px] lg:w-[845px]"> @endif
@@ -281,11 +281,11 @@
         <!-- successfull story Candidate end -->
         <!-- Get Service Start -->
         <section class="mt-[122px]">
-            <h1 class="text-center text-5xl font-black text-[#212427]">  
-                  @if ($home !== null)     {{ $home->service_title }} @endif 
+            <h1 class="text-center text-5xl font-black text-[#212427]">
+                  @if ($home !== null)     {{ $home->service_title }} @endif
                 </h1>
             <p class="text-center text-2xl">
-                @if ($home !== null)     {{ $home->service_subtitle }} @endif 
+                @if ($home !== null)     {{ $home->service_subtitle }} @endif
             </p>
             <div class="mt-10 grid grid-cols-7">
 
@@ -308,7 +308,7 @@
         <!-- Get Service end -->
         <!-- Success section start -->
         <div class="mt-[165px]">
-            <h1 class="font-bold text-5xl text-[#212427] text-center"> 
+            <h1 class="font-bold text-5xl text-[#212427] text-center">
                 @if ($home !== null)
                 {{ $home->customer_title }}
             @endif
@@ -352,7 +352,7 @@
             <h1 class="font-bold text-5xl text-[#212427] text-center">
                 @if ($home !== null)
                 {{ $home->share_title }}
-            @endif    
+            @endif
             </h1>
             @php
             $shareSub = str_split($home->share_subtitle, 90);
@@ -362,8 +362,8 @@
                   @foreach ($shareSub as $Shitem)
                        {{$Shitem}} <br>
                   @endforeach
-         
-            @endif 
+
+            @endif
             </p>
             <a href="{{route('share.story')}}" class=" flex justify-center items-center"><button
                     class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your

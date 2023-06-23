@@ -57,6 +57,7 @@ use Illuminate\Support\Facades\Route;
 
     Route::get('/password-reset-done',[FrontendControler::class,'passRessDone'])->name('pass_reset_done');
     Route::prefix('/guide')->name('guide.')->group(function(){
+        Route::get('/survival-guide',[FrontendControler::class,'survivalGuide'])->name('survival');
         Route::get('/moving-to-switzerland',[FrontendControler::class,'moveSwitzerland'])->name('move_switzerland');
         Route::get('/integration-in-switzerland',[FrontendControler::class,'integrationSwitzerland'])->name('intro.move_switzerland');
     });
@@ -112,6 +113,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('/cancel',[PaypalController::class,'cancel'])->name('cancel')->withoutMiddleware('pdc');
 
     });
+    Route::get('error',[FrontendControler::class,'error'])->name('error');
 //End frontend controller
 
 //Wthout middleware routes

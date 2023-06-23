@@ -16,7 +16,12 @@
         <p class=" text-center text-md font-normal">  You will get all of updates at very first.  </p>
 
         <div class="mt-2 flex justify-center items-center mb-10">
-            <a href="{{route('user.myStroy')}}" class="bg-[#D1052C] text-white px-6 py-2 rounded">Read Your Story</a>
+           @auth
+           <a href="{{route('user.myStroy')}}" class="bg-[#D1052C] text-white px-6 py-2 rounded">Read Your Story</a>
+           @endauth
+           @guest
+           <a href="{{route('member')}}" class="bg-[#D1052C] text-white px-6 py-2 rounded">Read Your Story</a>
+           @endguest
             <a href="{{route('community')}}" class="bg-[#D1052C] ml-3 text-white px-6 py-2 rounded">Read All Stories</a>
         </div>
      </div>
