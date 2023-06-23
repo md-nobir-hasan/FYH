@@ -62,6 +62,7 @@ class SettingsController extends Controller
         $setting->fb_page = $request->fb_page;
         $setting->linkedin = $request->linkedin;
         $setting->twitter = $request->twitter;
+        $setting->trail = $request->trail;
         $setting->youtube = $request->youtube;
         if($request->logo){
             $setting->logo = '/storage/'.$request->file('logo')->store('setting','public');
