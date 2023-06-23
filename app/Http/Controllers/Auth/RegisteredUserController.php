@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClientType;
+use App\Models\Setting;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -22,8 +23,10 @@ class RegisteredUserController extends Controller
      */
     public function create($planId=null)
     {
-        if($planId==null){
-             return Redirect::back();
+        if( Setting::first()->trail == null){
+            if($planId==null){
+                return Redirect::back();
+            }
         }
         $planId = ClientType::where('plan_id', $planId)->first();
         return view('auth.register', ['planId' => $planId]);
@@ -58,7 +61,7 @@ class RegisteredUserController extends Controller
 
 
         event(new Registered($user));
-      
+
         Auth::login($user);
 
         $loginUser = auth()->user();
@@ -67,7 +70,12 @@ class RegisteredUserController extends Controller
         $planId = ClientType::where('plan_id', $plan)->first();
 
         if($loginUser->role_id ==null){
-            return view('frontend.pages.billing', ['planId' => $planId]);
+            if(Setting::first()->trail == null){
+                return view('frontend.pages.billing', ['planId' => $planId]);
+            }else{
+                return to_route('congrats');
+            }
+
         }
 
         return redirect()->route('user.home');
