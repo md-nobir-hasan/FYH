@@ -2,7 +2,7 @@
     <a href="{{ route('home') }}">
         <img src="{{ $setting->logo }}" alt="" class="lg:ml-20 h-8 w-24">
     </a>
-    <div class="grid lg:grid-cols-3 lg:gap-3 grid-cols-1 bg-white lg:mx-20 rounded-lg lg:p-10"
+    <div class=" bg-white rounded-lg lg:p-10 @if($planId) lg:mx-20 grid lg:grid-cols-3 lg:gap-3 grid-cols-1 @else lg:mx-72  @endif"
         style="font-family: 'Montserrat';">
         <form class="lg:col-span-2 p-10 border-2 border-black rounded-xl" method="POST" action="{{ route('register') }}"
             enctype="multipart/form-data">
@@ -122,7 +122,7 @@
                 class="w-full text-xl p-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white">{{ __('Create Account & Continue') }}</button>
         </form>
 
-        @if($setting->trail == null)
+        @if($planId)
             <div class="lg:col-span-1 mt-10 lg:mt-0">
                 <div class=" ">
                     <div class="border-2 border-black rounded-xl p-3">

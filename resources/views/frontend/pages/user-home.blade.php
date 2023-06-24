@@ -15,12 +15,14 @@
                     <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
 
                         <img src="{{ '/storage/' . $story->image }}" alt="" class="">
+                       
                         <div class="absolute mt-[-120px] ml-[55px]">
                             @php   $title = str_split($story->title, 10)      @endphp
                             @foreach ($title as $key => $item)
                                 @if ($key == 2)
                                 @break
                             @endif
+                            
                             <h1
                                 class=" text-white text-3xl font-black @if ($key == 1) ml-[20px] @endif ">
                                 {{ $item }} </h1>
@@ -31,6 +33,7 @@
                     <div class="p-5">
                         <div class="flex">
                             <img src="{{ $story->img }}" alt="" class="mt-[-40px]">
+                            <img src="/images/user1.png" class="mt-[-30px]"/>
                             <div class="ml-3">
                                 <h1 class="text-lg mt-[-20px]"> {{ $story->name }} </h1>
                                 <p class="text-sm text-[#848484]"> {{ $story->profession }} </p>
