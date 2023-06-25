@@ -22,7 +22,7 @@
                 </a> --}}
             </div>
 
-            <div class="w-full mt-6 px-6 py-4 overflow-hidden sm:rounded-lg">
+            <div class="w-full mt-6 px-6 py-4 overflow-hidden sm:rounded-lg"  style="background:url(/images/Line.png);background-size:100%;background-repeat:no-repeat;background-position:center">
                 {{ $slot }}
             </div>
         </div>

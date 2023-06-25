@@ -2,9 +2,9 @@
     <a href="{{ route('home') }}">
         <img src="{{ $setting->logo }}" alt="" class="lg:ml-20 h-8 w-24">
     </a>
-    <div class=" bg-white rounded-lg lg:p-10 @if($planId) lg:mx-20 grid lg:grid-cols-3 lg:gap-3 grid-cols-1 @else lg:mx-72  @endif"
-        style="font-family: 'Montserrat';">
-        <form class="lg:col-span-2 p-10 border-2 border-black rounded-xl" method="POST" action="{{ route('register') }}"
+    <div class=" bg-white rounded-lg lg:p-10 @if($planId) lg:mx-20 grid lg:grid-cols-3 lg:gap-3 grid-cols-1 @else mx-auto lg:w-[886px]  @endif"
+        style="font-family: 'Poppins';">
+        <form class="lg:col-span-2 p-10  rounded-xl" method="POST" action="{{ route('register') }}"
             enctype="multipart/form-data">
             @csrf
             <div class="flex">
@@ -56,14 +56,14 @@
             <!-- Name -->
             <div>
                 <x-input-label for="fname" : />
-                <x-text-input id="fname" class="block mt-1 w-full border-gray-700" type="text" name="fname"
+                <x-text-input id="fname" class="block mt-1 w-full shadow-lg" type="text" name="fname"
                     :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0"
                     placeholder="First Name" />
                 <x-input-error :messages="$errors->get('fname')" class="mt-2" />
             </div>
             <div>
                 <x-input-label for="lname" : />
-                <x-text-input id="lname" class="block mt-2 w-full border-gray-700" type="text" name="lname"
+                <x-text-input id="lname" class="block mt-2 w-full shadow-lg" type="text" name="lname"
                     :value="old('lname')" required autocomplete="lname" style="border-top:0;border-right:0; border-left:0"
                     placeholder="Last Name" />
                 <x-input-error :messages="$errors->get('lname')" class="mt-2" />
@@ -72,7 +72,7 @@
             <!-- Email Address -->
             <div class="">
                 <x-input-label for="email" : />
-                <x-text-input id="email" class="block mt-2 w-full border-gray-700" type="email" name="email"
+                <x-text-input id="email" class="block mt-2 w-full shadow-lg" type="email" name="email"
                     :value="old('email')" required autocomplete="username"
                     style="border-top:0;border-right:0; border-left:0" placeholder="Email" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -84,7 +84,7 @@
             <div class="">
                 <x-input-label for="password" : />
 
-                <x-text-input id="password" class="block mt-2 w-full border-gray-700" type="password" name="password"
+                <x-text-input id="password" class="block mt-2 w-full shadow-lg" type="password" name="password"
                     required autocomplete="new-password" style="border-top:0;border-right:0; border-left:0"
                     placeholder="Password" />
 
@@ -95,7 +95,7 @@
             <div class="">
                 <x-input-label for="password_confirmation" : />
 
-                <x-text-input id="password_confirmation" class="block mt-2 w-full border-gray-700" type="password"
+                <x-text-input id="password_confirmation" class="block mt-2 w-full shadow-lg" type="password"
                     name="password_confirmation" required autocomplete="new-password"
                     style="border-top:0;border-right:0; border-left:0" placeholder="Confirm Password" />
 

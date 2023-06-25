@@ -1,15 +1,16 @@
 <x-guest-layout class="">
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <x-auth-session-status class="" :status="session('status')"/>
 
+    <div>
     <form class="p-10 sm:max-w-md bg-white mx-auto" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';" enctype="multipart/form-data">
     @csrf
        <a href="{{route('home')}}">
-        <img src="{{$setting->logo}}" alt="" class="h-8 w-24 mx-auto mb-14 mt-[-30px]">
+        <img src="{{$setting->logo}}" alt="" class="h-8 w-24 mx-auto mb-10 mt-[-30px]">
        </a>
 
-    <h1 class="text-center text-4xl font-bold">Welcome Back!</h1>
-    <p class="text-center font-medium text-lg">Continue with Google or Enter your details</p>
+    <h1 class="text-center text-[28px] font-medium">Welcome Back!</h1>
+    <p class="text-center font-normal text-base">Continue with Google or Enter your details</p>
 
     <a href="{{route('google.auth')}}" class="w-full border hover:bg-[#D1052C] hover:text-white border-[#000000] p-3 rounded-lg font-semibold flex justify-center items-center"><svg class="mr-1" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_468_289)">
@@ -26,7 +27,7 @@
     </svg>Log in with Google</a>
     <div class="grid grid-cols-4">
     <hr class="h-px my-8 bg-black col-span-1 border-0">
-    <p class="col-span-2 flex justify-center items-center font-medium">or continue with email</p>
+    <p class="col-span-2 flex justify-center items-center font-normal">or continue with email</p>
     <hr class="h-px my-8 bg-black col-span-1 border-0">
     </div>
          
@@ -68,5 +69,6 @@
             <p class="mt-2 text-lg">Don't have an account?<a href="{{route('register')}}" class="text-[#D1052C] hover:text-orange-600">Create an account</a></p>
         </div>
     </form>
+    </div>
 </x-guest-layout>
 

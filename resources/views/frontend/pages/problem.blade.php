@@ -4,7 +4,7 @@
 @endpush
 @section('content')
 
-<section class="mt-[27px] lg:mx-40 mb-[-150px]" style="font-family:'Poppins'">
+<section class="mt-[27px] lg:mx-40 bg-white mb-[-150px]" style="font-family:'Poppins'">
 
     <div class="border px-20 py-14">
         <div class="">

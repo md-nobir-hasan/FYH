@@ -3,12 +3,12 @@
     Community
 @endpush
 @section('content')
-    <div class=" mt-10 mb-[-200px]" style="font-family:'Poppins'">
+    <div class=" mt-10 mb-[-200px] bg-cover bg-center" style="font-family:'Poppins'">
         
 
         @guest
-        <h1 class="text-5xl font-black text-center"> @if($storyHead!==null) {{$storyHead->story_title}} @endif </h1>
-        <p class="text-lg text-center">  @if($storyHead!==null) {{$storyHead->story_subtitle}} @endif </p>
+        <h1 class="text-5xl font-bold text-[#212427] text-center"> @if($storyHead!==null) {{$storyHead->story_title}} @endif </h1>
+        <p class="text-xl font-normal uppercase text-[#212427] text-center">  @if($storyHead!==null) {{$storyHead->story_subtitle}} @endif </p>
         @endguest
       
       
@@ -74,44 +74,42 @@
         </div>
     </form>
     @endauth
-        <div class="lg:mx-36 grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
+        <div class="" style="background:url('/images/benifitbg.png'); background-repeat:repeat-y;background-position: 50% 20px;">
+        <div class="lg:mx-36 grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10"  >
 
-            @if($stories->count() > 0)
+@if($stories->count() > 0)
 
-            @foreach ($stories as $item) 
-          @php  $countryName = App\Models\Country::where('id', $item->country_id)->first(); @endphp
+@foreach ($stories as $item) 
+@php  $countryName = App\Models\Country::where('id', $item->country_id)->first(); @endphp
 
-            <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="{{'/storage/'.$item->image }}" alt="{{$item->name}}" />
-                </a>
-                <div class="p-3">
-                    <a href="{{route('single-story', $item->slug)}}">
-                        <h5 class="mb-2 text-xl font-black tracking-tight text-[#212427]">"{{Str::limit($item->title, 18)}}"</h5>
+<div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <img class="rounded-t-lg w-full" src="{{'/storage/'.$item->image }}" alt="{{$item->name}}" />
+    </a>
+    <div class="p-3">
+        <a href="{{route('single-story', $item->slug)}}">
+            <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">"{{Str::limit($item->title, 18)}}"</h5>
 
-                    </a>
-                    <p class=" text-sm font-normal text-[#212427] text-justify"> {{Str::limit($item->description, 400)}} </p>
-                    <a href="{{route('single-story', $item->slug)}}" class="text-[#D1052C] font-black">
-                        Read more
+        </a>
+        <p class=" text-sm font-normal text-[#212427] text-justify"> {{Str::limit($item->description, 400)}} </p>
+        <a href="{{route('single-story', $item->slug)}}" class="text-[#D1052C] font-black">
+            Read more
 
-                    </a>
-                    <h1 class="text-xl font-bold mt-2"> {{$item->name}} <h1>
-                            <p class="capitalize">{{$item->profession}} </p>
-                            <p class="capitalize">{{$item->city}},
-                               @if($countryName !== null)   {{$countryName->country}}  @endif
-                                 </p>
-                </div>
-            </div>
+        </a>
+        <h1 class="text-xl font-bold mt-2"> {{$item->name}} <h1>
+                <p class="capitalize">{{$item->profession}} </p>
+                <p class="capitalize">{{$item->city}},
+                   @if($countryName !== null)   {{$countryName->country}}  @endif
+                     </p>
+    </div>
+</div>
 
-              @endforeach
-            @endif
-        
-
+  @endforeach
+@endif
 
 
-            
-          
 
+</div>
         </div>
                
         @guest
