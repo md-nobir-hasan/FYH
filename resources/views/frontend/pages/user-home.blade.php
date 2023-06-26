@@ -5,8 +5,8 @@
 @section('content')
     <div class="lg:mx-40 mt-[86px]" style="font-family:'Poppins'">
         <div>
-            <h1 class="text-5xl font-black ">Hi <span class="uppercase">{{ $user->fname }}</span>,</h1>
-            <p class="text-2xl font-normal">What’s popular now</p>
+            <h1 class="text-5xl font-bold ">Hi <span class="uppercase">{{ $user->fname }}</span>,</h1>
+            <p class="text-2xl font-semibold">What’s popular now</p>
         </div>
         <!-- card section -->
         <section class="mt-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-5">
@@ -14,9 +14,9 @@
                 @foreach ($popularStory as $story)
                     <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
 
-                        <img src="{{ '/storage/' . $story->image }}" alt="" class="">
+                        <img src="{{ '/storage/' . $story->image }}" alt="" class="lg:h-[238px] lg:w-[424px]">
                        
-                        <div class="absolute mt-[-120px] ml-[55px]">
+                        <div class="absolute mt-[-120px] ml-[80px]">
                             @php   $title = str_split($story->title, 10)      @endphp
                             @foreach ($title as $key => $item)
                                 @if ($key == 2)
@@ -24,19 +24,19 @@
                             @endif
                             
                             <h1
-                                class=" text-white text-3xl font-black @if ($key == 1) ml-[20px] @endif ">
+                                class=" text-white text-4xl font-black @if ($key == 1) ml-[0px] @endif ">
                                 {{ $item }} </h1>
                         @endforeach
 
 
                     </div>
-                    <div class="p-5">
+                    <div class="p-3">
                         <div class="flex">
                             <img src="{{ $story->img }}" alt="" class="mt-[-40px]">
-                            <img src="/images/user1.png" class="mt-[-30px]"/>
+                            <img src="/images/user1.png" class="mt-[-20px]"/>
                             <div class="ml-3">
-                                <h1 class="text-lg mt-[-20px]"> {{ $story->name }} </h1>
-                                <p class="text-sm text-[#848484]"> {{ $story->profession }} </p>
+                                <h1 class="text-lg font-semibold mt-[-5px]"> {{ $story->name }} </h1>
+                                <p class="text-sm font-normal text-[#848484]"> {{ $story->profession }} </p>
                             </div>
                         </div>
                         <p class="mt-2">
@@ -51,9 +51,9 @@
 
     </section>
     <!-- successfull section start -->
-    <section class="mt-[140px]">
-        <h1 class="text-4xl font-black text-center text-[#D1052C]"> {{ $storyCount }} </h1>
-        <p class="text-center text-2xl">
+    <section class="lg:-mx-40 mt-[140px]" style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 50%">
+        <h1 class="text-5xl font-bold text-center text-[#D1052C]"> {{ $storyCount }} </h1>
+        <p class="text-center uppercase font-normal text-2xl">
             @if ($shareImage !== null)
                 {{ $shareImage->image_title }}
             @endif
@@ -74,33 +74,33 @@
     </section>
     <!-- successfull section end -->
     <!-- review section start -->
-    <section class="mt-20">
-        <h1 class="text-5xl font-black text-center">
+    <section class="mt-20 lg:-mx-40 pb-20 pt-3" style="background:url(/images/benifitbg.png);background-size:100% 330px;background-repeat:no-repeat; background-position:0 110px">
+        <h1 class="text-5xl font-bold text-center">
             @if ($shareImage !== null)
                 {{ $shareImage->customer_title }}
             @endif
         </h1>
-        <p class="text-center text-xl uppercase">
+        <p class="text-center font-normal text-2xl uppercase">
             @if ($shareImage !== null)
                 {{ $shareImage->customer_subtitle }}
             @endif
         </p>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-7">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-7 lg:mx-40">
 
 
             @foreach ($stories as $sto)
                 <a href=""
-                    class="block w-80 h-[250px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    class="w-full  px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <div class="flex">
                         <img src="{{ '/storage/' . $sto->image }}" alt="" class="h-16 w-16 rounded-full"
                             style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                         <div class="ml-2">
-                            <h1 class="text-2xl font-bold"> {{ $sto->name }} </h1>
-                            <p class="font-medium text-lg"> {{ $sto->profession }} </p>
+                            <h1 class="text-2xl font-semibold"> {{ $sto->name }} </h1>
+                            <p class="font-normal text-xl"> {{ $sto->profession }} </p>
                         </div>
                     </div>
                     <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
-                    <p class="font-medium text-sm text-justify">
+                    <p class="font-normal text-[16px] text-justify">
                         {{ Str::limit($sto->description, 200) }}
                     </p>
                 </a>
@@ -113,8 +113,8 @@
 
     <!-- review section end -->
     <!-- Time section start -->
-    <section class="mt-20 lg:mx-10 mb-[-150px] border shadow-xl">
-        <form action="{{ route('feedback') }}" method="post">
+    <section class="mt-20 lg:-mx-40" style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 50%">
+        <form action="{{ route('feedback') }}" method="post" class="lg:mx-56 bg-white mb-[-150px] border shadow-xl">
             @csrf
             <h1 class="text-center text-4xl mt-5 font-black capitalize ">
                 @if ($shareImage !== null)

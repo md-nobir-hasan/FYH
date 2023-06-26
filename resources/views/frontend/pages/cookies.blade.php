@@ -4,7 +4,7 @@
 @endpush
 @section('content')
 <div class="lg:mx-40 mt-[72px]" style="font-family:'Poppins'">
-<section class="border shadow-lg rounded-lg">
+<section class="border bg-white shadow-lg rounded-lg">
 <div class="lg:mx-20 lg:my-10">
 
 {!! $cookie->cookie !!}

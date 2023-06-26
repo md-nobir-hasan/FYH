@@ -3,17 +3,17 @@
    Thank You
 @endpush
 @section('content')
-     <div class="lg:mx-40 mt-[178px]" style="font-family:'Poppins'">
+     <div class="lg:mx-40 mt-[178px] bg-white" style="font-family:'Poppins'">
         <div class="flex items-center justify-center">
             <img src="{{'/storage/'. $titles->thank_image}}" class=""/>
 
         </div>
-        <h1 class="font-black text-center text-5xl text-[#D1052C]"> @if($titles !==null) {{$titles->thank_heading}} @endif</h1>
+        <h1 class="font-black text-center text-5xl bg-white text-[#D1052C]"> @if($titles !==null) {{$titles->thank_heading}} @endif</h1>
         <p class="text-2xl text-center font-semibold my-3">
             For subscribing our news letter <br>
 
         </p>
-        <p class=" text-center text-md font-normal">  You will get all of updates at very first.  </p>
+        <p class=" text-center text-md font-normal bg-white">  You will get all of updates at very first.  </p>
 
         <div class="mt-2 flex justify-center items-center mb-10">
            @auth
