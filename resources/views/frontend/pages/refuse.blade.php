@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="mt-36" style="font-family:'Poppins'">
-  <div class="">
+  <div class="bg-white">
     <h1 class="text-2xl font-bold text-center">Welcome To Read Stories</h1>
     <p class="text-center text-lg font-medium">Only 5 best stories will be published for free.<br>
 If you want to read all stories, Please subscribe.</p>

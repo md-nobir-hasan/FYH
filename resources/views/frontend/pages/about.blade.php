@@ -21,16 +21,16 @@ iframe{
 
 
 
-<div  style="width: 90% ;margin: auto;font-family:'Poppins'">
-    <h1 class="text-center text-5xl font-black mt-10 ">
+<div class=""  style="width: 90% ;margin: auto;font-family:'Poppins'">
+    <h1 class="text-center text-5xl font-bold mt-10 bg-white lg:mx-36">
         @if($about!==null)  {{$about->title}}  @endif    
     </h1>
-    <p class="text-center text-xl font-medium capitalize my-2"> 
+    <p class="text-center text-2xl font-normal capitalize my-2 bg-white lg:mx-36"> 
         @if($about!==null)  {{$about->title_description}}  @endif      
     </p>
-    <h1 class="text-center text-5xl font-black mt-10 w-8/12 mx-auto ">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
+    <h1 class="text-center pb-7 text-6xl lg:mx-36 font-bold  bg-white">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
 
-    <p class="text-center text-xl font-normal my-5 w-8/12 mx-auto">
+    <p class="text-center text-2xl font-normal my-5 lg:mx-44 mx-auto bg-white">
         @if($about!==null)  {{$about->heading_description}}  @endif
     </p>
 
@@ -46,7 +46,7 @@ iframe{
         @endif
     </div>
 
-    <p class=" lg:mx-52 mt-4 text-justify text-sm font-normal">
+    <p class=" lg:mx-52 mt-4 text-justify text-base font-normal">
         @if($about!==null)  {{$about->images_description}}  @endif     
     </p>
 
@@ -61,43 +61,41 @@ iframe{
 
 <div class="mt-10 lg:mx-48 mx-20 px-10 py-5 " style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
     <!-- @if($about!==null)  {!!$about->youtube_description !!}  @endif    -->
-    <h1 class="font-bold text-lg">“We’re constantly exploring, inventing, and optimizing personal transformation to ultimately unite our species, save our planet, and usher in a new golden age for humanity.”</h1>
-    <p>- Thomas Tsangaras, Founder of FYH</p>
+    <h1 class="font-bold text-2xl">“We’re constantly exploring, inventing, and optimizing personal transformation to ultimately unite our species, save our planet, and usher in a new golden age for humanity.”</h1>
+    <p class="text-lg font-normal">- Thomas Tsangaras, Founder of FYH</p>
   </div>
 
 
   <div class="mt-10 lg:mx-36 mx-10 grid lg:grid-cols-3 grid-cols-1">
     <!-- {{'/storage/'. $about->first_image}} -->
-    @if($about!==null)   <img src="/images/story2.png" alt="" class=""> @endif    
+    @if($about!==null)   <img src="/images/story2.png" alt="" class="w-[536px] h-[397px]"> @endif    
     <div class="lg:mt-4 lg:ml-5 col-span-2">
-    <h1 class=" text-4xl font-black">At FYH, learning is a lifelong adventure</h1>
-        @if($about!==null)  {!!$about->first_image_story!!}  @endif   
+    <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
+        <p class="text-justify">@if($about!==null)  {!!$about->first_image_story!!}  @endif</p>   
     </div>
   </div>
   <div class="mt-5 lg:mx-36 mx-10 grid lg:grid-cols-3 grid-cols-1">
   <div class="lg:mt-7 lg:mr-5 col-span-2">
     <!-- {{'/storage/'. $about->second_image}} -->
-    <h1 class=" text-4xl font-black">At FYH, learning is a lifelong adventure</h1>
-    @if($about!==null)  {!!$about->second_image_story!!}  @endif  
+    <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
+    <p class="text-justify">@if($about!==null)  {!!$about->second_image_story!!}  @endif  </p>
     </div>
-    @if($about!==null)    <img src="/images/story3.png" alt="" class=""> @endif  
+    @if($about!==null)    <img src="/images/story3.png" alt="" class="w-[536px] h-[397px]"> @endif  
     
   </div>
 
   <!-- Success section start -->
-  <div class="mt-10">
+  <div class="mt-10 pt-2 pb-10 lg:-mx-[70px]" style="background:url(/images/benifitbg.png);background-size:100% ;background-repeat:no-repeat; background-position:0 110px">
             <h1 class="font-bold text-4xl text-center">What Our Customer Says</h1>
             <p class="text-lg text-center font-normal">Here’s all of the successful stories of our cusomers</p>
 
             <!-- success card  -->
-            <div class="grid lg:grid-cols-3 grid-cols-1 gap-10  lg:mx-20 mt-10">
+            <div class="grid lg:grid-cols-3 grid-cols-1 gap-4 lg:mx-36 mt-10">
 
            @if($stories->count() > 0)
            @foreach ($stories as $item)
                
-         
-            <div class="lg:mb-1 mb-5">
-                <a href="#" class="block lg:w-80 lg:h-64  px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+                <a href="#" class="w-full px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
                 <div class="flex">
                 <img src="{{'/storage/'. $item->image}}" alt="" class="h-16 w-16 rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                 <div class="ml-2">
@@ -110,7 +108,6 @@ iframe{
                      {{Str::limit($item->description, 200)}}    
                 </p>
                 </a>
-            </div>
             @endforeach
            @endif
            
@@ -120,13 +117,16 @@ iframe{
         <!-- Success section end -->
 
 
-        <div class="mt-28 mb-[-100px]">
+        <div style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat">
+        <div class="mt-28 mb-[-150px] shadow-xl py-20 lg:-mx-[70px]" style="background:url(/images/Line2.png);background-size:100%;background-repeat:no-repeat;background-position:0 80px">
         <div class="">
-            <h1 class="font-bold text-4xl text-center"> @if($shareStory !==null) {{$shareStory->share_title}}  @endif</h1>
-            <p class="font-normal text-xl text-center text-[#D1052C]">  @if($shareStory !==null) {{$shareStory->share_subtitle}}  @endif </p>
+            <h1 class="font-bold text-5xl text-center"> @if($shareStory !==null) {{$shareStory->share_title}}  @endif</h1>
+            <p class="font-normal text-2xl lg:mx-72 text-center text-[#D1052C]">  @if($shareStory !==null) {{$shareStory->share_subtitle}}  @endif </p>
         </div>
         <div class="text-center mt-3"><a href="{{route('member')}}"><button class=" font-semibold text-white px-4 py-2 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Share Your Story</button> </a></div>
         </div>
+        </div>
+       
 </div>
 
 @endsection

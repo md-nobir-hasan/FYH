@@ -15,8 +15,8 @@
     <!-- Styles -->
     @vite(['resources/css/app.css','resources/js/app.js','public/js/toastr.css'])
 </head>
-<body class="antialiased">
-    <div class="mt-12 lg:mx-40" style="font-family: 'Montserrat';">
+<body class="antialiased" style="background:url(/images/Line.png);background-size:100%;background-repeat:no-repeat;">
+    <div class="mt-12 lg:mx-40" style="font-family: 'Poppins';">
         <div class="flex justify-between">
 
           @auth
