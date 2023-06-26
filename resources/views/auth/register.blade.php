@@ -2,9 +2,11 @@
     <a href="{{ route('home') }}">
         <img src="{{ $setting->logo }}" alt="" class="lg:ml-20 h-8 w-24">
     </a>
+
     <div class=" bg-white rounded-lg lg:p-10 @if($planId) lg:mx-20 grid lg:grid-cols-3 lg:gap-3 grid-cols-1 @else mx-auto lg:w-[886px]  @endif"
         style="font-family: 'Poppins';">
         <form class="lg:col-span-2 p-10  rounded-xl" method="POST" action="{{ route('register') }}"
+
             enctype="multipart/form-data">
             @csrf
             <div class="flex">

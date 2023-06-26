@@ -231,6 +231,7 @@
     </div>
 </section>
 <!-- temporary card section end -->
+
         @guest
             <!-- last buttons -->
             <div class="flex justify-center items-center">
@@ -246,6 +247,7 @@
 
             @auth
                 <a href="{{ route('refuse') }}"> <Button
+
                         class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Load More
                         Stories</button></a>
             @endauth
@@ -256,6 +258,9 @@
 
                 <section class="mt-28 mb-[-100px] shadow-xl pb-10" style="background:url('/images/lastbg.png');background-position:cover;background-repeat:no-repeat;background-size:100%">
                     <div class=" py-14" style="background:url('/images/Line2.png');background-position:cover;background-repeat:no-repeat;background-size:100%">
+
+                <section class="mt-28 mb-[-100px]">
+
                     <h1 class="font-bold text-5xl text-[#212427] text-center">
                         @if ($storyHead !== null)
                         {{ $storyHead->share_title }}
@@ -268,12 +273,17 @@
                                 {{ $storyHead->share_subtitle }}
                             @endif
                         </p>
+
+                    </div>
+
                     </div>
                     <a href="{{ route('share.story') }}" class=" flex justify-center items-center"><button
                             class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">
                           Share Your Stories
                         </button></a>
+
                     </div>
+
 
 
                 </section>
