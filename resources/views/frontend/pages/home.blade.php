@@ -304,7 +304,6 @@
                        @endif
                     @endforeach
                 @endif
-
             </div>
         </section>
         <!-- Get Service end -->
