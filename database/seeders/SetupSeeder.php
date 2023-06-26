@@ -72,21 +72,30 @@ class SetupSeeder extends Seeder
                     'billing_period' => 'year',
                     'currency' => 'chf',
         ],
-               
+
             ];
             DB::table('client_types')->insert($ct);
 
-        //membership type seeder
-            $mt = [
-                ['name'=>'month','price'=>250,'mt_code'=>'m'],
-                ['name'=>'year','price'=>2000,'mt_code'=>'y'],
-            ];
-            DB::table('membership_types')->insert($mt);
+        // //membership type seeder
+        //     $mt = [
+        //         ['name'=>'month','price'=>250,'mt_code'=>'m'],
+        //         ['name'=>'year','price'=>2000,'mt_code'=>'y'],
+        //     ];
+        //     DB::table('membership_types')->insert($mt);
 
         //Link
             $links = [
                 ['name'=>'Home','url'=>'/'],
-                ['name'=>'Membership Page','url'=>'/members'],
+                ['name'=>'User Home','url'=>'/home'],
+                ['name'=>'Membership','url'=>'/membership'],
+                ['name'=>'Community','url'=>'/community'],
+                ['name'=>'Benefits','url'=>'/benefits'],//5
+                // ['name'=>'Guide','url'=>'/members'],
+                ['name'=>'About','url'=>'/about'],
+                ['name'=>'Share Story','url'=>'/share-story'],//7
+                ['name'=>'Survival Guide','url'=>'/guide/survival-guide'],
+                ['name'=>'Move To Switzerland','url'=>'/guide/moving-to-switzerland'],
+                ['name'=>'Intregation In Switzerland','url'=>'/guide/integration-in-switzerland'],
             ];
             DB::table('links')->insert($links);
     }

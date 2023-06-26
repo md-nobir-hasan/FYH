@@ -46,6 +46,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+        $plan = $request->planId;
         if( $request->file('img')){
             $path = '/storage/'.$request->file('img')->store('user','public');
         }else{
@@ -55,6 +56,7 @@ class RegisteredUserController extends Controller
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,
+            'client_type_id' => $plan,
             'img' => $path,
             'password' => Hash::make($request->password),
         ]);
@@ -66,7 +68,7 @@ class RegisteredUserController extends Controller
 
         $loginUser = auth()->user();
 
-        $plan = $request->planId;
+
         $planId = ClientType::where('plan_id', $plan)->first();
 
         if($loginUser->role_id ==null){

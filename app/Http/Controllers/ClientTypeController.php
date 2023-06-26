@@ -14,7 +14,7 @@ use Stripe\Plan;
 
 class ClientTypeController extends Controller
 {
-    public $billing_periods = [ 'week', 'month','year', ];
+    public $billing_periods = ['month','year', ];
 
     public function __construct() {
         $this->middleware(['auth',"check:Client Type"]);
@@ -37,9 +37,9 @@ class ClientTypeController extends Controller
         if(!check('Client Type')->add){
             return back();
         }
-        
 
-    return view('pages.setup.client-type.create',['billing_periods' => $this->billing_periods] );
+
+    return view('pages.setup.client-type.create',['billing_periods' => PaymentDuration::get()] );
     }
 
     /**
@@ -51,9 +51,9 @@ class ClientTypeController extends Controller
             return back();
         }
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-       
+
         try{
-                  
+
         $plan = Plan::create([
             'amount' => $request->price *100,
             'currency' => $request->currency,
@@ -65,12 +65,12 @@ class ClientTypeController extends Controller
         ]);
 
         ClientType::create([
-            'plan_id' => $plan->id,	
+            'plan_id' => $plan->id,
                 'interval_count' => $request->interval_count,
             	'name' => $request->name,
-            	'price' => $request->price, 
+            	'price' => $request->price,
             	'des' => $request->des,
-            	// 'dis' => $request-> 
+            	// 'dis' => $request->
             	'billing_period' => $request->billing_period,
             	'currency' => $request->currency,
 
@@ -80,9 +80,9 @@ class ClientTypeController extends Controller
         catch(exception $ex){
             return Redirect::back()->with('success', $ex->getMessage());
        }
-      
 
-      
+
+
          return redirect()->route('admin.setup.client-type.index')->with('success','New Member Type Add successfully');
     }
 
@@ -117,7 +117,7 @@ class ClientTypeController extends Controller
             return back();
         }
                 Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        
+
               // Retrieve the plan from the Stripe API
               $stripePlan = \Stripe\Plan::retrieve($clientType->plan_id);
 
@@ -126,15 +126,15 @@ class ClientTypeController extends Controller
                     $stripePlan->metadata = [
                         'interval_count' => $request->interval_count,
                         'name' => $request->name,
-                        'price' => $request->price, 
+                        'price' => $request->price,
                         'des' => $request->des,
-                        // 'dis' => $request-> 
+                        // 'dis' => $request->
                         'billing_period' => $request->billing_period,
                         'currency' => $request->currency,
                      ];
                       // Save the updated plan in Stripe
                        $stripePlan->save();
-        
+
                 $clientType->update($request->all());
                 return redirect()->route('admin.setup.client-type.index')->with('success',$clientType->name.' successfylly updated');
                   }
@@ -149,6 +149,6 @@ class ClientTypeController extends Controller
      */
     public function destroy(ClientType $clientType)
     {
-             
+
     }
 }

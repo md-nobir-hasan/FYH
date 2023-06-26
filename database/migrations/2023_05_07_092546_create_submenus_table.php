@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ClientType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('menu_id');
             $table->string('name');
+            $table->foreignIdFor(ClientType::class)->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedBigInteger('link_id')->nullable();
             $table->integer('serial');
             $table->unsignedBigInteger('created_by')->nullable();

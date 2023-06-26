@@ -30,7 +30,7 @@
     <p class="col-span-2 flex justify-center items-center font-normal">or continue with email</p>
     <hr class="h-px my-8 bg-black col-span-1 border-0">
     </div>
-         
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -66,7 +66,7 @@
             @endif
 
             <button class="w-full  p-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white">{{ __('Log in') }}</button>
-            <p class="mt-2 text-lg">Don't have an account?<a href="{{route('register')}}" class="text-[#D1052C] hover:text-orange-600">Create an account</a></p>
+            <p class="mt-2 text-lg">Don't have an account?<a href="{{ $setting->trail ? route('register') : route('member') }}" class="text-[#D1052C] hover:text-orange-600">Create an account</a></p>
         </div>
     </form>
     </div>
