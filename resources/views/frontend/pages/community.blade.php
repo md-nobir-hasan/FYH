@@ -256,8 +256,8 @@
             @auth
 
 
-                <section class="mt-28 mb-[-100px] shadow-xl pb-10" style="background:url('/images/lastbg.png');background-position:cover;background-repeat:no-repeat;background-size:100%">
-                    <div class=" py-14" style="background:url('/images/Line2.png');background-position:cover;background-repeat:no-repeat;background-size:100%">
+                <section class=" mb-[-100px] shadow-xl pb-10" style="background:url('/images/lastbg.png');background-position:cover;background-repeat:no-repeat;background-size:100%">
+                    <div class=" py-14" style="background:url('/images/Line2.png');background-position:0px 110px;background-repeat:no-repeat;background-size:100%">
 
                 <section class="mt-28 mb-[-100px]">
 
@@ -267,7 +267,7 @@
                     @endif
                     </h1>
 
-                    <div>
+                    <div class="mb-10">
                         <p class="text-xl text-center text-[#D1052C] uppercase w-8/12 mx-auto">
                             @if ($storyHead !== null)
                                 {{ $storyHead->share_subtitle }}
