@@ -210,7 +210,7 @@
         </section>
         <!-- Featured story end -->
         <!-- Popular story start -->
-        <section class="mt-[164px] lg:-mx-36" style="background:url(/images/benifitbg.png);background-size:100% 406px;background-repeat:no-repeat;background-position: 0px 100%">
+        <section class="mt-[164px] lg:-mx-36" style="background:url(/images/benifitbg.png);background-size:100% 410px;background-repeat:no-repeat;background-position: 0px 100%">
             <div>
                 <h1 class="text-5xl font-bold text-center text-[#212427]">
                       @if ($home !== null)     {{ $home->story_title }} @endif
@@ -308,7 +308,7 @@
         </section>
         <!-- Get Service end -->
         <!-- Success section start -->
-        <div class="mt-[165px] lg:-mx-36 pb-20" style="background:url(/images/benifitbg.png);background-size:100% 285px;background-repeat:no-repeat; background-position:0 110px">
+        <div class="mt-[165px] lg:-mx-36 pb-28" style="background:url(/images/benifitbg.png);background-size:100% 285px;background-repeat:no-repeat; background-position:0 110px">
             <h1 class="font-bold text-5xl text-[#212427] text-center">
                 @if ($home !== null)
                 {{ $home->customer_title }}

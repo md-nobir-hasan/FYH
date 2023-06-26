@@ -124,8 +124,8 @@
 
         @if($planId)
             <div class="lg:col-span-1 mt-10 lg:mt-0">
-                <div class=" ">
-                    <div class="border-2 border-black rounded-xl p-3">
+                <div class=" mt-10">
+                    <div class="border-2 border-gray-400 rounded-xl p-3">
                         <h1 class="font-bold text-xl ml-4">Order Summary</h1>
                         <div class="flex mt-2">
                             <h1 class="pl-4 uppercase">

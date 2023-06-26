@@ -12,7 +12,7 @@
     @endif
         <div class=" pt-[107px]" style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 50%;background-color:#FAF7F7">
             
-            <div class=" h-[815px] bg-white border lg:mx-40 rounded-xl " style="font-family:'Poppins';">
+            <div class=" pb-10 mb-10 bg-white border lg:mx-40 rounded-xl " style="font-family:'Poppins';">
             <a href="{{ route('home') }}">
         <img src="{{ $setting->logo }}" alt="" class="lg:ml-20 my-5 h-8 w-24">
     </a>
@@ -58,7 +58,7 @@
                     @foreach ($memberShips as $key=>$member)
                  
                     <!-- card 1 -->
-                    <div class="w-[472px] h-[280px] border-2 border-black rounded-lg mb-[32px] mt-5">
+                    <div class=" h-[280px] border-2 border-black rounded-lg mb-[32px] mt-5">
                         <div class="mt-[20px] ml-[14px]">
                             <!-- card 1 -->
                             <div class="flex justify-between mr-[16px]">
@@ -84,7 +84,7 @@
                    
                 @endforeach
                 <button type="submit"
-                class="text-center w-[472px] h-[48px] bg-[#D1052C] rounded-[10px] text-white text-[16px] font-bold px-5 py-3 m-2">
+                class="text-center w-full bg-[#D1052C] rounded-[10px] text-white text-[16px] font-bold px-5 py-3 m-2">
                    GET STARTED</button>
                 </form>
            

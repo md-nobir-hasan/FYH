@@ -28,7 +28,7 @@ iframe{
     <p class="text-center text-2xl font-normal capitalize my-2 bg-white lg:mx-36"> 
         @if($about!==null)  {{$about->title_description}}  @endif      
     </p>
-    <h1 class="text-center pb-7 text-6xl lg:mx-56 font-bold  bg-white">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
+    <h1 class="text-center pb-7 text-6xl lg:mx-36 font-bold  bg-white">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
 
     <p class="text-center text-2xl font-normal my-5 lg:mx-44 mx-auto bg-white">
         @if($about!==null)  {{$about->heading_description}}  @endif
@@ -68,19 +68,19 @@ iframe{
 
   <div class="mt-10 lg:mx-36 mx-10 grid lg:grid-cols-3 grid-cols-1">
     <!-- {{'/storage/'. $about->first_image}} -->
-    @if($about!==null)   <img src="/images/story2.png" alt="" class=""> @endif    
+    @if($about!==null)   <img src="/images/story2.png" alt="" class="w-[536px] h-[397px]"> @endif    
     <div class="lg:mt-4 lg:ml-5 col-span-2">
     <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
-        @if($about!==null)  {!!$about->first_image_story!!}  @endif   
+        <p class="text-justify">@if($about!==null)  {!!$about->first_image_story!!}  @endif</p>   
     </div>
   </div>
   <div class="mt-5 lg:mx-36 mx-10 grid lg:grid-cols-3 grid-cols-1">
   <div class="lg:mt-7 lg:mr-5 col-span-2">
     <!-- {{'/storage/'. $about->second_image}} -->
     <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
-    @if($about!==null)  {!!$about->second_image_story!!}  @endif  
+    <p class="text-justify">@if($about!==null)  {!!$about->second_image_story!!}  @endif  </p>
     </div>
-    @if($about!==null)    <img src="/images/story3.png" alt="" class=""> @endif  
+    @if($about!==null)    <img src="/images/story3.png" alt="" class="w-[536px] h-[397px]"> @endif  
     
   </div>
 
