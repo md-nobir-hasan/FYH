@@ -1,24 +1,29 @@
 <x-guest-layout>
-    <a href="{{ route('home') }}">
-        <img src="{{ $setting->logo }}" alt="" class="lg:ml-20 h-8 w-24">
-    </a>
+    
 
-    <div class=" bg-white rounded-lg lg:p-10 @if($planId) lg:mx-20 grid lg:grid-cols-3 lg:gap-3 grid-cols-1 @else mx-auto lg:w-[886px]  @endif"
+    <div class="bg-white rounded-xl lg:px-16 lg:py-10 @if($planId) lg:mx-24 @else mx-auto lg:w-[886px]@endif">
+    <a href="{{ route('home') }}" class=" @if($planId) lg:mt-1 @else mb-10 flex items-center justify-center @endif">
+        <img src="{{ $setting->logo }}" alt="" class="lg:-mt-5 h-8 w-24">
+    </a>
+    @if($planId)
+    <a href="/membership">
+        <button class=" mb-4 mt-4 px-6 py-2 border">Back</button>
+    </a>
+    @endif
+    <div class=" @if($planId)  grid lg:grid-cols-3 lg:gap-3 grid-cols-1 @else lg:w-[603px] mx-auto @endif"
         style="font-family: 'Poppins';">
-        <form class="lg:col-span-2 p-10  rounded-xl" method="POST" action="{{ route('register') }}"
+        <form class="@if($planId) border-gray-300 border-2 lg:col-span-2 p-10 rounded-xl @endif" method="POST" action="{{ route('register') }}"
 
             enctype="multipart/form-data">
             @csrf
-            <div class="flex">
-                <h1 class="text-2xl font-extrabold">Create Your Account</h1>
-                <div class="ml-auto flex">
-                    <h1>Already have an account?</h1>
-                    <button
-                        class="px-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white ml-2"><a
-                            href="/login">{{ __('Log in') }}</a></button>
-                </div>
+            <div class="">
+            @if($planId)
+                <h1 class="text-[28px] lg:-mt-5 font-semibold ">Create Your Account</h1>
+            @else
+                <h1 class="text-[28px] font-semibold text-center">Create Your Account & Start free Trial</h1>
+            @endif
             </div>
-            <h1 class="mb-2">Describe yourself as clearly so that there are no mistakes.</h1>
+            <h1 class="mb-1 text-base font-normal @if($planId) @else text-center @endif">Describe yourself as clearly so that there are no mistakes.</h1>
             <!-- google icon -->
             <a href="{{ route('google.auth', $planId ? $planId->plan_id : null) }}"
                 class="w-full border hover:bg-[#D1052C] hover:text-white border-[#000000] p-3 rounded-lg font-semibold flex justify-center items-center"><svg
@@ -46,9 +51,9 @@
                 </svg>Continue with Google</a>
             <!-- google icon end -->
             <div class="grid grid-cols-4">
-                <hr class="h-px my-8 bg-black col-span-1 border-0">
+                <hr class="h-px my-5 bg-black col-span-1 border-0">
                 <p class="col-span-2 flex justify-center items-center font-medium">or continue with email</p>
-                <hr class="h-px my-8 bg-black col-span-1 border-0">
+                <hr class="h-px my-5 bg-black col-span-1 border-0">
             </div>
 
 
@@ -57,49 +62,49 @@
 
             <!-- Name -->
             <div>
-                <x-input-label for="fname" : />
-                <x-text-input id="fname" class="block mt-1 w-full shadow-lg" type="text" name="fname"
-                    :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0"
-                    placeholder="First Name" />
+                <x-input-label for="fname" : value="First Name"/>
+                <x-text-input id="fname" class="block mt-1 w-full shadow" type="text" name="fname"
+                    :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
+                    placeholder="e.g. Thomas" />
                 <x-input-error :messages="$errors->get('fname')" class="mt-2" />
             </div>
-            <div>
-                <x-input-label for="lname" : />
-                <x-text-input id="lname" class="block mt-2 w-full shadow-lg" type="text" name="lname"
-                    :value="old('lname')" required autocomplete="lname" style="border-top:0;border-right:0; border-left:0"
-                    placeholder="Last Name" />
+            <div class="mt-4">
+                <x-input-label for="lname" : value="Last Name"/>
+                <x-text-input id="lname" class="block mt-2 w-full shadow" type="text" name="lname"
+                    :value="old('lname')" required autocomplete="lname" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
+                    placeholder="e.g. Tsangaras" />
                 <x-input-error :messages="$errors->get('lname')" class="mt-2" />
             </div>
 
             <!-- Email Address -->
-            <div class="">
-                <x-input-label for="email" : />
-                <x-text-input id="email" class="block mt-2 w-full shadow-lg" type="email" name="email"
+            <div class="mt-4">
+                <x-input-label for="email" : value="Email"/>
+                <x-text-input id="email" class="block mt-2 w-full shadow" type="email" name="email"
                     :value="old('email')" required autocomplete="username"
-                    style="border-top:0;border-right:0; border-left:0" placeholder="Email" />
+                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="e.g. mymail@mail.com" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
 
 
             <!-- Password -->
-            <div class="">
-                <x-input-label for="password" : />
+            <div class="mt-4">
+                <x-input-label for="password" : value="Password"/>
 
-                <x-text-input id="password" class="block mt-2 w-full shadow-lg" type="password" name="password"
-                    required autocomplete="new-password" style="border-top:0;border-right:0; border-left:0"
-                    placeholder="Password" />
+                <x-text-input id="password" class="block mt-2 w-full shadow" type="password" name="password"
+                    required autocomplete="new-password" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
+                    placeholder="min 8 character" />
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <!-- Confirm Password -->
-            <div class="">
-                <x-input-label for="password_confirmation" : />
+            <div class="mt-4">
+                <x-input-label for="password_confirmation" : value="Confirm Password"/>
 
-                <x-text-input id="password_confirmation" class="block mt-2 w-full shadow-lg" type="password"
+                <x-text-input id="password_confirmation" class="block mt-2 w-full shadow" type="password"
                     name="password_confirmation" required autocomplete="new-password"
-                    style="border-top:0;border-right:0; border-left:0" placeholder="Confirm Password" />
+                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="min 8 character" />
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
@@ -108,7 +113,7 @@
                 <label for="img" class="mb-2 inline-block text-neutral-700 dark:text-neutral-200"></label>
                 <input name="img"
                     class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid  bg-clip-padding py-[0.32rem] px-3 text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:shadow-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 border-gray-700"
-                    type="file" id="img" style="border-top:0;border-right:0; border-left:0" placeholder="Photo"
+                    type="file" id="img" style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="Photo"
                     required />
                 <x-input-error :messages="$errors->get('img')" class="mt-2" />
             </div>
@@ -116,26 +121,26 @@
                 <input id="link-checkbox" type="checkbox" value=""
                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     required>
-                <label for="link-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes,I
+                <label for="link-checkbox" class="ml-2 text-sm font-normal text-[#666565] dark:text-gray-300">Yes,I
                     understand and agree to the FYH <a href="#"
                         class="text-blue-600 dark:text-blue-500 hover:underline">Terms of Services</a>.</label>
             </div>
             <button
-                class="w-full text-xl p-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white">{{ __('Create Account & Continue') }}</button>
+                class="w-full p-3 rounded-lg font-bold text-base flex justify-center items-center bg-[#D1052C] text-white">{{ __('Create Account & Continue') }}</button>
         </form>
 
         @if($planId)
-            <div class="lg:col-span-1 mt-10 lg:mt-0">
-                <div class=" mt-10">
-                    <div class="border-2 border-gray-400 rounded-xl p-3">
+            <div class="lg:col-span-1  lg:mt-0">
+                <div class=" lg:-mr-5">
+                    <div class="border-2 border-gray-300 rounded-xl p-3">
                         <h1 class="font-bold text-xl ml-4">Order Summary</h1>
                         <div class="flex mt-2">
-                            <h1 class="pl-4 uppercase">
+                            <h1 class="pl-4 uppercase font-medium text-sm">
                                 @if ($planId !== null)
                                     {{ $planId->name }}
                                 @endif - Online Payment...
                             </h1>
-                            <h1 class="ml-auto uppercase">
+                            <h1 class="ml-auto uppercase font-medium text-sm">
                                 @if ($planId !== null)
                                     {{ $planId->currency }}
                                     @endif @if ($planId !== null)
@@ -144,16 +149,16 @@
                             </h1>
                         </div>
                         <div class="flex mt-2">
-                            <h1 class="pl-4">Other fee</h1>
-                            <h1 class="ml-auto uppercase">
+                            <h1 class="pl-4 font-medium text-sm">Other fee</h1>
+                            <h1 class="ml-auto uppercase font-medium text-sm">
                                 @if ($planId !== null)
                                     {{ $planId->currency }}.00
                                 @endif
                             </h1>
                         </div>
                         <div class="flex mt-2">
-                            <h1 class="pl-4">Vat & Tax</h1>
-                            <h1 class="ml-auto uppercase">
+                            <h1 class="pl-4 font-medium text-sm">Vat & Tax</h1>
+                            <h1 class="ml-auto uppercase font-medium text-sm">
                                 @if ($planId !== null)
                                     {{ $planId->currency }}. 00
                                 @endif
@@ -161,8 +166,8 @@
                         </div>
                         <hr class="mt-3 h-px my-1 bg-gray-700 border-0">
                         <div class="flex">
-                            <h1 class="font-bold text-xl ml-4">Total</h1>
-                            <h1 class="ml-auto">
+                            <h1 class="font-bold text-base ml-4">Total</h1>
+                            <h1 class="ml-auto font-bold text-base">
                                 @if ($planId !== null)
                                     {{ $planId->currency }}
                                     @endif @if ($planId !== null)
@@ -174,5 +179,6 @@
                 </div>
             </div>
         @endif
+    </div>
     </div>
 </x-guest-layout>
