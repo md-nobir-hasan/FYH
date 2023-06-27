@@ -120,7 +120,7 @@
                                     </p>
                         </div>
                     </div> -->
-                    
+
                 @endforeach
             @endif
 
@@ -129,7 +129,7 @@
 <section>
     <div style="background:url('/images/benifitbg.png');background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat">
     <div class="grid grid-cols-3 gap-4 lg:mx-36" >
-        
+
         <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img class="h-2/5 w-full" src="/images/story4.png" alt="" />
@@ -175,12 +175,12 @@
                 <p class="text-[#212427] text-sm font-normal">Berlyn,Germany</p>
             </div>
         </div>
-        
+
             </div>
     </div>
     <div class="mt-4" style="background:url('/images/benifitbg.png');background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat">
     <div class="grid grid-cols-3 gap-4 lg:mx-36" >
-        
+
         <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img class="h-2/5 w-full" src="/images/story4.png" alt="" />
@@ -226,7 +226,7 @@
                 <p class="text-[#212427] text-sm font-normal">Berlyn,Germany</p>
             </div>
         </div>
-        
+
             </div>
     </div>
 </section>
@@ -279,7 +279,7 @@
                     </div>
                     <a href="{{ route('share.story') }}" class=" flex justify-center items-center"><button
                             class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">
-                          Share Your Stories
+                          Share Your Story
                         </button></a>
 
                     </div>

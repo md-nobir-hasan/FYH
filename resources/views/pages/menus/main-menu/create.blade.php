@@ -2,6 +2,18 @@
     <x-slot name='title'>
         Menus
     </x-slot>
+    <x-slot name='style'>
+        <style>
+            .group div[data-te-select-wrapper-ref] {
+                width: 100% !important;
+            }
+
+            .group button {
+                padding: 6px 10px;
+                border-radius: 0px 5px 5px 0px;
+            }
+        </style>
+    </x-slot>
     <div class="p-4">
         <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
             <div class="border-b-2 border-neutral-100 py-3 px-6 dark:border-neutral-600 dark:text-neutral-50">

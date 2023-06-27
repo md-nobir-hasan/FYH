@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Submenu;
 use App\Http\Requests\StoreSubmenuRequest;
 use App\Http\Requests\UpdateSubmenuRequest;
+use App\Models\ClientType;
 use App\Models\Link;
 use App\Models\Menu;
 
@@ -33,6 +34,7 @@ class Submenucontroller extends Controller
         }
         $n['links'] = Link::get();
         $n['menus'] = Menu::get();
+        $n['user_types'] = ClientType::get();
         return view('pages.menus.sub-menu.create',$n);
     }
 
@@ -44,14 +46,19 @@ class Submenucontroller extends Controller
         if(!check('Sub-menu')->add){
             return back();
         }
-        $insert = new Submenu();
-        $insert->name = $request->name;
-        if($request->link_id != 'no'){
-            $insert->link_id = $request->link_id;
+        $serial_no = Submenu::latest()->first();
+        $serial = $serial_no->id + 1;
+        foreach($request->client_type_id as $ct_id){
+            $insert = new Submenu();
+            $insert->name = $request->name;
+            if($request->link_id != 'no'){
+                $insert->link_id = $request->link_id;
+            }
+            $insert->menu_id = $request->menu_id;
+            $insert->serial = $serial;
+            $insert->client_type_id = $ct_id;
+            $insert->save();
         }
-        $insert->menu_id = $request->menu_id;
-        $insert->serial++;
-        $insert->save();
         return redirect()->route('admin.menu.submenu.index')->with('success',$request->name.' successfylly created');
     }
 

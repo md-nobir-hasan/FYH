@@ -30,7 +30,7 @@
     <p class="col-span-2 flex justify-center items-center font-normal">or continue with email</p>
     <hr class="h-px mt-3 bg-black col-span-1 border-0">
     </div>
-         
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
