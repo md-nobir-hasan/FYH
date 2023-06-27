@@ -68,7 +68,7 @@
             @endif
 
             <button class="w-full text-base p-3 rounded-lg font-bold flex justify-center items-center bg-[#D1052C] text-white">{{ __('Log in') }}</button>
-            <p class="mt-2 text-lg text-center">Don't have an account?<a href="{{route('register')}}" class="text-[#D1052C] hover:text-orange-600">Create an account</a></p>
+            <p class="mt-2 text-lg text-center">Don't have an account?<a href="{{$setting->trail ? route('register') : route('member')}}" class="text-[#D1052C] hover:text-orange-600">Create an account</a></p>
         </div>
     </form>
     </div>
