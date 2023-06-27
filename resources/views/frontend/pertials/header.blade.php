@@ -31,7 +31,7 @@
             <div class="flex">
                 {{-- @dd($menus) --}}
                 @foreach ($menus as $menu)
-                    @if (count($menu->submenus)<1)
+                    @if (count($menu->submenus)<1 || $menu->link_id == null)
                         @auth
                             @if ($menu->client_type_id == Auth::user()->client_type_id || Auth::user()->client_type_id == null)
                                 <a href="{{url($menu->link->url)}}">
