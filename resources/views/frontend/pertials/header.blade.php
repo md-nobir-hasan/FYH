@@ -33,7 +33,7 @@
                 @foreach ($menus as $menu)
                     @if (count($menu->submenus)<1 && $menu->link_id != null)
                         @auth
-                            @if ($menu->client_type_id == Auth::user()->client_type_id || Auth::user()->client_type_id == null)
+                            @if ($menu->client_type_id == Auth::user()->client_type_id)
                                 <a href="{{url($menu->link->url)}}">
                                     <button
                                         class="ml-12 font-semibold p-2 rounded {{ request()->is($menu->link->url) ? 'active' : '' }} "
@@ -52,7 +52,7 @@
 
                     @else
                         @auth
-                            @if ($menu->client_type_id == Auth::user()->client_type_id || Auth::user()->client_type_id == null)
+                            @if ($menu->client_type_id == Auth::user()->client_type_id)
                                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                                 class="ml-12 font-semibold p-2 rounded {{ request()->is('guide*') ? 'active' : '' }}"
                                 style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
@@ -71,7 +71,7 @@
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                         @foreach ($menu->submenus as $submenu)
                                             @auth
-                                                @if ($submenu->client_type_id  == Auth::user()->client_type_id || Auth::user()->client_type_id == null)
+                                                @if ($submenu->client_type_id  == Auth::user()->client_type_id)
                                                     <li>
                                                         <a href="{{ url($submenu->link->url) }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
@@ -122,7 +122,7 @@
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                         @foreach ($menu->submenus as $submenu)
                                             @auth
-                                                @if ($submenu->client_type_id  == Auth::user()->client_type_id || Auth::user()->client_type_id == null)
+                                                @if ($submenu->client_type_id  == Auth::user()->client_type_id)
                                                     <li>
                                                         <a href="{{ url($submenu->link->url) }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
