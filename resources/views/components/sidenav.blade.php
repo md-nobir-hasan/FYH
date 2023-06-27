@@ -69,7 +69,7 @@
                                     <span class="text-lg">Membership Type</span></a>
                             </li>
                         @endif
-                         
+
 
                         @if ($n = check('Benefit'))
                             <li class="relative">
@@ -103,7 +103,7 @@
                         @endif
 
                         {{-- Currency  --}}
-                        @if ($n = check('Currency'))
+                        {{-- @if ($n = check('Currency'))
                             <li class="relative">
                                 <a href="{{ route('admin.setup.currency.index') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/setup/currency/*') || Request::is('admin/setup/currency')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -116,7 +116,7 @@
 
                                     <span class="text-lg">Currency</span></a>
                             </li>
-                        @endif
+                        @endif --}}
 
                         {{-- Payment Duration  --}}
                         @if ($n = check('Payment Duration'))
@@ -348,7 +348,7 @@
 
             {{-- Frontend page --}}
 
-            
+
                <li class="relative">
                    <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
                        data-te-sidenav-link-ref>
@@ -375,7 +375,7 @@
                    <ul class="show !visible relative m-0 @if (!Request::is('admin/user/*')) hidden @endif list-none p-0 data-[te-collapse-show]:block"
                        data-te-sidenav-collapse-ref @if (Request::is('admin/user/*')) data-te-collapse-show @endif
                        >
-                  
+
                            <li class="relative">
                                <a href="{{ route('admin.home.create') }}"
                                    class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/features/*') || Request::is('admin/user/features')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -388,9 +388,9 @@
 
                                    <span class="text-lg">Home Page</span></a>
                            </li>
-                     
 
-                      
+
+
                            <li class="relative">
                                <a href="{{ route('admin.about.create') }}"
                                    class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/about/create/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -403,7 +403,7 @@
 
                                    <span class="text-lg">About</span></a>
                            </li>
-                   
+
                            <li class="relative">
                                <a href="{{ route('admin.opportunitys.create') }}"
                                    class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/opportunitys/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -458,10 +458,10 @@
 
                                 <span class="text-lg">Terms and Cokki</span></a>
                         </li>
-                       
+
                    </ul>
                </li>
-        
+
 
 
 
@@ -493,9 +493,9 @@
                     </a>
                     <ul class="show !visible relative m-0 @if (!Request::is('admin/services/*')) hidden @endif list-none p-0 data-[te-collapse-show]:block"
                         data-te-sidenav-collapse-ref @if (Request::is('admin/services/*')) data-te-collapse-show @endif>
-                    
 
-                      
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.services.index') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/role/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -508,8 +508,8 @@
 
                                     <span class="text-lg">Index</span></a>
                             </li>
-                       
-                     
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.services.create') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/user/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -522,11 +522,11 @@
 
                                     <span class="text-lg">Add</span></a>
                             </li>
-                       
+
                     </ul>
                 </li>
 
-                 
+
 
 
                    {{-- move To swizerland --}}
@@ -555,9 +555,9 @@
                     </a>
                     <ul class="show !visible relative m-0 @if (!Request::is('admin/moves/*')) hidden @endif list-none p-0 data-[te-collapse-show]:block"
                         data-te-sidenav-collapse-ref @if (Request::is('admin/moves/*')) data-te-collapse-show @endif>
-                    
 
-                      
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.moves.index') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/role/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -570,8 +570,8 @@
 
                                     <span class="text-lg">Index</span></a>
                             </li>
-                       
-                     
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.moves.create') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/user/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -584,10 +584,10 @@
 
                                     <span class="text-lg">Add</span></a>
                             </li>
-                       
+
                     </ul>
                 </li>
-           
+
                  {{-- Intgetion To swizerland --}}
                  <li class="relative">
                     <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -614,9 +614,9 @@
                     </a>
                     <ul class="show !visible relative m-0 @if (!Request::is('admin/integrations/*')) hidden @endif list-none p-0 data-[te-collapse-show]:block"
                         data-te-sidenav-collapse-ref @if (Request::is('admin/integrations/*')) data-te-collapse-show @endif>
-                    
 
-                      
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.integrations.index') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/role/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -629,8 +629,8 @@
 
                                     <span class="text-lg">Index</span></a>
                             </li>
-                       
-                     
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.integrations.create') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/user/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -643,7 +643,7 @@
 
                                     <span class="text-lg">Add</span></a>
                             </li>
-                       
+
                     </ul>
                 </li>
 
@@ -672,9 +672,9 @@
                     </a>
                     <ul class="show !visible relative m-0 @if (!Request::is('admin/stories/*')) hidden @endif list-none p-0 data-[te-collapse-show]:block"
                         data-te-sidenav-collapse-ref @if (Request::is('admin/stories/*')) data-te-collapse-show @endif>
-                    
 
-                      
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.stories.index') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/role/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -687,8 +687,8 @@
 
                                     <span class="text-lg">Index</span></a>
                             </li>
-                       
-                     
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.stories.create') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/user/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -701,13 +701,13 @@
 
                                     <span class="text-lg">Add</span></a>
                             </li>
-                       
+
                     </ul>
                 </li>
 
 
-                
-                <li class="relative">
+
+                {{-- <li class="relative">
                     <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
                         data-te-sidenav-link-ref>
                         <span
@@ -732,9 +732,9 @@
                     </a>
                     <ul class="show !visible relative m-0 @if (!Request::is('admin/contents/*')) hidden @endif list-none p-0 data-[te-collapse-show]:block"
                         data-te-sidenav-collapse-ref @if (Request::is('admin/contents/*')) data-te-collapse-show @endif>
-                    
 
-                      
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.contents.index') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/role/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -747,8 +747,8 @@
 
                                     <span class="text-lg">Index</span></a>
                             </li>
-                       
-                     
+
+
                             <li class="relative">
                                 <a href="{{ route('admin.contents.create') }}"
                                     class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] @if (Request::is('admin/user/user/*')) bg-blue-400/10 text-blue-600 @else text-gray-700 @endif outline-none transition duration-300 ease-linear hover:bg-blue-400/10 hover:text-blue-600 hover:outline-none focus:bg-blue-400/10 focus:text-blue-600 focus:outline-none active:bg-blue-400/10 active:text-blue-600 active:outline-none data-[te-sidenav-state-active]:text-blue-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
@@ -761,9 +761,9 @@
 
                                     <span class="text-lg">Add</span></a>
                             </li>
-                       
+
                     </ul>
-                </li>
+                </li> --}}
 
             {{-- Settings --}}
             @if ($n = check('setting'))

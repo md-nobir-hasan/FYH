@@ -39,6 +39,10 @@ class AppServiceProvider extends ServiceProvider
                 $homeContents = Content::orderBy('priority','asc')->get() ?? null;
                     View::share('homeContents',$homeContents);
             }
+            if(Schema::hasTable('menus')) {
+                $menus = Menu::with('link','submenus','submenus.link')->orderBy('serial','asc')->get();
+                    View::share('menus',$menus);
+            }
        }catch(\Exception $e){
 
        }

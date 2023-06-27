@@ -64,7 +64,7 @@ use Illuminate\Support\Facades\Route;
 
     // Subscriber Route
      Route::group(['middleware' => 'pdc'], function () {
-        Route::get('home', [FrontendControler::class, 'userHome'])->name('user.home');
+        Route::get('/home', [FrontendControler::class, 'userHome'])->name('user.home');
         Route::get('/share-story', [FrontendControler::class,'shareStory'])->name('share.story');
         Route::post('/share-story/store', [FrontendControler::class,'storyStore'])->name('share.story.store');
         Route::get('/thankYou', [FrontendControler::class,'thank'])->name('thank.you');

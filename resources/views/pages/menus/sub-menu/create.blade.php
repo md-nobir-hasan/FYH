@@ -112,9 +112,34 @@
                                     </a>
                                 </div>
                                 @error('menu_id')
-                                <span class="text-[red]">{{ $message }}</span>
-                            @enderror
+                                 <span class="text-[red]">{{ $message }}</span>
+                                @enderror
                             </div>
+
+                            {{--Client/User Types  --}}
+                           <div class="relative w-full mb-6 xl:w-96">
+                            <div class=" mb-4 flex group">
+                                <select name="client_type_id[]"  id="multiSelection" data-te-select-init data-te-select-filter="true" data-te-select-clear-button="true" multiple>
+                                    {{-- <option value="" hidden selected>Select User Types</option> --}}
+                                    <option value="" selected>Normal User</option>
+                                    @foreach ($user_types as $st)
+                                        <option value="{{$st->id}}">{{$st->name}}</option>
+                                    @endforeach
+                                </select>
+                                <a href="{{route('admin.setup.client-type.create')}}" target="_blank"
+                                    title="Add a Client Type">
+                                    <button
+                                        class="z-[2] inline-block rounded-r bg-primary text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:z-[3] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                        data-te-ripple-init
+                                        type="button"
+                                        id="button-addon2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </button>
+                                </a>
+                              </div>
+                          </div>
 
                         {{-- serial  --}}
                           {{-- <div class="relative w-full mb-6 xl:w-96">

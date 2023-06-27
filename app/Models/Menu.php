@@ -20,9 +20,9 @@ class Menu extends Model
     public function deleted_by(){
         return $this->belongsTo(User::class,'deleted_by');
     }
-    
+
     public function submenus(){
-        return $this->hasMany(Submenu::class,'menu_id');
+        return $this->hasMany(Submenu::class,'menu_id')->orderBy('serial','asc');
     }
     public function client_type(){
         return $this->belongsTo(ClientType::class,'client_type_id');

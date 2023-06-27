@@ -64,7 +64,7 @@
                                 @enderror
                         </div>
 
-                       
+
 
                         {{-- Price  --}}
                         <div class="relative w-full mb-6">
@@ -129,10 +129,10 @@
                                 >
                                     <option hidden>Select Payment Duration</option>
                                     @foreach ($billing_periods as $period)
-                                        <option value="{{$period}}" @selected(old('period'))>{{strtoupper($period)}}</option>
+                                        <option value="{{$period->name}}" @selected(old('period'))>{{strtoupper($period->name)}}</option>
                                     @endforeach
                                 </select>
-                              
+
                             </div>
                             @error('billing_period')
                                 <span class="text-[red]">{{$message}}</span>
