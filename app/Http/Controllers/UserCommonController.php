@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserCommonController extends Controller
 {
-   
+
 
     public function redirect(){
 
@@ -18,9 +18,9 @@ class UserCommonController extends Controller
          }elseif($user->role_id ==null){
              return to_route('user.home');
          }else{
-             return to_route('dashboard');
+             return to_route('admin.home.create');
          }
-        
+
     }
 }
 

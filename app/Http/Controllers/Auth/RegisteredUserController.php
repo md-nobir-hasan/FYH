@@ -52,11 +52,12 @@ class RegisteredUserController extends Controller
         }else{
              $path = null;
         }
+        $client_type = ClientType::where('plan_id',$plan)->first();
         $user = User::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,
-            'client_type_id' => $plan ?? 2,
+            'client_type_id' => $client_type->id ?? 2,
             'img' => $path,
             'password' => Hash::make($request->password),
         ]);
