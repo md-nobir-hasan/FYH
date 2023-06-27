@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Submenu;
 use App\Http\Requests\StoreSubmenuRequest;
 use App\Http\Requests\UpdateSubmenuRequest;
+use App\Models\ClientType;
 use App\Models\Link;
 use App\Models\Menu;
 
@@ -33,6 +34,7 @@ class Submenucontroller extends Controller
         }
         $n['links'] = Link::get();
         $n['menus'] = Menu::get();
+        $n['user_types'] = ClientType::get();
         return view('pages.menus.sub-menu.create',$n);
     }
 

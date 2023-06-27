@@ -18,27 +18,45 @@ class MenuSeeder extends Seeder
             //2 = Membership page
 
         $menu = [
-            ['name'=>'Share Story','link_id'=>7,'client_type_id'=>1,'serial'=>1],
-            ['name'=>'Share Story','link_id'=>7,'client_type_id'=>2,'serial'=>1],
+            //for normal use
             ['name'=>'Membership','link_id'=>3,'client_type_id'=>null,'serial'=>2],
             ['name'=>'Community','link_id'=>4,'client_type_id'=>null,'serial'=>3],
             ['name'=>'Benefits','link_id'=>5,'client_type_id'=>null,'serial'=>4],
-            // ['name'=>'Discover','link_id'=>2,'client_type_id'=>null,'serial'=>5],
             ['name'=>'About','link_id'=>6,'client_type_id'=>null,'serial'=>5],
-            ['name'=>'Guide','link_id'=>null,'client_type_id'=>null,'serial'=>6],
-            // ['name'=>'Survival Guide','link_id'=>6,'client_type_id'=>2,'serial'=>6],
-            // ['name'=>'Move To Switzerland','link_id'=>6,'client_type_id'=>2,'serial'=>6],
-            // ['name'=>'Intregation In Switzerland','link_id'=>6,'client_type_id'=>2,'serial'=>6],
+            ['name'=>'Guide','link_id'=>null,'client_type_id'=>null,'serial'=>6],//5
+
+            //basic user
+            ['name'=>'Share Story','link_id'=>7,'client_type_id'=>1,'serial'=>1],
+            ['name'=>'Benefits','link_id'=>5,'client_type_id'=>1,'serial'=>4],
+            ['name'=>'About','link_id'=>6,'client_type_id'=>1,'serial'=>5],
+            ['name'=>'Community','link_id'=>4,'client_type_id'=>1,'serial'=>3],
+            ['name'=>'Guide','link_id'=>null,'client_type_id'=>1,'serial'=>6],//5
+            //pro user
+            ['name'=>'Community','link_id'=>4,'client_type_id'=>2,'serial'=>3],
+            ['name'=>'Share Story','link_id'=>7,'client_type_id'=>2,'serial'=>1],
+            ['name'=>'Benefits','link_id'=>5,'client_type_id'=>2,'serial'=>4],
+            ['name'=>'About','link_id'=>6,'client_type_id'=>2,'serial'=>5],
+            ['name'=>'Guide','link_id'=>null,'client_type_id'=>2,'serial'=>6],//5
+
         ];
         DB::table('menus')->insert($menu);
 
         $submenus = [
-            ['menu_id'=>7,'name'=>'Survival Guide','link_id'=>8,'client_type_id'=>null,'serial'=>1],
-            // ['menu_id'=>4,'name'=>'Survival Guide','link_id'=>8,'client_type_id'=>2,'serial'=>1],
-            ['menu_id'=>7,'name'=>'Move To Switzerland','link_id'=>9,'client_type_id'=>null,'serial'=>2],
-            // ['menu_id'=>4,'name'=>'Move To Switzerland','link_id'=>9,'client_type_id'=>2,'serial'=>2],
-            ['menu_id'=>7,'name'=>'Intregation In Switzerland','link_id'=>10,'client_type_id'=>null,'serial'=>3],
-            // ['menu_id'=>4,'name'=>'Intregation In Switzerland','link_id'=>10,'client_type_id'=>2,'serial'=>3],
+            //normal user
+            ['menu_id'=>5,'name'=>'Survival Guide','link_id'=>8,'client_type_id'=>null,'serial'=>1],
+            ['menu_id'=>5,'name'=>'Move To Switzerland','link_id'=>9,'client_type_id'=>null,'serial'=>2],
+            ['menu_id'=>5,'name'=>'Intregation In Switzerland','link_id'=>10,'client_type_id'=>null,'serial'=>3],
+
+            //Basic user
+            ['menu_id'=>10,'name'=>'Survival Guide','link_id'=>8,'client_type_id'=>1,'serial'=>1],
+            ['menu_id'=>10,'name'=>'Move To Switzerland','link_id'=>9,'client_type_id'=>1,'serial'=>2],
+            ['menu_id'=>10,'name'=>'Intregation In Switzerland','link_id'=>10,'client_type_id'=>1,'serial'=>3],
+
+            //pro user
+            ['menu_id'=>15,'name'=>'Survival Guide','link_id'=>8,'client_type_id'=>2,'serial'=>1],
+            ['menu_id'=>15,'name'=>'Move To Switzerland','link_id'=>9,'client_type_id'=>2,'serial'=>2],
+            ['menu_id'=>15,'name'=>'Intregation In Switzerland','link_id'=>10,'client_type_id'=>2,'serial'=>3],
+
         ];
         DB::table('submenus')->insert($submenus);
     }
