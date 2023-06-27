@@ -29,30 +29,29 @@
             @endguest
 
             <div class="flex">
-                {{-- @dd($menus) --}}
+                {{-- @dd(Auth::user()) --}}
+                @auth
+                    @php
+                        $menus = $menus->where('client_type_id',Auth::user()->client_type_id);
+                    @endphp
+                @else
+                    @php
+                        $menus = $menus->where('client_type_id',null);
+                    @endphp
+                @endauth
+
                 @foreach ($menus as $menu)
                     @if (count($menu->submenus)<1 && $menu->link_id != null)
-                        @auth
-                            @if ($menu->client_type_id == Auth::user()->client_type_id)
+
                                 <a href="{{url($menu->link->url)}}">
                                     <button
                                         class="ml-12 font-semibold p-2 rounded {{ request()->is($menu->link->url) ? 'active' : '' }} "
                                         style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">{{$menu->name}}</button>
                                 </a>
-                            @endif
-                        @else
-                            @if ($menu->client_type_id == null)
-                                <a href="{{url($menu->link->url)}}">
-                                    <button
-                                        class="ml-12 font-semibold p-2 rounded {{ request()->is($menu->link->url) ? 'active' : '' }} "
-                                        style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">{{$menu->name}}</button>
-                                </a>
-                            @endif
-                        @endauth
+
 
                     @else
-                        @auth
-                            @if ($menu->client_type_id == Auth::user()->client_type_id)
+
                                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                                 class="ml-12 font-semibold p-2 rounded {{ request()->is('guide*') ? 'active' : '' }}"
                                 style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
@@ -70,90 +69,17 @@
                                 class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-48 dark:bg-gray-700">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                         @foreach ($menu->submenus as $submenu)
-                                            @auth
-                                                @if ($submenu->client_type_id  == Auth::user()->client_type_id)
-                                                    <li>
-                                                        <a href="{{ url($submenu->link->url) }}"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                            {{$submenu->name}}</a>
-                                                        </li>
-                                                @endif
-                                            @else
-                                                @if ($submenu->client_type_id == null)
                                                     <li>
                                                         <a href="{{ url($submenu->link->url) }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                                             {{$submenu->name}}</a>
                                                     </li>
-                                                @endif
-                                            @endauth
+
                                         @endforeach
-                                        {{--
-                                        <li>
-                                            <a href="{{ route('guide.move_switzerland') }}"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Move
-                                                To Swizerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('guide.intro.move_switzerland') }}"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Integration In SwiGerlan</a>
-                                        </li> --}}
+
                                     </ul>
                                 </div>
-                            @endif
-                        @else
-                            @if ($menu->client_type_id == null)
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                                class="ml-12 font-semibold p-2 rounded {{ request()->is('guide*') ? 'active' : '' }}"
-                                style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
-                                <div class="flex">
-                                    {{$menu->name}}
-                                    <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                                        </path>
-                                    </svg>
-                                </div>
-                                </button>
-                                <!-- Dropdown menu -->
-                                <div id="dropdown"
-                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-48 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                        @foreach ($menu->submenus as $submenu)
-                                            @auth
-                                                @if ($submenu->client_type_id  == Auth::user()->client_type_id)
-                                                    <li>
-                                                        <a href="{{ url($submenu->link->url) }}"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                            {{$submenu->name}}</a>
-                                                        </li>
-                                                @endif
-                                            @else
-                                                @if ($submenu->client_type_id == null)
-                                                    <li>
-                                                        <a href="{{ url($submenu->link->url) }}"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                            {{$submenu->name}}</a>
-                                                    </li>
-                                                @endif
-                                            @endauth
-                                        @endforeach
-                                        {{--
-                                        <li>
-                                            <a href="{{ route('guide.move_switzerland') }}"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Move
-                                                To Swizerland</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('guide.intro.move_switzerland') }}"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Integration In SwiGerlan</a>
-                                        </li> --}}
-                                    </ul>
-                                </div>
-                            @endif
-                        @endauth
+
                     @endif
                 @endforeach
 

@@ -56,11 +56,10 @@ class RegisteredUserController extends Controller
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,
-            'client_type_id' => $plan,
+            'client_type_id' => $plan ?? 2,
             'img' => $path,
             'password' => Hash::make($request->password),
         ]);
-
 
         event(new Registered($user));
 
