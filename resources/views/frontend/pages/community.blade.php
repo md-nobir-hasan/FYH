@@ -55,8 +55,8 @@
                         <select id="countries" name="country_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option class="text-lg" selected value="">All Country</option>
-                            @foreach ($country as $item)
-                                <option value="{{ $item->id }}">{{ $item->country }}</option>
+                            @foreach ($country as $story)
+                                <option value="{{ $story->id }}">{{ $story->country }}</option>
                             @endforeach
 
                         </select>
@@ -89,148 +89,79 @@
                 </div>
             </form>
         @endauth
-        <div class="lg:mx-36 grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
 
+        <!-- temporary card section -->
+        <section>
             @if ($stories->count() > 0)
-                @foreach ($stories as $item)
-                    @php  $countryName = App\Models\Country::where('id', $item->country_id)->first(); @endphp
+                @foreach ($stories as $story)
+                @php  $countryName = App\Models\Country::where('id', $story->country_id)->first(); @endphp
+                    <div
+                        style="background:url('/images/benifitbg.png');background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat">
+                        <div class="grid grid-cols-3 gap-4 lg:mx-36">
+                            <div
+                                class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <a href="#">
+                                    {{-- /images/story4.png --}}
+                                    <img class="h-2/5 w-full" src="{{ asset('/storage/' . $story->image) }}"
+                                        alt="{{ $story->name }}" />
+                                </a>
+                                <div class="p-5 h-3/5">
+                                    <a href="#">
+                                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
+                                    </a>
+                                    <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 600) }}</p>
+                                    <a href="{{ route('single-story', $story->id) }}"
+                                        class="text-[#D1052C] font-bold text-base">Read More</a>
+                                    <h3 class="font-semibold text-xl text-[#212427]">{{ $story->name }}</h3>
+                                    <p class="text-[#212427] text-sm font-normal">{{$story->profession}}</p>
+                                    <p class="text-[#212427] text-sm font-normal">
+                                        {{ $story->city }},{{ $countryName->country }}</p>
+                                </div>
+                            </div>
 
-                    <!-- <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#">
-                            <img class="rounded-t-lg" src="{{ '/storage/' . $item->image }}" alt="{{ $item->name }}" />
-                        </a>
-                        <div class="p-3">
-                            <a href="{{ route('single-story', $item->slug) }}">
-                                <h5 class="mb-2 text-xl font-black tracking-tight text-[#212427]">
-                                    "{{ Str::limit($item->title, 18) }}"</h5>
+                            <div
+                                class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <a href="#">
+                                    <img class="h-2/5 w-full" src="{{ asset('/storage/' . $story->image) }}" alt="" />
+                                </a>
+                                <div class="p-5 h-3/5">
+                                    <a href="#">
+                                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
+                                    </a>
+                                    <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 600) }}</p>
+                                    <a href="{{ route('single-story', $story->id) }}"
+                                        class="text-[#D1052C] font-bold text-base">Read More</a>
+                                    <h3 class="font-semibold text-xl text-[#212427]">{{$story->name}}</h3>
+                                    <p class="text-[#212427] text-sm font-normal">{{$story->profession}}</p>
+                                    <p class="text-[#212427] text-sm font-normal">{{ $story->city }},{{ $countryName->country }}</p>
+                                </div>
+                            </div>
 
-                            </a>
-                            <p class=" text-sm font-normal text-[#212427] text-justify">
-                                {{ Str::limit($item->description, 400) }} </p>
-                            <a href="{{ route('single-story', $item->slug) }}" class="text-[#D1052C] font-black">
-                                Read more
+                            <div
+                                class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <a href="#">
+                                    <img class="h-2/5 w-full" src="{{ asset('/storage/' . $story->image) }}" alt="" />
+                                </a>
+                                <div class="p-5 h-3/5">
+                                    <a href="#">
+                                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
+                                    </a>
+                                    <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 600) }}</p>
+                                    <a href="{{ route('single-story', $story->id) }}"
+                                        class="text-[#D1052C] font-bold text-base">Read More</a>
+                                    <h3 class="font-semibold text-xl text-[#212427]">{{$story->name}}</h3>
+                                    <p class="text-[#212427] text-sm font-normal">{{$story->profession}}</p>
+                                    <p class="text-[#212427] text-sm font-normal">{{$story->city.', '.$countryName->country}}</p>
+                                </div>
+                            </div>
 
-                            </a>
-                            <h1 class="text-xl font-bold mt-2"> {{ $item->name }} <h1>
-                                    <p class="capitalize">{{ $item->profession }} </p>
-                                    <p class="capitalize">{{ $item->city }},
-                                        @if ($countryName !== null)
-                                            {{ $countryName->country }}
-                                        @endif
-                                    </p>
                         </div>
-                    </div> -->
-
+                    </div>
                 @endforeach
             @endif
 
-        </div>
-        <!-- temporary card section -->
-<section>
-    <div style="background:url('/images/benifitbg.png');background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat">
-    <div class="grid grid-cols-3 gap-4 lg:mx-36" >
-
-        <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="h-2/5 w-full" src="/images/story4.png" alt="" />
-            </a>
-            <div class="p-5 h-3/5">
-                <a href="#">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"I have learnt so much, my memory got better, my morning routine got more structure"</h5>
-                </a>
-                <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">I was struggling to find a job that aligned with my skills and experience, and I was starting Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning. I had a kind of morning routine, but it was not consistent. Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning.</p>
-                <a href="{{ route('single-story', $item->slug) }}" class="text-[#D1052C] font-bold text-base">Read More</a>
-                <h3 class="font-semibold text-xl text-[#212427]">David Milan</h3>
-                <p class="text-[#212427] text-sm font-normal">English Teacher</p>
-                <p class="text-[#212427] text-sm font-normal">Berlyn,Germany</p>
-            </div>
-        </div>
-        <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="h-2/5 w-full" src="/images/story3.png" alt="" />
-            </a>
-            <div class="p-5 h-3/5">
-                <a href="#">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"I have learnt so much, my memory got better, my morning routine got more structure"</h5>
-                </a>
-                <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">I was struggling to find a job that aligned with my skills and experience, and I was starting Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning. I had a kind of morning routine, but it was not consistent. Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning.</p>
-                <a href="{{ route('single-story', $item->slug) }}" class="text-[#D1052C] font-bold text-base">Read More</a>
-                <h3 class="font-semibold text-xl text-[#212427]">David Milan</h3>
-                <p class="text-[#212427] text-sm font-normal">English Teacher</p>
-                <p class="text-[#212427] text-sm font-normal">Berlyn,Germany</p>
-            </div>
-        </div>
-        <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="h-2/5 w-full" src="/images/story2.png" alt="" />
-            </a>
-            <div class="p-5 h-3/5">
-                <a href="#">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"I have learnt so much, my memory got better, my morning routine got more structure"</h5>
-                </a>
-                <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">I was struggling to find a job that aligned with my skills and experience, and I was starting Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning. I had a kind of morning routine, but it was not consistent. Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning.</p>
-                <a href="{{ route('single-story', $item->slug) }}" class="text-[#D1052C] font-bold text-base">Read More</a>
-                <h3 class="font-semibold text-xl text-[#212427]">David Milan</h3>
-                <p class="text-[#212427] text-sm font-normal">English Teacher</p>
-                <p class="text-[#212427] text-sm font-normal">Berlyn,Germany</p>
-            </div>
-        </div>
-
-            </div>
-    </div>
-    <div class="mt-4" style="background:url('/images/benifitbg.png');background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat">
-    <div class="grid grid-cols-3 gap-4 lg:mx-36" >
-
-        <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="h-2/5 w-full" src="/images/story4.png" alt="" />
-            </a>
-            <div class="p-5 h-3/5">
-                <a href="#">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"I have learnt so much, my memory got better, my morning routine got more structure"</h5>
-                </a>
-                <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">I was struggling to find a job that aligned with my skills and experience, and I was starting Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning. I had a kind of morning routine, but it was not consistent. Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning.</p>
-                <a href="{{ route('single-story', $item->slug) }}" class="text-[#D1052C] font-bold text-base">Read More</a>
-                <h3 class="font-semibold text-xl text-[#212427]">David Milan</h3>
-                <p class="text-[#212427] text-sm font-normal">English Teacher</p>
-                <p class="text-[#212427] text-sm font-normal">Berlyn,Germany</p>
-            </div>
-        </div>
-        <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="h-2/5 w-full" src="/images/story3.png" alt="" />
-            </a>
-            <div class="p-5 h-3/5">
-                <a href="#">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"I have learnt so much, my memory got better, my morning routine got more structure"</h5>
-                </a>
-                <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">I was struggling to find a job that aligned with my skills and experience, and I was starting Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning. I had a kind of morning routine, but it was not consistent. Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning.</p>
-                <a href="{{ route('single-story', $item->slug) }}" class="text-[#D1052C] font-bold text-base">Read More</a>
-                <h3 class="font-semibold text-xl text-[#212427]">David Milan</h3>
-                <p class="text-[#212427] text-sm font-normal">English Teacher</p>
-                <p class="text-[#212427] text-sm font-normal">Berlyn,Germany</p>
-            </div>
-        </div>
-        <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="h-2/5 w-full" src="/images/story2.png" alt="" />
-            </a>
-            <div class="p-5 h-3/5">
-                <a href="#">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"I have learnt so much, my memory got better, my morning routine got more structure"</h5>
-                </a>
-                <p class="mb-3 text-sm text-justify font-normal text-[#212427] dark:text-gray-400">I was struggling to find a job that aligned with my skills and experience, and I was starting Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning. I had a kind of morning routine, but it was not consistent. Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning.</p>
-                <a href="{{ route('single-story', $item->slug) }}" class="text-[#D1052C] font-bold text-base">Read More</a>
-                <h3 class="font-semibold text-xl text-[#212427]">David Milan</h3>
-                <p class="text-[#212427] text-sm font-normal">English Teacher</p>
-                <p class="text-[#212427] text-sm font-normal">Berlyn,Germany</p>
-            </div>
-        </div>
-
-            </div>
-    </div>
-</section>
-<!-- temporary card section end -->
+        </section>
+        <!-- temporary card section end -->
 
         @guest
             <!-- last buttons -->
@@ -247,7 +178,6 @@
 
             @auth
                 <a href="{{ route('refuse') }}"> <Button
-
                         class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Load More
                         Stories</button></a>
             @endauth
@@ -256,39 +186,41 @@
             @auth
 
 
-                <section class=" mb-[-100px] shadow-xl pb-10" style="background:url('/images/lastbg.png');background-position:cover;background-repeat:no-repeat;background-size:100%">
-                    <div class=" py-14" style="background:url('/images/Line2.png');background-position:0px 110px;background-repeat:no-repeat;background-size:100%">
+                <section class=" mb-[-100px] shadow-xl pb-10"
+                    style="background:url('/images/lastbg.png');background-position:cover;background-repeat:no-repeat;background-size:100%">
+                    <div class=" py-14"
+                        style="background:url('/images/Line2.png');background-position:0px 110px;background-repeat:no-repeat;background-size:100%">
 
-                <section class="mt-28 mb-[-100px]">
+                        <section class="mt-28 mb-[-100px]">
 
-                    <h1 class="font-bold text-5xl text-[#212427] text-center">
-                        @if ($storyHead !== null)
-                        {{ $storyHead->share_title }}
-                    @endif
-                    </h1>
+                            <h1 class="font-bold text-5xl text-[#212427] text-center">
+                                @if ($storyHead !== null)
+                                    {{ $storyHead->share_title }}
+                                @endif
+                            </h1>
 
-                    <div class="mb-10">
-                        <p class="text-xl text-center text-[#D1052C] uppercase w-8/12 mx-auto">
-                            @if ($storyHead !== null)
-                                {{ $storyHead->share_subtitle }}
-                            @endif
-                        </p>
+                            <div class="mb-10">
+                                <p class="text-xl text-center text-[#D1052C] uppercase w-8/12 mx-auto">
+                                    @if ($storyHead !== null)
+                                        {{ $storyHead->share_subtitle }}
+                                    @endif
+                                </p>
 
-                    </div>
+                            </div>
 
                     </div>
                     <a href="{{ route('share.story') }}" class=" flex justify-center items-center"><button
                             class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">
-                          Share Your Story
+                            Share Your Story
                         </button></a>
 
-                    </div>
+            </div>
 
 
 
-                </section>
-            @endauth
-        </div>
+            </section>
+        @endauth
+    </div>
 
     </div>
 @endsection
