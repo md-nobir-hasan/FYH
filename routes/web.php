@@ -52,7 +52,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
     Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
-    Route::get('/single-story/{slug}', [FrontendControler::class,'singleStory'])->name('single-story');
+    Route::get('/single-story/{id}', [FrontendControler::class,'singleStory'])->name('single-story');
     Route::get('/refuse', [FrontendControler::class,'refuse'])->name('refuse');
 
     Route::get('/password-reset-done',[FrontendControler::class,'passRessDone'])->name('pass_reset_done');

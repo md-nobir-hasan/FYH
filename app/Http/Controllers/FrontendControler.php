@@ -143,16 +143,16 @@ class FrontendControler extends Controller
 
     return view('frontend.pages.single-benefit');
   }
-  public function singleStory($slug){
+  public function singleStory($id){
 
-       $story = Story::where('slug', $slug)->first();
+       $story = Story::find($id);
         $story->views +=1;
         $story->save();
 
       if(auth()->user() !==null){
-        $stories = Story::latest()->take(9)->get();
+        $stories = Story::where('status',1)->latest()->take(9)->get();
       }else{
-        $stories = Story::latest()->take(3)->get();
+        $stories = Story::where('status',1)->latest()->take(3)->get();
       }
 
       $share = Home::select('share_title', 'share_subtitle')->first();
