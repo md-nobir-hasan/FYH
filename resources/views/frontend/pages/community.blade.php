@@ -95,9 +95,11 @@
             @if ($stories->count() > 0)
                 @foreach ($stories as $story)
                 @php  $countryName = App\Models\Country::where('id', $story->country_id)->first(); @endphp
+                @if ($loop->index ==0 || $loop->index%3 ==0)
                     <div
-                        style="background:url('/images/benifitbg.png');background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat">
-                        <div class="grid grid-cols-3 gap-4 lg:mx-36">
+                    style="background:url('/images/benifitbg.png');background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat">
+                    <div class="grid grid-cols-3 gap-4 lg:mx-36 mt-4">
+                @endif
                             <div
                                 class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <a href="#">
@@ -119,44 +121,11 @@
                                 </div>
                             </div>
 
-                            <div
-                                class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                <a href="#">
-                                    <img class="h-2/5 w-full" src="{{ asset('/storage/' . $story->image) }}" alt="" />
-                                </a>
-                                <div class="p-5 h-3/5">
-                                    <a href="#">
-                                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
-                                    </a>
-                                    <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 600) }}</p>
-                                    <a href="{{ route('single-story', $story->id) }}"
-                                        class="text-[#D1052C] font-bold text-base">Read More</a>
-                                    <h3 class="font-semibold text-xl text-[#212427]">{{$story->name}}</h3>
-                                    <p class="text-[#212427] text-sm font-normal">{{$story->profession}}</p>
-                                    <p class="text-[#212427] text-sm font-normal">{{ $story->city }},{{ $countryName->country }}</p>
-                                </div>
-                            </div>
-
-                            <div
-                                class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                <a href="#">
-                                    <img class="h-2/5 w-full" src="{{ asset('/storage/' . $story->image) }}" alt="" />
-                                </a>
-                                <div class="p-5 h-3/5">
-                                    <a href="#">
-                                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
-                                    </a>
-                                    <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 600) }}</p>
-                                    <a href="{{ route('single-story', $story->id) }}"
-                                        class="text-[#D1052C] font-bold text-base">Read More</a>
-                                    <h3 class="font-semibold text-xl text-[#212427]">{{$story->name}}</h3>
-                                    <p class="text-[#212427] text-sm font-normal">{{$story->profession}}</p>
-                                    <p class="text-[#212427] text-sm font-normal">{{$story->city.', '.$countryName->country}}</p>
-                                </div>
-                            </div>
-
-                        </div>
+            @if ($loop->last || $loop->index%3 ==2)
                     </div>
+                </div>
+            @endif
+
                 @endforeach
             @endif
 
