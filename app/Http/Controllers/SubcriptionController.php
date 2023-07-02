@@ -15,6 +15,7 @@ class SubcriptionController extends Controller
 
         $n['paypal_subscriptions'] = Payment::with('user')->where('order_status','COMPLETED')->orderBy('id','desc')->paginate(50);
         $n['subscriptions'] = Subscription::orderBy('created_at', 'desc')->paginate(50);
+        $n['free_users'] = User::where('pm_type',null)->where('stripe_id',null)->orderBy('created_at', 'desc')->paginate(50);
         // dd($n);
         return view('pages.subscribe.index', $n);
     }
