@@ -35,12 +35,19 @@ use Carbon\Carbon;
 use Illuminate\Support\Carbon as SupportCarbon;
 use Event;
 use App\Events\SubscriptionCreated;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class FrontendControler extends Controller
 {
   public function homePage(){
+    
+    if(Auth::user()){
+        if(Auth::user()->role_id == null){
+            return to_route('user.home');
+        }else{
+            return to_route('dashboard');
+        }
+    }
      $home = Home::first() ?? null;
      $services = Service::orderBy('priority','asc')->take(4)->get() ;
      $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ;

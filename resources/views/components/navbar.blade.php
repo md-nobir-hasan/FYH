@@ -86,13 +86,13 @@ $noty_as_read = $cstomrs->where('mark_as_read','!=',null);
                                     @foreach ($noty_not_read as $notification)
                                         <div class="flex items-center {{$loop->first ? '' : 'mt-4'}}">
                                             <div class="relative inline-block shrink-0">
-                                                <img class="w-8 h-8 rounded-full" src="{{asset($notification->img)}}" alt="{{$notification->name}}"/>
+                                                <img class="w-8 h-8 rounded-full" src="{{asset($notification->img)}}" alt="{{$notification->fname}}"/>
                                                 <span class="absolute bottom-0 right-0 inline-flex items-center justify-center w-2 h-2 bg-red-600 rounded-full">
-
+                                                    {{$notification->fname}}
                                                 </span>
                                             </div>
                                             <div class="ml-3 text-sm font-normal">
-                                                <div class="text-sm font-semibold text-gray-900 dark:text-white">{{$notification->name}}</div>
+                                                <div class="text-sm font-semibold text-gray-900 dark:text-white">{{$notification->fname}}</div>
                                                 {{-- <div class="text-sm font-normal">commmented on your photo</div> --}}
                                                 <span class="text-xs font-medium text-blue-600 dark:text-blue-500">{{ $notification->created_at->diffForHumans() }}</span>
                                             </div>
@@ -103,12 +103,13 @@ $noty_as_read = $cstomrs->where('mark_as_read','!=',null);
                               <div class="bg-gray-100 mt-4 pb-4 p-2">
                                 {{-- <h4 class="text-center text-sm font-bold">Old notifications</h4> --}}
                                 @forelse ($noty_as_read as $notification)
+
                                 <div class="flex items-center {{$loop->first ? '' : 'mt-4'}}">
                                     <div class="relative inline-block shrink-0">
-                                        <img class="w-8 h-8 rounded-full" src="{{asset($notification->img)}}" alt="{{$notification->name}}"/>
+                                        <img class="w-8 h-8 rounded-full" src="{{asset($notification->img)}}" alt="{{$notification->fname}}"/>
                                     </div>
                                     <div class="ml-3 text-sm font-normal">
-                                        <div class="text-sm font-semibold text-gray-900 dark:text-white">{{$notification->name}}</div>
+                                        <div class="text-sm font-semibold text-gray-900 dark:text-white">{{$notification->fname}}</div>
                                         {{-- <div class="text-sm font-normal">commmented on your photo</div> --}}
                                         <span class="text-xs font-medium text-blue-600 dark:text-blue-500">{{ $notification->created_at->diffForHumans() }}</span>
                                     </div>

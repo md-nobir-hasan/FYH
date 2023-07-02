@@ -23,15 +23,15 @@ class AboutRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'title_description' => 'required', 
-            'heading' => 'required',	
+            'title_description' => 'required',
+            'heading' => 'required',
             'heading_description' => 'required' ,
             'images' => 'nullable',
             'images_description' => 'required',
-             'youtube' => 'nullable', 
+             'youtube' => 'nullable',
              'youtube_description' => 'nullable',
-              'first_image' => 'nullable', 
-              'first_image_story' => 'nullable', 
+              'first_image' => 'nullable',
+              'first_image_story' => 'nullable',
               'second_image' => 'nullable',
               	'second_image_story' => 'nullable'
         ];

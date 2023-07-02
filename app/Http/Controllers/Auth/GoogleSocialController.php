@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClientType;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -23,16 +24,17 @@ class GoogleSocialController extends Controller
 
     public function callBack(Request $request)
     {
-        
+
          try {
              $google_user = Socialite::driver('google')->user();
-
              $user = User::where('google_id', $google_user->getId())->first();
 
-             if(! $user){
+             if(!$user){
                 $Id = $request->session()->get('planId');
-                 if($Id ==null){
-                     return to_route('member');
+                 if(!Setting::first()->trail){
+                    if($Id ==null){
+                        return to_route('member');
+                    }
                  }
                  $Name = $google_user->getName();
                  $firstName = explode(' ', trim($Name))[0];
@@ -56,7 +58,7 @@ class GoogleSocialController extends Controller
                     return redirect()->intended('/home');
                  }
                  $request->session()->forget('planId');
-                
+
              }else{
                   Auth::login($user);
                   $UseRole = User::find($user->id);
@@ -67,7 +69,7 @@ class GoogleSocialController extends Controller
                  }else{
                     return redirect()->intended('/home');
                  }
-               
+
              }
 
          } catch (\Throwable $th) {
