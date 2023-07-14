@@ -41,13 +41,13 @@ class FrontendControler extends Controller
 {
   public function homePage(){
 
-    if(Auth::user()){
-        if(Auth::user()->role_id == null){
-            return to_route('user.home');
-        }else{
-            return to_route('dashboard');
-        }
-    }
+    // if(Auth::user()){
+    //     if(Auth::user()->role_id == null){
+    //         return to_route('user.home');
+    //     }else{
+    //         return to_route('dashboard');
+    //     }
+    // }
 
      $home = Home::first() ?? null;
      $services = Service::orderBy('priority','asc')->take(4)->get() ;

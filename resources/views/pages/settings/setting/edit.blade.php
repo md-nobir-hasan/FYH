@@ -97,7 +97,7 @@
                         </div>
 
                         {{-- Features  --}}
-                        <h4 class="font-bold text-xl underline text-left mt-10 mb-2">Features</h4>
+                        {{-- <h4 class="font-bold text-xl underline text-left mt-10 mb-2">Features</h4>
                         <div class="grid gap-6 mb-6 md:grid-cols-2">
                             <div class="flex">
                                 <label for="trail" class="block text-left mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -106,7 +106,7 @@
                                 <input type="checkbox" @checked($mdata->trail) name="trail" id="trail" class="bg-gray-50 border ml-1 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                  title="Trail">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="mt-10">
                             <button class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
