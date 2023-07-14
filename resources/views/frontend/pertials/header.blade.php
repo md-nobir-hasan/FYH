@@ -17,7 +17,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'public/js/toastr.css'])
 </head>
 
-<body class="antialiased" style="background:url(/images/Line.png);background-size:100%;background-repeat:no-repeat;">
+<body class="antialiased" style="background:url(/images/Line.png);background-size:100% 610px ;background-repeat:no-repeat;">
     <div class="mt-12 lg:mx-40" style="font-family: 'Poppins';">
         <div class="flex justify-between">
 
@@ -148,9 +148,9 @@
                 </div>
 --}}
                 @if (auth()->user() == null)
-                    <a href="{{ route('login') }}">
+                    <a href="{{ route('login') }}" class="flex justify-center items-center ">
 
-                        <button class="ml-12 font-semibold p-1 text-white pl-5 pr-5 rounded"
+                        <button class=" w-[127px] h-[38px] ml-12 mr-5 font-semibold p-1 text-xl text-white pl-5 pr-5 rounded"
                             style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Login</button>
 
                     </a>

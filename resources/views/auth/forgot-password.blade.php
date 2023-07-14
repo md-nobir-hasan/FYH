@@ -1,7 +1,9 @@
 <div class="">
 <x-guest-layout>
     
-    <div class="p-10 sm:max-w-md bg-white mx-auto">
+    <div class="mt-[102px] "  style="height:100vh">
+    <div class="shadow-xl mx-40 pb-[100%]">
+    <div class="p-10 sm:max-w-md bg-white mx-auto rounded-3xl">
     <a href="{{route('home')}}"> <img src="{{$setting->logo}}" alt="" class="h-8 w-24 mx-auto mb-8 mt-[-20px]"> </a>
     <h1 class="text-2xl font-bold text-center">
         Forgot Password?
@@ -29,6 +31,8 @@
    <div class="text-center mt-3 font-medium text-sm">
    <a href="/login"><i class="fa-solid fa-arrow-left"></i>Back to log in</a>
    </div>
+    </div>
+    </div>
     </div>
 </x-guest-layout>
 </div>
