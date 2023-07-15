@@ -31,6 +31,7 @@ class GoogleSocialController extends Controller
 
              if(!$user){
                 $Id = $request->session()->get('planId');
+                $planId = ClientType::where('plan_id', $Id)->first();
                  if(!Setting::first()->trail){
                     if($Id ==null){
                         return to_route('member');
@@ -44,6 +45,7 @@ class GoogleSocialController extends Controller
                       'lname' => $SecondName,
                       'email' => $google_user->getEmail(),
                       'google_id' => $google_user->getId(),
+                      'client_type_id' => $planId->id,
                  ]);
                  Auth::login($newUser);
                  $UseRole = User::find($newUser->id);
@@ -73,7 +75,7 @@ class GoogleSocialController extends Controller
              }
 
          } catch (\Throwable $th) {
-             dd('something wrong'. $th->getMessage());
+            return abort(404);
          }
     }
 }

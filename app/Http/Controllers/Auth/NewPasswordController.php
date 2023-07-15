@@ -58,4 +58,8 @@ class NewPasswordController extends Controller
                     : back()->withInput($request->only('email'))
                             ->withErrors(['email' => __($status)]);
     }
+
+    public function otp(){
+        return view('frontend.pages.otp');
+    }
 }
