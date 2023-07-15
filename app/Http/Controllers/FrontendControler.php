@@ -40,14 +40,15 @@ use Illuminate\Support\Facades\Auth;
 class FrontendControler extends Controller
 {
   public function homePage(){
-    
-    if(Auth::user()){
-        if(Auth::user()->role_id == null){
-            return to_route('user.home');
-        }else{
-            return to_route('dashboard');
-        }
-    }
+
+    // if(Auth::user()){
+    //     if(Auth::user()->role_id == null){
+    //         return to_route('user.home');
+    //     }else{
+    //         return to_route('dashboard');
+    //     }
+    // }
+
      $home = Home::first() ?? null;
      $services = Service::orderBy('priority','asc')->take(4)->get() ;
      $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ;
@@ -60,6 +61,9 @@ class FrontendControler extends Controller
   }
 
   public function membershipPage(){
+    if(Auth::user()){
+      return redirect()->route('home');
+    }
        $memberShips = ClientType::orderBy('created_at', 'desc')->get();
        $opportunity = Opportunity::orderBy('id', 'asc')->first();
     return view('frontend.pages.member', compact('memberShips','opportunity'));
