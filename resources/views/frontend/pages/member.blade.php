@@ -54,7 +54,7 @@
                     @foreach ($memberShips as $key=>$member)
 
                     <!-- card 1 -->
-                    <div class=" border-2 border-black rounded-lg mb-[32px] mt-5">
+                    <div class=" border-2 border-[#212427] rounded-lg mb-[32px] mt-5">
                         <div class="mt-[20px] ml-[14px]">
                             <!-- card 1 -->
                             <div class="flex justify-between mr-[16px]">

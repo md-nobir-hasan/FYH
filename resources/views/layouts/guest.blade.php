@@ -22,7 +22,7 @@
                 </a> --}}
             </div>
 
-            <div class="w-full  overflow-hidden sm:rounded-lg"  style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
+            <div class="w-full overflow-hidden sm:rounded-lg"  style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
                 {{ $slot }}
             </div>
             
