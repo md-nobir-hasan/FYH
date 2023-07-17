@@ -1,5 +1,4 @@
 <x-guest-layout>
-    
 
     <div class="bg-white w-[1320px] h-[850px] mt-[107px] mb-[158px] rounded-xl lg:px-16 lg:py-10 @if($planId) lg:mx-auto @else mx-auto lg:w-[886px]@endif">
     <a href="{{ route('home') }}" class=" @if($planId) lg:mt-1 @else mb-10 flex items-center justify-center @endif">
