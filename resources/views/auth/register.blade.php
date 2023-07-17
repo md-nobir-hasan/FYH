@@ -1,18 +1,18 @@
 <x-guest-layout>
     
 
-    <div class="bg-white rounded-xl lg:px-16 lg:py-10 @if($planId) lg:mx-24 @else mx-auto lg:w-[886px]@endif">
+    <div class="bg-white w-[1320px] h-[850px] mt-[107px] mb-[158px] rounded-xl lg:px-16 lg:py-10 @if($planId) lg:mx-auto @else mx-auto lg:w-[886px]@endif">
     <a href="{{ route('home') }}" class=" @if($planId) lg:mt-1 @else mb-10 flex items-center justify-center @endif">
-        <img src="{{ $setting->logo }}" alt="" class="lg:-mt-5 h-8 w-24">
+        <img src="{{ $setting->logo }}" alt="" class="lg:-mt-5 h-8 w-24 ml-[88px]">
     </a>
     @if($planId)
     <a href="/membership">
-        <button class=" mb-4 mt-4 px-6 py-2 border">Back</button>
+        <button class=" mb-4 mt-4 px-6 py-2 border ml-[88px]">Back</button>
     </a>
     @endif
-    <div class=" @if($planId)  grid lg:grid-cols-3 lg:gap-3 grid-cols-1 @else lg:w-[603px] mx-auto @endif"
+    <div class=" @if($planId) flex @else lg:w-[603px] mx-auto @endif"
         style="font-family: 'Poppins';">
-        <form class="@if($planId) border-gray-300 border-2 lg:col-span-2 p-10 rounded-xl @endif" method="POST" action="{{ route('register') }}"
+        <form class="@if($planId) mr-[24px] lg:w-[702px] lg:h-[700px] ml-[88px] border-gray-300 border-2 lg:col-span-2 p-10 rounded-xl @endif" method="POST" action="{{ route('register') }}"
 
             enctype="multipart/form-data">
             @csrf
@@ -61,18 +61,18 @@
                 @if ($planId !== null) value="{{ $planId->plan_id }}" @endif>
 
             <!-- Name -->
-            <div>
+            <div class="">
                 <x-input-label for="fname" : value="First Name"/>
                 <x-text-input id="fname" class="block mt-1 w-full shadow" type="text" name="fname"
                     :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
-                    placeholder="e.g. Thomas" />
+                    placeholder="e.g. Thomas" style="opacity:0.5"/>
                 <x-input-error :messages="$errors->get('fname')" class="mt-2" />
             </div>
             <div class="mt-4">
                 <x-input-label for="lname" : value="Last Name"/>
                 <x-text-input id="lname" class="block mt-2 w-full shadow" type="text" name="lname"
                     :value="old('lname')" required autocomplete="lname" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
-                    placeholder="e.g. Tsangaras" />
+                    placeholder="e.g. Tsangaras" style="opacity:0.5"/>
                 <x-input-error :messages="$errors->get('lname')" class="mt-2" />
             </div>
 
@@ -81,7 +81,7 @@
                 <x-input-label for="email" : value="Email"/>
                 <x-text-input id="email" class="block mt-2 w-full shadow" type="email" name="email"
                     :value="old('email')" required autocomplete="username"
-                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="e.g. mymail@mail.com" />
+                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="e.g. mymail@mail.com" style="opacity:0.5"/>
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
@@ -93,7 +93,7 @@
 
                 <x-text-input id="password" class="block mt-2 w-full shadow" type="password" name="password"
                     required autocomplete="new-password" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
-                    placeholder="min 8 character" />
+                    placeholder="min 8 character" style="opacity:0.5"/>
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
@@ -104,19 +104,19 @@
 
                 <x-text-input id="password_confirmation" class="block mt-2 w-full shadow" type="password"
                     name="password_confirmation" required autocomplete="new-password"
-                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="min 8 character" />
+                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="min 8 character" style="opacity:0.5"/>
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
             <!-- Photo upload -->
-            <div class="">
+            <!-- <div class="">
                 <label for="img" class="mb-2 inline-block text-neutral-700 dark:text-neutral-200"></label>
                 <input name="img"
                     class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid  bg-clip-padding py-[0.32rem] px-3 text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:shadow-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 border-gray-700"
                     type="file" id="img" style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="Photo"
                     required />
                 <x-input-error :messages="$errors->get('img')" class="mt-2" />
-            </div>
+            </div> -->
             <div class="flex items-center my-3">
                 <input id="link-checkbox" type="checkbox" value=""
                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -130,8 +130,8 @@
         </form>
 
         @if($planId)
-            <div class="lg:col-span-1  lg:mt-0">
-                <div class=" lg:-mr-5">
+            <div class=" lg:mt-0">
+                <div class="lg:w-[418px] lg:h-[166px]">
                     <div class="border-2 border-gray-300 rounded-xl p-3">
                         <h1 class="font-bold text-xl ml-4">Order Summary</h1>
                         <div class="flex mt-2">

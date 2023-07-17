@@ -17,7 +17,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'public/js/toastr.css'])
 </head>
 
-<body class="antialiased" style="background:url(/images/Line.png);background-size:100%;background-repeat:no-repeat;">
+<body class="antialiased" style="background:url(/images/Line.png);background-size:100% 610px ;background-repeat:no-repeat;">
     <div class="mt-12 lg:mx-40" style="font-family: 'Poppins';">
         <div class="flex justify-between">
 
@@ -31,10 +31,13 @@
             <div class="flex">
                 {{-- @dd(Auth::user()) --}}
                 @auth
+
                     @php
                         $menus = $menus->where('client_type_id',Auth::user()->client_type_id);
                     @endphp
+                    {{-- @dd(Auth::user()->client_type_id,$menus) --}}
                 @else
+
                     @php
                         $menus = $menus->where('client_type_id',null);
                     @endphp
@@ -148,9 +151,9 @@
                 </div>
 --}}
                 @if (auth()->user() == null)
-                    <a href="{{ route('login') }}">
+                    <a href="{{ route('login') }}" class="flex justify-center items-center ">
 
-                        <button class="ml-12 font-semibold p-1 text-white pl-5 pr-5 rounded"
+                        <button class=" w-[127px] h-[38px] ml-12 mr-5 font-semibold p-1 text-xl text-white pl-5 pr-5 rounded"
                             style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Login</button>
 
                     </a>
@@ -180,13 +183,13 @@
                             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-11 h-11 border border-[#D1052C] rounded-full " src="{{ auth()->user()->img }}">
+                            <img class="w-11 h-11 border border-[#D1052C] rounded-full " src="{{ auth()->user()->img ??  asset('storage/default/human.webp') }}">
                         </button>
                         <!-- Dropdown menu -->
                         <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow"
                             id="user-dropdown">
                             <div class="flex p-5">
-                                <img src="{{ auth()->user()->img }}"
+                                <img src="{{ auth()->user()->img ?? asset('storage/default/human.webp') }}"
                                     class="w-11 h-11 border p-0.5 rounded-full border-[#D1052C]" />
                                 <span
                                     class="flex justify-center items-center ml-2 text-lg text-black font-semibold dark:text-white capitalize">

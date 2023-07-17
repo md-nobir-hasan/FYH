@@ -4,11 +4,11 @@
 @endpush
 @section('content')
 
-    <div class=" mt-10 mb-[-200px]" style="font-family:'Poppins'">
+    <div class=" mt-[55px] mb-[-200px]" style="font-family:'Poppins'">
 
 
         @guest
-            <h1 class="text-5xl font-black text-center">
+            <h1 class="text-[50px] font-bold text-center">
                 @if ($storyHead !== null)
                     {{ $storyHead->story_title }}
                 @endif
@@ -97,17 +97,17 @@
                 @php  $countryName = App\Models\Country::where('id', $story->country_id)->first(); @endphp
                 @if ($loop->index ==0 || $loop->index%3 ==0)
                     <div
-                    style="background:url('/images/benifitbg.png');background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat">
+                    style="background:url('/images/benifitbg.png');background-size:1920px 516px;background-position:0 100%;background-repeat:no-repeat">
                     <div class="grid grid-cols-3 gap-4 lg:mx-36 mt-4">
                 @endif
                             <div
                                 class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <a href="#">
                                     {{-- /images/story4.png --}}
-                                    <img class="h-2/5 w-full" src="{{ asset('/storage/' . $story->image) }}"
+                                    <img class="h-[424px] w-full" src="{{ asset('/storage/' . $story->image) }}"
                                         alt="{{ $story->name }}" />
                                 </a>
-                                <div class="p-5 h-3/5">
+                                <div class="p-5 h-[516px]">
                                     <a href="#">
                                         <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
                                     </a>
@@ -136,9 +136,8 @@
             <!-- last buttons -->
             <div class="flex justify-center items-center">
                 <a href="{{ route('refuse') }}"> <button
-                        class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">READ ALL
-                        STORIES</button></a>
-                <button class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">NEWS</button>
+                        class="lg:w-48 m-1 mt-5 p-3 rounded-lg text-base font-bold bg-[#D1052C] text-white">Read All Stories</button></a>
+                <button class="lg:w-48 m-1 text-base font-bold mt-5 p-3 rounded-lg bg-[#D1052C] text-white">Read Our Stories</button>
             </div>
         @endguest
 
