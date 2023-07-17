@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
@@ -62,4 +65,19 @@ class NewPasswordController extends Controller
     public function otp(){
         return view('frontend.pages.otp');
     }
+
+    public function otpMatch(Request $req){
+        $otp = $req->digit1.$req->digit2.$req->digit3.$req->digit4.$req->digit5.$req->digit6;
+        $code = Session::get('reset_code');
+
+        if($otp == $code){
+            $email = Session::get('email');
+            $user = User::where('email',$email)->first();
+            Auth::login($user);
+            return redirect()->route('pass_reset_done');
+        }else{
+            return back()->with('msg','Please enter correct OTP code');
+        }
+    }
+
 }
