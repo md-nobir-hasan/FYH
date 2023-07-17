@@ -1,10 +1,19 @@
-<x-guest-layout class="">
-    <!-- Session Status -->
-    <x-auth-session-status class="" :status="session('status')"/>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+@vite(['resources/css/app.css','resources/js/app.js'])
+<body>
 
-    <div class="">
-    <form class="lg:px-28 p-16 my-20 lg:py-16 rounded-2xl lg:h-[750px] lg:w-[584px] bg-white mx-auto " method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';" enctype="multipart/form-data">
+<x-auth-session-status class="" :status="session('status')"/>
+
+    <div class="pt-1 pb-1" style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
+        <div class="shadow-xl mx-40 pb-5" style="">
+        <form class=" shadow-xl lg:px-28 p-16 my-20 lg:py-16 rounded-2xl lg:h-[750px] lg:w-[584px] bg-white mx-auto " method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';" enctype="multipart/form-data">
     @csrf
+       <div>
        <a href="{{route('home')}}">
         <img src="{{$setting->logo}}" alt="" class="h-8 w-24 mx-auto mb-10 mt-[-30px]">
        </a>
@@ -29,7 +38,7 @@
     </a>
     <div class="grid grid-cols-4">
     <hr class="h-px mt-3 bg-black col-span-1 border-0">
-    <p class="col-span-2 flex justify-center items-center font-normal">or continue with email</p>
+    <p class="col-span-2 flex justify-center items-center font-normal ">or continue with email</p>
     <hr class="h-px mt-3 bg-black col-span-1 border-0">
     </div>
 
@@ -72,7 +81,11 @@
             <button class="w-full text-base p-3 rounded-lg font-bold flex justify-center items-center bg-[#D1052C] text-white">{{ __('Log in') }}</button>
             <p class="mt-2 text-lg text-center">Don't have an account?<a href="{{$setting->trail ? route('register') : route('member')}}" class="text-[#D1052C] hover:text-orange-600">Create an account</a></p>
         </div>
+       </div>
     </form>
+        </div>
     </div>
-</x-guest-layout>
+
+</body>
+</html>
 

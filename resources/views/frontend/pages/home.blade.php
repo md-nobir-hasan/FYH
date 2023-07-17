@@ -64,7 +64,7 @@
                 <div class="flex">
                     <a href="{{$setting->trail ? route('register') : route('member') }}">
                         <div class="mt-10 text-white w-72 rounded flex justify-center items-center h-16 font-bold"
-                            style="background-color:#D1052C"><button class="mr-1 text-base">{{$setting->trail ? 'Start Free Trail' : 'Join FYH now'}}</button>
+                            style="background-color:#D1052C"><button class="mr-1 text-xl font-bold">{{$setting->trail ? 'Start Free Trail' : 'Join FYH now'}}</button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -73,7 +73,7 @@
                         </div>
                     </a>
                     <a href="{{ route('about') }}" class="mt-8">
-                        <p class="mt-10 flex justify-center items-center ml-12 font-semibold underline decoration-3"
+                        <p class="mt-10 flex justify-center items-center ml-5 font-semibold underline decoration-3"
                             style="color:
                 #D1052C">Learn More</p>
                     </a>
@@ -90,7 +90,7 @@
         </div>
         <!-- Benifit section start -->
 
-        <div class="mt-24 pt-10 lg:-mx-36" style="background:url(/images/benifitbg.png);background-size:100% 62%;background-repeat:no-repeat; ">
+        <div class="mt-[100px] pt-10 lg:-mx-36" style="background:url(/images/benifitbg.png);background-size:1926px 394px;background-repeat:no-repeat; ">
             <div>
                 <h1 class="text-5xl font-bold text-center text-[#212427]">
                     @if ($home !== null)
@@ -109,9 +109,9 @@
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
                         <a href="#"
-                            class=" w-full px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                            class=" w-full h-[232px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700">
                             <img src="{{ '/storage/' . $item->image }}" alt="{{ $item->title }}"
-                                class="h-13 w-10 mx-auto rounded-full"
+                                class="h-20 w-20 mx-auto rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5 class="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
                                 {{ $item->title }} </h5>
@@ -129,7 +129,7 @@
         </div>
         <!-- Benifit section end -->
         <!-- Featured story start -->
-        <section class="mt-[164px]">
+        <section class="mt-[100px]">
             <div>
                 <h1 class="text-5xl font-bold text-center text-[#212427]">
                     @if ($home !== null)   {{ $home->feature_title }} @endif </h1>
@@ -145,7 +145,7 @@
                             @php
                                 $title = str_split($firstfeature->title, 15);
                             @endphp
-                            <img src="{{ '/storage/' . $firstfeature->image }}" alt="" class="h-72 w-full">
+                            <img src="{{ '/storage/' . $firstfeature->image }}" alt="" class="h-[316px] w-[561px]">
                             <div class="absolute mt-[-120px]" style="left:15%">
                                 <h1 class=" text-white text-5xl font-black text-center">
                                     {{ $title[0] }}
@@ -158,10 +158,10 @@
                             <div>
                                 <p class="ml-5 font-normal text-base text-[#212427] text-justify"> {{ $firstfeature->description }} </p>
                                 <div class="flex">
-                                    <img src="/images/Ellipse 36.png" alt="" class="h-12 mt-3 ml-5">
+                                    <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-3 ml-5">
                                     <div class="mt-3 ml-3">
                                         <h1 class="text-xl font-semibold text-[#212427]"> {{ $firstfeature->name }}.</h1>
-                                        <p class="capitalize text-base font-normal"> {{ $firstfeature->profession }} </p>
+                                        <p class="capitalize text-sm tracking-wider font-normal"> {{ $firstfeature->profession }} </p>
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
                             @endphp
 
 
-                            <img src="/images/featured2.png" alt="" class="h-72">
+                            <img src="/images/featured2.png" alt="" class="h-[316px] w-[561px]">
                             <div class="absolute mt-[-120px]" style="right:15%">
                                 <h1 class=" text-white text-5xl font-black text-center"> {{ $title[0] }} </h1>
                                 <h1 class=" text-white  text-5xl text-center font-black">{{ $title[1] }}
@@ -210,7 +210,7 @@
         </section>
         <!-- Featured story end -->
         <!-- Popular story start -->
-        <section class="mt-[164px] lg:-mx-36" style="background:url(/images/benifitbg.png);background-size:100% 410px;background-repeat:no-repeat;background-position: 0px 100%">
+        <section class="mt-[100px] lg:-mx-36" style="background:url(/images/benifitbg.png);background-size:100% 516px;background-repeat:no-repeat;background-position: 0px 100%">
             <div>
                 <h1 class="text-5xl font-bold text-center text-[#212427]">
                       @if ($home !== null)     {{ $home->story_title }} @endif
@@ -229,9 +229,9 @@
 
                 <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="{{'/storage/'. $pStory->image}}" alt=""  class=""/>
+                        <img class=" lg:h-[424px] w-full" src="{{'/storage/'. $pStory->image}}" alt=""/>
                     </a>
-                    <div class="p-3">
+                    <div class="px-4 pt-3 h-[516px]">
                         <a href="#">
                             <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">" {{Str::limit($pStory->title, 28)}} "</h5>
                         </a>
@@ -253,7 +253,7 @@
         </section>
         <!-- Popular story end -->
         <!-- successfull story Candidate start -->
-        <section class="mt-[140px] lg:-mx-36" style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 60%">
+        <section class="mt-[100px] lg:-mx-36" style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 60%">
             <h1 class="text-5xl font-bold text-center text-[#D1052C]">
                 @if ($storyCount !== null)     {{ number_format($storyCount) }} @endif
             </h1>
@@ -280,7 +280,7 @@
 
         <!-- successfull story Candidate end -->
         <!-- Get Service Start -->
-        <section class="mt-[122px]">
+        <section class="mt-[100px]">
             <h1 class="text-center text-5xl font-bold text-[#212427]">
                   @if ($home !== null)     {{ $home->service_title }} @endif
                 </h1>
@@ -292,14 +292,14 @@
 
                 @if ($services->count() > 0)
                     @foreach ($services as $item)
-                        <div>
+                        <div class="mr-[27px] ml-4">
                             <div class="flex justify-center items-center"><img src="{{ '/storage/' . $item->image }}" alt="" class="w-[100px] h-[100px]" /></div>
                             <h1 class="font-semibold text-xl text-center"> {{ Str::limit($item->title, 12) }} </h1>
                             <p class="text-center lg:-mx-10 text-base font-normal"> {{ Str::limit($item->description, 140) }} </p>
                         </div>
                        @if (!$loop->last)
                         <div class="mt-16">
-                            <hr class="h-px -mt-[15px] bg-[#D9D9D9] border-0">
+                            <hr class="border  -mt-[15px] bg-[#D9D9D9]">
                         </div>
                        @endif
                     @endforeach
@@ -308,7 +308,7 @@
         </section>
         <!-- Get Service end -->
         <!-- Success section start -->
-        <div class="mt-[165px] lg:-mx-36 pb-28" style="background:url(/images/benifitbg.png);background-size:100% 285px;background-repeat:no-repeat; background-position:0 110px">
+        <div class="mt-[100px] lg:-mx-36 pb-28" style="background:url(/images/benifitbg.png);background-size:1920px 387px;background-repeat:no-repeat; background-position:0 100px">
             <h1 class="font-bold text-5xl text-[#212427] text-center">
                 @if ($home !== null)
                 {{ $home->customer_title }}
@@ -321,36 +321,42 @@
             </p>
 
             <!-- success card  -->
-            <div class="lg:mx-36 grid grid-cols-1 lg:grid-cols-3 gap-4 mt-10">
+            <div class="lg:mx-40 grid grid-cols-1 lg:grid-cols-3 gap-4 mt-10">
 
                 @if ($stories->count() > 0)
                     @foreach ($stories->slice(1, 3) as $item)
                         <a href="{{ route('single-story', $item->slug) }}"
-                            class="w-full  px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                            class="w-full h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
                             <div class="flex">
                                 <img src="{{ '/storage/' . $item->image }}" alt="" class="h-16 w-16 rounded-full"
                                     style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                                 <div class="ml-2">
-                                    <h1 class="text-2xl font-bold"> {{ $item->name }} </h1>
-                                    <p class="font-medium text-lg"> {{ $item->profession }} </p>
+                                    <h1 class="text-[28px] font-semibold"> {{ $item->name }} </h1>
+                                    <p class="font-normal text-xl"> {{ $item->profession }} </p>
                                 </div>
                             </div>
                             <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
-                            <p class="font-medium text-sm dark:text-gray-400">
+                            <p class="font-normal text-base dark:text-gray-400">
                                 {{ Str::limit($item->description, 250) }}
                             </p>
                         </a>
                     @endforeach
                 @endif
-
+                
 
             </div>
             <!-- success card end -->
+                <svg class="mx-auto mt-5" width="65" height="15" viewBox="0 0 65 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="7.5" cy="7.5" r="7.5" fill="#D1052C"/>
+<circle cx="32.5" cy="7.5" r="7.5" fill="#D9D9D9"/>
+<circle cx="57.5" cy="7.5" r="7.5" fill="#D9D9D9"/>
+</svg>
         </div>
         <!-- Success section end -->
         <!-- last section start -->
-        <section class="lg:-mx-36   mb-[-100px]" style="background:url(/images/lastbg.png);background-size:100% 285px;background-repeat:no-repeat;background-position:0 40px">
-            <div class="pb-10 py-28 shadow-lg" style="background:url(/images/Line2.png);background-size:100% 285px;background-repeat:no-repeat;background-position:center bottom">
+        <section class="lg:-mx-36 mb-[-100px]"  style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
+            <div class="pb-10 py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;background-position:0 30px">
+            <div class="pb-14 shadow-lg">
             <h1 class="font-bold text-5xl text-[#212427] text-center">
                 @if ($home !== null)
                 {{ $home->share_title }}
@@ -383,6 +389,7 @@
 
              @endif
             @endauth
+            </div>
 
             </div>
         </section>

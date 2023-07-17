@@ -2,20 +2,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>Reset Done</title>
 @vite(['resources/css/app.css'])
 </head>
-<body>
-<div class="mt-20 lg:mx-[400px] mb-[-150px]" style="font-family:'Poppins'">
-    <section class="border rounded-lg shadow-lg p-5">
+<body  style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
+<div class="">
+<div class="mt-[102px] bg-white py-6 w-[584px] h-[381px] rounded-xl mx-auto" style="font-family:'Poppins';">
         <div class="flex justify-center items-center ">
             <a href="/"><img src="/images/fyhlogo.png" alt="" class="h-10 w-28"/></a>
         </div>
-        <div class="mt-[50px] flex justify-center items-center">
+        <div class="mt-[53px] flex justify-center items-center">
             <img src="/images/Loading.png"/>
         </div>
-        <h1 class="text-3xl font-bold text-center">All Done!</h1>
-        <p class="text-center text-xl font-medium">Your password has been reset.<br>Click below to log in magically.</p>
+        <h1 class="text-[28px] font-semibold text-center">All Done!</h1>
+        <p class="text-center text-base font-medium">Your password has been reset.<br>Click below to log in magically.</p>
         <a href="{{route('login')}}" class="flex justify-center items-center">
                         <div class="my-5 text-white  rounded px-28 py-3 font-semibold"
                             style="background-color:#D1052C">
@@ -29,7 +29,7 @@
                             
                         </div>
                     </a>
-    </section>
+</div>
 </div>
 </body>
 </html>
