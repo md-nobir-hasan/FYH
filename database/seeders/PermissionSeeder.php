@@ -32,6 +32,15 @@ class PermissionSeeder extends Seeder
                 ['role_id' => 1,'feature_id' => 16,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Sub-menu
                 ['role_id' => 1,'feature_id' => 17,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Setting
                 ['role_id' => 1,'feature_id' => 18,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Site Setting
+                ['role_id' => 1,'feature_id' => 19,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Congrat
+                ['role_id' => 1,'feature_id' => 20,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Opportunity
+                ['role_id' => 1,'feature_id' => 21,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Service
+                ['role_id' => 1,'feature_id' => 22,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Story
+                ['role_id' => 1,'feature_id' => 23,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//About
+                ['role_id' => 1,'feature_id' => 24,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//MoveTo
+                ['role_id' => 1,'feature_id' => 25,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Integration
+                ['role_id' => 1,'feature_id' => 26,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Servival
+                ['role_id' => 1,'feature_id' => 27,'add' => '1','show' => '2','edit' => '3','delete' => '4'],//Video
             ];
 
             DB::table('permissions')->insert($n);
