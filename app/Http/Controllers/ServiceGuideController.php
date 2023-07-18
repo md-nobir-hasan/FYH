@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Survival;
+use App\Models\Video;
 
 class ServiceGuideController extends Controller
 {
@@ -22,6 +23,7 @@ class ServiceGuideController extends Controller
     public function create()
     {
         $n['survival'] = Survival::first();
+        $n['videos'] = Video::where('for','survival')->get();
         return view('pages.survival.edit',$n);
     }
 

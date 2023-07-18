@@ -28,7 +28,7 @@
                             <div class="relative w-full mb-6 xl:w-96">
                                 <select name="for" data-te-select-init>
                                     <option value="" hidden>Embed Code For</option>
-                                    <option value="servival" @selected(old('for')=='servival')>Servival</option>
+                                    <option value="survival" @selected(old('for')=='survival')>Servival</option>
                                 </select>
 
                                 @error('for')
