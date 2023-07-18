@@ -34,12 +34,14 @@ class FeatureSeeder extends Seeder
             ['title'=>'Setting','name' => 'setting','status' => 1],
                 ['title'=>'Site Setting','name' => 'site setting','status' => 1],
                 ['title'=>'Congrat','name' => 'Congrat','status' => 1],
-                ['title'=>'Opportunity','name' => 'Opportunity','status' => 1],
+                ['title'=>'Opportunity','name' => 'Opportunity','status' => 1],//20
                 ['title'=>'Service','name' => 'Service','status' => 1],
                 ['title'=>'Story','name' => 'Story','status' => 1],
                 ['title'=>'About','name' => 'About','status' => 1],
                 ['title'=>'MoveTo','name' => 'MoveTo','status' => 1],
-                ['title'=>'Integration','name' => 'Integration','status' => 1],
+                ['title'=>'Integration','name' => 'Integration','status' => 1],//25
+                ['title'=>'Servival Guide','name' => 'Servival','status' => 1],
+                ['title'=>'Video','name' => 'Video','status' => 1],
         ];
 
         DB::table('features')->insert($n);

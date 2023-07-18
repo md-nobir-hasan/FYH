@@ -32,6 +32,7 @@ use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceGuideController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\StoryController;
@@ -39,6 +40,7 @@ use App\Http\Controllers\SubcriptionController;
 use App\Http\Controllers\Submenucontroller;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\UserCommonController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -269,6 +271,11 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
         //Payment Duration
         Route::resource('/payment_duration',PaymentDurationController::class);
+
+        //Video
+        Route::resource('/video',VideoController::class);
+
+
     });
 
     //Menus route
@@ -276,6 +283,11 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
         Route::resource('menu',MenuController::class);
         Route::resource('submenu',Submenucontroller::class);
     });
+
+    //Videos route
+
+    Route::resource('servival',ServiceGuideController::class);
+
 
 
 
