@@ -4,13 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClientType;
+use App\Models\Payment;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Request as inputRequest;
 use Illuminate\Support\Facades\Session;
 
 class GoogleSocialController extends Controller
@@ -28,7 +27,6 @@ class GoogleSocialController extends Controller
          try {
              $google_user = Socialite::driver('google')->user();
              $user = User::where('google_id', $google_user->getId())->first();
-
              if(!$user){
                 $Id = $request->session()->get('planId');
                 $planId = ClientType::where('plan_id', $Id)->first();
@@ -65,7 +63,8 @@ class GoogleSocialController extends Controller
                   Auth::login($user);
                   $UseRole = User::find($user->id);
                   $Id = $request->session()->get('planId');
-                 if($UseRole->role_id ==null && $Id !==null){
+                  $paypal_payment = Payment::where('user_id',$UseRole->id)->get();
+                 if($UseRole->role_id == null && $Id !==null && count($paypal_payment)<1){
                     $planId = ClientType::where('plan_id', $Id)->first();
                     return view('frontend.pages.billing', ['planId' => $planId]);
                  }else{
