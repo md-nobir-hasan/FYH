@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Survival extends Model
 {
     use HasFactory;
+    protected $fillable = ['banner_title','banner_des','banner_img'];
 }

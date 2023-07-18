@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('survivals', function (Blueprint $table) {
             $table->id();
             $table->string('banner_title')->nullable();
-            $table->string('details')->nullable();
+            $table->string('banner_des')->nullable();
+            $table->text('banner_img')->nullable();
             $table->timestamps();
         });
     }

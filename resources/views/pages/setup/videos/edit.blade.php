@@ -21,14 +21,15 @@
             <div class="p-6 mx-auto bg-gray-100">
 
                 <div class="block mx-auto max-w-md rounded-lg bg-white p-6  shadow-lg dark:bg-neutral-700">
-                    <form action="{{ route('admin.setup.video.store') }}" method="POST">
+                    <form action="{{ route('admin.setup.video.update',[$mdata->id]) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="">
                             {{-- Embed code for  --}}
                             <div class="relative w-full mb-6 xl:w-96">
                                 <select name="for" data-te-select-init>
                                     <option value="" hidden>Embed Code For</option>
-                                    <option value="servival" @selected(old('for')=='servival')>Servival</option>
+                                    <option value="servival" @selected($mdata->for == 'servival')>Servival</option>
                                 </select>
 
                                 @error('for')
@@ -38,7 +39,7 @@
 
                             {{-- Title for the video  --}}
                             <div class="relative w-full mb-6 xl:w-96">
-                                <input type="text" name="title" value="{{old('title')}}"
+                                <input type="text" name="title" value="{{$mdata->title}}"
                                     class="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
                                     id="title" placeholder="Title for the video" autocomplete="off" />
                                 <label for="title"
@@ -55,7 +56,7 @@
                                         class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                         id="embed_code"
                                         rows="3"
-                                        placeholder="Enter video's embed code">{{old('embed_code')}}</textarea>
+                                        placeholder="Enter video's embed code">{{$mdata->embed_code}}</textarea>
                                     <label for="embed_code"
                                         class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
                                     Embed Code</label>
@@ -72,7 +73,7 @@
                                         class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                         id="des"
                                         rows="3"
-                                        placeholder="Description for the video">{{old('des')}}</textarea>
+                                        placeholder="Description for the video">{{$mdata->des}}</textarea>
                                     <label for="des"
                                         class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
                                     Description</label>
@@ -89,7 +90,7 @@
                                         class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                         id="additional_des"
                                         rows="3"
-                                        placeholder="Additional Description for the video">{{old('additional_des')}}</textarea>
+                                        placeholder="Additional Description for the video">{{$mdata->additional_des}}</textarea>
                                     <label for="additional_des"
                                         class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
                                    Additional Description</label>
@@ -101,7 +102,7 @@
 
                             {{-- Default --}}
                             <div class="relative w-full mb-6 xl:w-96">
-                                <input type="number" name="default" value="{{old('default')}}"
+                                <input type="number" name="default" value="{{$mdata->default}}"
                                     class="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
                                     id="default" placeholder="1 means main video, 2 means second video ..." autocomplete="off" />
                                 <label for="default"
@@ -122,4 +123,12 @@
                 </div>
 
             </div>
+            {{-- <x-slot:js>
+                <script src="{{asset('js/ckeditor5/ckeditor.js')}}"></script>
+                <script>
+                    ClassicEditor.create( document.querySelector( '#editor' ) ).catch( error => {
+                            console.error( error );
+                        } );
+                </script>
+            </x-slot:js> --}}
 </x-app-layout>

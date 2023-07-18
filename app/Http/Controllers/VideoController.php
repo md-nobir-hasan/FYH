@@ -41,7 +41,7 @@ class VideoController extends Controller
             return back();
         }
         Video::create($request->all())->only('for','embed_code','title','des','additional_des','default');
-        return redirect()->route('admin.setup.link.index')->with('success',$request->name.' successfylly created');
+        return redirect()->route('admin.setup.video.index')->with('success',$request->name.' successfylly created');
     }
 
     /**
@@ -49,7 +49,7 @@ class VideoController extends Controller
      */
     public function show(Video $video)
     {
-        //
+
     }
 
     /**
@@ -57,7 +57,11 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        //
+        if(!check('Video')->edit){
+            return back();
+        }
+
+        return view('pages.setup.videos.edit',['mdata' =>$video]);
     }
 
     /**
@@ -65,7 +69,12 @@ class VideoController extends Controller
      */
     public function update(UpdateVideoRequest $request, Video $video)
     {
-        //
+        if(!check('Video')->edit){
+            return back();
+        }
+
+        $video->update($request->all());
+        return redirect()->route('admin.setup.video.index')->with('success',$video->name.' successfylly updated');
     }
 
     /**

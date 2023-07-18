@@ -286,7 +286,7 @@ Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(fun
 
     //Videos route
 
-    Route::resource('servival',ServiceGuideController::class);
+    Route::resource('survival',ServiceGuideController::class);
 
 
 

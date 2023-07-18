@@ -1,7 +1,7 @@
 @if ($n = check('Benefit'))
     <x-app-layout>
         <x-slot name='title'>
-         Embed codes for Videos
+         Videos
         </x-slot>
         <s-slot name='style'>
             <style>
@@ -15,13 +15,13 @@
             <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
                 <div class="border-b-2 border-neutral-100 py-3 px-6 dark:border-neutral-600 dark:text-neutral-50">
                     <div class="flex justify-between">
-                        <h4 class="text-bold text-lg">Embed codes</h4>
+                        <h4 class="text-bold text-lg">Videos </h4>
                         @if ($n->add)
                             <a href="{{ route('admin.setup.video.create') }}">
                                 <div class="flex justify-center space-x-2">
                                     <button type="button"
                                         class="inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
-                                        Add new embed code
+                                        Add new video
                                     </button>
                                 </div>
                             </a>
@@ -40,7 +40,7 @@
                                         For
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Embed Code
+                                       Videos
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Title
