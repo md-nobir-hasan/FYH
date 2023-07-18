@@ -26,7 +26,7 @@ class GoogleSocialController extends Controller
 
          try {
              $google_user = Socialite::driver('google')->user();
-             $user = User::where('google_id', $google_user->getId())->first();
+             $user = User::where('email', $google_user->email)->first();
              if(!$user){
                 $Id = $request->session()->get('planId');
                 $planId = ClientType::where('plan_id', $Id)->first();
