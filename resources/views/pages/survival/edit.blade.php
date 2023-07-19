@@ -4,7 +4,11 @@
     </x-slot>
 
     <x-slot name='style'>
-
+        <style>
+            iframe{
+                width: 100%;
+        }
+        </style>
 
     </x-slot>
 
@@ -89,10 +93,28 @@
         </div>
 
         {{-- Video section  --}}
-        <div class="columns-3">
-            @foreach ($videos as $ifram)
-                {!! $ifram->embed_code !!}
-            @endforeach
+
+        <div class="mt-4">
+            <h2 class="text-center text-xl font-bold">Videos</h2>
+            {{-- @foreach ($videos as $ifram)
+                <div
+                    class="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden"
+                    style="padding-top: 56.25%">
+
+                    <iframe
+                        class="embed-responsive-item absolute bottom-0 left-0 right-0 top-0 h-full w-full"
+                        src="{{$ifram->embed_code}}"
+                        allowfullscreen></iframe>
+                </div>
+            @endforeach --}}
+            <div class="grid lg:grid-cols-3 gap-2">
+                @foreach ($videos as $iframe)
+                    <div class="">
+                        <iframe src="{{$iframe->embed_code}}" frameborder="0"
+                            ></iframe>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
         <s-slot name='js'>

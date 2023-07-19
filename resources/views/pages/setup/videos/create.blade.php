@@ -122,4 +122,15 @@
                 </div>
 
             </div>
+
+            <s-slot name='js'>
+                <script type="module">
+
+                        @if ($msg = Session::get('err'))
+                                toastr.error("{{$msg}}");
+                        @endif
+
+
+                    </script>
+            </s-slot>
 </x-app-layout>

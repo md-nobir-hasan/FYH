@@ -3,14 +3,7 @@
         <x-slot name='title'>
          Videos
         </x-slot>
-        <s-slot name='style'>
-            <style>
-                iframe{
-                    height: 100px;
-                    width: 100px;
-                }
-            </style>
-        </s-slot>
+
         <div class="p-4">
             <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
                 <div class="border-b-2 border-neutral-100 py-3 px-6 dark:border-neutral-600 dark:text-neutral-50">
@@ -78,7 +71,15 @@
 
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {!!$item->embed_code!!}
+                                            <div
+                                                class="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden"
+                                               >
+                                                <iframe
+                                                    class="embed-responsive-item"
+                                                    src="{{$item->embed_code}}"
+                                                    allowfullscreen>
+                                                </iframe>
+                                          </div>
                                         </th>
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
