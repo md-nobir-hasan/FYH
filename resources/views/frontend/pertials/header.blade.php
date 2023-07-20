@@ -17,15 +17,15 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'public/js/toastr.css'])
 </head>
 
-<body class="antialiased" style="background:url(/images/Line.png);background-size:100% 610px ;background-repeat:no-repeat;">
-    <div class="mt-12 lg:mx-40" style="font-family: 'Poppins';">
-        <div class="flex justify-between">
+<body class="antialiased" style="background:url(/images/Line.png);background-size:100%  ;background-repeat:no-repeat;">
+    <div class="mt-12 " style="font-family: 'Poppins';">
+        <div class="flex justify-between lg:w-[1320px]  mx-auto">
 
             @auth
-                <a href="{{ route('user.home') }}"><img src="{{ $setting->logo }}" alt="" class="h-8 w-24"></a>
+                <a href="{{ route('user.home') }}"><img src="{{ $setting->logo }}" alt="" class="h-[50px] w-[150px]"></a>
             @endauth
             @guest
-                <a href="{{ route('home') }}"><img src="{{ $setting->logo }}" alt="" class="h-8 w-24"></a>
+                <a href="{{ route('home') }}"><img src="{{ $setting->logo }}" alt="" class="h-[50px] w-[150px]"></a>
             @endguest
 
             <div class="flex">
@@ -48,7 +48,7 @@
 
                                 <a href="{{url($menu->link->url)}}">
                                     <button
-                                        class="ml-12 font-semibold p-2 rounded {{ request()->is($menu->link->url) ? 'active' : '' }} "
+                                        class="ml-[42px] font-[500] text-xl p-2 rounded {{ request()->is($menu->link->url) ? 'active' : '' }} "
                                         style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">{{$menu->name}}</button>
                                 </a>
 
@@ -56,9 +56,9 @@
                     @else
 
                                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                                class="ml-12 font-semibold p-2 rounded {{ request()->is('guide*') ? 'active' : '' }}"
+                                class="ml-[42px] text-xl p-2 rounded {{ request()->is('guide*') ? 'active' : '' }}"
                                 style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
-                                <div class="flex">
+                                <div class="flex justify-center items-center">
                                     {{$menu->name}}
                                     <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -87,9 +87,9 @@
                 @endforeach
 
                 {{-- @if (auth()->user() == null)
-                    <a href="{{ route('member') }}">
+                    <a href="{{ route('member') }}" class="">
                         <button
-                            class="ml-12 font-semibold p-2 rounded {{ request()->is('membership') ? 'active' : '' }} "
+                            class="font-[500] text-[20px] p-2 rounded {{ request()->is('membership') ? 'active' : '' }} "
                             style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Membership</button>
                     </a>
                 @endif
@@ -97,28 +97,28 @@
                 @auth
                     <a href="{{ route('share.story') }}">
                         <button
-                            class="ml-12 font-semibold p-2 rounded {{ request()->is('share-story') ? 'active' : '' }}""
+                            class=" font-semibold p-2 rounded {{ request()->is('share-story') ? 'active' : '' }}"
                             style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">ShareStory</button>
                     </a>
                 @endauth
                 <a href="{{ route('community') }}">
-                    <button class=" ml-12 font-semibold p-2 rounded {{ request()->is('community') ? 'active' : '' }}"
+                    <button class=" font-[500] text-[20px] p-2 rounded {{ request()->is('community') ? 'active' : '' }}"
                         style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Community</button>
                 </a>
 
                 <a href="{{ route('benefit') }}">
-                    <button class="ml-12 font-semibold p-2 rounded {{ request()->is('benefits') ? 'active' : '' }}"
+                    <button class=" font-[500] text-xl p-2 rounded {{ request()->is('benefits') ? 'active' : '' }}"
                         style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Benefits</button>
                 </a>
 
                 <a href="{{ route('about') }}">
-                    <button class="ml-12 font-semibold p-2 rounded {{ request()->is('about') ? 'active' : '' }}"
+                    <button class=" font-[500] p-2 text-xl rounded {{ request()->is('about') ? 'active' : '' }}"
                         style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
                 </a>
                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                    class="ml-12 font-semibold p-2 rounded {{ request()->is('guide*') ? 'active' : '' }}"
+                    class=" font-[500] p-2 text-xl rounded {{ request()->is('guide*') ? 'active' : '' }}"
                     style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
-                    <div class="flex">
+                    <div class="">
                         Guide <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
@@ -151,9 +151,9 @@
                 </div>
 --}}
                 @if (auth()->user() == null)
-                    <a href="{{ route('login') }}" class="flex justify-center items-center ">
+                    <a href="{{ route('login') }}" class="flex justify-center items-center">
 
-                        <button class=" w-[127px] h-[38px] ml-12 mr-5 font-semibold p-1 text-xl text-white pl-5 pr-5 rounded"
+                        <button class=" w-[127px] h-[38px] ml-[42px] mr-5 font-semibold p-1 text-xl text-white rounded"
                             style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Login</button>
 
                     </a>
