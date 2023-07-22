@@ -1,15 +1,22 @@
 <x-guest-layout>
+    <style>
+        ::placeholder {
+  color: red;
+  opacity: 0.5; /* Firefox */
+}
 
-    <div class="bg-white w-[1320px] h-[850px] mt-[107px] mb-[158px] rounded-xl lg:px-16 lg:py-10 @if($planId) lg:mx-auto @else mx-auto lg:w-[886px]@endif">
+    </style>
+
+    <div class="bg-white w-[1320px] h-[850px] mt-[107px] pt-[23px] mb-[158px] rounded-xl  @if($planId) lg:mx-auto @else mx-auto lg:w-[886px]@endif">
     <a href="{{ route('home') }}" class=" @if($planId) lg:mt-1 @else mb-10 flex items-center justify-center @endif">
-        <img src="{{ $setting->logo }}" alt="" class="lg:-mt-5 h-8 w-24 ml-[88px]">
+        <img src="{{ $setting->logo }}" alt="" class=" h-[37px] w-[111px] ml-[88px]">
     </a>
     @if($planId)
     <a href="/membership">
         <button class=" mb-4 mt-4 px-6 py-2 border ml-[88px]">Back</button>
     </a>
     @endif
-    <div class=" @if($planId) flex @else lg:w-[603px] mx-auto @endif"
+    <div class=" @if($planId) flex @endif"
         style="font-family: 'Poppins';">
         <form class="@if($planId) mr-[24px] lg:w-[702px] lg:h-[700px] ml-[88px] border-gray-300 border-2 lg:col-span-2 p-10 rounded-xl @endif" method="POST" action="{{ route('register') }}"
 
@@ -63,8 +70,8 @@
             <div class="">
                 <x-input-label for="fname" : value="First Name"/>
                 <x-text-input id="fname" class="block mt-1 w-full shadow" type="text" name="fname"
-                    :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
-                    placeholder="e.g. Thomas" style="opacity:0.5"/>
+                    :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0;border-bottom:0;opacity:0.5"
+                    placeholder="e.g. Thomas"/>
                 <x-input-error :messages="$errors->get('fname')" class="mt-2" />
             </div>
             <div class="mt-4">
@@ -93,7 +100,7 @@
                 <x-text-input id="password" class="block mt-2 w-full shadow" type="password" name="password"
                     required autocomplete="new-password" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
                     placeholder="min 8 character" style="opacity:0.5"/>
-
+                    
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
