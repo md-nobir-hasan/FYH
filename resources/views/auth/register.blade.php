@@ -1,11 +1,5 @@
 <x-guest-layout>
-    <style>
-        ::placeholder {
-  color: red;
-  opacity: 0.5; /* Firefox */
-}
-
-    </style>
+    
 
     <div class="bg-white w-[1320px] h-[850px] mt-[107px] pt-[23px] mb-[158px] rounded-xl  @if($planId) lg:mx-auto @else mx-auto lg:w-[886px]@endif">
     <a href="{{ route('home') }}" class=" @if($planId) lg:mt-1 @else mb-10 flex items-center justify-center @endif">
