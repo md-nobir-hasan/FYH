@@ -4,7 +4,7 @@
 @endpush
 @section('content')
 
-<div class="lg:mx-40 mx-10 bg-white" style="font-family:'Poppins'">
+<div class="w-[1320px] mx-auto bg-white" style="font-family:'Poppins'">
   <form action="{{route('share.story.store')}}" method="post" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 gap-10">
   @csrf
     <!-- image section -->
