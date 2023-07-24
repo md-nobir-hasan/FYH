@@ -356,7 +356,7 @@
                     Story</button></a>
             @else
                 <a href="{{route('member')}}" class=" flex justify-center items-center"><button
-                    class=" mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
+                    class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
                     Story</button></a>
 
              @endif
