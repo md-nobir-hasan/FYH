@@ -39,21 +39,21 @@
             <form action="{{ route('community.search') }}" method="post">
                 @csrf
 
-                <div class="lg:mx-36 grid lg:grid-cols-5 gap-5">
-                    <div class="lg:w-64">
+                <div class="w-[1320px] mx-auto flex">
+                    <div class="">
                         <p class="font-medium">Sort Stories</p>
 
                         <select name="stories"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option class="text-lg" value="latest">Most Recent</option>
                             <option class="text-lg" value="">Most Relevant</option>
 
                         </select>
                     </div>
-                    <div class="lg:ml-24 lg:w-64">
+                    <div class="ml-[75px]">
                         <p>By Country</p>
                         <select id="countries" name="country_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option class="text-lg" selected value="">All Country</option>
                             @foreach ($country as $story)
                                 <option value="{{ $story->id }}">{{ $story->country }}</option>
@@ -62,11 +62,11 @@
                         </select>
 
                     </div>
-                    <div class="lg:w-64 lg:ml-44">
+                    <div class=" ml-[75px]">
                         <p>By Time</p>
 
                         <select name="time"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
                             <option class="text-lg mb-1" value="">Any Time</option>
                             <option class="text-lg mb-1" value="1">Past 24 Hours</option>
@@ -79,10 +79,10 @@
 
                         </select>
                     </div>
-                    <div class="flex justify-center items-center lg:mt-5 lg:ml-72">
+                    <div class="flex justify-center items-center ml-[17px] mt-6">
                         <button type="submit" class="border px-4 py-2 rounded shadow hover:shadow-xl">Apply</button>
                     </div>
-                    <div class="flex justify-center items-center lg:mt-5 lg:ml-28">
+                    <div class="flex justify-center items-center ml-[17px] mt-6">
                         <input type="reset" class="border px-4 py-2 rounded shadow hover:shadow-xl" value="Clear">
                     </div>
 
@@ -98,7 +98,7 @@
                 @if ($loop->index ==0 || $loop->index%3 ==0)
                     <div
                     style="background:url('/images/benifitbg.png');background-size:100% 516px;background-position:0 100%;background-repeat:no-repeat">
-                    <div class="grid grid-cols-3 gap-6 w-[1320px] mx-auto mt-4">
+                    <div class="grid grid-cols-3 gap-6 w-[1320px] mx-auto mt-6">
                 @endif
                             <div
                                 class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -152,41 +152,27 @@
         </div>
         <div>
             @auth
-
-
-                <section class=" mb-[-100px] shadow-xl pb-10"
-                    style="background:url('/images/lastbg.png');background-position:cover;background-repeat:no-repeat;background-size:100%">
-                    <div class=" py-14"
-                        style="background:url('/images/Line2.png');background-position:0px 110px;background-repeat:no-repeat;background-size:100%">
-
-                        <section class="mt-28 mb-[-100px]">
-
-                            <h1 class="font-bold text-5xl text-[#212427] text-center">
-                                @if ($storyHead !== null)
+            <section class=" mb-[-100px]"  style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
+            <div class="py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
+            <div class="pb-28 shadow-lg">
+            <h1 class="font-bold text-[50px] text-[#212427] text-center">
+            @if ($storyHead !== null)
                                     {{ $storyHead->share_title }}
                                 @endif
-                            </h1>
-
-                            <div class="mb-10">
-                                <p class="text-xl text-center text-[#D1052C] uppercase w-8/12 mx-auto">
-                                    @if ($storyHead !== null)
+            </h1>
+           
+            <p class="text-xl text-center text-[#D1052C] uppercase w-[986px] mx-auto">
+            @if ($storyHead !== null)
                                         {{ $storyHead->share_subtitle }}
                                     @endif
-                                </p>
-
-                            </div>
-
-                    </div>
-                    <a href="{{ route('share.story') }}" class=" flex justify-center items-center"><button
-                            class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">
-                            Share Your Story
-                        </button></a>
-
-            </div>
-
-
-
-            </section>
+            </p>
+                <a href="{{route('share.story')}}" class=" flex justify-center items-center"><button
+                class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
+                Story</button></a>
+    </div>
+    </div>
+    </section>
+            
         @endauth
     </div>
 
