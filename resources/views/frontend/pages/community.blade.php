@@ -4,7 +4,7 @@
 @endpush
 @section('content')
 
-    <div class=" mt-[55px] mb-[-200px]" style="font-family:'Poppins'">
+    <div class=" mt-[104px] mb-[-200px]" style="font-family:'Poppins'">
 
 
         @guest
@@ -13,7 +13,7 @@
                     {{ $storyHead->story_title }}
                 @endif
             </h1>
-            <p class="text-lg text-center">
+            <p class="text-2xl font-normal text-center">
                 @if ($storyHead !== null)
                     {{ $storyHead->story_subtitle }}
                 @endif
@@ -97,8 +97,8 @@
                 @php  $countryName = App\Models\Country::where('id', $story->country_id)->first(); @endphp
                 @if ($loop->index ==0 || $loop->index%3 ==0)
                     <div
-                    style="background:url('/images/benifitbg.png');background-size:1920px 516px;background-position:0 100%;background-repeat:no-repeat">
-                    <div class="grid grid-cols-3 gap-4 lg:mx-36 mt-4">
+                    style="background:url('/images/benifitbg.png');background-size:100% 516px;background-position:0 100%;background-repeat:no-repeat">
+                    <div class="grid grid-cols-3 gap-6 w-[1320px] mx-auto mt-4">
                 @endif
                             <div
                                 class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
