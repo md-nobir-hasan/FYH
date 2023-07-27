@@ -107,16 +107,16 @@
                                     <img class="h-[424px] w-full" src="{{ asset('/storage/' . $story->image) }}"
                                         alt="{{ $story->name }}" />
                                 </a>
-                                <div class="p-5 h-[516px]">
+                                <div class=" h-[516px]">
                                     <a href="#">
-                                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
+                                        <h5 class="pt-[20px] px-[22px] text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
                                     </a>
-                                    <p class="mb-3 text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 600) }}</p>
+                                    <p class="mt-5 mx-[22px] text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 600) }}</p>
                                     <a href="{{ route('single-story', $story->id) }}"
-                                        class="text-[#D1052C] font-bold text-base">Read More</a>
-                                    <h3 class="font-semibold text-xl text-[#212427]">{{ $story->name }}</h3>
-                                    <p class="text-[#212427] text-sm font-normal">{{$story->profession}}</p>
-                                    <p class="text-[#212427] text-sm font-normal">
+                                        class="text-[#D1052C] font-bold text-base mx-[22px]">Read More</a>
+                                    <h3 class="font-semibold text-xl mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
+                                    <p class="text-[#212427] mx-[22px] text-sm font-normal">{{$story->profession}}</p>
+                                    <p class="text-[#212427] text-sm mx-[22px] font-normal">
                                         {{ $story->city }},{{ $countryName->country }}</p>
                                 </div>
                             </div>

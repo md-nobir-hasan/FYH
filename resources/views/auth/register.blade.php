@@ -1,6 +1,9 @@
 <x-guest-layout>
-    
-
+<style>
+   input::placeholder {
+  opacity: 0.5;
+}
+</style>
     <div class="bg-white w-[1320px] h-[850px] mt-[107px] pt-[23px] mb-[158px] rounded-xl  @if($planId) lg:mx-auto @else mx-auto lg:w-[886px]@endif">
     <a href="{{ route('home') }}" class=" @if($planId) lg:mt-1 @else mb-10 flex items-center justify-center @endif">
         <img src="{{ $setting->logo }}" alt="" class=" h-[37px] w-[111px] ml-[88px]">
@@ -63,16 +66,16 @@
             <!-- Name -->
             <div class="">
                 <x-input-label for="fname" : value="First Name"/>
-                <x-text-input id="fname" class="block mt-1 w-full shadow" type="text" name="fname"
-                    :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0;border-bottom:0;opacity:0.5"
-                    placeholder="e.g. Thomas"/>
+                <x-text-input placeholder="e.g. Thomas" id="fname" class="block mt-1 w-full shadow placeholder-opacity-50" type="text" name="fname"
+                    :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0;border-bottom:0;"
+                    />
                 <x-input-error :messages="$errors->get('fname')" class="mt-2" />
             </div>
             <div class="mt-4">
                 <x-input-label for="lname" : value="Last Name"/>
                 <x-text-input id="lname" class="block mt-2 w-full shadow" type="text" name="lname"
                     :value="old('lname')" required autocomplete="lname" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
-                    placeholder="e.g. Tsangaras" style="opacity:0.5"/>
+                    placeholder="e.g. Tsangaras"/>
                 <x-input-error :messages="$errors->get('lname')" class="mt-2" />
             </div>
 
@@ -81,7 +84,7 @@
                 <x-input-label for="email" : value="Email"/>
                 <x-text-input id="email" class="block mt-2 w-full shadow" type="email" name="email"
                     :value="old('email')" required autocomplete="username"
-                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="e.g. mymail@mail.com" style="opacity:0.5"/>
+                    style="border-top:0;border-right:0; border-left:0;border-bottom:0;" placeholder="e.g. mymail@mail.com"/>
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
@@ -89,22 +92,34 @@
 
             <!-- Password -->
             <div class="mt-4">
+            <label class="relative" for="password">
                 <x-input-label for="password" : value="Password"/>
 
                 <x-text-input id="password" class="block mt-2 w-full shadow" type="password" name="password"
                     required autocomplete="new-password" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
-                    placeholder="min 8 character" style="opacity:0.5"/>
+                    placeholder="min 8 character"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-none mt-3 cursor-default">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+</label>
                     
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <!-- Confirm Password -->
             <div class="mt-4">
+            <label class="relative" for="password">
                 <x-input-label for="password_confirmation" : value="Confirm Password"/>
 
                 <x-text-input id="password_confirmation" class="block mt-2 w-full shadow" type="password"
                     name="password_confirmation" required autocomplete="new-password"
-                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="min 8 character" style="opacity:0.5"/>
+                    style="border-top:0;border-right:0; border-left:0;border-bottom:0" placeholder="min 8 character"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-none mt-3 cursor-default">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+</label>
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>

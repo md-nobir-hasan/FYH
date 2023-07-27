@@ -71,26 +71,26 @@ iframe{
   </div>
 
 
-  <div class="mt-[50px] grid gap-6 lg:grid-cols-3 grid-cols-1 w-[1320px] mx-auto">
+  <div class="mt-[50px] flex w-[1320px] mx-auto">
     <!-- {{'/storage/'. $about->first_image}} -->
-    <div>
+    <div class="">
     @if($about!==null)   <img src="/images/story2.png" alt="" class="w-[561px] h-[316px]">
     <h1 class="-mt-40 ml-10 absolute text-[50px] font-black text-white">My Best Decision<br><span class="ml-5">of Relocating</span> </h1> @endif 
     </div>   
-    <div class=" col-span-2">
+    <div class="w-[735px] ml-[24px]">
     <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
         <p class="text-base text-justify font-normal">@if($about!==null)  {!!$about->first_image_story!!}  @endif</p>   
     </div>
   </div>
-  <div class=" grid lg:grid-cols-3 gap-6 mx-auto mt-6 grid-cols-1 w-[1320px]">
-  <div class=" col-span-2">
+  <div class="flex mx-auto mt-6 w-[1320px]">
+  <div class="w-[735px] mr-[24px]">
     <!-- {{'/storage/'. $about->second_image}} -->
     <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
     <p class="text-justify text-base font-normal">@if($about!==null)  {!!$about->second_image_story!!}  @endif  </p>
     </div>
     <div>
     @if($about!==null)    <img src="/images/story3.png" alt="" class="w-[561px] h-[316px]"> 
-    <h1 class="absolute text-[50px] font-black -mt-40 ml-5 text-white"><span class="ml-20">Master Of</span> <br>Happiness in Here</h1>@endif 
+    <h1 class="absolute text-[50px] font-black -mt-40 ml-20 text-white"><span class="ml-20">Master Of</span> <br>Happiness in Here</h1>@endif 
     </div> 
     
   </div>

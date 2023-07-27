@@ -53,9 +53,9 @@
                 </div>
             </div>
             <!-- make changing section -->
-            <div class="mt-[-50px]">
+            <div class="mt-[40px]">
                 @if ($home !== null)
-                    <img src="{{ '/storage/' . $home->image }}" alt="" class="  ml-[40px] absolute">
+                    <img src="/images/Theme.png" alt="" class="w-[605px] h-[406px]  ml-[40px] absolute">
                 @endif
             </div>
             <!-- make changing section end -->
@@ -81,13 +81,13 @@
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
                         <a href="#"
-                            class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700">
+                            class=" w-[424px] h-[234px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700">
                             <img src="{{ '/storage/' . $item->image }}" alt="{{ $item->title }}"
-                                class="h-20 w-20 mx-auto rounded-full"
+                                class="h-20 w-20 mx-auto rounded-full mt-[16px]"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-                            <h5 class="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
+                            <h5 class="mb-[10px] mt-[20px] text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
                                 {{ $item->title }} </h5>
-                            <p class="font-normal text-sm text-justify">
+                            <p class=" px-[39.5px] font-normal text-sm text-justify">
                                 {{ $item->description }}
                             </p>
                         </a>
@@ -130,8 +130,8 @@
                             <div class="ml-6">
                                 <p class=" font-normal text-base text-[#212427] text-justify"> {{ $firstfeature->description }} </p>
                                 <div class="flex">
-                                    <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-3 ">
-                                    <div class="mt-3 ml-3">
+                                    <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-[24px] ">
+                                    <div class="mt-[24px] ml-[5px]">
                                         <h1 class="text-xl font-semibold text-[#212427]"> {{ $firstfeature->name }}.</h1>
                                         <p class="capitalize text-sm tracking-wider font-normal"> {{ $firstfeature->profession }} </p>
                                     </div>
@@ -150,8 +150,8 @@
                             <div>
                                 <p class=" font-normal text-base text-justify"> {{ $secondfeture->description }} </p>
                                 <div class="flex">
-                                    <img src="/images/Ellipse 36.png" alt="" class="h-12 mt-3">
-                                    <div class="mt-3 ml-3">
+                                    <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-[24px]">
+                                    <div class="mt-[24px] ml-3">
                                         <h1 class="text-xl font-semibold text-[#212427]"> {{ $secondfeture->name }} </h1>
                                         <p class="capitalize text-base font-normal"> {{ $secondfeture->profession }} </p>
                                     </div>
@@ -203,17 +203,17 @@
                     <a href="#">
                         <img class=" lg:h-[424px] w-full" src="{{'/storage/'. $pStory->image}}" alt=""/>
                     </a>
-                    <div class="px-4 pt-3 h-[516px]">
+                    <div class="px-[22px] pt-[20px] h-[516px]">
                         <a href="#">
                             <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">" {{Str::limit($pStory->title, 28)}} "</h5>
                         </a>
-                        <p class=" text-sm font-normal text-[#212427] text-justify"> {{Str::limit($pStory->description, 600)}} </p>
-                        <a href="{{route('single-story', $pStory->slug)}}" class="text-[#D1052C] font-bold">
+                        <p class="mt-[20px] text-sm font-normal text-[#212427] text-justify"> {{Str::limit($pStory->description, 600)}} </p>
+                        <a href="{{route('single-story', $pStory->slug)}}" class="text-[#D1052C] text-[16px] font-bold">
                             Read more
                         </a>
-                        <h1 class="text-xl font-semibold mt-2"> {{$pStory->name}} <h1>
-                                <p class="capitalize">{{$pStory->profession}}</p>
-                                <p class="capitalize">{{$pStory->city}} ,{{$pStory->country->country}}</p>
+                        <h1 class="text-xl font-semibold mt-[20px]"> {{$pStory->name}} <h1>
+                                <p class="capitalize text-sm font-normal">{{$pStory->profession}}</p>
+                                <p class="capitalize text-sm font-normal">{{$pStory->city}} ,{{$pStory->country->country}}</p>
                     </div>
                 </div>
 
@@ -265,7 +265,7 @@
                 @if ($services->count() > 0)
                     @foreach ($services as $item)
                         <div class="mr-[27px] ml-4">
-                            <div class="flex justify-center items-center"><img src="{{ '/storage/' . $item->image }}" alt="" class="w-[100px] h-[100px]" /></div>
+                            <div class="flex justify-center items-center"><img src="{{ '/storage/' . $item->image }}" alt="" class="w-[103px] h-[100px]" /></div>
                             <h1 class="font-semibold text-xl text-center"> {{ Str::limit($item->title, 12) }} </h1>
                             <p class="text-center lg:-mx-20 text-base font-normal"> {{ Str::limit($item->description, 140) }} </p>
                         </div>
@@ -300,15 +300,15 @@
                         <a href="{{ route('single-story', $item->slug) }}"
                             class="w-[424px] h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
                             <div class="flex">
-                                <img src="{{ '/storage/' . $item->image }}" alt="" class="h-16 w-16 rounded-full"
+                                <img src="{{ '/storage/' . $item->image }}" alt="" class="h-[103px] w-[103px] rounded-full ml-[17px]"
                                     style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-                                <div class="ml-2">
+                                <div class="ml-[14px] mt-[20px]">
                                     <h1 class="text-[28px] font-semibold"> {{ $item->name }} </h1>
                                     <p class="font-normal text-xl"> {{ $item->profession }} </p>
                                 </div>
                             </div>
-                            <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
-                            <p class="font-normal text-base dark:text-gray-400">
+                            <h5 class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
+                            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
                                 {{ Str::limit($item->description, 250) }}
                             </p>
                         </a>
