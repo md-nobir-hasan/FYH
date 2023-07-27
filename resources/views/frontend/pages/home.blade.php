@@ -265,9 +265,9 @@
                 @if ($services->count() > 0)
                     @foreach ($services as $item)
                         <div class="mr-[27px] ml-4">
-                            <div class="flex justify-center items-center"><img src="{{ '/storage/' . $item->image }}" alt="" class="w-[100px] h-[100px]" /></div>
-                            <h1 class="font-semibold text-xl text-center"> {{ Str::limit($item->title, 12) }} </h1>
-                            <p class="text-center lg:-mx-20 text-base font-normal"> {{ Str::limit($item->description, 140) }} </p>
+                            <div class="flex justify-center items-center"><img src="{{ asset($item->image) }}" alt="" class="w-[100px] h-[100px]" /></div>
+                            <h1 class="font-semibold text-xl text-center"> {{ $item->title }} </h1>
+                            <p class="text-center lg:-mx-20 text-base font-normal"> {!! $item->description !!} </p>
                         </div>
                        @if (!$loop->last)
                         <div class="mt-16">
