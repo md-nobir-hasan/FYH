@@ -88,7 +88,7 @@
                             <h5 class="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
                                 {{ $item->title }} </h5>
                             <p class="font-normal text-sm text-center">
-                                {!! $item->description !!}
+                                {!! $item->first_para !!}
                             </p>
                         </a>
                     @endforeach
