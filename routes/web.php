@@ -100,7 +100,8 @@ use Illuminate\Support\Facades\Route;
      Route::get('/discover', [FrontendControler::class, 'discover'])->name('discover');
      Route::get('/about', [FrontendControler::class, 'about'])->name('about');
 
-     Route::any('/billings', [FrontendControler::class, 'billingPage'])->name('web.billing');
+     Route::any('/biling/show/{id}', [FrontendControler::class, 'billingPage'])->name('billing.show');
+     Route::any('/billings', [FrontendControler::class, 'billing'])->name('web.billing');
      Route::post('billings/{planId?}', [FrontendControler::class, 'billingSto'])->name('web.billing.store');
 
      // checkout

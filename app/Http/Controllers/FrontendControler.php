@@ -58,9 +58,9 @@ class FrontendControler extends Controller
   }
 
   public function membershipPage(){
-    if(Auth::user()){
-      return redirect()->route('home');
-    }
+    // if(Auth::user()){
+    //   return redirect()->route('home');
+    // }
        $memberShips = ClientType::orderBy('created_at', 'desc')->get();
        $opportunity = Opportunity::orderBy('id', 'asc')->first();
     return view('frontend.pages.member', compact('memberShips','opportunity'));
@@ -98,7 +98,7 @@ class FrontendControler extends Controller
      $about = About::first();
      $shareStory = Home::select('share_title', 'share_subtitle')->first();
      $stories = Story::orderBy('priority','asc')->take(3)->get();
-     $videos = Video::all();
+     $videos = Video::where('for','about')->get();
     return view('frontend.pages.about', compact('about', 'stories', 'shareStory','videos'));
   }
 
@@ -231,16 +231,22 @@ class FrontendControler extends Controller
     return view('frontend.pages.survival',$n);
     }
 
-  public function billingPage(Request $request){
-
+  public function billing(Request $request){
+// dd($request->all());
     $plan = $request->plan;
     $user = auth()->user();
      if($user == null){
        return to_route('register',$plan);
      }
     $planId = ClientType::where('plan_id', $plan)->first();
-    return view('frontend.pages.billing', ['planId' => $planId]);
+    return to_route('billing.show',[$planId->id]);
   }
+
+  public function billingPage($id){
+    $n['planId'] = ClientType::find( $id);
+    return view('frontend.pages.billing',$n);
+
+}
 
   public function billingSto(Request $request, $planId)
   {
