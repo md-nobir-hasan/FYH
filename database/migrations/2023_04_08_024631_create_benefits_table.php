@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
-            $table->longText('description')->nullable();
+            $table->longText('first_para')->nullable();
+            $table->longText('rest_para')->nullable();
             $table->string('image')->nullable();
             $table->integer('priority')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();

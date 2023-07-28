@@ -25,19 +25,14 @@ use App\Models\User;
 use App\Notifications\StoryNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use Artisan;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use Illuminate\Support\Carbon as SupportCarbon;
-use Event;
-use App\Events\SubscriptionCreated;
 use App\Models\Survival;
 use App\Models\Video;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 
 class FrontendControler extends Controller
 {
@@ -425,8 +420,8 @@ class FrontendControler extends Controller
 
 
  public function mailSubscribe(Request $request){
-              Event::dispatch(new SendSubscribe($request->email));
-              return to_route('mail.subscribe.thank');
+            Event::dispatch(new SendSubscribe($request->email));
+            return to_route('mail.subscribe.thank');
 
 
   }
