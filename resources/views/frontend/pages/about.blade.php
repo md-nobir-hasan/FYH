@@ -24,10 +24,10 @@ iframe{
 
 <div class="mt-[100px]"  style="font-family:'Poppins'">
     <h1 class="text-center text-[50px] font-bold">
-        @if($about!==null)  {{$about->title}}  @endif    
+        @if($about!==null)  {{$about->title}}  @endif
     </h1>
-    <p class="text-center text-2xl font-normal capitalize"> 
-        @if($about!==null)  {{$about->title_description}}  @endif      
+    <p class="text-center text-2xl font-normal capitalize">
+        @if($about!==null)  {{$about->title_description}}  @endif
     </p>
 <div class="" style="background:url('/images/benifitbg.png');background-size:100% 518px;background-repeat:no-repeat">
     <div class="w-[1320px] mx-auto">
@@ -44,7 +44,7 @@ iframe{
     @if($about->images!==null)
     @foreach (json_decode($about->images)  as $item)
          <img src="{{'/storage/'.$item}}" alt="" class="rounded-lg w-[312px] h-[212px]">
-      
+
     @endforeach
     @endif
 </div>
@@ -52,15 +52,17 @@ iframe{
     </div>
 
     <p class=" mt-6 w-[1144px] mx-auto text-justify text-base font-normal">
-        @if($about!==null)  {{$about->images_description}}  @endif     
+        @if($about!==null)  {{$about->images_description}}  @endif
     </p>
 
     {{-- <iframe height="240" controls class="lg:mx-48 mt-5 mx-20 md:w-[600px] lg:w-[960px]">
   <source src="movie.mp4" type="video/mp4">
     </iframe> --}}
-
+    @php
+        $default_video = $videos->where('default',1)->first();
+    @endphp
         <div class="mt-[50px]" >
-            @if($about!==null)  {!!$about->youtube !!}  @endif   
+            <iframe src="{{$default_video->embed_code}}" frameborder="0"></iframe>
         </div>
 
 
@@ -71,28 +73,28 @@ iframe{
   </div>
 
 
-  <div class="mt-[50px] grid gap-6 lg:grid-cols-3 grid-cols-1 w-[1320px] mx-auto">
+  <div class="mt-[50px] flex w-[1320px] mx-auto">
     <!-- {{'/storage/'. $about->first_image}} -->
-    <div>
+    <div class="">
     @if($about!==null)   <img src="/images/story2.png" alt="" class="w-[561px] h-[316px]">
-    <h1 class="-mt-40 ml-10 absolute text-[50px] font-black text-white">My Best Decision<br><span class="ml-5">of Relocating</span> </h1> @endif 
-    </div>   
-    <div class=" col-span-2">
+    <h1 class="-mt-40 ml-10 absolute text-[50px] font-black text-white">My Best Decision<br><span class="ml-5">of Relocating</span> </h1> @endif
+    </div>
+    <div class="w-[735px] ml-[24px]">
     <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
-        <p class="text-base text-justify font-normal">@if($about!==null)  {!!$about->first_image_story!!}  @endif</p>   
+        <p class="text-base text-justify font-normal">@if($about!==null)  {!!$about->first_image_story!!}  @endif</p>
     </div>
   </div>
-  <div class=" grid lg:grid-cols-3 gap-6 mx-auto mt-6 grid-cols-1 w-[1320px]">
-  <div class=" col-span-2">
+  <div class="flex mx-auto mt-6 w-[1320px]">
+  <div class="w-[735px] mr-[24px]">
     <!-- {{'/storage/'. $about->second_image}} -->
     <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
     <p class="text-justify text-base font-normal">@if($about!==null)  {!!$about->second_image_story!!}  @endif  </p>
     </div>
     <div>
-    @if($about!==null)    <img src="/images/story3.png" alt="" class="w-[561px] h-[316px]"> 
-    <h1 class="absolute text-[50px] font-black -mt-40 ml-5 text-white"><span class="ml-20">Master Of</span> <br>Happiness in Here</h1>@endif 
-    </div> 
-    
+    @if($about!==null)    <img src="/images/story3.png" alt="" class="w-[561px] h-[316px]">
+    <h1 class="absolute text-[50px] font-black -mt-40 ml-20 text-white"><span class="ml-20">Master Of</span> <br>Happiness in Here</h1>@endif
+    </div>
+
   </div>
 
   <!-- Success section start -->
@@ -121,12 +123,12 @@ iframe{
                             </div>
                             <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
                             <p class="font-normal text-base dark:text-gray-400">
-                            {{Str::limit($item->description, 200)}} 
+                            {{Str::limit($item->description, 200)}}
                             </p>
                         </a>
                     @endforeach
                 @endif
-                
+
 
             </div>
             <!-- success card end -->
@@ -137,7 +139,7 @@ iframe{
 </svg>
         </div>
   <!-- another -->
-  
+
         <!-- Success section end -->
         <section class=" mb-[-100px]"  style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
             <div class="py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
@@ -145,7 +147,7 @@ iframe{
             <h1 class="font-bold text-[50px] text-[#212427] text-center">
             @if($shareStory !==null) {{$shareStory->share_title}}  @endif
             </h1>
-           
+
             <p class="text-xl text-center text-[#D1052C] uppercase w-[986px] mx-auto">
             @if($shareStory !==null) {{$shareStory->share_subtitle}}  @endif
             </p>
