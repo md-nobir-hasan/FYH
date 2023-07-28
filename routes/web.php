@@ -53,6 +53,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/payment', [FrontendControler::class,'paymentPage'])->name('payment');
     Route::get('/congratulations/{planId?}', [FrontendControler::class,'congratsPage'])->name('congrats');
     Route::get('/benefits', [FrontendControler::class,'benefitPage'])->name('benefit');
+    Route::get('/benefit-details/{id}', [FrontendControler::class,'benefitDetails'])->name('benefit.details');
     Route::get('/single-benefits/{slug}', [FrontendControler::class,'singleBenefit'])->name('single.benefit');
     Route::get('/single-story/{id}', [FrontendControler::class,'singleStory'])->name('single-story');
     Route::get('/refuse', [FrontendControler::class,'refuse'])->name('refuse');

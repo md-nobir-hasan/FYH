@@ -25,19 +25,14 @@ use App\Models\User;
 use App\Notifications\StoryNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use Artisan;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use Illuminate\Support\Carbon as SupportCarbon;
-use Event;
-use App\Events\SubscriptionCreated;
 use App\Models\Survival;
 use App\Models\Video;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 
 class FrontendControler extends Controller
 {
@@ -103,7 +98,8 @@ class FrontendControler extends Controller
      $about = About::first();
      $shareStory = Home::select('share_title', 'share_subtitle')->first();
      $stories = Story::orderBy('priority','asc')->take(3)->get();
-    return view('frontend.pages.about', compact('about', 'stories', 'shareStory'));
+     $videos = Video::all();
+    return view('frontend.pages.about', compact('about', 'stories', 'shareStory','videos'));
   }
 
   public function discover(){
@@ -113,6 +109,7 @@ class FrontendControler extends Controller
   public function benefitPage(){
       $benefitHeader = Home::select('benefit_title', 'benefit_subtitle')->first();
       $Benefits = Benefit::orderBy('priority','asc')->get();
+    //   dd($Benefits);
       return view('frontend.pages.benefit', ['Benefits' => $Benefits, 'benefitHeader' => $benefitHeader]);
   }
 
@@ -425,8 +422,8 @@ class FrontendControler extends Controller
 
 
  public function mailSubscribe(Request $request){
-              Event::dispatch(new SendSubscribe($request->email));
-              return to_route('mail.subscribe.thank');
+            Event::dispatch(new SendSubscribe($request->email));
+            return to_route('mail.subscribe.thank');
 
 
   }
@@ -440,6 +437,11 @@ class FrontendControler extends Controller
 public function error(){
     return view('errors.404');
 }
+
+    public function benefitDetails($id){
+        $n['mdata'] = Benefit::find($id);
+        return view('frontend.pages.benefit-details',$n);
+    }
 
 
 }

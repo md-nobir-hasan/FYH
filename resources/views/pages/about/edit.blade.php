@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name='title'>
         About Page
-       
+
     </x-slot>
 
     <div class="p-4">
-    
+
 
         <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
 
@@ -16,10 +16,10 @@
                         @csrf
                       @if($about!==null)  @method('PUT') @endif
                         <h4 class="font-bold text-xl underline text-left">About Section</h4>
-                     
 
 
-                       
+
+
 
                         <div class="grid gap-6 mb-6 md:grid-cols-2">
 
@@ -33,7 +33,7 @@
                                 class="@error('title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="title" />
-    
+
                                 @error('title')
                                 <div class="text-left text-red-600">{{ $message }}</div>
                                @enderror
@@ -61,13 +61,13 @@
                                 placeholder="Enter heading">
                                 @if($about!==null)  {!!$about->heading !!}  @endif
                                </textarea>
-    
+
                                 @error('heading')
                                 <div class="text-left text-red-600">{{ $message }}</div>
                                @enderror
                             </div>
 
-                         
+
 
                             <div class="mb-6">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Heading Description: </label>
@@ -95,7 +95,7 @@
                                 @enderror
                             </div>
 
-                            
+
                             <div class="mb-6">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Images Description: </label>
                                     <textarea  name="images_description" rows="2" class="@error('images_description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -106,29 +106,7 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
                             </div>
-                     
-                            <div class="mb-6">
-                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Youtube Iframe: </label>
-                                    <textarea  name="youtube" rows="4" class="@error('details') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                                     placeholder="Paste Youtube Iframe">
-                                     @if($about!==null)  {{$about->youtube  }}  @endif
-                                    </textarea>
-                                    @error('youtube')
-                                    <div class="text-left text-red-600">{{ $message }}</div>
-                                   @enderror
-                            </div>
-    
-                            <div class="mb-6">
-                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Youtube Video Description: </label>
-                                    <textarea  name="youtube_description" rows="2" class="@error('title_description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                                     placeholder="Enter Home Section deatils">
-                                     @if($about!==null)  {{$about->youtube_description  }}  @endif
-                                    </textarea>
-                                    @error('youtube_description')
-                                    <div class="text-left text-red-600">{{ $message }}</div>
-                                   @enderror
-                            </div>
-    
+                            
                             <div class="text-left">
                                 <label
                                 for="logo"
@@ -143,7 +121,7 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                 @enderror
                             </div>
-    
+
                             <div class="mb-6">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">First Image Story: </label>
                                     <textarea id="edito" name="first_image_story" rows="2" class="@error('title_description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -154,7 +132,7 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
                             </div>
-    
+
                             <div class="text-left">
                                 <label
                                 for="logo"
@@ -169,7 +147,7 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                 @enderror
                             </div>
-    
+
                             <div class="mb-6">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Second Image Story: </label>
                                     <textarea   name="second_image_story" rows="2" class="@error('title_description') is-invalid @enderror editor block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -180,10 +158,10 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
                             </div>
-                          
+
                         </div>
-                    
-                     
+
+
                         <div class="mt-10">
                             <button class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                 Save</button>
@@ -192,7 +170,7 @@
 
 
 
-                   
+
                 </div>
             </div>
             <s-slot name='js'>

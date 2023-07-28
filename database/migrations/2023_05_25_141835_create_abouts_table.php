@@ -19,8 +19,6 @@ return new class extends Migration
             $table->text('heading_description')->nullable();
             $table->longText('images')->nullable();
             $table->longText('images_description')->nullable();
-            $table->text('youtube')->nullable();
-            $table->text('youtube_description')->nullable();
             $table->string('first_image')->nullable();
             $table->text('first_image_story')->nullable();
             $table->string('second_image')->nullable();

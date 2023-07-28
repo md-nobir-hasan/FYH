@@ -9,7 +9,7 @@
                $countrys = App\Models\Country::all();
     @endphp
 
-    <div class="bg-[#F5F5F5] lg:mx-40 p-10 rounded mt-20" style="font-family: 'Poppins';">
+    <div class="bg-white p-10 rounded mt-20" style="font-family: 'Poppins';">
     <!-- <img src="{{asset('/images/fyhlogo.png')}}" alt="" class="lg:ml-20 h-8 w-24"> -->
        <div class="">
         <button class="bg-white p-2 rounded"><i class="fa-solid fa-arrow-left"></i><span class="ml-2">back</span></button>

@@ -19,8 +19,8 @@ class AboutController extends Controller
 
     public function store(AboutRequest $request)
     {
-   
- 
+
+
             //multiple image
          if($request->hasFile('images')){
             $images = $request->file('images');
@@ -31,7 +31,7 @@ class AboutController extends Controller
             $path[] = null;
       }
 
-      //  fast image 
+      //  fast image
       if($request->hasFile('first_image')){
             $first_image = $request->file('first_image')->store('image');
       }else{
@@ -47,7 +47,7 @@ class AboutController extends Controller
       }else{
             $second_image = null;
       }
-       
+
 
           About::create([
               'title' => $request->title,
@@ -56,22 +56,20 @@ class AboutController extends Controller
               	'heading_description' => $request->heading_description,
               'images' => json_encode($path),
                'images_description' => $request->images_description,
-               'youtube' => $request->youtube,
-                'youtube_description' => $request->youtube_description,
-                 'first_image' => $first_image , 
-                 'first_image_story' => $request->first_image_story, 
+                 'first_image' => $first_image ,
+                 'first_image_story' => $request->first_image_story,
                  'second_image' => $second_image,
                  	'second_image_story' => $request->second_image_story,
           ]);
 
-           
+
           return Redirect::back()->with('success',' Successfully created');
     }
 
     public function update(AboutRequest $request, About $about)
     {
-      
-      // multiple image 
+
+      // multiple image
        if($request->hasFile('images')){
             $images = $request->file('images');
             if($about->images){
@@ -85,15 +83,15 @@ class AboutController extends Controller
 
                   $path = json_encode($img);
        }else{
-            $path = $about->images;  
+            $path = $about->images;
        }
-          
+
 
       // fast image
       if($request->hasFile('first_image')){
             if($about->first_image){
                Storage::delete($about->first_image);
-               
+
             }
           $image = $request->file('first_image')->store('image');
             }else{
@@ -105,7 +103,7 @@ class AboutController extends Controller
             if($request->hasFile('second_image')){
                   if($about->second_image){
                      Storage::delete($about->second_image);
-                     
+
                   }
                 $second_image = $request->file('second_image')->store('image');
                   }else{
@@ -119,15 +117,13 @@ class AboutController extends Controller
             'heading_description' => $request->heading_description,
       'images' => $path,
        'images_description' => $request->images_description,
-       'youtube' => $request->youtube,
-        'youtube_description' => $request->youtube_description,
-         'first_image' => $first_image , 
-         'first_image_story' => $request->first_image_story, 
+         'first_image' => $first_image ,
+         'first_image_story' => $request->first_image_story,
          'second_image' => $second_image,
                'second_image_story' => $request->second_image_story,
           ]);
           return Redirect::back()->with('success',' successfylly Update');
     }
 
- 
+
 }
