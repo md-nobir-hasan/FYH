@@ -40,7 +40,7 @@ class FeatureSeeder extends Seeder
                 ['title'=>'About','name' => 'About','status' => 1],
                 ['title'=>'MoveTo','name' => 'MoveTo','status' => 1],
                 ['title'=>'Integration','name' => 'Integration','status' => 1],//25
-                ['title'=>'Servival Guide','name' => 'Servival','status' => 1],
+                ['title'=>'Survival Guide','name' => 'Survival','status' => 1],
                 ['title'=>'Video','name' => 'Video','status' => 1],
         ];
 

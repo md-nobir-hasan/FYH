@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Video;
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequest;
-use App\Models\Link;
+use Illuminate\Support\Str;
 
 class VideoController extends Controller
 {
@@ -40,8 +40,31 @@ class VideoController extends Controller
         if(!check('Video')->add){
             return back();
         }
-        Video::create($request->all())->only('for','embed_code','title','des','additional_des','default');
-        return redirect()->route('admin.setup.link.index')->with('success',$request->name.' successfylly created');
+        // <iframe width="560" height="315" src="https://www.youtube.com/embed/ifi_RWHDfMY" title="YouTube video player"
+        //     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+        //     web-share" allowfullscreen></iframe>
+        $video_id = Str::afterLast($request->embed_code,'https://youtu.be/');
+        if($video_id == $request->embed_code){
+            $video_id = Str::afterLast($request->embed_code,'https://www.youtube.com/watch?v=');
+            if($video_id == $request->embed_code){
+                $video_id = Str::betweenFirst($request->embed_code,'https://www.youtube.com/embed/','" title');
+                if($video_id == $request->embed_code){
+                    return back()->with('err','Please Insert a valid Link of Youtube Video ');
+                }
+            }
+        }
+        // dd($video_id);
+        $link = "https://www.youtube.com/embed/$video_id";
+
+        Video::create([
+            'for' => $request->for,
+            'embed_code' => $link,
+            'title' => $request->title,
+            'des' => $request->des,
+            'additional_des' => $request->additional_des,
+            'default' => $request->default,
+        ]);
+        return redirect()->route('admin.setup.video.index')->with('success',$request->name.' successfylly created');
     }
 
     /**
@@ -49,7 +72,7 @@ class VideoController extends Controller
      */
     public function show(Video $video)
     {
-        //
+
     }
 
     /**
@@ -57,7 +80,11 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        //
+        if(!check('Video')->edit){
+            return back();
+        }
+
+        return view('pages.setup.videos.edit',['mdata' =>$video]);
     }
 
     /**
@@ -65,7 +92,12 @@ class VideoController extends Controller
      */
     public function update(UpdateVideoRequest $request, Video $video)
     {
-        //
+        if(!check('Video')->edit){
+            return back();
+        }
+
+        $video->update($request->all());
+        return redirect()->route('admin.setup.video.index')->with('success',$video->name.' successfylly updated');
     }
 
     /**
