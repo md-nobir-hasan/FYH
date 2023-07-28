@@ -28,8 +28,6 @@ class AboutRequest extends FormRequest
             'heading_description' => 'required' ,
             'images' => 'nullable',
             'images_description' => 'required',
-             'youtube' => 'nullable',
-             'youtube_description' => 'nullable',
               'first_image' => 'nullable',
               'first_image_story' => 'nullable',
               'second_image' => 'nullable',

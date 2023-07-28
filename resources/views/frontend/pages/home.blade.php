@@ -3,8 +3,6 @@
     Home
 @endpush
 
-
-
 @section('content')
     <!-- navbar section -->
     <div class="" style="font-family: 'Poppins';">
