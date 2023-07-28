@@ -3,7 +3,7 @@
     Profile
 @endpush
 @section('content')
-     <div class="lg:mx-40 mt-[102px]" style="font-family:'Poppins'">
+     <div class="w-[1320px] mx-auto mt-[102px]" style="font-family:'Poppins'">
         @if($profile !== null)
        <div class="grid grid-cols-4 gap-5 mb-8">
         <div class="col-span-1">
@@ -11,7 +11,7 @@
         </div>
 
         <div class="col-span-3">
-        <h1 class="text-4xl font-black"> {{$profile->name}},</h1>
+        <h1 class="text-4xl font-bold"> {{$profile->name}},</h1>
         <p class="capitalize" > {{$profile->profession}} </p>
         <p class="capitalize" >{{$profile->city}} , @if($profile->country !==null){{$profile->country->country}} @endif </p>
         <h1 class="text-xl font-bold mt-5 capitalize">“ {{$profile->title  }} ”</h1>
