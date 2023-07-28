@@ -108,6 +108,7 @@ class FrontendControler extends Controller
   public function benefitPage(){
       $benefitHeader = Home::select('benefit_title', 'benefit_subtitle')->first();
       $Benefits = Benefit::orderBy('priority','asc')->get();
+    //   dd($Benefits);
       return view('frontend.pages.benefit', ['Benefits' => $Benefits, 'benefitHeader' => $benefitHeader]);
   }
 
@@ -435,6 +436,11 @@ class FrontendControler extends Controller
 public function error(){
     return view('errors.404');
 }
+
+    public function benefitDetails($id){
+        $n['mdata'] = Benefit::find($id);
+        return view('frontend.pages.benefit-details',$n);
+    }
 
 
 }
