@@ -29,16 +29,16 @@
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr class="text-sm font-semibold tracking-wide text-left text-gray-900 bg-gray-100 capitalize border-b border-gray-600">
                                     <th scope="col" class="px-6 py-3">
-                                       Title 
+                                       Title
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                        Priority
                                      </th>
                                      <th scope="col" class="px-6 py-3">
-                                        description 
+                                        description
                                      </th>
                                      <th scope="col" class="px-6 py-3">
-                                        Image 
+                                        Image
                                      </th>
                                     @if ($n->edit || $n->delete)
                                         <th scope="col" class="px-6 py-3 text-bold text-md">
@@ -68,7 +68,7 @@
 
                                 <th scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img src="{{'/storage/'.$value->image}}" alt="" width="60px">
+                                    <img src="{{asset($value->image)}}" alt="" width="60px">
                             </th>
 
                                         @if ($n->edit || $n->delete)

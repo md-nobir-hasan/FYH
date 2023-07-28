@@ -11,7 +11,7 @@ class UpdateVideoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,10 +24,10 @@ class UpdateVideoRequest extends FormRequest
         return [
             'for'=>"required|string",
             'embed_code'=>"required",
-            'title'=>"required|string|nullable",
-            'des'=>"required|string|nullable",
-            'additional_des'=>"required|string|nullable",
-            'default'=>"required|numeric|nullable",
+            'title'=>"nullable|string",
+            'des'=>"nullable|string",
+            'additional_des'=>"nullable|string",
+            'default'=>"nullable|numeric",
         ];
     }
 }

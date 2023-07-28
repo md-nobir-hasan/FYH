@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       
+
 
 
         // \App\Models\User::factory()->create([
@@ -42,9 +42,12 @@ class DatabaseSeeder extends Seeder
         $this->call(MenuSeeder::class);
         $this->call(SettingSeeder::class);
         $this->call(HomeSeeder::class);
+        $this->call(SurvivalSedder::class);
+        $this->call(BenefitSeeder::class);
+        $this->call(ServiceSeeder::class);
 
-        Benefit::factory(16)->create();
-        Service::factory(8)->create();
+        // Benefit::factory(16)->create();
+        // Service::factory(8)->create();
         Story::factory(18)->create();
         About::factory(1)->create();
         Congrat::factory(1)->create();
