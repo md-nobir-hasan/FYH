@@ -35,6 +35,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Carbon as SupportCarbon;
 use Event;
 use App\Events\SubscriptionCreated;
+use App\Models\Survival;
+use App\Models\Video;
 use Illuminate\Support\Facades\Auth;
 
 class FrontendControler extends Controller
@@ -227,7 +229,9 @@ class FrontendControler extends Controller
   }
 
   public function survivalGuide(){
-    return view('frontend.pages.survival');
+    $n['mdata'] = Survival::first();
+    $n['videos'] = Video::where('for','survival')->get();
+    return view('frontend.pages.survival',$n);
     }
 
   public function billingPage(Request $request){

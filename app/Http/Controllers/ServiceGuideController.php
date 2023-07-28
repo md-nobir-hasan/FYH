@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use App\Models\Survival;
+use App\Models\Video;
 
 class ServiceGuideController extends Controller
 {
@@ -21,7 +22,9 @@ class ServiceGuideController extends Controller
      */
     public function create()
     {
-        //
+        $n['survival'] = Survival::first();
+        $n['videos'] = Video::where('for','survival')->get();
+        return view('pages.survival.edit',$n);
     }
 
     /**
@@ -29,13 +32,23 @@ class ServiceGuideController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        if($request->hasFile('banner_img')){
+            $image = $request->file('banner_img')->store('banner_img');
+        }else{
+                $image = null;
+        }
+        Survival::create([
+            'banner_title'=>$request->banner_title,
+            'banner_des'=>$request->banner_des,
+            'banner_img'=>$image,
+        ]);
+        return redirect()->route('admin.survival.create')->with('success','Successfully created');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show(Survival $survival)
     {
         //
     }
@@ -43,7 +56,7 @@ class ServiceGuideController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(Survival $survival)
     {
         //
     }
@@ -51,7 +64,7 @@ class ServiceGuideController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateServiceRequest $request, Service $service)
+    public function update(UpdateServiceRequest $request, Survival $survival)
     {
         //
     }
@@ -59,7 +72,7 @@ class ServiceGuideController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(Survival $survival)
     {
         //
     }

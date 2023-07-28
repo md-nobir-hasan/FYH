@@ -81,14 +81,14 @@
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
                         <a href="#"
-                            class=" w-[424px] h-[234px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700">
-                            <img src="{{ '/storage/' . $item->image }}" alt="{{ $item->title }}"
-                                class="h-20 w-20 mx-auto rounded-full mt-[16px]"
+                            class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700">
+                            <img src="{{  asset($item->image) }}" alt="{{ $item->title }}"
+                                class="h-20 w-20 mx-auto rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5 class="mb-[10px] mt-[20px] text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
                                 {{ $item->title }} </h5>
-                            <p class=" px-[39.5px] font-normal text-sm text-justify">
-                                {{ $item->description }}
+                            <p class="font-normal text-sm text-center">
+                                {!! $item->description !!}
                             </p>
                         </a>
                     @endforeach
@@ -265,9 +265,9 @@
                 @if ($services->count() > 0)
                     @foreach ($services as $item)
                         <div class="mr-[27px] ml-4">
-                            <div class="flex justify-center items-center"><img src="{{ '/storage/' . $item->image }}" alt="" class="w-[103px] h-[100px]" /></div>
-                            <h1 class="font-semibold text-xl text-center"> {{ Str::limit($item->title, 12) }} </h1>
-                            <p class="text-center lg:-mx-20 text-base font-normal"> {{ Str::limit($item->description, 140) }} </p>
+                            <div class="flex justify-center items-center"><img src="{{ asset($item->image) }}" alt="" class="w-[100px] h-[100px]" /></div>
+                            <h1 class="font-semibold text-xl text-center"> {{ $item->title }} </h1>
+                            <p class="text-center lg:-mx-20 text-base font-normal"> {!! $item->description !!} </p>
                         </div>
                        @if (!$loop->last)
                         <div class="mt-16">
@@ -314,7 +314,7 @@
                         </a>
                     @endforeach
                 @endif
-                
+
 
             </div>
             <!-- success card end -->
