@@ -15,7 +15,11 @@ class SurvivalSedder extends Seeder
     {
 
         $survival = [
-            ['banner_title'=>'Are You Exicted for Survival Guide?','banner_des'=>'','banner_img'=>''],
+            [
+                'banner_title'=>'Are You Excited For Survival Guide?',
+                'banner_des'=>'You will get survival guide for switzerland in here',
+                'banner_img'=>'/images/Rectangle162.png',
+            ],
         ];
         DB::table('survivals')->insert($survival);
     }

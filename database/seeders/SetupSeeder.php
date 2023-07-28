@@ -101,10 +101,10 @@ class SetupSeeder extends Seeder
 
         //Videos
             $videos = [
-                ['for'=>'survival','embed_code'=>'','title'=>'Survival Guide Video','des'=>'GUIDENCE FROM THOMAS TSANGARAS','additional_des'=>'','default'=>1],
-                ['for'=>'survival','embed_code'=>'','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
-                ['for'=>'survival','embed_code'=>'','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
-                ['for'=>'survival','embed_code'=>'','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
+                ['for'=>'survival','embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY','title'=>'Survival Guide Video','des'=>'GUIDENCE FROM THOMAS TSANGARAS','additional_des'=>'','default'=>1],
+                ['for'=>'survival','embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
+                ['for'=>'survival','embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
+                ['for'=>'survival','embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
             ];
             DB::table('videos')->insert($videos);
     }
