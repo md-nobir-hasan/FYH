@@ -16,7 +16,7 @@
             <a href="{{ route('home') }}">
         <img src="{{ $setting->logo }}" alt="" class="lg:ml-[62px] mt-[22px] h-[38px] w-[112px]">
     </a>
-            
+
             <div class="grid grid-cols-4 mt-[232px]">
             <div class="col-span-2">
                 <div class="ml-[72px]">
@@ -49,7 +49,7 @@
             <div class="col-span-2 -mt-[29px] ml-[50px] mr-[72px]">
                 <h3 class="text-center font-bold text-2xl m-2 bg-slate-100 uppercase text-red-600"> <span class="bg-blue-200 rounded-md">{{ Session::get('error') }}</span></h3>
 
-                <form action="{{ route('web.billing') }}" method="post">
+                <form action="{{ route('web.billing') }}" method="POST">
                     @csrf
                     @foreach ($memberShips as $key=>$member)
 

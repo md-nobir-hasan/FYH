@@ -29,9 +29,9 @@ class AboutRequest extends FormRequest
             'images' => 'nullable',
             'images_description' => 'required',
               'first_image' => 'nullable',
-              'first_image_story' => 'nullable',
+              'fimg_story' => 'nullable',
               'second_image' => 'nullable',
-              	'second_image_story' => 'nullable'
+              	'simg_story' => 'nullable'
         ];
     }
 }
