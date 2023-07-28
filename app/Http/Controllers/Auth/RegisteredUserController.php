@@ -53,6 +53,7 @@ class RegisteredUserController extends Controller
              $path = null;
         }
         $client_type = ClientType::where('plan_id',$plan)->first();
+        // dd($client_type);
         $user = User::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
@@ -69,13 +70,11 @@ class RegisteredUserController extends Controller
         $loginUser = auth()->user();
 
 
-        $planId = ClientType::where('plan_id', $plan)->first();
-
         if($loginUser->role_id ==null){
-            if(Setting::first()->trail == null){
-                return view('frontend.pages.billing', ['planId' => $planId]);
-            }else{
+            if(Setting::first()->trail){
                 return to_route('congrats');
+            }else{
+                return redirect()->route('billing.show',[$client_type->id]);
             }
 
         }

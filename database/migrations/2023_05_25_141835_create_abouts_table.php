@@ -20,9 +20,13 @@ return new class extends Migration
             $table->longText('images')->nullable();
             $table->longText('images_description')->nullable();
             $table->string('first_image')->nullable();
-            $table->text('first_image_story')->nullable();
+            $table->string('fimg_title')->nullable();
+            $table->string('fimg_subtitle')->nullable();
+            $table->text('fimg_story')->nullable();
             $table->string('second_image')->nullable();
-            $table->text('second_image_story')->nullable();
+            $table->string('simg_title')->nullable();
+            $table->string('simg_subtitle')->nullable();
+            $table->text('simg_story')->nullable();
             $table->timestamps();
         });
     }

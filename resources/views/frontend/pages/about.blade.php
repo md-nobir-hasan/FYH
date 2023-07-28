@@ -24,17 +24,17 @@ iframe{
 
 <div class="mt-[100px]"  style="font-family:'Poppins'">
     <h1 class="text-center text-[50px] font-bold">
-        @if($about!==null)  {{$about->title}}  @endif
+        @if($about!==null)  {!!$about->title!!}  @endif
     </h1>
     <p class="text-center text-2xl font-normal capitalize">
-        @if($about!==null)  {{$about->title_description}}  @endif
+        @if($about!==null)  {!!$about->title_description!!}  @endif
     </p>
 <div class="" style="background:url('/images/benifitbg.png');background-size:100% 518px;background-repeat:no-repeat">
     <div class="w-[1320px] mx-auto">
     <h1 class="text-center text-[68px] font-bold mt-[40px]">   @if($about!==null)  {!!$about->heading !!}  @endif  </h1>
 
 <p class="text-center text-2xl mx-20 font-normal mt-5">
-    @if($about!==null)  {{$about->heading_description}}  @endif
+    @if($about!==null)  {!!$about->heading_description!!}  @endif
 </p>
 
 
@@ -52,7 +52,7 @@ iframe{
     </div>
 
     <p class=" mt-6 w-[1144px] mx-auto text-justify text-base font-normal">
-        @if($about!==null)  {{$about->images_description}}  @endif
+        @if($about!==null)  {!!$about->images_description!!}  @endif
     </p>
 
     {{-- <iframe height="240" controls class="lg:mx-48 mt-5 mx-20 md:w-[600px] lg:w-[960px]">
@@ -67,32 +67,29 @@ iframe{
 
 
 <div class="mt-[50px] w-[1144px] mx-auto px-[70px] py-[16px] " style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-    <!-- @if($about!==null)  {!!$about->youtube_description !!}  @endif    -->
-    <h1 class="font-bold text-2xl">“We’re constantly exploring, inventing, and optimizing personal transformation to ultimately unite our species, save our planet, and usher in a new golden age for humanity.”</h1>
-    <p class="text-lg font-normal">- Thomas Tsangaras, Founder of FYH</p>
+    <h1 class="font-bold text-2xl">{!!$default_video->des !!} </h1>
+    <p class="text-lg font-normal">{!! $default_video->title !!}</p>
   </div>
 
 
   <div class="mt-[50px] flex w-[1320px] mx-auto">
-    <!-- {{'/storage/'. $about->first_image}} -->
     <div class="">
     @if($about!==null)   <img src="/images/story2.png" alt="" class="w-[561px] h-[316px]">
-    <h1 class="-mt-40 ml-10 absolute text-[50px] font-black text-white">My Best Decision<br><span class="ml-5">of Relocating</span> </h1> @endif
+    <h1 class="-mt-40 ml-10 absolute text-[50px] font-black text-white">{!!$about->fimg_title!!} @endif
     </div>
     <div class="w-[735px] ml-[24px]">
-    <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
-        <p class="text-base text-justify font-normal">@if($about!==null)  {!!$about->first_image_story!!}  @endif</p>
+    <h1 class=" text-4xl font-bold">{!!$about->fimg_subtitle!!}</h1>
+        <p class="text-base text-justify font-normal">@if($about!==null)  {!!$about->fimg_story!!}  @endif</p>
     </div>
   </div>
   <div class="flex mx-auto mt-6 w-[1320px]">
   <div class="w-[735px] mr-[24px]">
-    <!-- {{'/storage/'. $about->second_image}} -->
-    <h1 class=" text-4xl font-bold">At FYH, learning is a lifelong adventure</h1>
-    <p class="text-justify text-base font-normal">@if($about!==null)  {!!$about->second_image_story!!}  @endif  </p>
+    <h1 class=" text-4xl font-bold">{!!$about->simg_subtitle!!}</h1>
+    <p class="text-justify text-base font-normal">@if($about!==null)  {!!$about->simg_story!!}  @endif  </p>
     </div>
     <div>
     @if($about!==null)    <img src="/images/story3.png" alt="" class="w-[561px] h-[316px]">
-    <h1 class="absolute text-[50px] font-black -mt-40 ml-20 text-white"><span class="ml-20">Master Of</span> <br>Happiness in Here</h1>@endif
+    <h1 class="absolute text-[50px] font-black -mt-40 ml-20 text-white"><span class="ml-20">{!!$about->simg_title!!}@endif
     </div>
 
   </div>
