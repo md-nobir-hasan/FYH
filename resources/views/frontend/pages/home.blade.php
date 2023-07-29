@@ -86,9 +86,9 @@
                                 class="h-20 w-20 mx-auto rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
-                                class="mb-[10px] mt-[20px] text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
+                                class="mb-[10px] mt-[20px] text-[20px] font-semibold tracking-tight text-gray-900 dark:text-white text-center">
                                 {{ $item->title }} </h5>
-                            <p class="font-normal text-sm text-center">
+                            <p class="font-normal text-[14px] text-center">
                                 {!! $item->first_para !!}
                             </p>
                         </a>
@@ -109,7 +109,7 @@
                         {{ $home->feature_title }}
                     @endif
                 </h1>
-                <p class="text-center text-2xl font-normal">
+                <p class="text-center text-[24px] font-normal">
                     @if ($home !== null)
                         {{ $home->feature_subtitle }}
                     @endif
@@ -125,7 +125,7 @@
                             @endphp
                             {{-- @dd($firstfeature) --}}
                             <img src="{{ asset($firstfeature->feature_img) }}" alt="" class="h-[316px] w-[561px]">
-                            <div class="absolute ml-[60px] mt-[-158px]" style="">
+                            <div class="absolute ml-[70px] mt-[-178px]" style="">
                                 <h1 class=" text-white  text-[50px] font-black">
                                     {!! $firstfeature->title !!}
                                 </h1>
@@ -140,8 +140,9 @@
                                 <div class="flex">
                                     <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-[24px] ">
                                     <div class="mt-[24px] ml-[5px]">
-                                        <h1 class="text-xl font-semibold text-[#212427]"> {{ $firstfeature->name }}.</h1>
-                                        <p class="capitalize text-sm tracking-wider font-normal">
+                                        <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $firstfeature->name }}.
+                                        </h1>
+                                        <p class="capitalize text-[14px] tracking-wider font-normal">
                                             {{ $firstfeature->profession }} </p>
                                     </div>
                                 </div>
@@ -157,12 +158,13 @@
 
                         <div class="col-span-3">
                             <div>
-                                <p class=" font-normal text-base text-justify"> {!! $secondfeture->description !!} </p>
+                                <p class=" font-normal text-[16px] text-justify"> {!! $secondfeture->description !!} </p>
                                 <div class="flex">
                                     <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-[24px]">
                                     <div class="mt-[24px] ml-3">
-                                        <h1 class="text-xl font-semibold text-[#212427]"> {{ $secondfeture->name }} </h1>
-                                        <p class="capitalize text-base font-normal"> {{ $secondfeture->profession }} </p>
+                                        <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $secondfeture->name }}
+                                        </h1>
+                                        <p class="capitalize text-[14px] font-normal"> {{ $secondfeture->profession }} </p>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +179,7 @@
 
 
                             <img src="{{ asset($secondfeture->feature_img) }}" alt="" class="h-[316px] w-[561px]">
-                            <div class="absolute ml-[80px] mt-[-120px]" style="">
+                            <div class="absolute ml-[80px] mt-[-140px]" style="">
                                 <h1 class=" text-white text-5xl font-black text-center"> {!! $secondfeture->title !!} </h1>
                                 </h1>
                             </div>
@@ -208,7 +210,7 @@
 
 
                 @if ($popularStory->count() > 0)
-                {{-- @dd($popularStory) --}}
+                    {{-- @dd($popularStory) --}}
                     @foreach ($popularStory as $pStory)
                         <div
                             class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -217,18 +219,19 @@
                             </a>
                             <div class="px-[22px] pt-[20px] h-[516px]">
                                 <a href="#">
-                                    <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">" {!! $pStory->title !!}
+                                    <h5 class="mb-2 text-[20px] font-bold tracking-tight text-[#212427]">"
+                                        {!! $pStory->title !!}
                                         "</h5>
                                 </a>
-                                <p class="mt-[20px] text-sm font-normal text-[#212427] text-justify">
+                                <p class="mt-[20px] text-[14px] font-normal text-[#212427] text-justify">
                                     {{ Str::limit($pStory->description, 595) }} </p>
                                 <a href="{{ route('single-story', $pStory->slug) }}"
                                     class="text-[#D1052C] text-[16px] font-bold">
                                     Read more
                                 </a>
-                                <h1 class="text-xl font-semibold mt-[20px]"> {{ $pStory->name }} <h1>
-                                        <p class="capitalize text-sm font-normal">{{ $pStory->profession }}</p>
-                                        <p class="capitalize text-sm font-normal">{{ $pStory->address }} ,
+                                <h1 class="text-[20px] font-semibold mt-[20px]"> {{ $pStory->name }} <h1>
+                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->profession }}</p>
+                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->address }} ,
                                             {{-- {{$pStory->country->country}} --}}
                                         </p>
                             </div>
@@ -243,7 +246,7 @@
         <!-- successfull story Candidate start -->
         <section class="mt-[100px]"
             style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 30%">
-            <h1 class="text-5xl font-bold text-center text-[#D1052C]">
+            <h1 class="text-[50px] font-bold text-center text-[#D1052C]">
                 @if ($storyCount !== null)
                     {{ number_format($storyCount) }}
                 @endif
@@ -312,7 +315,7 @@
         <!-- Get Service end -->
 
         <!-- What our member say  -->
-        <div class="mt-[100px] pb-28"
+        <div class="mt-[100px]"
             style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
             <h1 class="font-bold text-[50px] text-[#212427] text-center">
                 @if ($home !== null)
@@ -324,90 +327,141 @@
                     {{ $home->customer_subtitle }}
                 @endif
             </p>
+            <!-- Component: Testimonial slider -->
+            <div class="relative w-[1320px] mx-auto glide-08">
+                <!-- Slides -->
+                <div class="overflow-hidden text-center rounded " data-glide-el="track">
+                    <ul
+                        class="relative w-full overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
+                        @foreach ($member_says->chunk(3) as $items)
+                                <li>
+                                    <div class="w-full">
+                                        <!-- Start Testimonial -->
+                                        <div class="overflow-hidden ">
+                                            <div class="relative">
+                                                <figure class="relative z-10">
+                                                    <blockquote class=" text-lg leading-loose lg:text-xl">
+                                                        <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+                                                            @foreach ($items as $item)
+                                                            <a href="javascript:void(0)"
+                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+                                                                <div class="flex">
+                                                                    <div>
+                                                                        <img src="{{ $item->image }}" alt=""
+                                                                            class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                                                                            style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                                                                        <svg class="ml-[17px] my-[5px]" width="28"
+                                                                            height="23" viewBox="0 0 28 23" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z"
+                                                                                fill="#212427" />
+                                                                        </svg>
 
-            <!-- success card  -->
-            <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-4 mt-10">
+                                                                    </div>
+                                                                    <div class="ml-[14px] mt-[20px]">
+                                                                        <h1 class="text-[28px] font-semibold"> {{ $item->name }}  </h1>
+                                                                        <p class="font-normal text-[20px]"> {{ $item->profession }} </p>
+                                                                    </div>
+                                                                </div>
+                                                                <p
+                                                                    class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+                                                                    {!! Str::limit( $item->description,235) !!}
+                                                                </p>
+                                                            </a>
+                                                            @endforeach
 
-                @if ($member_says->count() > 0)
-                    @foreach ($member_says as $item)
-                        <a href="{{ route('single-story', $item->slug) }}"
-                            class="w-[424px] h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
-                            <div class="flex">
-                                <img src="{{ $item->image }}" alt=""
-                                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
-                                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-                                <div class="ml-[14px] mt-[20px]">
-                                    <h1 class="text-[28px] font-semibold"> {{ $item->name }} </h1>
-                                    <p class="font-normal text-xl"> {{ $item->profession }} </p>
-                                </div>
-                            </div>
-                            <h5
-                                class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">
-                                “</h5>
-                            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
-                                {!! Str::limit( $item->description,235) !!}
-                            </p>
-                        </a>
-                    @endforeach
-                @endif
+                                                        </div>
+                                                    </blockquote>
+
+                                                </figure>
+
+                                            </div>
+                                        </div>
+                                        <!-- End Testimonial -->
+                                    </div>
+                                </li>
 
 
+                        @endforeach
+                    </ul>
+                </div>
+                <!-- Indicators -->
+                <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
+                    <button class="p-4 group" data-glide-dir="=0" aria-label="goto slide 1"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700  focus:outline-none"></span></button>
+                    <button class="p-4 group" data-glide-dir="=1" aria-label="goto slide 2"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+                    <button class="p-4 group" data-glide-dir="=2" aria-label="goto slide 3"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+                </div>
             </div>
-            <!-- success card end -->
-            <svg class="mx-auto mt-5" width="65" height="15" viewBox="0 0 65 15" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="7.5" cy="7.5" r="7.5" fill="#D1052C" />
-                <circle cx="32.5" cy="7.5" r="7.5" fill="#D9D9D9" />
-                <circle cx="57.5" cy="7.5" r="7.5" fill="#D9D9D9" />
-            </svg>
-        </div>
-        <!-- Success section end -->
 
-        <!-- last section start -->
-        <section class=" mb-[-100px]"
-            style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
-            <div
-                class="pb-10 py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
-                <div class="pb-14 shadow-lg">
-                    <h1 class="font-bold text-[50px] text-[#212427] text-center">
-                        @if ($home !== null)
-                            {{ $home->share_title }}
-                        @endif
-                    </h1>
-                    @php
-                        $shareSub = str_split($home->share_subtitle, 90);
-                    @endphp
-                    <p class="text-xl text-center text-[#D1052C] uppercase">
-                        @if ($home !== null)
-                            @foreach ($shareSub as $Shitem)
-                                {{ $Shitem }} <br>
-                            @endforeach
-                        @endif
-                    </p>
-                    @auth
-                        <a href="{{ route('share.story') }}" class=" flex justify-center items-center"><button
-                                class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
-                                Story</button></a>
-                    @else
-                        @if ($setting->trail)
-                            <a href="{{ route('register') }}" class=" flex justify-center items-center"><button
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
+
+            <script>
+                var glide07 = new Glide('.glide-08', {
+                    type: 'slider',
+                    focusAt: 'center',
+                    perView: 1,
+                    autoplay: 5000,
+                    animationDuration: 700,
+                    gap: 0,
+                    classes: {
+                        activeNav: '[&>*]:bg-[#D1052C]',
+                    },
+                });
+
+                glide07.mount();
+            </script>
+            <!-- End Testimonial slider -->
+
+            <!-- Success section end -->
+            <!-- last section start -->
+            <section class="mt-[100px] mb-[-100px]"
+                style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
+                <div
+                    class="pb-10 py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
+                    <div class="pb-14 shadow-lg">
+                        <h1 class="font-bold text-[50px] text-[#212427] text-center">
+                            @if ($home !== null)
+                                {{ $home->share_title }}
+                            @endif
+                        </h1>
+                        @php
+                            $shareSub = str_split($home->share_subtitle, 90);
+                        @endphp
+                        <p class="text-xl text-center text-[#D1052C] uppercase">
+                            @if ($home !== null)
+                                @foreach ($shareSub as $Shitem)
+                                    {{ $Shitem }} <br>
+                                @endforeach
+                            @endif
+                        </p>
+                        @auth
+                            <a href="{{ route('share.story') }}" class=" flex justify-center items-center"><button
                                     class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
                                     Story</button></a>
                         @else
-                            <a href="{{ route('member') }}" class=" flex justify-center items-center"><button
-                                    class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
-                                    Story</button></a>
-                        @endif
-                    @endauth
-                </div>
+                            @if ($setting->trail)
+                                <a href="{{ route('register') }}" class=" flex justify-center items-center"><button
+                                        class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
+                                        Story</button></a>
+                            @else
+                                <a href="{{ route('member') }}" class=" flex justify-center items-center"><button
+                                        class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
+                                        Story</button></a>
+                            @endif
+                        @endauth
+                    </div>
 
-            </div>
-        </section>
-        <!-- last section end -->
-    </div>
-@endsection
-@push('js')
-    <!-- flowbite cdn -->
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-    <!-- flowbite cdn end -->
-@endpush
+                </div>
+            </section>
+            <!-- last section end -->
+        </div>
+    @endsection
+    @push('js')
+        <!-- flowbite cdn -->
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+        <!-- flowbite cdn end -->
+    @endpush
