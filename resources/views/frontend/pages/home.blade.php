@@ -310,7 +310,8 @@
             </div>
         </section>
         <!-- Get Service end -->
-        <!-- Success section start -->
+
+        <!-- What our member say  -->
         <div class="mt-[100px] pb-28"
             style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
             <h1 class="font-bold text-[50px] text-[#212427] text-center">
@@ -327,8 +328,8 @@
             <!-- success card  -->
             <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-4 mt-10">
 
-                @if ($stories->count() > 0)
-                    @foreach ($stories as $item)
+                @if ($member_says->count() > 0)
+                    @foreach ($member_says as $item)
                         <a href="{{ route('single-story', $item->slug) }}"
                             class="w-[424px] h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
                             <div class="flex">
@@ -344,7 +345,7 @@
                                 class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">
                                 “</h5>
                             <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
-                                {{ Str::limit($item->description, 250) }}
+                                {!! Str::limit( $item->description,235) !!}
                             </p>
                         </a>
                     @endforeach
@@ -361,6 +362,7 @@
             </svg>
         </div>
         <!-- Success section end -->
+
         <!-- last section start -->
         <section class=" mb-[-100px]"
             style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
