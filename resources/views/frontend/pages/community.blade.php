@@ -104,14 +104,14 @@
                                 class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <a href="#">
                                     {{-- /images/story4.png --}}
-                                    <img class="h-[424px] w-full" src="{{ asset('/storage/' . $story->image) }}"
+                                    <img class="h-[424px] w-full" src="{{ asset( $story->image) }}"
                                         alt="{{ $story->name }}" />
                                 </a>
                                 <div class=" h-[516px]">
                                     <a href="#">
-                                        <h5 class="pt-[20px] px-[22px] text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{ Str::limit($story->title, 25) }}"</h5>
+                                        <h5 class="pt-[20px] px-[22px] text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{$story->title }}"</h5>
                                     </a>
-                                    <p class="mt-5 mx-[22px] text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 600) }}</p>
+                                    <p class="mt-5 mx-[22px] text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 595) }}</p>
                                     <a href="{{ route('single-story', $story->id) }}"
                                         class="text-[#D1052C] font-bold text-base mx-[22px]">Read More</a>
                                     <h3 class="font-semibold text-xl mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
@@ -160,7 +160,7 @@
                                     {{ $storyHead->share_title }}
                                 @endif
             </h1>
-           
+
             <p class="text-xl text-center text-[#D1052C] uppercase w-[986px] mx-auto">
             @if ($storyHead !== null)
                                         {{ $storyHead->share_subtitle }}
@@ -172,7 +172,7 @@
     </div>
     </div>
     </section>
-            
+
         @endauth
     </div>
 

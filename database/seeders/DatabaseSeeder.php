@@ -45,10 +45,11 @@ class DatabaseSeeder extends Seeder
         $this->call(SurvivalSedder::class);
         $this->call(BenefitSeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(StorySeeder::class);
 
         // Benefit::factory(16)->create();
         // Service::factory(8)->create();
-        Story::factory(18)->create();
+        // Story::factory(18)->create();
         About::factory(1)->create();
         Congrat::factory(1)->create();
         Opportunity::factory(1)->create();
@@ -56,7 +57,7 @@ class DatabaseSeeder extends Seeder
         Integration::factory(8)->create();//Intregation seeder is created but not implement.
         Help::factory(6)->create();
         Term::factory(1)->create();
-        Country::factory(10)->create();
+        // Country::factory(10)->create();
         Problem::factory(10)->create();
 
 
