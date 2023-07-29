@@ -50,8 +50,8 @@ class FrontendControler extends Controller
      $services = Service::orderBy('priority','asc')->take(4)->get() ;
      $benefits = Benefit::orderBy('priority','asc')->take(6)->get() ;
      $featureStory  = Story::where('feature', '1')->where('status', 1)->orderBy('priority', 'asc')
-                     ->select('image', 'title', 'description', 'name', 'profession')->take(2)->get();
-     $stories = Story::select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','asc')->take(15)->get();
+                     ->select('image', 'title', 'description', 'name', 'profession','feature_img')->take(2)->get();
+     $stories = Story::where('feature',0)->select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','asc')->take(15)->get();
      $popularStory = Story::where('status', 1)->OrderBy('views', 'desc')->take(3)->get();
      $storyCount = Story::all()->count();
     return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories', 'featureStory', 'popularStory', 'storyCount'));

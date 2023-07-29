@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('status')->default(0);
             $table->bigInteger('views')->default(0);
             $table->integer('feature')->default(0);
+            $table->string('feature_img')->nullable();
             $table->timestamps();
         });
     }
