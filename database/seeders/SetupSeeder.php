@@ -105,7 +105,14 @@ class SetupSeeder extends Seeder
                 ['for'=>'survival','embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
                 ['for'=>'survival','embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
                 ['for'=>'survival','embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY','title'=>'GUIDENCE FROM THOMAS TSANGARAS','des'=>'Here goes a short description about this video.','additional_des'=>'','default'=>null],
-                ['for'=>'about','embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY','title'=>'“We’re constantly exploring, inventing, and optimizing personal transformation to ultimately unite our species, save our planet, and usher in a new golden age for humanity.”','des'=>'- Thomas Tsangaras, Founder of FYH','additional_des'=>'','default'=>1],
+                [
+                    'for'=>'about',
+                    'embed_code'=>'https://www.youtube.com/embed/tgbNymZ7vqY',
+                    'title'=>'- Thomas Tsangaras, Founder of FYH',
+                    'des'=>"“We’re constantly exploring, inventing, and optimizing personal transformation to ultimately unite our species, save our planet, and usher in a new golden age for humanity.”",
+                    'additional_des'=>'',
+                    'default'=>1
+                ],
             ];
             DB::table('videos')->insert($videos);
     }

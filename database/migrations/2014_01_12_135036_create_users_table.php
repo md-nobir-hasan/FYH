@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('img')->nullable();
             $table->foreignIdFor(ClientType::class)->nullable();
+            // $table->foreignIdFor(ClientType::class,'before_ct_id')->nullable();
             $table->text('show_pass')->nullable();
             $table->integer('mark_as_read')->nullable();
             $table->unsignedBigInteger('user_info_id')->nullable();
