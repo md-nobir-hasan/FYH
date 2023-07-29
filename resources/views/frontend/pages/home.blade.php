@@ -325,12 +325,12 @@
             </p>
 
             <!-- success card  -->
-            <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-7 gap-6 mt-10">
+            <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
 
                 @if ($stories->count() > 0)
                     @foreach ($stories as $item)
                         <a href="{{ route('single-story', $item->slug) }}"
-                            class="w-[424px] h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+                            class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
                             <div class="flex">
                                 <img src="{{ $item->image }}" alt=""
                                     class="h-[103px] w-[103px] rounded-full ml-[17px]"
@@ -361,6 +361,140 @@
             </svg>
         </div>
         <!-- Success section end -->
+        <!-- Component: Testimonial slider -->
+<div class=" mx-auto glide-08" style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
+    <!-- Slides -->
+    <div class="overflow-hidden text-center rounded  " data-glide-el="track">
+        <ul class="relative  overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
+            <li>
+                <div class="w-full">
+                    <!-- Start Testimonial -->
+                    <div class="overflow-hidden ">
+                        <div class="relative p-6">
+                            
+                                <blockquote class="p-6 text-lg leading-loose lg:text-xl">
+                                <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+
+@if ($stories->count() > 0)
+    @foreach ($stories as $item)
+        <a href="{{ route('single-story', $item->slug) }}"
+            class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            <div class="flex">
+                <img src="{{ $item->image }}" alt=""
+                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                <div class="ml-[14px] mt-[20px]">
+                    <h1 class="text-[28px] font-semibold"> {{ $item->name }} </h1>
+                    <p class="font-normal text-[20px]"> {{ $item->profession }} </p>
+                </div>
+            </div>
+            <h5
+                class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">
+                “</h5>
+            <p class="font-normal mx-[17px] text-justify text-[16px] dark:text-gray-400">
+                {{ Str::limit($item->description, 250) }}
+            </p>
+        </a>
+    @endforeach
+@endif
+
+
+</div>
+                               </blockquote>
+                                
+                           
+                            
+                        </div>
+                    </div>
+                    <!-- End Testimonial -->
+                </div>
+            </li>
+            <li>
+                <div class="w-full">
+                    <!-- Start Testimonial -->
+                    <div class="overflow-hidden">
+                        <div class="relative p-6">
+                            <figure class="relative z-10">
+                                <blockquote class="p-6 text-lg leading-loose lg:text-xl">
+                                <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+
+@if ($stories->count() > 0)
+    @foreach ($stories as $item)
+        <a href="{{ route('single-story', $item->slug) }}"
+            class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            <div class="flex">
+                <img src="{{ $item->image }}" alt=""
+                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                <div class="ml-[14px] mt-[20px]">
+                    <h1 class="text-[28px] font-semibold"> {{ $item->name }} </h1>
+                    <p class="font-normal text-[20px]"> {{ $item->profession }} </p>
+                </div>
+            </div>
+            <h5
+                class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">
+                “</h5>
+            <p class="font-normal mx-[17px] text-justify text-[16px] dark:text-gray-400">
+                {{ Str::limit($item->description, 250) }}
+            </p>
+        </a>
+    @endforeach
+@endif
+
+
+</div>
+                                </blockquote>
+                            </figure>
+                            
+                        </div>
+                    </div>
+                    <!-- End Testimonial -->
+                </div>
+            </li>
+            <li>
+                <div class="w-full">
+                    <!-- Start Testimonial -->
+                    <div class="overflow-hidden">
+                        <div class="relative p-6">
+                            <figure class="relative z-10">
+                                <blockquote class="p-6 text-lg leading-loose lg:text-xl">
+                                    <p>You can easily communicate with Wind-ui's team for support through their discord channel. They are responsive and ultra helpful guys!</p>
+                                </blockquote>
+                            </figure>
+                            
+                        </div>
+                    </div>
+                    <!-- End Testimonial -->
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Indicators -->
+    <div class="flex items-center justify-center w-full gap-2 pt-6" data-glide-el="controls[nav]">
+        <button class="p-4 group" data-glide-dir="=0" aria-label="goto slide 1"><span class="block w-2 h-2 transition-colors duration-300 rounded-full opacity-70 ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+        <button class="p-4 group" data-glide-dir="=1" aria-label="goto slide 2"><span class="block w-2 h-2 transition-colors duration-300 rounded-full opacity-70 ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+        <button class="p-4 group" data-glide-dir="=2" aria-label="goto slide 3"><span class="block w-2 h-2 transition-colors duration-300 rounded-full opacity-70 ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
+
+<script>
+    var glide07 = new Glide('.glide-08', {
+        type: 'slider',
+        focusAt: 'center',
+        perView: 1,
+        autoplay: 3500,
+        animationDuration: 700,
+        gap: 0,
+        classes: {
+            activeNav: '[&>*]:bg-slate-700',
+        },
+    });
+
+    glide07.mount();
+</script>
+<!-- End Testimonial slider -->
         <!-- last section start -->
         <section class=" mb-[-100px]"
             style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
