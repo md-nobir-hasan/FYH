@@ -16,26 +16,30 @@ class userSeeder extends Seeder
      */
     public function run()
     {
-        $n =['fname' => "Super Admin",
-            'email' => "admin@gmail.com",
-            'phone' => "01518460933",
-            'role_id' => 1,
-            'password' => Hash::make(12345678),
-            'img' => '/storage/user/profile.png',
-    ];
-           
-
+        $n =[
+            //admin (developer)
+               [
+                'fname' => "Super Admin",
+                'email' => "admin@gmail.com",
+                'phone' => "01518460933",
+                'role_id' => 1,
+                'password' => Hash::make(12345678),
+                'img' => '/storage/user/profile.png',
+               ],
+            //Paid Users
+            //    [
+            //     'fname' => "Thomas T.",
+            //     'fname' => "T.",
+            //     'email' => "thomas@gmail.com",
+            //     'phone' => "123456875645",
+            //     'client_type_id' => 2,
+            //     'role_id' => null,
+            //     'password' => Hash::make(12345678),
+            //     'img' => '/storage/user/profile.png',
+            //    ],
+            ];
 
         DB::table('users')->insert($n);
-
-        $b =['fname' => "user",
-        'email' => "user@gmail.com",
-        'phone' => "01518440933",
-        'password' => Hash::make(12345678),
-        'img' => '/storage/user/profile.png',
-];
-       DB::table('users')->insert($b);
-    //    User::factory()->count(5)->make();
     }
 }
 
