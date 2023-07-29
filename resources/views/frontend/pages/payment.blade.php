@@ -27,7 +27,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'public/js/toastr.css'])
 </head>
 
-<body>
+<body style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
     <div class=" w-[1320px] h-[917px] rounded-lg mx-auto shadow-2xl bg-white mt-[107px]">
         <div class="pt-[23px]">
             <img src="/images/fyhlogo.png" class="h-[37px] w-[111px] ml-[63px]" />
@@ -134,29 +134,29 @@
                             </div>
                             <hr class="h-px my-8 mx-[46px] bg-gray-400 border-0 mt-0">
                             <div id="paypal" class="hidden">
-                                <form action="{{ route('paypal.checkout') }}" method="POST">
+                                <form action="{{ route('paypal.checkout') }}" method="POST" class="mx-[43px]">
                                     @csrf
-                                    <div class="flex mt-[-20px]">
-                                        <h1>Your Order</h1>
+                                    <div class="flex mt-[-10px]">
+                                        <h1 class="font-[500] text-sm">Your Order</h1>
                                         <p class="ml-auto text-sm uppercase">{{ $planId->currency }}
                                             {{ $planId->price }}.00</p>
                                     </div>
-                                    <div class="flex">
-                                        <h1>Others Fee</h1>
+                                    <div class="flex mt-[10px]">
+                                        <h1 class="font-[500] text-sm">Others Fee</h1>
                                         <p class="ml-auto text-sm">CHF 0.00</p>
                                     </div>
-                                    <hr class="h-px my-8 bg-black border-0 mt-0">
+                                    <hr class="h-px my-8 bg-black border-0 mt-[10px]">
                                     <div class="flex">
-                                        <h1 class="font-bold mt-[-25px]">Total:</h1>
-                                        <p class="ml-auto font-bold text-sm mt-[-25px] uppercase">
+                                        <h1 class="font-semibold text-[18px] mt-[-15px]">Total:</h1>
+                                        <p class="ml-auto font-semibold text-[18px] mt-[-15px] uppercase">
                                             {{ $planId->currency }} {{ $planId->price }}.00</p>
                                     </div>
 
                                     <input type="hidden" name="total" value="{{ $planId->price }}">
                                     <input type="hidden" name="plan_id" value="{{ $planId->id }}">
-                                    <hr class="h-px my-8 bg-black border-0 mt-0 mb-0">
+                                    <hr class="h-px my-8 bg-black border-0 mt-[10px] mb-0">
                                     <button
-                                        class="text-center w-full h-[48px] bg-green-500 mt-6 rounded-[10px] text-white text-[16px] font-bold">PAY
+                                        class="text-center w-full h-[48px] bg-[#D1052C] mb-[10px] mt-[10px] rounded-[10px] text-white text-[16px] font-bold">PAY
                                         & GO</button>
                             </div>
                             </form>
@@ -183,8 +183,8 @@
                     </div>
                     <hr class="mt-3 h-px mx-[23px] my-1 bg-gray-700 border-0">
                     <div class="flex">
-                        <h1 class="font-bold text-xl ml-[41px]">Total</h1>
-                        <h1 class="ml-auto uppercase pr-[39px] pb-[11px]">{{ $planId->currency }}
+                        <h1 class="font-semibold text-[18px] ml-[41px]">Total</h1>
+                        <h1 class="ml-auto font-semibold text-[18px] uppercase pr-[39px] pb-[11px]">{{ $planId->currency }}
                             {{ $planId->price }}.00</h1>
                     </div>
                 </div>

@@ -133,7 +133,7 @@
                     {{ $shareImage->reaction_titleOne }}
                 @endif
             </p>
-            <div class="lg:mx-48 mt-5 grid grid-cols-2 lg:grid-cols-5 gap-10">
+            <div class="mx-[292px] mt-5 grid grid-cols-2 lg:grid-cols-5 gap-10">
                 <div id="nreaction" class="hidden">
 
                 </div>
