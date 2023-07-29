@@ -111,7 +111,7 @@
                                     <a href="#">
                                         <h5 class="pt-[20px] px-[22px] text-xl font-bold tracking-tight text-gray-900 dark:text-white">"{{$story->title }}"</h5>
                                     </a>
-                                    <p class="mt-5 mx-[22px] text-sm font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 595) }}</p>
+                                    <p class="mt-5 mx-[22px] text-[14px] font-normal text-justify text-[#212427] dark:text-gray-400">{{ Str::limit($story->description, 595) }}</p>
                                     <a href="{{ route('single-story', $story->id) }}"
                                         class="text-[#D1052C] font-bold text-base mx-[22px]">Read More</a>
                                     <h3 class="font-semibold text-xl mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>

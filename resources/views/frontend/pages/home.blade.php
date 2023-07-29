@@ -86,9 +86,9 @@
                                 class="h-20 w-20 mx-auto rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
-                                class="mb-[10px] mt-[20px] text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
+                                class="mb-[10px] mt-[20px] text-[20px] font-semibold tracking-tight text-gray-900 dark:text-white text-center">
                                 {{ $item->title }} </h5>
-                            <p class="font-normal text-sm text-center">
+                            <p class="font-normal text-[14px] text-center">
                                 {!! $item->first_para !!}
                             </p>
                         </a>
@@ -109,7 +109,7 @@
                         {{ $home->feature_title }}
                     @endif
                 </h1>
-                <p class="text-center text-2xl font-normal">
+                <p class="text-center text-[24px] font-normal">
                     @if ($home !== null)
                         {{ $home->feature_subtitle }}
                     @endif
@@ -135,13 +135,13 @@
                         <div class="col-span-3">
 
                             <div class="ml-6">
-                                <p class=" font-normal text-base text-[#212427] text-justify">
+                                <p class=" font-normal text-[16px] text-[#212427] text-justify">
                                     {{ $firstfeature->description }} </p>
                                 <div class="flex">
                                     <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-[24px] ">
                                     <div class="mt-[24px] ml-[5px]">
-                                        <h1 class="text-xl font-semibold text-[#212427]"> {{ $firstfeature->name }}.</h1>
-                                        <p class="capitalize text-sm tracking-wider font-normal">
+                                        <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $firstfeature->name }}.</h1>
+                                        <p class="capitalize text-[14px] tracking-wider font-normal">
                                             {{ $firstfeature->profession }} </p>
                                     </div>
                                 </div>
@@ -217,18 +217,18 @@
                             </a>
                             <div class="px-[22px] pt-[20px] h-[516px]">
                                 <a href="#">
-                                    <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">" {!! $pStory->title !!}
+                                    <h5 class="mb-2 text-[20px] font-bold tracking-tight text-[#212427]">" {!! $pStory->title !!}
                                         "</h5>
                                 </a>
-                                <p class="mt-[20px] text-sm font-normal text-[#212427] text-justify">
+                                <p class="mt-[20px] text-[14px] font-normal text-[#212427] text-justify">
                                     {{ Str::limit($pStory->description, 595) }} </p>
                                 <a href="{{ route('single-story', $pStory->slug) }}"
                                     class="text-[#D1052C] text-[16px] font-bold">
                                     Read more
                                 </a>
-                                <h1 class="text-xl font-semibold mt-[20px]"> {{ $pStory->name }} <h1>
-                                        <p class="capitalize text-sm font-normal">{{ $pStory->profession }}</p>
-                                        <p class="capitalize text-sm font-normal">{{ $pStory->address }} ,
+                                <h1 class="text-[20px] font-semibold mt-[20px]"> {{ $pStory->name }} <h1>
+                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->profession }}</p>
+                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->address }} ,
                                             {{-- {{$pStory->country->country}} --}}
                                         </p>
                             </div>
@@ -243,7 +243,7 @@
         <!-- successfull story Candidate start -->
         <section class="mt-[100px]"
             style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 30%">
-            <h1 class="text-5xl font-bold text-center text-[#D1052C]">
+            <h1 class="text-[50px] font-bold text-center text-[#D1052C]">
                 @if ($storyCount !== null)
                     {{ number_format($storyCount) }}
                 @endif
@@ -325,7 +325,7 @@
             </p>
 
             <!-- success card  -->
-            <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-4 mt-10">
+            <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-7 gap-6 mt-10">
 
                 @if ($stories->count() > 0)
                     @foreach ($stories as $item)
@@ -337,13 +337,13 @@
                                     style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                                 <div class="ml-[14px] mt-[20px]">
                                     <h1 class="text-[28px] font-semibold"> {{ $item->name }} </h1>
-                                    <p class="font-normal text-xl"> {{ $item->profession }} </p>
+                                    <p class="font-normal text-[20px]"> {{ $item->profession }} </p>
                                 </div>
                             </div>
                             <h5
                                 class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">
                                 “</h5>
-                            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+                            <p class="font-normal mx-[17px] text-justify text-[16px] dark:text-gray-400">
                                 {{ Str::limit($item->description, 250) }}
                             </p>
                         </a>

@@ -29,7 +29,7 @@
                             <h5
                                 class="mb-2 text-[20px] font-semibold tracking-tight text-[#212427] dark:text-white text-center">
                                 {{ $item->title }} </h5>
-                            <p class="font-normal text-sm text-[#212427] text-center">
+                            <p class="font-normal text-[14px] text-[#212427] text-center">
                                 {{-- {!! $item->description !!} <br> --}}
                                 {!! $item->first_para !!}
                             </p>
