@@ -136,7 +136,7 @@
 
                             <div class="ml-6">
                                 <p class=" font-normal text-base text-[#212427] text-justify">
-                                    {{ $firstfeature->description }} </p>
+                                    {!! $firstfeature->description !!} </p>
                                 <div class="flex">
                                     <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-[24px] ">
                                     <div class="mt-[24px] ml-[5px]">
@@ -157,7 +157,7 @@
 
                         <div class="col-span-3">
                             <div>
-                                <p class=" font-normal text-base text-justify"> {{ $secondfeture->description }} </p>
+                                <p class=" font-normal text-base text-justify"> {!! $secondfeture->description !!} </p>
                                 <div class="flex">
                                     <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-[24px]">
                                     <div class="mt-[24px] ml-3">
