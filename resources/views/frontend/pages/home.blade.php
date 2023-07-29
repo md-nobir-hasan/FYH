@@ -125,7 +125,7 @@
                             @endphp
                             {{-- @dd($firstfeature) --}}
                             <img src="{{ asset($firstfeature->feature_img) }}" alt="" class="h-[316px] w-[561px]">
-                            <div class="absolute ml-[60px] mt-[-158px]" style="">
+                            <div class="absolute ml-[70px] mt-[-178px]" style="">
                                 <h1 class=" text-white  text-[50px] font-black">
                                     {!! $firstfeature->title !!}
                                 </h1>
@@ -157,12 +157,12 @@
 
                         <div class="col-span-3">
                             <div>
-                                <p class=" font-normal text-base text-justify"> {!! $secondfeture->description !!} </p>
+                                <p class=" font-normal text-[16px] text-justify"> {!! $secondfeture->description !!} </p>
                                 <div class="flex">
                                     <img src="/images/Ellipse 36.png" alt="" class="h-[52px] w-[52px] mt-[24px]">
                                     <div class="mt-[24px] ml-3">
-                                        <h1 class="text-xl font-semibold text-[#212427]"> {{ $secondfeture->name }} </h1>
-                                        <p class="capitalize text-base font-normal"> {{ $secondfeture->profession }} </p>
+                                        <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $secondfeture->name }} </h1>
+                                        <p class="capitalize text-[14px] font-normal"> {{ $secondfeture->profession }} </p>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@
 
 
                             <img src="{{ asset($secondfeture->feature_img) }}" alt="" class="h-[316px] w-[561px]">
-                            <div class="absolute ml-[80px] mt-[-120px]" style="">
+                            <div class="absolute ml-[80px] mt-[-140px]" style="">
                                 <h1 class=" text-white text-5xl font-black text-center"> {!! $secondfeture->title !!} </h1>
                                 </h1>
                             </div>
@@ -391,7 +391,7 @@
                                 <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
 
         <a href="{{ route('single-story', $item->slug) }}"
-            class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
             <div class="flex">
                 <div>
                 <img src="{{ $item->image }}" alt=""
@@ -404,7 +404,51 @@
                 </div>
                 <div class="ml-[14px] mt-[20px]">
                     <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
-                    <p class="font-normal ml-[10px] text-[20px]"> Marketing Manager</p>
+                    <p class="font-normal text-[20px]"> Marketing Manager</p>
+                </div>
+            </div>
+            
+            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+            Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
+            </p>
+        </a>
+        <a href="{{ route('single-story', $item->slug) }}"
+            class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            <div class="flex">
+                <div>
+                <img src="{{ $item->image }}" alt=""
+                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                    <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+                </div>
+                <div class="ml-[14px] mt-[20px]">
+                    <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+                    <p class="font-normal text-[20px]"> Marketing Manager</p>
+                </div>
+            </div>
+            
+            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+            Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
+            </p>
+        </a>
+        <a href="{{ route('single-story', $item->slug) }}"
+            class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            <div class="flex">
+                <div>
+                <img src="{{ $item->image }}" alt=""
+                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                    <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+                </div>
+                <div class="ml-[14px] mt-[20px]">
+                    <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+                    <p class="font-normal text-[20px]"> Marketing Manager</p>
                 </div>
             </div>
             
@@ -426,10 +470,77 @@
                 <div class="w-full">
                     <!-- Start Testimonial -->
                     <div class="overflow-hidden">
-                        <div class="relative p-6">
+                        <div class="relative">
                             <figure class="relative z-10">
-                                <blockquote class="p-6 text-lg leading-loose lg:text-xl">
-                                    <p>Wind-ui components come with proper attributes to ensure full accessibility with the WAI-ARIA standards. That's just awesome for a free ui library.</p>
+                                <blockquote class=" text-lg leading-loose lg:text-xl">
+                                <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+
+<a href="{{ route('single-story', $item->slug) }}"
+    class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+    <div class="flex">
+        <div>
+        <img src="{{ $item->image }}" alt=""
+            class="h-[103px] w-[103px] rounded-full ml-[17px]"
+            style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+            <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+        </div>
+        <div class="ml-[14px] mt-[20px]">
+            <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+            <p class="font-normal text-[20px]"> Marketing Manager</p>
+        </div>
+    </div>
+    
+    <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+    Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
+    </p>
+</a>
+<a href="{{ route('single-story', $item->slug) }}"
+            class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            <div class="flex">
+                <div>
+                <img src="{{ $item->image }}" alt=""
+                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                    <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+                </div>
+                <div class="ml-[14px] mt-[20px]">
+                    <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+                    <p class="font-normal text-[20px]"> Marketing Manager</p>
+                </div>
+            </div>
+            
+            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+            Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
+            </p>
+        </a>
+        <a href="{{ route('single-story', $item->slug) }}"
+            class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            <div class="flex">
+                <div>
+                <img src="{{ $item->image }}" alt=""
+                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                    <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+                </div>
+                <div class="ml-[14px] mt-[20px]">
+                    <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+                    <p class="font-normal text-[20px]"> Marketing Manager</p>
+                </div>
+            </div>
+            
+            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+            Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
+            </p>
+        </a>
                                 </blockquote>
                             </figure>
                             
@@ -442,10 +553,77 @@
                 <div class="w-full">
                     <!-- Start Testimonial -->
                     <div class="overflow-hidden">
-                        <div class="relative p-6">
+                        <div class="relative">
                             <figure class="relative z-10">
-                                <blockquote class="p-6 text-lg leading-loose lg:text-xl">
-                                    <p>You can easily communicate with Wind-ui's team for support through their discord channel. They are responsive and ultra helpful guys!</p>
+                                <blockquote class=" text-lg leading-loose lg:text-xl">
+                                <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+
+<a href="{{ route('single-story', $item->slug) }}"
+    class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+    <div class="flex">
+        <div>
+        <img src="{{ $item->image }}" alt=""
+            class="h-[103px] w-[103px] rounded-full ml-[17px]"
+            style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+            <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+        </div>
+        <div class="ml-[14px] mt-[20px]">
+            <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+            <p class="font-normal text-[20px]"> Marketing Manager</p>
+        </div>
+    </div>
+    
+    <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+    Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
+    </p>
+</a>
+<a href="{{ route('single-story', $item->slug) }}"
+            class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            <div class="flex">
+                <div>
+                <img src="{{ $item->image }}" alt=""
+                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                    <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+                </div>
+                <div class="ml-[14px] mt-[20px]">
+                    <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+                    <p class="font-normal text-[20px]"> Marketing Manager</p>
+                </div>
+            </div>
+            
+            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+            Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
+            </p>
+        </a>
+        <a href="{{ route('single-story', $item->slug) }}"
+            class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+            <div class="flex">
+                <div>
+                <img src="{{ $item->image }}" alt=""
+                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                    <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+                </div>
+                <div class="ml-[14px] mt-[20px]">
+                    <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+                    <p class="font-normal text-[20px]"> Marketing Manager</p>
+                </div>
+            </div>
+            
+            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+            Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
+            </p>
+        </a>
                                 </blockquote>
                             </figure>
                             
@@ -457,10 +635,10 @@
         </ul>
     </div>
     <!-- Indicators -->
-    <div class="flex items-center justify-center w-full gap-2 pt-6" data-glide-el="controls[nav]">
-        <button class="p-4 group" data-glide-dir="=0" aria-label="goto slide 1"><span class="block w-2 h-2 transition-colors duration-300 rounded-full opacity-70 ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
-        <button class="p-4 group" data-glide-dir="=1" aria-label="goto slide 2"><span class="block w-2 h-2 transition-colors duration-300 rounded-full opacity-70 ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
-        <button class="p-4 group" data-glide-dir="=2" aria-label="goto slide 3"><span class="block w-2 h-2 transition-colors duration-300 rounded-full opacity-70 ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+    <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
+        <button class="p-4 group" data-glide-dir="=0" aria-label="goto slide 1"><span class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700  focus:outline-none"></span></button>
+        <button class="p-4 group" data-glide-dir="=1" aria-label="goto slide 2"><span class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+        <button class="p-4 group" data-glide-dir="=2" aria-label="goto slide 3"><span class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
     </div>
 </div>
 
@@ -471,11 +649,11 @@
         type: 'slider',
         focusAt: 'center',
         perView: 1,
-        autoplay: 3500,
+        autoplay: 5000,
         animationDuration: 700,
         gap: 0,
         classes: {
-            activeNav: '[&>*]:bg-slate-700',
+            activeNav: '[&>*]:bg-[#D1052C]',
         },
     });
 
