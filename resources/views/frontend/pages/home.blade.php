@@ -315,37 +315,6 @@
         <!-- Get Service end -->
 
         <!-- What our member say  -->
-        <!-- <div class="mt-[100px] pb-28"
-                style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
-                <h1 class="font-bold text-[50px] text-[#212427] text-center">
-                    @if ($home !== null)
-    {{ $home->customer_title }}
-    @endif
-                </h1>
-                <p class="text-2xl font-normal text-center text-[#212427]">
-                    @if ($home !== null)
-    {{ $home->customer_subtitle }}
-    @endif
-                </p> -->
-
-        <!-- success card  -->
-        <!-- <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
-
-
-
-
-                </div> -->
-        <!-- success card end -->
-        <!-- <svg class="mx-auto mt-5" width="65" height="15" viewBox="0 0 65 15" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="7.5" cy="7.5" r="7.5" fill="#D1052C" />
-                    <circle cx="32.5" cy="7.5" r="7.5" fill="#D9D9D9" />
-                    <circle cx="57.5" cy="7.5" r="7.5" fill="#D9D9D9" />
-                </svg>
-            </div> -->
-
-        <!-- another implement -->
-
         <div class="mt-[100px]"
             style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
             <h1 class="font-bold text-[50px] text-[#212427] text-center">
@@ -365,7 +334,6 @@
                     <ul
                         class="relative w-full overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
                         @foreach ($member_says->chunk(3) as $items)
-
                                 <li>
                                     <div class="w-full">
                                         <!-- Start Testimonial -->
