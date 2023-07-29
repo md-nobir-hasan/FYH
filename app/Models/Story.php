@@ -9,8 +9,8 @@ class Story extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'title',	'image', 'description',	'address', 'profession', 'priority', 'city', 'country_id', 'user_id','views', 'status', 'feature'];
-   
+    protected $fillable = ['name', 'slug', 'title',	'image', 'description',	'address', 'profession', 'priority', 'city', 'country_id', 'user_id','views', 'status', 'feature','feature_img','views'];
+
 
     public function country()  {
         return $this->belongsTo(Country::class);

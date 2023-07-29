@@ -115,5 +115,23 @@ class SetupSeeder extends Seeder
                 ],
             ];
             DB::table('videos')->insert($videos);
+
+        //Country
+            $countries = [
+                ['country'=>'Afghanistan'],
+                ['country'=>'Albania'],
+                ['country'=>'Algeria'],
+                ['country'=>'American Samoa'],
+                ['country'=>'Andorra'],
+                ['country'=>'Angola'],
+                ['country'=>'Anguilla'],
+                ['country'=>'Antarctica'],
+                ['country'=>'Argentina'],
+                ['country'=>'Australia'],
+                ['country'=>'Austria'],
+                ['country'=>'Bahams'],
+                ['country'=>'Bangladesh'],
+            ];
+            DB::table('countries')->insert($countries);
     }
 }
