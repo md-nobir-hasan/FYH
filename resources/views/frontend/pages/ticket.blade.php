@@ -3,23 +3,23 @@
    ticket and support
 @endpush
 @section('content')
-<div class="lg:mx-40 mb-[-150px]" style="font-family:'Poppins'">
-<section class="mt-[52px]">
+<div class=" mb-[-150px]" style="font-family:'Poppins'">
+<section class="mt-[64px]">
 <section>
    <a href="{{route('createRequest')}}"> 
-    <img src="/images/ticketBanner.png" alt="" class=""/>
+    <img src="/images/ticketBanner.png" alt="" class="mx-auto"/>
    </a>
 
 </section>
-<section class="mt-[27px]">
+<section class="mt-[50px] w-[1320px] mx-auto">
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div class="relative bg-white overflow-x-auto shadow-md sm:rounded-lg">
     
-        <div class="my-4">
-            <h1 class="font-black text-xl ml-5">Recent Support Case</h1>
+        <div class="">
+            <h1 class="font-semibold text-[28px] ml-5">Recent Support Case</h1>
         </div>
         
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <table class="w-full mt-[20px] text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="p-4">
@@ -28,16 +28,16 @@
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </div>
                 </th>
-                <th scope="col" class="px-6 py-3 text-[#848484] text-sm">
+                <th scope="col" class="px-6 py-3 text-[#848484] text-[18px]">
                     Subject
                 </th>
-                <th scope="col" class="px-6 py-3 text-[#848484] text-sm">
+                <th scope="col" class="px-6 py-3 text-[#848484] text-[18px] font-semibold">
                     Date/Time
                 </th>
-                <th scope="col" class="px-6 py-3 text-[#848484] text-sm">
+                <th scope="col" class="px-6 py-3 text-[#848484] text-[18px] font-semibold">
                     Status
                 </th>
-                <th scope="col" class="px-6 py-3 text-[#848484] text-sm">
+                <th scope="col" class="px-6 py-3 text-[#848484] text-[18px] font-semibold">
                     Created by
                 </th>
             </tr>
@@ -68,20 +68,20 @@
                         </div>
                     </div>  
                 </th>
-                <td class="px-6 py-4 text-[#212427] text-base">
+                <td class="px-6 py-4 text-[#212427] font-normal text-base">
                     <a href="{{route('problem', $item->id)}}"> @if($item->created_at !==null)  {{$item->created_at->format('d-m-Y')}} <span class="text-[#848484] text-sm">{{date('h:i A', strtotime($item->created_at))}} @endif</span> </a>
                 </td>
                 <td class="px-6 py-4">
                     <div class="flex items-center text-[#212427]">
                         @if($item->status == 0)
-                        <div class="h-2.5 w-2.5 rounded-full bg-[#848484] mr-2 "></div> Open                       
+                        <div class="h-2.5 w-2.5 rounded-full bg-[#848484] mr-2 text-[16px] font-normal"></div> Open                       
                         @else
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-600 mr-2 "></div> Solve
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-600 mr-2 text-base font-normal"></div> Solve
                         @endif
                     </div>
                 </td>
                 <td class="px-6 py-4">
-                    <div  type="button" data-modal-target="editUserModal" data-modal-show="editUserModal" class="font-medium text-[#212427] uppercase"> <a href="{{route('problem',$item->id)}}"> @if($item->user !==null) {{$item->user->fname}} @endif </a> </div>
+                    <div  type="button" data-modal-target="editUserModal" data-modal-show="editUserModal" class="font-normal text-base text-[#212427] uppercase"> <a href="{{route('problem',$item->id)}}"> @if($item->user !==null) {{$item->user->fname}} @endif </a> </div>
                 </td>
            
             </tr>       
