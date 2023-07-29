@@ -52,9 +52,10 @@ class FrontendControler extends Controller
      $featureStory  = Story::where('feature', '1')->where('status', 1)->orderBy('priority', 'asc')
                      ->select('image', 'title', 'description', 'name', 'profession','feature_img')->take(2)->get();
      $stories = Story::where('feature',0)->select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','asc')->take(15)->get();
+     $member_says = Story::select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','desc')->take(9)->get();
      $popularStory = Story::where('status', 1)->OrderBy('views', 'desc')->take(3)->get();
      $storyCount = Story::all()->count();
-    return view('frontend.pages.home',compact('home', 'services', 'benefits', 'stories', 'featureStory', 'popularStory', 'storyCount'));
+    return view('frontend.pages.home',compact('home','member_says', 'services', 'benefits', 'stories', 'featureStory', 'popularStory', 'storyCount'));
   }
 
   public function membershipPage(){

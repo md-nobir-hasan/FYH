@@ -310,8 +310,9 @@
             </div>
         </section>
         <!-- Get Service end -->
-        <!-- Success section start -->
-        <div class="mt-[100px] pb-28"
+
+        <!-- What our member say  -->
+        <!-- <div class="mt-[100px] pb-28"
             style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
             <h1 class="font-bold text-[50px] text-[#212427] text-center">
                 @if ($home !== null)
@@ -322,13 +323,13 @@
                 @if ($home !== null)
                     {{ $home->customer_subtitle }}
                 @endif
-            </p>
+            </p> -->
 
             <!-- success card  -->
-            <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+            <!-- <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
 
-                @if ($stories->count() > 0)
-                    @foreach ($stories as $item)
+                @if ($member_says->count() > 0)
+                    @foreach ($member_says as $item)
                         <a href="{{ route('single-story', $item->slug) }}"
                             class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
                             <div class="flex">
@@ -343,66 +344,78 @@
                             <h5
                                 class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">
                                 “</h5>
-                            <p class="font-normal mx-[17px] text-justify text-[16px] dark:text-gray-400">
-                                {{ Str::limit($item->description, 250) }}
+                            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+                                {!! Str::limit( $item->description,235) !!}
                             </p>
                         </a>
                     @endforeach
                 @endif
 
 
-            </div>
+            </div> -->
             <!-- success card end -->
-            <svg class="mx-auto mt-5" width="65" height="15" viewBox="0 0 65 15" fill="none"
+            <!-- <svg class="mx-auto mt-5" width="65" height="15" viewBox="0 0 65 15" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <circle cx="7.5" cy="7.5" r="7.5" fill="#D1052C" />
                 <circle cx="32.5" cy="7.5" r="7.5" fill="#D9D9D9" />
                 <circle cx="57.5" cy="7.5" r="7.5" fill="#D9D9D9" />
             </svg>
-        </div>
-        <!-- Success section end -->
-        <!-- Component: Testimonial slider -->
-<div class=" mx-auto glide-08" style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
+        </div> -->
+
+        <!-- another implement -->
+
+        <div class="mt-[100px]"
+            style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
+            <h1 class="font-bold text-[50px] text-[#212427] text-center">
+                @if ($home !== null)
+                    {{ $home->customer_title }}
+                @endif
+            </h1>
+            <p class="text-2xl font-normal text-center text-[#212427]">
+                @if ($home !== null)
+                    {{ $home->customer_subtitle }}
+                @endif
+            </p> 
+            <!-- Component: Testimonial slider -->
+<div class="relative w-[1320px] mx-auto glide-08">
     <!-- Slides -->
-    <div class="overflow-hidden text-center rounded  " data-glide-el="track">
-        <ul class="relative  overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
+    <div class="overflow-hidden text-center rounded " data-glide-el="track">
+        <ul class="relative w-full overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
             <li>
                 <div class="w-full">
                     <!-- Start Testimonial -->
                     <div class="overflow-hidden ">
-                        <div class="relative p-6">
-                            
-                                <blockquote class="p-6 text-lg leading-loose lg:text-xl">
-                                <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+                        <div class="relative">
+                            <figure class="relative z-10">
+                                <blockquote class=" text-lg leading-loose lg:text-xl">
+                                <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
 
-@if ($stories->count() > 0)
-    @foreach ($stories as $item)
         <a href="{{ route('single-story', $item->slug) }}"
             class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
             <div class="flex">
+                <div>
                 <img src="{{ $item->image }}" alt=""
                     class="h-[103px] w-[103px] rounded-full ml-[17px]"
                     style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                    <svg class="ml-[17px] my-[5px]" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z" fill="#212427"/>
+</svg>
+
+                </div>
                 <div class="ml-[14px] mt-[20px]">
-                    <h1 class="text-[28px] font-semibold"> {{ $item->name }} </h1>
-                    <p class="font-normal text-[20px]"> {{ $item->profession }} </p>
+                    <h1 class="text-[28px] font-semibold"> Thomas T. </h1>
+                    <p class="font-normal ml-[10px] text-[20px]"> Marketing Manager</p>
                 </div>
             </div>
-            <h5
-                class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">
-                “</h5>
-            <p class="font-normal mx-[17px] text-justify text-[16px] dark:text-gray-400">
-                {{ Str::limit($item->description, 250) }}
+            
+            <p class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+            Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.
             </p>
         </a>
-    @endforeach
-@endif
-
-
 </div>
-                               </blockquote>
+                                </blockquote>
                                 
-                           
+                            </figure>
                             
                         </div>
                     </div>
@@ -416,33 +429,7 @@
                         <div class="relative p-6">
                             <figure class="relative z-10">
                                 <blockquote class="p-6 text-lg leading-loose lg:text-xl">
-                                <div class="w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
-
-@if ($stories->count() > 0)
-    @foreach ($stories as $item)
-        <a href="{{ route('single-story', $item->slug) }}"
-            class=" h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
-            <div class="flex">
-                <img src="{{ $item->image }}" alt=""
-                    class="h-[103px] w-[103px] rounded-full ml-[17px]"
-                    style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-                <div class="ml-[14px] mt-[20px]">
-                    <h1 class="text-[28px] font-semibold"> {{ $item->name }} </h1>
-                    <p class="font-normal text-[20px]"> {{ $item->profession }} </p>
-                </div>
-            </div>
-            <h5
-                class="text-6xl ml-[17px] mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">
-                “</h5>
-            <p class="font-normal mx-[17px] text-justify text-[16px] dark:text-gray-400">
-                {{ Str::limit($item->description, 250) }}
-            </p>
-        </a>
-    @endforeach
-@endif
-
-
-</div>
+                                    <p>Wind-ui components come with proper attributes to ensure full accessibility with the WAI-ARIA standards. That's just awesome for a free ui library.</p>
                                 </blockquote>
                             </figure>
                             
@@ -495,8 +482,10 @@
     glide07.mount();
 </script>
 <!-- End Testimonial slider -->
+
+        <!-- Success section end -->
         <!-- last section start -->
-        <section class=" mb-[-100px]"
+        <section class="mt-[100px] mb-[-100px]"
             style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
             <div
                 class="pb-10 py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
