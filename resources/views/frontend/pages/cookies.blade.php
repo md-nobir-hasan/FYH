@@ -3,9 +3,9 @@
     cocike
 @endpush
 @section('content')
-<div class="lg:mx-40 mt-[72px]" style="font-family:'Poppins'">
+<div class=" mt-[88px] w-[1320px] mx-auto" style="font-family:'Poppins'">
 <section class="border bg-white shadow-lg rounded-lg">
-<div class="lg:mx-20 lg:my-10">
+<div class="lg:mx-[87px] lg:my-10">
 
 {!! $cookie->cookie !!}
 

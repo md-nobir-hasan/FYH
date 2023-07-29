@@ -3,7 +3,7 @@
     Profile
 @endpush
 @section('content')
-<div class="lg:mx-40 mt-[67px] mb-[-130px]" style="font-family:'Poppins'">
+<div class="w-[1320px] mx-auto mt-[67px] mb-[-130px]" style="font-family:'Poppins'">
 <section class="border shadow-lg bg-white rounded-lg p-14">
  
       {!! $terms->term !!}
