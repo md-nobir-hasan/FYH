@@ -343,7 +343,7 @@
                                                     <blockquote class=" text-lg leading-loose lg:text-xl">
                                                         <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                             @foreach ($items as $item)
-                                                            <a href="{{ route('single-story', $item->slug) }}"
+                                                            <a href="javascript:void()"
                                                                 class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
