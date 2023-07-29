@@ -2,17 +2,18 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class BenefitSeeder extends Seeder
+class IntregationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-          $data = [
+        $data = [
             [
                 'title'=>'Living Standard',
                 'first_para'=>"Welcome to the heart of Europe, where the awe-<br class='first_para'>
@@ -150,6 +151,6 @@ class BenefitSeeder extends Seeder
                         Political stability, respect for the rule of law, and transparency are cornerstones of the Swiss political environment. These principles, combined with Switzerland's neutral stance in global affairs, contribute to its reputation as a reliable and peace-promoting nation.",
             ],
         ];
-        DB::table('benefits')->insert($data);
+        DB::table('integrations')->insert($data);
     }
 }

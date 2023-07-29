@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         Congrat::factory(1)->create();
         Opportunity::factory(1)->create();
         MoveTo::factory(8)->create();
-        Integration::factory(8)->create();
+        Integration::factory(8)->create();//Intregation seeder is created but not implement.
         Help::factory(6)->create();
         Term::factory(1)->create();
         Country::factory(10)->create();
