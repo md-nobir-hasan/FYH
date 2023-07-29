@@ -34,7 +34,7 @@ class HomeSeeder extends Seeder
           'customer_title' => 'What Our Member Say',
            'customer_subtitle' => "Here’s all of the successful stories of our customers",
           'share_title' => 'We Are Exited To Here Your Story',
-          'share_subtitle' => "our company run on voices like yours. it keep us Going, and keeps us grounded . tell us like it is . What's your Story",
+          'share_subtitle' => "our company run on voices like yours. it keep us Going, and keeps us grounded . Tell us like it is . What's your Story?",
          'move_title' => 'Moving To Switzerland',
          'move_subtile' => 'This guide will help you to integrate easier, more meaningful and fun',
          'intr_title' => 'Integration In Switzerland',
