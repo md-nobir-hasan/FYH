@@ -1,33 +1,41 @@
-@extends('frontend.layout.app')
-@push('title')
-    Billing
-@endpush
-@section('content')
+<!DOCTYPE html>
+<html>
+<head>
+<title>Billing</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'public/js/toastr.css'])
+<body style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
 
 @php  
                $user = auth()->user();   
                $countrys = App\Models\Country::all();
     @endphp
 
-    <div class="bg-white p-10 rounded mt-20" style="font-family: 'Poppins';">
-    <!-- <img src="{{asset('/images/fyhlogo.png')}}" alt="" class="lg:ml-20 h-8 w-24"> -->
-       <div class="">
-        <button class="bg-white p-2 rounded"><i class="fa-solid fa-arrow-left"></i><span class="ml-2">back</span></button>
+    <div class="w-[1320px] mx-auto bg-white  rounded mt-20" style="font-family: 'Poppins';">
+    <div class="pt-[23px]">
+    <img src="{{asset('/images/fyhlogo.png')}}" alt="" class="ml-[63px]  h-[37px] w-[111px]">
+    </div>
+       <div class="ml-[88px] mt-[27px]">
+        <a href="/register">
+        <button class="bg-white border px-5 py-3 shadow-2xl rounded"><i class="fa-solid fa-arrow-left text-[#848484]"></i><span class="ml-2 text-[16px] font-bold text-[#848484]">back</span></button>
+        </a>
        </div>
-       <div class="grid lg:grid-cols-3 grid-cols-1 ">
-            <div class=" col-span-2 lg:mr-10">
-                    <div class="mt-5 pl-10 rounded-lg border-gray-300 border-2 p-6">
+       <div class="grid lg:grid-cols-5 grid-cols-1 mt-[24px] ml-[88px]">
+            <div class=" col-span-3">
+                    <div class=" rounded-lg w-[702px]" style="border:1px solid rgba(102, 101, 101, 0.50);"
+>
                             <div class="flex">
-                                <h1 class="text-xl font-bold">Your Account</h1>
-                                <button class="ml-auto rounded p-2 text-gray-600 bg-white">Edit</button>
+                                <h1 class="text-xl font-bold ml-[20px] mt-[10px]">Your Account</h1>
+                                <button class="ml-auto mt-[10px] mr-[10px] border py-2 rounded px-4 text-[#848484] shadow-xl hover:shadow-2xl">Edit</button>
                             </div>
-                                <p class="m-2" > {{$user->fname}}  {{$user->lname}} </p>
-                                <p class="m-2" > {{$user->email}} </p>
+                                <p class="ml-5 text-[14px] font-normal" > {{$user->fname}}  {{$user->lname}} </p>
+                                <p class="ml-5 text-[14px] font-normal mb-[10px]" > {{$user->email}} </p>
                     </div>
                     <!-- billing section -->
-                        <div class="mt-5 pl-10 rounded-lg border-gray-300 border-2 p-5">
-                            <h1 class="text-xl font-bold">Billing Details</h1>
-                            <p class="text-base">FYH collects and uses personal data in accordance with our Privacy Policy. By creating an account, you agree to our Terms and Conditions.</p>
+                        <div class="pt-[10px] pb-[20px] w-[702px] mt-[24px] px-[49px] mb-10  rounded-lg" style="border:1px solid rgba(102, 101, 101, 0.50);">
+                            <h1 class="text-[20px] font-[700]">Billing Details</h1>
+                            <p class="text-[14px] font-normal">FYH collects and uses personal data in accordance with our Privacy Policy. By creating an account, you agree to our Terms and Conditions.</p>
 
                             <!-- input Name-->
                             <form action="{{route('web.billing.store',$planId->plan_id)}}" method="post">
@@ -72,9 +80,9 @@
 
                     <!-- billing section end -->
             </div>
-            <div class="col-span-1 mt-6 lg:mr-[-15px] lg:ml-[-20px]">
+            <div class="col-span-2 ml-[-10px] w-[418px]">
         <div class="border-2  border-gray-300 rounded-xl p-3">
-            <h1 class="font-bold text-xl ml-4">Order Summary</h1>
+            <h1 class="font-bold text-[20px] ml-4">Order Summary</h1>
             <div class="flex mt-2">
                 <h1 class="pl-4"> {{$planId->name}}  - Online Payment... </h1>     
                 <h1 class="ml-auto"> {{$planId->price}}.00 </h1>     
@@ -97,9 +105,9 @@
        </div>
     </div>
 
-@endsection
-@push('js')
-<!-- flowbite cdn -->
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-<!-- flowbite cdn end -->
-@endpush
+</body>
+</html>
+
+
+
+
