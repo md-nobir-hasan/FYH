@@ -36,24 +36,24 @@
 
 
 
-            <form action="{{ route('community.search') }}" method="post">
+            <form action="{{ route('community.search') }}" method="post" class="">
                 @csrf
 
-                <div class="w-[1320px] mx-auto flex">
-                    <div class="">
+                <div class="2xl:w-[1320px] xl:w-[1320px] lg:w-[1100px] mx-auto lg:flex block">
+                    <div class="lg:mx-0 mx-20">
                         <p class="font-medium">Sort Stories</p>
 
                         <select name="stories"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border xl:w-[326px] lg:w-[250px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option class="text-lg" value="latest">Most Recent</option>
                             <option class="text-lg" value="">Most Relevant</option>
 
                         </select>
                     </div>
-                    <div class="ml-[75px]">
+                    <div class="lg:ml-[75px] lg:mx-0 mx-20">
                         <p>By Country</p>
                         <select id="countries" name="country_id"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border xl:w-[326px] lg:w-[250px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option class="text-lg" selected value="">All Country</option>
                             @foreach ($country as $story)
                                 <option value="{{ $story->id }}">{{ $story->country }}</option>
@@ -62,11 +62,11 @@
                         </select>
 
                     </div>
-                    <div class=" ml-[75px]">
+                    <div class=" lg:ml-[75px] lg:mx-0 mx-20">
                         <p>By Time</p>
 
                         <select name="time"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border xl:w-[326px] lg:w-[250px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
                             <option class="text-lg mb-1" value="">Any Time</option>
                             <option class="text-lg mb-1" value="1">Past 24 Hours</option>
@@ -79,11 +79,13 @@
 
                         </select>
                     </div>
+                    <div class="flex justify-center items-center">
                     <div class="flex justify-center items-center ml-[17px] mt-6">
                         <button type="submit" class="border px-4 py-2 rounded shadow hover:shadow-xl">Apply</button>
                     </div>
                     <div class="flex justify-center items-center ml-[17px] mt-6">
                         <input type="reset" class="border px-4 py-2 rounded shadow hover:shadow-xl" value="Clear">
+                    </div>
                     </div>
 
                 </div>
@@ -98,7 +100,7 @@
                 @if ($loop->index ==0 || $loop->index%3 ==0)
                     <div
                     style="background:url('/images/benifitbg.png');background-size:100% 516px;background-position:0 100%;background-repeat:no-repeat">
-                    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 w-[1320px] mx-auto mt-6">
+                    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 2xl:w-[1320px] xl:w-[1320px] lg:w-[1100px] xl:mx-auto lg:mx-5 md:mx-5 sm:mx-5 mt-6">
                 @endif
                             <div
                                 class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -161,7 +163,7 @@
                                 @endif
             </h1>
 
-            <p class="text-xl text-center text-[#D1052C] uppercase w-[986px] mx-auto">
+            <p class="text-xl text-center text-[#D1052C] uppercase lg:w-[986px] mx-auto">
             @if ($storyHead !== null)
                                         {{ $storyHead->share_subtitle }}
                                     @endif
