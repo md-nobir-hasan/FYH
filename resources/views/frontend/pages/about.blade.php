@@ -87,7 +87,7 @@
             <div class="">
                 @if ($about !== null)
                     <img src="/storage/image/about-rect1.png" alt="" class="w-[561px] h-[316px]">
-                    <h1 class="-mt-40 ml-10 absolute text-[50px] font-black text-white">{!! $about->fimg_title !!}
+                    <h1 class="-mt-44 ml-24 absolute text-[50px] font-black text-white">{!! $about->fimg_title !!}
                 @endif
             </div>
             <div class="w-[735px] ml-[24px]">
@@ -113,8 +113,8 @@
             <div>
                 @if ($about !== null)
                     <img src="/storage/image/about-rect2.png" alt="" class="w-[561px] h-[316px]">
-                    <h1 class="absolute text-[50px] font-black -mt-40 ml-20 text-white"><span
-                            class="ml-20">{!! $about->simg_title !!}
+                    <h1 class="absolute text-[50px] font-black -mt-48 ml-20 text-white"><span
+                            class="">{!! $about->simg_title !!}
                 @endif
             </div>
 

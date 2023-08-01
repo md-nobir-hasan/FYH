@@ -98,7 +98,7 @@
                 @if ($loop->index ==0 || $loop->index%3 ==0)
                     <div
                     style="background:url('/images/benifitbg.png');background-size:100% 516px;background-position:0 100%;background-repeat:no-repeat">
-                    <div class="grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 w-[1320px] mx-auto mt-6">
+                    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 w-[1320px] mx-auto mt-6">
                 @endif
                             <div
                                 class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

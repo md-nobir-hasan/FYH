@@ -23,7 +23,7 @@
                 @if ($Benefits->count() > 0)
                     @foreach ($Benefits as $item)
                         <a href="{{route('benefit.details',[$item->id])}}"
-                            class="h-[232px] w-[424px] px-6 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden">
+                            class="h-[232px] lg:w-[424px] w-full px-6 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden">
                             <img src="{{ "/storage/".$item->image }}" alt="" class="h-[80px] w-[80px] mx-auto rounded-full p-2"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
