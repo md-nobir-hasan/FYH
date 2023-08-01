@@ -100,7 +100,9 @@ class FrontendControler extends Controller
      $shareStory = Home::select('share_title', 'share_subtitle')->first();
      $stories = Story::orderBy('priority','asc')->take(3)->get();
      $videos = Video::where('for','about')->get();
-    return view('frontend.pages.about', compact('about', 'stories', 'shareStory','videos'));
+     $member_says = Story::select('id', 'name','slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority','desc')->take(9)->get();
+
+    return view('frontend.pages.about', compact('about', 'stories', 'shareStory','videos','member_says'));
   }
 
   public function discover(){
