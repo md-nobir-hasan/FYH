@@ -82,7 +82,7 @@
                     @foreach ($benefits as $item)
                         <a href="#"
                             class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700">
-                            <img src="{{ asset($item->image) }}" alt="{{ $item->title }}"
+                            <img src="{{ "/storage/".$item->image }}" alt="{{ $item->title }}"
                                 class="h-20 w-20 mx-auto rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
