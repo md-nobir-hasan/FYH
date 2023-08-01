@@ -27,17 +27,16 @@ class StorySeeder extends Seeder
         //12 Bahams
         //13 Bangladesh
         $data = [
-            [
-                'name' => "David Milan",
+            [ //1
+                'name' => "Elena Mazaeva",
                 'slug' => "",
                 'title' => "From a Business Trip to a Lifelong Love: Embracing Switzerland's Charm and Building My Future.",
-                'description' => "I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking the time to understand my career goals and helping me to identify job opportunities that matched my skill set. With their help, I was able to craft a strong resume and cover letter that really showcased my strengths. I even received interview coaching, which helped me to feel more confident and prepared when meeting with potential employers. Thanks to FYH, I was able to land a job that I'm truly excited about and that offers great opportunities for growth. I can't thank them enough for their excellent service and support throughout my job search journey.<br class='fs-br'>
-                    I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking the time to understand my career goals and helping me to identify job opportunities that matched my skill set. With their help, I was able to craft a strong resume and cover letter that really showcased my strengths. I even received interview coaching, which helped me to feel more confident and prepared when meeting with potential employers. Thanks to FYH, I was able to land a job that I'm truly excited about and that offers great opportunities for growth. I can't thank them enough for their excellent service and support throughout my job search journey.I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking the time to understand my career goals and helping me to identify job opportunities that matched my skill set. With their help, I was able to craft a strong resume and cover letter that really showcased my strengths.",
+                'description' => "My love for Switzerland was born back in 2013, when I visited this beautiful country for the first time. It was a business trip as part of my work at Novartis. I saw that Switzerland combines all the attributes of an ideal country: beautiful nature, a fair state structure, a high standard of living, a huge number of career prospects, a very good geographical location and much more. At that time, I also loved Dubai and spent almost all my vacations in this city. However, in 2021 I decided to spend my vacation in Switzerland and did not regret it. During my vacation, I met my husband (a resident of Switzerland) and a ...",
                 'priority' => 1,
-                'address' => "Berlin,Germany",
-                'city' => "Berlin",
-                'profession' => 'English Teacher',
-                'image' => "images/stry1.png",
+                'address' => "Russia",
+                'city' => "Russia",
+                'profession' => 'Marketing Manager',
+                'image' => "images/stry01.png",
                 'status' => 1,
                 'country_id' => 1,
                 'feature' => 0,
@@ -45,16 +44,18 @@ class StorySeeder extends Seeder
                 'feature_img'=>'',
                 'user_id' => 2,
             ],
-            [
-                'name' => "David Milan",
+            [ //2
+                'name' => "Maria Maksic",
                 'slug' => "",
-                'title' => "I have learnt so much, my memory got better, my morning routine got more structure",
-                'description' => "I was struggling to find a job that aligned with my skills and experience, and I was starting Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning. I had a kind of morning routine, but it was not consistent. Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning.",
+                'title' => "From Unexpected Love to a Life of Dreams: My Journey to Switzerland's Embrace.",
+                'description' => "I initially never planned to move to Switzerland, and actually was in a process of moving to Australia. After getting an acceptance letter from one of the Australian universities, I went to a short trip to beautiful Switzerland and... met my future husband here. He proposed after 4 month of dating, and we got married shortly after. What a twist!
+                I moved to Switzerland following my love, but got so much more: family, career, high quality of life, stability and security, beautiful nature, delicious cheese and chocolate and so much more!
+                Any change is connected with a fear of ... ",
                 'priority' => 2,
-                'address' => "Berlin,Germany",
-                'city' => "Berlin",
-                'profession' => 'English Teacher',
-                'image' => "images/stry2.png",
+                'address' => "Russia",
+                'city' => "Russia",
+                'profession' => 'Recruiter',
+                'image' => "images/stry02.png",
                 'status' => 1,
                 'country_id' => 1,
                 'feature' => 0,
@@ -62,7 +63,7 @@ class StorySeeder extends Seeder
                 'feature_img'=>'',
                 'user_id' => 2,
             ],
-            [
+             [//3
                 'name' => "David Milan",
                 'slug' => "",
                 'title' => "I have learnt so much, my memory got better, my morning routine got more structure",
@@ -71,15 +72,16 @@ class StorySeeder extends Seeder
                 'address' => "Berlin,Germany",
                 'city' => "Berlin",
                 'profession' => 'English Teacher',
-                'image' => "images/stry3.png",
+                'image' => "images/stry03.png",
                 'status' => 1,
                 'country_id' => 1,
                 'feature' => 0,
-                'views' =>0,
+                'views' =>8,
                 'feature_img'=>'',
                 'user_id' => 2,
             ],
-            [
+
+            [ //4
                 'name' => "David Milan",
                 'slug' => "",
                 'title' => "I have learnt so much, my memory got better, my morning routine got more structure",
@@ -88,7 +90,7 @@ class StorySeeder extends Seeder
                 'address' => "Berlin,Germany",
                 'city' => "Berlin",
                 'profession' => 'English Teacher',
-                'image' => "images/stry4.png",
+                'image' => "images/stry04.png",
                 'status' => 1,
                 'country_id' => 1,
                 'feature' => 0,
@@ -96,7 +98,7 @@ class StorySeeder extends Seeder
                 'feature_img'=>'',
                 'user_id' => 2,
             ],
-            [
+            [//5
                 'name' => "David Milan",
                 'slug' => "",
                 'title' => "I have learnt so much, my memory got better, my morning routine got more structure",
@@ -105,14 +107,32 @@ class StorySeeder extends Seeder
                 'address' => "Berlin,Germany",
                 'city' => "Berlin",
                 'profession' => 'English Teacher',
-                'image' => "images/stry5.png",
+                'image' => "images/stry05.png",
                 'status' => 1,
                 'country_id' => 1,
                 'feature' => 0,
-                'views' =>8,
+                'views' =>0,
                 'feature_img'=>'',
                 'user_id' => 2,
             ],
+            [ //6
+                'name' => "David Milan",
+                'slug' => "",
+                'title' => "I have learnt so much, my memory got better, my morning routine got more structure",
+                'description' => "I was struggling to find a job that aligned with my skills and experience, and I was starting Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning. I had a kind of morning routine, but it was not consistent. Before this program I was struggling to remember things, such as PIN numbers, important dates, things to do at home, things to buy at store and I was having a hard time to concentrate and follow through with my learning.",
+                'priority' => 6,
+                'address' => "Berlin,Germany",
+                'city' => "Berlin",
+                'profession' => 'English Teacher',
+                'image' => "images/stry06.png",
+                'status' => 1,
+                'country_id' => 1,
+                'feature' => 0,
+                'views' =>0,
+                'feature_img'=>'',
+                'user_id' => 2,
+            ],
+
             [
                 'name' => "David Milan",
                 'slug' => "",
