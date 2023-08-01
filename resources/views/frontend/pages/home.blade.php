@@ -170,14 +170,9 @@
                             </div>
                         </div>
                         <div class="col-span-2 ml-4">
-
                             @php
-
                                 $title = str_split($secondfeture->title, 15);
-
                             @endphp
-
-
                             <img src="{{ Storage::url($secondfeture->feature_img) }}" alt="" class="h-[316px] w-[561px]">
                             <div class="absolute ml-[80px] mt-[-140px]" style="">
                                 <h1 class=" text-white text-5xl font-black text-center"> {!! $secondfeture->title !!} </h1>
@@ -243,6 +238,7 @@
             </div>
         </section>
         <!-- Popular story end -->
+
         <!-- successfull story Candidate start -->
         <section class="mt-[100px]"
             style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 30%">
@@ -327,6 +323,7 @@
                     {{ $home->customer_subtitle }}
                 @endif
             </p>
+
             <!-- Component: Testimonial slider -->
             <div class="relative w-[1320px] mx-auto glide-08">
                 <!-- Slides -->
@@ -398,23 +395,7 @@
                 </div>
             </div>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
 
-            <script>
-                var glide07 = new Glide('.glide-08', {
-                    type: 'slider',
-                    focusAt: 'center',
-                    perView: 1,
-                    autoplay: 5000,
-                    animationDuration: 700,
-                    gap: 0,
-                    classes: {
-                        activeNav: '[&>*]:bg-[#D1052C]',
-                    },
-                });
-
-                glide07.mount();
-            </script>
             <!-- End Testimonial slider -->
 
             <!-- Success section end -->
@@ -462,6 +443,24 @@
         </div>
     @endsection
     @push('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
+
+    <script>
+        var glide07 = new Glide('.glide-08', {
+            type: 'slider',
+            focusAt: 'center',
+            perView: 1,
+            autoplay: 5000,
+            animationDuration: 700,
+            gap: 0,
+            classes: {
+                activeNav: '[&>*]:bg-[#D1052C]',
+            },
+        });
+
+        glide07.mount();
+    </script>
+    
         <!-- flowbite cdn -->
         <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
         <!-- flowbite cdn end -->
