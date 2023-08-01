@@ -81,9 +81,9 @@
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
                         <a href="#"
-                            class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700">
+                            class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <img src="{{ asset($item->image) }}" alt="{{ $item->title }}"
-                                class="h-20 w-20 mx-auto rounded-full"
+                                class="h-[80px] w-[80px] mx-auto rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
                                 class="mb-[10px] mt-[20px] text-[20px] font-semibold tracking-tight text-gray-900 dark:text-white text-center">
@@ -388,11 +388,11 @@
                 </div>
                 <!-- Indicators -->
                 <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
-                    <button class="p-4 group" data-glide-dir="=0" aria-label="goto slide 1"><span
+                    <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
                             class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700  focus:outline-none"></span></button>
-                    <button class="p-4 group" data-glide-dir="=1" aria-label="goto slide 2"><span
+                    <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
                             class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
-                    <button class="p-4 group" data-glide-dir="=2" aria-label="goto slide 3"><span
+                    <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
                             class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
                 </div>
             </div>
