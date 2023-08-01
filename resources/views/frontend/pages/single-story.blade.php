@@ -10,11 +10,11 @@
 <div class=" mt-[100px] mx-auto" style="font-family:'Poppins'">
 <section class="border-2 rounded grid grid-cols-1 lg:grid-cols-4 p-5 w-[1320px] bg-white gap-[48px] mx-auto h-[744px]">
     <div class="col-span-1">
-        <img src="{{'/storage/'. $story->image}}" alt="" class="w-[308px] h-[308px] "/>
+        <img src="{{Storage::url($story->image)}}" alt="" class="w-[308px] h-[308px] "/>
     </div>
     <div class="col-span-3 ">
         <h1 class="text-4xl mt-[10px] font-bold">“ {{$story->title}} ”</h1>
-      
+
         <p class="text-[#666565] mt-[10px] text-base font-normal">Posted: {{date('D-M-Y', strtotime($story->created_at))}} </p>
         <p class="text-justify font-normal text-base mt-[20px]">
                       {{$story->description}}
@@ -35,16 +35,16 @@
 
 <!-- <div class="lg:-mx-40" style="background:url('/images/benifitbg.png');background-size:100% 50%;background-repeat:no-repeat;background-position:0 100%">
 <div  class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10 lg:mx-40"   >
-    
-    
 
-   
+
+
+
     @foreach ($stories as $story)
-     
- 
+
+
     <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-            <img class="lg:h-1/2 w-full" src="{{'/storage/'. $story->image}}" alt="{{$story->name}}" />
+            <img class="lg:h-1/2 w-full" src="{{Storage::url($story->image)}}" alt="{{$story->name}}" />
         </a>
         <div class="p-3 lg:h-1/2">
             <a href="#">
@@ -62,15 +62,15 @@
         </div>
     </div>
     @endforeach
-    
-     
+
+
 
    </div>
 </div> -->
 <!-- temporary single story page start -->
 <div class="" style="background:url('/images/benifitbg.png');background-size:100% 525px;background-repeat:no-repeat;background-position:0 100%">
 <div  class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto"   >
-    
+
     <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
             <img class="h-[424px] w-full" src="/images/story2.png" alt="" />
@@ -128,12 +128,12 @@
 
         </div>
     </div>
- 
+
    </div>
 </div>
 <div class="" style="background:url('/images/benifitbg.png');background-size:100% 525px;background-repeat:no-repeat;background-position:0 100%">
 <div  class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto"   >
-    
+
     <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
             <img class="h-[424px] w-full" src="/images/story2.png" alt="" />
@@ -191,7 +191,7 @@
 
         </div>
     </div>
- 
+
    </div>
 </div>
 
@@ -203,19 +203,19 @@
     @auth
     <button  class="bg-[#D1052C] font-bold text-xl mt-2 text-white px-6 py-2 rounded loadmoredata">Load More Stories</button>
     @endauth
-           
+
         </div> -->
-     
+
 </section>
 <section class=" mb-[-100px]"  style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
             <div class="pb-10 pt-56 mt-[69px]"style="background:url(/images/lastbg.png);background-size:100% 100%;background-repeat:no-repeat;background-position:0 30px">
             <div class="pb-14 shadow-lg">
             <h1 class="font-bold text-5xl text-[#212427] text-center">
-            @if($share !==null)   {{$share->share_title}}    @endif 
+            @if($share !==null)   {{$share->share_title}}    @endif
             </h1>
-            
+
             <p class="text-xl text-center text-[#D1052C] uppercase">
-            @if($share !==null) {!!$share->share_subtitle !!} @endif 
+            @if($share !==null) {!!$share->share_subtitle !!} @endif
             </p>
                 <a href="{{route('share.story')}}" class=" flex justify-center items-center"><button
                 class="lg:w-48 mt-[20px] p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
@@ -229,7 +229,7 @@
 <div class="mt-[100px] mb-[-100px] shadow-xl pb-32 lg:-mx-40" style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;background-position:cover">
         <div class="">
             <h1 class="font-bold text-5xl text-center">
-                   @if($share !==null)   {{$share->share_title}}    @endif 
+                   @if($share !==null)   {{$share->share_title}}    @endif
             </h1>
             <p class="font-normal uppercase lg:mx-32 text-2xl text-center text-[#D1052C]"> @if($share !==null) {!!$share->share_subtitle !!} @endif </p>
         </div>
@@ -242,7 +242,7 @@
 @push('js')
     <!-- flowbite cdn -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
- 
+
 @endpush
 
 

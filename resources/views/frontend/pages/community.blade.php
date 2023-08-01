@@ -104,7 +104,7 @@
                                 class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <a href="#">
                                     {{-- /images/story4.png --}}
-                                    <img class="h-[424px] w-full" src="{{ asset( $story->image) }}"
+                                    <img class="h-[424px] w-full" src="{{ Storage::url($story->image) }}"
                                         alt="{{ $story->name }}" />
                                 </a>
                                 <div class=" h-[516px]">
