@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoryStoreRequest;
 use App\Http\Requests\StoryUpdateRequest;
 use App\Models\Story;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -28,8 +27,8 @@ class StoryController extends Controller
 
     public function store(StoryStoreRequest $request)
     {
-        
-          
+
+
 
            if($request->hasFile('image')){
                $image = $request->file('image')->store('image');
@@ -66,7 +65,7 @@ class StoryController extends Controller
      if($request->hasFile('image')){
          if($story->image){
             Storage::delete($story->image);
-            
+
          }
        $image = $request->file('image')->store('image');
          }else{
@@ -97,15 +96,15 @@ class StoryController extends Controller
 
     public function destroy($id)
     {
-     
+
        $story = Story::findOrFail($id);
-     
+
        if($story->image){
            Storage::delete($story->image);
-           
+
       }
       $story->delete();
-    
+
       return Redirect::back()->with('success',' Story Delete SuccessfullY');
     }
 

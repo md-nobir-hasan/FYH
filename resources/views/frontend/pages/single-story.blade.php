@@ -10,7 +10,7 @@
 <div class=" mt-[100px] mx-auto" style="font-family:'Poppins'">
 <section class="border-2 rounded grid grid-cols-1 lg:grid-cols-4 p-5 w-[1320px] bg-white gap-[48px] mx-auto h-[744px]">
     <div class="col-span-1">
-        <img src="{{asset($story->image)}}" alt="" class="w-[308px] h-[308px] "/>
+        <img src="{{Storage::url($story->image)}}" alt="" class="w-[308px] h-[308px] "/>
     </div>
     <div class="col-span-3 ">
         <h1 class="text-4xl mt-[10px] font-bold">“ {{$story->title}} ”</h1>
@@ -44,7 +44,7 @@
 
     <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-            <img class="lg:h-1/2 w-full" src="{{asset($story->image)}}" alt="{{$story->name}}" />
+            <img class="lg:h-1/2 w-full" src="{{Storage::url($story->image)}}" alt="{{$story->name}}" />
         </a>
         <div class="p-3 lg:h-1/2">
             <a href="#">
