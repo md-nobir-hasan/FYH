@@ -23,12 +23,12 @@
 
         @auth
 
-            <h1 class="text-5xl font-black text-center">
+            <h1 class="text-[50px] font-semibold text-center">
                 @if ($storyHead !== null)
                     {{ $storyHead->community_sub_title }}
                 @endif
             </h1>
-            <p class="text-lg text-center mb-5">
+            <p class="text-[24px] font-normal text-center mb-[10px] mt-[10px]">
                 @if ($storyHead !== null)
                     {{ $storyHead->community_sub_subtitle }}
                 @endif
@@ -41,7 +41,7 @@
 
                 <div class="2xl:w-[1320px] xl:w-[1320px] lg:w-[1100px] mx-auto lg:flex block">
                     <div class="lg:mx-0 mx-20">
-                        <p class="font-medium">Sort Stories</p>
+                        <p class="font-medium text-[14px]">Sort Stories</p>
 
                         <select name="stories"
                             class="bg-gray-50 border xl:w-[326px] lg:w-[250px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -154,6 +154,7 @@
         </div>
         <div>
             @auth
+            <div class="bg-white">
             <section class=" mb-[-100px]"  style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
             <div class="py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
             <div class="pb-28 shadow-lg">
@@ -174,6 +175,7 @@
     </div>
     </div>
     </section>
+            </div>
 
         @endauth
     </div>
