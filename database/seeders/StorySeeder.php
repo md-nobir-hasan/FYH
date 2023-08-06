@@ -42,7 +42,7 @@ class StorySeeder extends Seeder
                 'feature' => 0,
                 'views' =>0,
                 'feature_img'=>'',
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [ //2
                 'name' => "Maria Maksic",
@@ -61,7 +61,7 @@ class StorySeeder extends Seeder
                 'feature' => 0,
                 'views' =>0,
                 'feature_img'=>'',
-                'user_id' => 2,
+                'user_id' => 1,
             ],
              [//3
                 'name' => "David Milan",
@@ -78,7 +78,7 @@ class StorySeeder extends Seeder
                 'feature' => 0,
                 'views' =>8,
                 'feature_img'=>'',
-                'user_id' => 2,
+                'user_id' => 1,
             ],
 
             [ //4
@@ -96,7 +96,7 @@ class StorySeeder extends Seeder
                 'feature' => 0,
                 'views' =>0,
                 'feature_img'=>'',
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [//5
                 'name' => "David Milan",
@@ -113,7 +113,7 @@ class StorySeeder extends Seeder
                 'feature' => 0,
                 'views' =>0,
                 'feature_img'=>'',
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [ //6
                 'name' => "David Milan",
@@ -130,7 +130,7 @@ class StorySeeder extends Seeder
                 'feature' => 0,
                 'views' =>0,
                 'feature_img'=>'',
-                'user_id' => 2,
+                'user_id' => 1,
             ],
 
             [//7
@@ -148,7 +148,7 @@ class StorySeeder extends Seeder
                 'feature' => 0,
                 'views' =>8,
                 'feature_img'=>'',
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [//8
                 'name' => "David Milan",
@@ -165,7 +165,7 @@ class StorySeeder extends Seeder
                 'feature' => 0,
                 'views' =>10,
                 'feature_img'=>'',
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [//9
                 'name' => "Thomas T.",
@@ -183,7 +183,7 @@ class StorySeeder extends Seeder
                 'feature' => 1,
                 'views' =>0,
                 'feature_img' => "image/fs-rect1.png",
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [//10
                 'name' => "Thomas T.",
@@ -200,7 +200,7 @@ class StorySeeder extends Seeder
                 'feature' => 1,
                 'views' =>0,
                 'feature_img' => "image/fs-rect2.png",
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [//11
                 'name' => "Thomas T.",
@@ -217,7 +217,7 @@ class StorySeeder extends Seeder
                 'feature' => 2,
                 'views' =>0,
                 'feature_img' => "image/fs-rect2.png",
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [//12
                 'name' => "Thomas T.",
@@ -234,7 +234,7 @@ class StorySeeder extends Seeder
                 'feature' => 2,
                 'views' =>0,
                 'feature_img' => "image/fs-rect2.png",
-                'user_id' => 2,
+                'user_id' => 1,
             ],
             [//13
                 'name' => "Thomas T.",
@@ -251,7 +251,7 @@ class StorySeeder extends Seeder
                 'feature' => 2,
                 'views' =>0,
                 'feature_img' => "image/fs-rect2.png",
-                'user_id' => 2,
+                'user_id' => 1,
             ],
         ];
         DB::table('stories')->insert($data);
