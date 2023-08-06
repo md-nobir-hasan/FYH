@@ -20,6 +20,7 @@ class userSeeder extends Seeder
             //admin (developer)
                [
                 'fname' => "Super Admin",
+                // 'lname' => "Admin",
                 'email' => "admin@gmail.com",
                 'phone' => "01518460933",
                 'role_id' => 1,
@@ -27,16 +28,16 @@ class userSeeder extends Seeder
                 'img' => '/storage/user/profile.png',
                ],
             //Paid Users
-            //    [
-            //     'fname' => "Thomas T.",
-            //     'fname' => "T.",
-            //     'email' => "thomas@gmail.com",
-            //     'phone' => "123456875645",
-            //     'client_type_id' => 2,
-            //     'role_id' => null,
-            //     'password' => Hash::make(12345678),
-            //     'img' => '/storage/user/profile.png',
-            //    ],
+               [
+                'fname' => "Thomas T.",
+                // 'lname' => "T.",
+                'email' => "thomas@gmail.com",
+                'phone' => "123456875645",
+                // 'client_type_id' => 2,
+                'role_id' => null,
+                'password' => Hash::make(12345678),
+                'img' => '/storage/user/profile.png',
+               ],
             ];
 
         DB::table('users')->insert($n);

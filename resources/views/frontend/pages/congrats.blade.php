@@ -6,8 +6,8 @@
 
 <body>
     <div style="font-family: 'Poppins';background:url('/images/congratsbg.png');background-size:100%;background-position:top center;background-repeat:no-repeat">
-        <div class="mt-5 flex justify-center items-center">
-           @if($Congrat !== null)   <img src="{{'/storage/'.$Congrat->image}}" alt="" class=" w-[503px]"> @endif
+        <div class="mt-8 mb-5 flex justify-center items-center">
+           @if($Congrat !== null)   <img src="{{'/storage/'.$Congrat->image}}" alt="" class=" w-[145px]"> @endif
         </div>
         <div class="text-center text-6xl text-[#D1052C] font-bold mt-[-20px] capitalize bg-white">  @if($Congrat !==null)  {{$Congrat->heading}}   @endif</div>
         <h1 class="text-center text-4xl mt-2 font-bold"> @if($Congrat){{$Congrat->title}} @endif </h1>

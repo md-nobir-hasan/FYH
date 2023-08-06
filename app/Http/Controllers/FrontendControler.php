@@ -222,7 +222,8 @@ class FrontendControler extends Controller
     return view('frontend.pages.move-ch', compact('moveTo', 'titles'));
   }
   public function integrationSwitzerland(){
-     $integration = Integration::where('status', 1)->orderBy('priority', 'asc')->get();
+    //  $integration = Integration::where('status', 1)->orderBy('priority', 'asc')->get();
+    $integration = Benefit::orderBy('priority','asc')->get();
      $titles = Home::select('intr_title', 'intr_subtile')->first();
 
      return view('frontend.pages.integration-ch',compact('integration', 'titles'));
@@ -318,7 +319,6 @@ class FrontendControler extends Controller
     if($user ==null){
        return Redirect::back();
     }
-
     $myStory = Story::where('user_id', $user->id)->get();
     return view('frontend.pages.my-story', ['myStory' => $myStory]);
   }
