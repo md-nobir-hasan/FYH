@@ -27,7 +27,7 @@ class UserStoryRequest extends FormRequest
             'image' =>'required',
             'description' => 'required|min:30',
             'profession' => 'required',
-            'address' => 'required',
+            // 'address' => 'required',
             'city' => 'required',
             'country_id' => 'required',
         ];
