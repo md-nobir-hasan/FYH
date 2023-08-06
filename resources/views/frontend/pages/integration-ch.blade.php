@@ -10,6 +10,7 @@
 <!-- Integration design 2 -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto w-[1320px] mt-5">
 
+    
 
 @if($integration->count() > 0)
     @foreach ($integration as $item)
