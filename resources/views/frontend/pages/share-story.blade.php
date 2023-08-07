@@ -37,40 +37,40 @@
 <!-- img section end -->
 <section class="col-span-2">
   <div class="lg:mt-20 mt-10">
-    <h1 class="text-xl font-semibold capitalize"> {{$user->fname}} {{$user->lname}}</h1>
-     <input type="hidden" name="name" value="{{$user->fname}}">
-   
+    <h1 class="text-xl font-semibold capitalize"> Hey {{$user->fname}} {{$user->lname}},</h1>
+     <input type="hidden" name="name" value="{{$user->fname }}">
+
 
        <div class="">
-        <input type="text" name="profession" placeholder="Your Job Tittle (e.g. Recruiter)" class=" @error('profession') is-invalid @enderror w-full rounded border mt-2 border-dotted border-[#848484]" />
+        <input type="text" name="profession" value="{{old('profession')}}" placeholder="Your Job Tittle (e.g. Recruiter)" class=" @error('profession') is-invalid @enderror w-full rounded border mt-2 border-dotted border-[#848484]" />
         @error('profession')
              <div class="text-left text-red-600">{{ $message }}</div>
         @enderror
        </div>
 
 
-        <div class="">
+        {{-- <div class="">
           <input type="text" name="address" placeholder="Where are you From?" class="@error('address') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
               @error('address')
               <div class="text-left text-red-600">{{ $message }}</div>
             @enderror
-        </div>
-         
+        </div> --}}
+
         <div>
           <select name="country_id"  class="@error('city') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]">
-                  <option  selected disabled value="">Choose Country</option>
+                  <option  selected disabled value="">Where are you From?</option>
                   @foreach ($country as $item)
-                       <option value="{{$item->id}}">{{$item->country}}</option>
+                       <option value="{{$item->id}}" @selected($item->id == old('country_id'))>{{$item->country}}</option>
                   @endforeach
           </select>
-        
+
           @error('country_id')
           <div class="text-left text-red-600">{{ $message }}</div>
          @enderror
         </div>
 
         <div>
-          <input type="text" name="city" placeholder="City" class="@error('city') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
+          <input type="text" name="city" value="{{old('city')}}" placeholder="City" class="@error('city') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
           @error('city')
           <div class="text-left text-red-600">{{ $message }}</div>
          @enderror
@@ -78,21 +78,23 @@
 
 
         <div>
-          <input type="text" name="title" placeholder="Story Title" class="@error('title') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
+          <input type="text" name="title" value="{{old("title")}}" placeholder="Story Title" class="@error('title') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
           @error('title')
           <div class="text-left text-red-600">{{ $message }}</div>
          @enderror
         </div>
-        
+
        <div>
-        <textarea id="message" name="description" rows="4" class="@error('description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border border-dotted h-[386px] border-[#848484] focus:ring-blue-500 focus:border-blue-500 mt-5" placeholder="Write story here..." ></textarea>
+        <textarea id="message" name="description" rows="4" class="@error('description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border border-dotted h-[386px] border-[#848484] focus:ring-blue-500 focus:border-blue-500 mt-5" placeholder="Write story here..." >
+            {{old('description')}}
+        </textarea>
           @error('description')
           <div class="text-left text-red-600">{{ $message }}</div>
           @enderror
        </div>
 
         <div class="flex items-center mb-4 mt-5">
-    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" >
+    <input id="default-checkbox" type="checkbox" name="agree" @checked(old("agree")) class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" >
     <label for="default-checkbox" class="ml-2 font-medium text-black">I agree to use my story and my photo</label>
   </div>
 <button type="submit" class="text bg-[#D1052C] text-white border border-gray-300 rounded font-semibold cursor-pointer py-2 px-7 hover:bg-[#a73147]">Post Story</button>
@@ -110,10 +112,10 @@ const imageFile = document.getElementById('imgFile')
 
 fileInput.addEventListener('change', (event) => {
   const file = event.target.files[0];
-  
+
   if (file) {
     const reader = new FileReader();
-    
+
     reader.onload = (readerEvent) => {
       const previewImage = document.createElement('img');
       previewImage.src = readerEvent.target.result;
@@ -122,7 +124,7 @@ fileInput.addEventListener('change', (event) => {
       filePreview.innerHTML = '';
       filePreview.appendChild(previewImage);
     };
-    
+
     reader.readAsDataURL(file);
   } else {
     filePreview.innerHTML = '';
