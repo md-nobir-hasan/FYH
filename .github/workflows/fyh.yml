@@ -2,7 +2,7 @@ name: 🚀Deploy to fyh-nobir on push
 on:
   push:
     branches:
-      - fyh
+      - fyh-deploy
 jobs:
   web-deploy:
     name: 🎉 Deploy
