@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -43,6 +44,7 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img'=>'',
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
             [ //2
                 'name' => "Maria Maksic",
@@ -62,6 +64,7 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img'=>'',
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
              [//3
                 'name' => "David Milan",
@@ -79,6 +82,7 @@ class StorySeeder extends Seeder
                 'views' =>8,
                 'feature_img'=>'',
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
 
             [ //4
@@ -97,6 +101,7 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img'=>'',
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
             [//5
                 'name' => "David Milan",
@@ -114,6 +119,7 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img'=>'',
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
             [ //6
                 'name' => "David Milan",
@@ -131,6 +137,7 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img'=>'',
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
 
             [//7
@@ -149,6 +156,7 @@ class StorySeeder extends Seeder
                 'views' =>8,
                 'feature_img'=>'',
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
             [//8
                 'name' => "David Milan",
@@ -166,14 +174,35 @@ class StorySeeder extends Seeder
                 'views' =>10,
                 'feature_img'=>'',
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
-            [//9
+            [ //9
+                'name' => "Maria Maksic",
+                'slug' => "",
+                'title' => "From Unexpected Love to a Life of Dreams: My Journey to Switzerland's Embrace.",
+                'description' => "I initially never planned to move to Switzerland, and actually was in a process of moving to Australia. After getting an acceptance letter from one of the Australian universities, I went to a short trip to beautiful Switzerland and... met my future husband here. He proposed after 4 month of dating, and we got married shortly after. What a twist!
+                I moved to Switzerland following my love, but got so much more: family, career, high quality of life, stability and security, beautiful nature, delicious cheese and chocolate and so much more!
+                Any change is connected with a fear of ... ",
+                'priority' => 9,
+                'address' => "Russia",
+                'city' => "Russia",
+                'profession' => 'Recruiter',
+                'image' => "image/stry02.png",
+                'status' => 1,
+                'country_id' => 1,
+                'feature' => 0,
+                'views' =>0,
+                'feature_img'=>'',
+                'user_id' => 1,
+                'created_at'=> Carbon::now(),
+            ],
+            [//10
                 'name' => "Thomas T.",
                 'slug' => "",
                 'title' => "<span>My Best Decision</span> <br>of Relocating",
                 'description' => "I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking the time to understand my career goals and helping me to identify job opportunities that matched my skill set. With their help, I was able to craft a strong resume and cover letter that really showcased my strengths.<br class='fs-br'>
                 I was able to land a job that I'm truly excited about and that offers great opportunities for growth. I even received interview coaching, which helped me to feel more confident and prepared when meeting with potential employers. Thanks to FYH, I was able to land a job that I'm truly excited about and that offers great opportunities for growth. I can't thank them enough for their excellent service and support throughout my job search journey",
-                'priority' => 9,
+                'priority' => 10,
                 'address' => "Berlin,Germany",
                 'city' => "Berlin",
                 'profession' => 'Marketing Manager',
@@ -184,13 +213,14 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img' => "image/fs-rect1.png",
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
-            [//10
+            [//11
                 'name' => "Thomas T.",
                 'slug' => "",
                 'title' => "<span>Master Of</span> <br>Happiness in Here",
                 'description' => "I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking the time to understand my career goals and helping me to identify job opportunities that matched my skill set. With their help, I was able to craft a strong resume and cover letter that really showcased my strengths. I even received interview coaching, which helped me to feel more confident and prepared when meeting with potential employers. Thanks to FYH, I was able to land a job that I'm truly excited about and that offers great opportunities for growth. I can't thank them enough for their excellent service and support throughout my job search journey. I was able to land a job that I'm truly excited about and that offers great opportunities for growth.",
-                'priority' => 10,
+                'priority' => 11,
                 'address' => "Berlin,Germany",
                 'city' => "Berlin",
                 'profession' => 'Marketing Manager',
@@ -201,13 +231,14 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img' => "image/fs-rect2.png",
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
-            [//11
+            [//12
                 'name' => "Thomas T.",
                 'slug' => "",
                 'title' => "<span>Master Of</span> <br>Happiness in Here",
                 'description' => "FYH is a fantastic platform for sharing relocating stories. It's a welcoming community where I felt understood and supported. I'm grateful for the opportunity to connect with others who have had similar experiences. Highly recommended!",
-                'priority' => 11,
+                'priority' => 12,
                 'address' => "Berlin,Germany",
                 'city' => "Berlin",
                 'profession' => 'Marketing Manager',
@@ -218,13 +249,14 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img' => "image/fs-rect2.png",
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
-            [//12
+            [//13
                 'name' => "Thomas T.",
                 'slug' => "",
                 'title' => "<span>Master Of</span> <br>Happiness in Here",
                 'description' => "Five stars for FYH! My experience with the service has been outstanding. Their services were exceptional, and their team went above and beyond to meet my needs. I highly recommend them for their efforts  and efficiency.",
-                'priority' =>12,
+                'priority' =>13,
                 'address' => "Berlin,Germany",
                 'city' => "Berlin",
                 'profession' => 'Marketing Manager',
@@ -235,13 +267,14 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img' => "image/fs-rect2.png",
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
-            [//13
+            [//14
                 'name' => "Thomas T.",
                 'slug' => "",
                 'title' => "<span>Master Of</span> <br>Happiness in Here",
                 'description' => "Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.",
-                'priority' => 13,
+                'priority' => 14,
                 'address' => "Berlin,Germany",
                 'city' => "Berlin",
                 'profession' => 'Marketing Manager',
@@ -252,6 +285,7 @@ class StorySeeder extends Seeder
                 'views' =>0,
                 'feature_img' => "image/fs-rect2.png",
                 'user_id' => 1,
+                'created_at'=> Carbon::now(),
             ],
         ];
         DB::table('stories')->insert($data);

@@ -72,7 +72,7 @@ class FrontendControler extends Controller
        $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title', 'community_sub_title', 'community_sub_subtitle')->first();
 
       if(auth()->user() !==null){
-        $stories = Story::where('status', 1)->orderBy('priority','asc')->get();
+        $stories = Story::where('status', 1)->where('feature',0)->orderBy('priority','asc')->get();
       }else{
         $stories = Story::where('status', 1)->orderBy('priority','asc')->take(6)->get();
       }
@@ -135,18 +135,17 @@ class FrontendControler extends Controller
      }
 
      // time sorting
-     if ($request->time !==null ) {
+     if ($request->time !== null ) {
 
          $days = $request->time;
           $Date = Carbon::now()->subDays($days);
             $query->where('created_at', '>=', $Date);
-
-
        }
 
-   $stories = $query->where('status', 1)->take(15)->get();
+   $stories = $query->where('status', 1)->where('feature',0)->take(15)->get();
+   $data = $request->all();
    // $stories->appends(array('stories'=> InputRequest::input('stories'),'country_id'=> InputRequest::input('country_id'),'time'=> InputRequest::input('time')));
- return view('frontend.pages.community',compact('stories', 'storyHead', 'country'));
+ return view('frontend.pages.community',compact('stories', 'storyHead', 'country','data'));
 }
 
 
