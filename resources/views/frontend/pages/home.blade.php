@@ -81,12 +81,12 @@
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
                         <a href="#"
-                            class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700">
+                            class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                             <img src="{{ "/storage/".$item->image }}" alt="{{ $item->title }}"
                                 class="h-20 w-20 mx-auto rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
-                                class="mb-[10px] mt-[20px] text-[20px] font-semibold tracking-tight text-gray-900 dark:text-white text-center">
+                                class="mb-[10px] mt-[20px] text-[20px] font-semibold tracking-tight text-gray-900  text-center">
                                 {{ $item->title }} </h5>
                             <p class="font-normal text-[14px] text-center">
                                 {!! $item->first_para !!}
@@ -208,7 +208,7 @@
                     {{-- @dd($popularStory) --}}
                     @foreach ($popularStory as $pStory)
                         <div
-                            class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            class=" bg-white border border-gray-200 rounded-lg shadow ">
                             <a href="{{ route('single-story', $pStory->id) }}">
                                 <img class=" lg:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}" alt="" />
                             </a>
@@ -341,7 +341,7 @@
                                                     <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                         @foreach ($items as $item)
                                                             <a href="javascript:void(0)"
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="{{ "/storage/".$item->image }}" alt=""
@@ -365,7 +365,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <p
-                                                                    class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+                                                                    class="font-normal mx-[17px] text-justify text-base">
                                                                     {!! Str::limit($item->description, 235) !!}
                                                                 </p>
                                                             </a>

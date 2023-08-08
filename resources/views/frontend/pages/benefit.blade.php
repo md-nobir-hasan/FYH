@@ -32,7 +32,7 @@
                             <img src="{{ "/storage/".$item->image }}" alt="" class="h-[80px] w-[80px] mx-auto rounded-full  mt-4"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
-                                class="mt-[10px] text-[20px] font-semibold tracking-tight text-[#212427] dark:text-white text-center">
+                                class="mt-[10px] text-[20px] font-semibold tracking-tight text-[#212427] text-center">
                                 {{ $item->title }} </h5>
                             <p class="font-normal mt-[10px] mx-[39.5px] text-[14px] text-[#212427] text-center">
                                 {{-- {!! $item->description !!} <br> --}}

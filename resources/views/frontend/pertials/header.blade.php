@@ -69,12 +69,12 @@
                                 </button>
                                 <!-- Dropdown menu -->
                                 <div id="dropdown"
-                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-48 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-48 ">
+                                    <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton">
                                         @foreach ($menu->submenus as $submenu)
                                                     <li>
                                                         <a href="{{ url($submenu->link->url) }}"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                            class="block px-4 py-2 hover:bg-gray-100 ">
                                                             {{$submenu->name}}</a>
                                                     </li>
 
@@ -129,21 +129,21 @@
 
                 <!-- Dropdown menu -->
                 <div id="dropdown"
-                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
                         <li>
                             <a href="{{ route('guide.survival') }}"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Survival
+                                class="block px-4 py-2 hover:bg-gray-100 ">Survival
                                 Guide</a>
                         </li>
                         <li>
                             <a href="{{ route('guide.move_switzerland') }}"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Move
+                                class="block px-4 py-2 hover:bg-gray-100 ">Move
                                 To Swizerland</a>
                         </li>
                         <li>
                             <a href="{{ route('guide.intro.move_switzerland') }}"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                class="block px-4 py-2 hover:bg-gray-100 ">
                                 Integration In SwiGerlan</a>
                         </li>
 
@@ -179,7 +179,7 @@
 
                     <div class="flex items-center ml-8 md:order-2">
                         <button type="button"
-                            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-2 focus:ring-[#D1052C] dark:focus:ring-gray-600"
+                            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-2 focus:ring-[#D1052C] "
                             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
@@ -192,7 +192,7 @@
                                 <img src="{{ auth()->user()->img ?? asset('storage/default/human.webp') }}"
                                     class="w-11 h-11 border p-0.5 rounded-full border-[#D1052C]" />
                                 <span
-                                    class="flex justify-center items-center ml-2 text-lg text-black font-semibold dark:text-white capitalize">
+                                    class="flex justify-center items-center ml-2 text-lg text-black font-semibold  capitalize">
                                     {{ auth()->user()->fname }} </span>
                             </div>
                             <hr class="h-px bg-black mx-4 border-0">
@@ -250,42 +250,42 @@
 
         </div>
     </div>
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <nav class="bg-white border-gray-200 ">
   <div class="2xl:hidden md:hidden lg:hidden flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="/" class="flex items-center">
        
         <img src="/images/fyhlogo.png" class="w-20 h-7"/>
     </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
     </button>
     <div class="hidden w-full md:block md:w-auto " id="navbar-default">
-      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
        @if (auth()->user() == null)
         <li>
-          <a href="{{ route('member') }}" class="block py-2 pl-3 pr-4 text-black hover:hover:bg-[#D1052C] hover:text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 {{ request()->is('membership') ? 'active' : '' }} " aria-current="page">Membership</a>
+          <a href="{{ route('member') }}" class="block py-2 pl-3 pr-4 text-black hover:hover:bg-[#D1052C] hover:text-white rounded md:bg-transparent md:text-blue-700 md:p-0  {{ request()->is('membership') ? 'active' : '' }} " aria-current="page">Membership</a>
         </li>
         @endif
         @auth
         <li>
-          <a href="{{ route('share.story') }}" class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ request()->is('share-story') ? 'active' : '' }}">Share Story</a>
+          <a href="{{ route('share.story') }}" class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ request()->is('share-story') ? 'active' : '' }}">Share Story</a>
         </li>
         @endauth
         <li>
-          <a href="{{ route('community') }}" class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ request()->is('community') ? 'active' : '' }}">Community</a>
+          <a href="{{ route('community') }}" class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ request()->is('community') ? 'active' : '' }}">Community</a>
         </li>
         <li>
-          <a href="{{ route('benefit') }}" class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ request()->is('benefits') ? 'active' : '' }}">Benifits</a>
+          <a href="{{ route('benefit') }}" class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ request()->is('benefits') ? 'active' : '' }}">Benifits</a>
         </li>
         <li>
-          <a href="{{ route('about') }}" class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ request()->is('about') ? 'active' : '' }}">About</a>
+          <a href="{{ route('about') }}" class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ request()->is('about') ? 'active' : '' }}">About</a>
         </li>
         <div class="relative" data-te-dropdown-ref>
   <button
-    class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ request()->is('guide*') ? 'active' : '' }} flex mt-3"
+    class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  {{ request()->is('guide*') ? 'active' : '' }} flex mt-3"
     type="button"
     id="dropdownMenuButton1"
     data-te-dropdown-toggle-ref
@@ -307,12 +307,12 @@
     </span>
   </button>
   <ul
-    class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+    class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg  [&[data-te-dropdown-show]]:block"
     aria-labelledby="dropdownMenuButton1"
     data-te-dropdown-menu-ref>
     <li>
       <a
-        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 "
         href="{{ route('guide.survival') }}"
         data-te-dropdown-item-ref
         >Survival Guide</a
@@ -320,7 +320,7 @@
     </li>
     <li>
       <a
-        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 "
         href="{{ route('guide.move_switzerland') }}"
         data-te-dropdown-item-ref
         >Move To Switzerland</a
@@ -328,7 +328,7 @@
     </li>
     <li>
       <a
-        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 "
         href="{{ route('guide.intro.move_switzerland') }}"
         data-te-dropdown-item-ref
         >Integration In Switzerland</a
@@ -367,7 +367,7 @@
 
                     <div class="flex items-center ml-8 md:order-2">
                         <button type="button"
-                            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-2 focus:ring-[#D1052C] dark:focus:ring-gray-600"
+                            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-2 focus:ring-[#D1052C] "
                             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdowns"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
@@ -380,7 +380,7 @@
                                 <img src="{{ auth()->user()->img ?? asset('storage/default/human.webp') }}"
                                     class="w-11 h-11 border p-0.5 rounded-full border-[#D1052C]" />
                                 <span
-                                    class="flex justify-center items-center ml-2 text-lg text-black font-semibold dark:text-white capitalize">
+                                    class="flex justify-center items-center ml-2 text-lg text-black font-semibold  capitalize">
                                     {{ auth()->user()->fname }} </span>
                             </div>
                             <hr class="h-px bg-black mx-4 border-0">

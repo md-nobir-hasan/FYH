@@ -44,7 +44,7 @@
                         <p class="font-medium text-[14px]">Sort Stories</p>
 
                         <select name="stories"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5">
                             <option class="text-lg" value="latest" @isset($data) @selected($data['stories'] == 'latest')  @endisset>Most Recent</option>
                             <option class="text-lg" value="" @isset($data) @selected($data['stories'] == '')  @endisset>Most Relevant</option>
 
@@ -54,7 +54,7 @@
                     <div class="ml-[75px]">
                         <p>By Country</p>
                         <select id="countries" name="country_id"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5">
                             <option class="text-lg"  value="">All Country</option>
                             @foreach ($country as $story)
                                 <option value="{{ $story->id }}" @isset($data) @selected($data['country_id'] ==  $story->id)  @endisset>{{ $story->country }}</option>
@@ -67,7 +67,7 @@
                         <p>By Time</p>
 
                         <select name="time"
-                            class="bg-gray-50 border xl:w-[326px] lg:w-[250px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border xl:w-[326px] lg:w-[250px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 ">
 
                             <option class="text-lg mb-1" value="" @isset($data) @selected($data['time'] == '') @endisset>Any Time</option>
                             <option class="text-lg mb-1" value="1" @isset($data) @selected($data['time'] == 1)  @endisset>Past 24 Hours</option>
@@ -104,7 +104,7 @@
                             <div class="grid grid-cols-3 gap-6 w-[1320px] mx-auto mt-6">
                     @endif
                     <div
-                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
                         <a href="#">
                             {{-- /images/story4.png --}}
                             <img class="h-[424px] w-full" src="{{ Storage::url($story->image) }}"
@@ -113,11 +113,11 @@
                         <div class=" h-[516px]">
                             <a href="#">
                                 <h5
-                                    class="pt-[20px] px-[22px] text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    class="pt-[20px] px-[22px] text-xl font-bold tracking-tight text-gray-900 ">
                                     "{!! $story->title !!}"</h5>
                             </a>
                             <p
-                                class="mt-5 mx-[22px] text-[14px] font-normal text-justify text-[#212427] dark:text-gray-400">
+                                class="mt-5 mx-[22px] text-[14px] font-normal text-justify text-[#212427]">
                                 {!! Str::limit($story->description, 595) !!}</p>
                             <a href="{{ route('single-story', $story->id) }}"
                                 class="text-[#D1052C] font-bold text-base mx-[22px]">Read More</a>

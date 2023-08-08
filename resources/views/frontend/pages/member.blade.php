@@ -6,6 +6,9 @@
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+<style>
+    
+</style>
 
 <body>
     @if (Session::has('error'))
@@ -101,18 +104,20 @@
                                                     for="{{ $key }}">{{ $member->name }}</label> </p>
 
                                         </div>
+                                        <div class="">
                                         <h1 class="font-semibold text-[24px] text-[#212427]">{{ number_format($member->price,2) }}
                                             {{ $member->currency }}
                                             {{-- / {{$member->interval_count}} {{ $member->billing_period }} --}}
                                            @if ($member->dis>0)
-                                            <span class="block text-center line-through font-bold text-gray-500">{{$member->price + $member->dis." ".$member->currency}}</span>
+                                            <span class="block  mb-[-25px] text-center text-[20px] line-through font-bold text-[#848484]">{{$member->price + $member->dis." ".$member->currency}}</span>
                                            @endif
                                         </h1>
+                                        </div>
 
                                     </div>
 
                                     <div class="">
-                                        <p class="text-sm ml-5">{!! $member->des !!}{{$member->dis>0 ? " ".number_format($member->dis)." ".$member->currency : ""}}.</p>
+                                        <article class="text-[14px]  font-normal ml-7">{!! $member->des !!}{{$member->dis>0 ? " ".number_format($member->dis)." ".$member->currency : ""}}.</article>
 
                                     </div>
                                 </div>

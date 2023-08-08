@@ -92,7 +92,7 @@
             @if($stories->count() > 0)
            @foreach ($stories as $item)
                         <a href="{{ route('single-story', $item->slug) }}"
-                            class="w-[424px] h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+                            class="w-[424px] h-[304px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden">
                             <div class="flex">
                                 <img src="{{ '/storage/' . $item->image }}" alt="" class="h-16 w-16 rounded-full"
                                     style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
@@ -101,8 +101,8 @@
                                     <p class="font-normal text-xl"> {{$item->profession}} </p>
                                 </div>
                             </div>
-                            <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black dark:text-white">“</h5>
-                            <p class="font-normal text-base dark:text-gray-400">
+                            <h5 class="text-6xl mb-[-20px] font-extrabold tracking-tight text-black ">“</h5>
+                            <p class="font-normal text-base">
                             {{Str::limit($item->description, 200)}} 
                             </p>
                         </a>
@@ -174,7 +174,7 @@
 
             <div class="lg:mx-48 mt-2">
                 <textarea id="message" name="description" rows="4"
-                    class="block p-2.5 w-full text-sm shadow-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block p-2.5 w-full text-sm shadow-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Left Your Feedback here..."></textarea>
             </div>
             <div class="mt-2 flex justify-center items-center mb-10">

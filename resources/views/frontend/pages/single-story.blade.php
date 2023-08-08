@@ -45,7 +45,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto">
 
                     <div
-                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
                         <a href="#">
                             <img class="h-[424px] w-full" src="/images/story2.png" alt="" />
                         </a>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div
-                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
                         <a href="#">
                             <img class="lg:h-[424px] w-full" src="/images/story2.png" alt="" />
                         </a>
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <div
-                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
                         <a href="#">
                             <img class="lg:h-[424px] w-full" src="/images/story2.png" alt="" />
                         </a>

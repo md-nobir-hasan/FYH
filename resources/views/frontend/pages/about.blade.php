@@ -147,7 +147,7 @@
                                                 <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                     @foreach ($items as $item)
                                                         <a href="javascript:void(0)"
-                                                            class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 overflow-hidden">
+                                                            class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden">
                                                             <div class="flex">
                                                                 <div>
                                                                     <img src="{{ '/storage/' . $item->image }}" alt=""
@@ -170,7 +170,7 @@
                                                                 </div>
                                                             </div>
                                                             <p
-                                                                class="font-normal mx-[17px] text-justify text-base dark:text-gray-400">
+                                                                class="font-normal mx-[17px] text-justify text-base ">
                                                                 {!! Str::limit($item->description, 235) !!}
                                                             </p>
                                                         </a>

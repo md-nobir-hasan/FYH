@@ -1,5 +1,5 @@
 
-<footer class="bg-black text-white mt-60 dark:bg-gray-900">
+<footer class="bg-black text-white mt-60 ">
     <div class="mx-auto w-full p-4 py-6 lg:py-8">
         <div class="md:flex mt-20 md:justify-between">
             <div class="mb-6 md:mb-0 lg:ml-36">
@@ -9,7 +9,7 @@
                             <img src="{{ $setting->logo }}" alt="FYH" class="h-8 w-24">
                         </a>
                         <h1 class="font-bold text-[28px] mt-5">Newsletter Signup</h1>
-                        <p class="font-semibold font-[16px] w-full">Subscribe our newsletter for hints, tips and the
+                        <p class="font-semibold text-[16px] w-full">Subscribe our newsletter for hints, tips and the
                             latest product news.</p>
                     </div>
                     <a href="{{$setting->youtube ?? null}}"><svg width="34" height="25" viewBox="0 0 34 34"
@@ -61,10 +61,10 @@
                     <div class="relative">
 
                         <input type="email" id="search" name="email"
-                            class="block rounded-3xl w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="block rounded-3xl w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                             placeholder="your email adress..." required>
                         <button type="submit"
-                            class="text-[#D1052C] absolute right-2.5 bottom-2.5 font-bold focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Subscribe<i
+                            class="text-[#D1052C] absolute right-2.5 bottom-2.5 font-bold focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2  ">Subscribe<i
                                 class="fas fa-arrow-right ml-1"></i></button>
                     </div>
                 </form>
@@ -72,7 +72,7 @@
             </div>
             <div class="grid grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div class="ml-20">
-                    <h2 class="mb-6 text-sm font-semibold  uppercase dark:text-white">Our Contacts</h2>
+                    <h2 class="mb-6 text-sm font-semibold  uppercase ">Our Contacts</h2>
                     <ul class="font-medium">
                         <li class="mb-4">
                             {{-- <a  class=" text-justify"> --}}
@@ -87,8 +87,8 @@
                     </ul>
                 </div>
                 <div class="ml-20">
-                    <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Explore</h2>
-                    <ul class=" dark:text-gray-400 font-medium">
+                    <h2 class="mb-6 text-sm font-semibold uppercase ">Explore</h2>
+                    <ul class="  font-medium">
                         <li>
                             <a href="{{route('about')}}" class="hover:underline ">About</a>
                         </li>
@@ -110,8 +110,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Support</h2>
-                    <ul class=" dark:text-gray-400 font-medium">
+                    <h2 class="mb-6 text-sm font-semibold uppercase ">Support</h2>
+                    <ul class="  font-medium">
                         <li>
                             <a href="{{route('help.support')}}" class="hover:underline">Help Center</a>
                         </li>
@@ -128,19 +128,19 @@
                 </div>
             </div>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr class="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between mx-36">
-            <span class="text-sm  sm:text-center dark:text-gray-400">© {{date("Y")}} <a 
+            <span class="text-sm  sm:text-center ">© {{date("Y")}} <a 
                     class="hover:underline">Copyright © {{date("Y")}} FYH, All rights reserved. Powered by Fozlay.
             </span>
             <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                 <h1>Terms of use</h1>
 
-                <a href="{{route('terms.condition')}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                <a href="{{route('terms.condition')}}" class="text-gray-500 hover:text-gray-900 ">
 
                     <span class="text-white">privacy Policy</span>
                 </a>
-                <a href="{{route('cookies')}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                <a href="{{route('cookies')}}" class="text-gray-500 hover:text-gray-900 ">
 
                     <span class="text-white">Cookie Policy</span>
                 </a>
