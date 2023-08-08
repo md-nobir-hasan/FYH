@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('country_id')->nullable();
             $table->string('profession')->nullable();
             $table->integer('priority')->nullable();
-            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('user_id')->nullable(); 
             $table->integer('status')->default(0);
             $table->bigInteger('views')->default(0);
             $table->integer('feature')->default(0);
