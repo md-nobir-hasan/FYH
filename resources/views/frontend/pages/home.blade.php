@@ -219,15 +219,16 @@
                                         "</h5>
                                 </a>
                                 <p class="mt-[20px] text-[14px] font-normal text-[#212427] text-justify">
-                                    {{ Str::limit($pStory->description, 595) }} </p>
+                                    {!! Str::limit($pStory->description, 595) !!}
+                                </p>
                                 <a href="{{ route('single-story', $pStory->id) }}"
                                     class="text-[#D1052C] text-[16px] font-bold">
                                     Read more
                                 </a>
                                 <h1 class="text-[20px] font-semibold mt-[20px]"> {{ $pStory->name }} <h1>
                                         <p class="capitalize text-[14px] font-normal">{{ $pStory->profession }}</p>
-                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->address }} ,
-                                            {{-- {{$pStory->country->country}} --}}
+                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->city }} ,
+                                            {{$pStory->country->country}}
                                         </p>
                             </div>
                         </div>

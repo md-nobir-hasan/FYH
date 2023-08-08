@@ -21,10 +21,10 @@ class userSeeder extends Seeder
                [
                 'fname' => "Super Admin",
                 // 'lname' => "Admin",
-                'email' => "admin@gmail.com",
+                'email' => "support@fyh.ch",
                 'phone' => "01518460933",
                 'role_id' => 1,
-                'password' => Hash::make(12345678),
+                'password' => Hash::make('94jf&shf^#nG'),
                 'img' => '/storage/user/profile.png',
                ],
             //Paid Users
