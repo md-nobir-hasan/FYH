@@ -209,7 +209,7 @@
                     @foreach ($popularStory as $pStory)
                         <div
                             class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#">
+                            <a href="{{ route('single-story', $pStory->id) }}">
                                 <img class=" lg:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}" alt="" />
                             </a>
                             <div class="px-[22px] pt-[20px] h-[516px]">
@@ -220,7 +220,7 @@
                                 </a>
                                 <p class="mt-[20px] text-[14px] font-normal text-[#212427] text-justify">
                                     {{ Str::limit($pStory->description, 595) }} </p>
-                                <a href="{{ route('single-story', $pStory->slug) }}"
+                                <a href="{{ route('single-story', $pStory->id) }}"
                                     class="text-[#D1052C] text-[16px] font-bold">
                                     Read more
                                 </a>
@@ -460,7 +460,7 @@
 
         glide07.mount();
     </script>
-    
+
         <!-- flowbite cdn -->
         <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
         <!-- flowbite cdn end -->
