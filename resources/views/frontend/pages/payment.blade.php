@@ -67,9 +67,9 @@
                                 <div>
                                     <input onclick=myFunction() id="default-radio-1" type="radio" value=""
                                         name="default-radio"
-                                        class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 ">
                                     <label for="default-radio-1"
-                                        class="ml-2 text-base font-medium text-black dark:text-gray-300">Credit / Debit
+                                        class="ml-2 text-base font-medium text-black ">Credit / Debit
                                         Card</label>
                                 </div>
                                 <div class="flex lg:ml-80 ml-[200px]">
@@ -128,7 +128,7 @@
                                         name="default-radio"
                                         class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="default-radio-2"
-                                        class="ml-2 text-base font-medium text-black dark:text-gray-300">Paypal</label>
+                                        class="ml-2 text-base font-medium text-black ">Paypal</label>
                                 </div>
                                 <img src="{{ asset('/images/paypal.png') }}" alt="" class="h-5 ">
                             </div>

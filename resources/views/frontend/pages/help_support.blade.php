@@ -25,9 +25,9 @@
          @foreach ($helps as $help)
              
       
-       <div class="h-[232px] w-[424px] px-[80px] py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+       <div class="h-[232px] w-[424px] px-[80px] py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
             <img src="{{'/storage/'. $help->image}}" alt="" class="h-[80px] w-[80px] mx-auto mt-[16px] rounded-full" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-            <h5 class="mb-2 text-xl font-semibold mt-[5px] tracking-tight text-gray-900 dark:text-white text-center"> {{$help->title}} </h5>
+            <h5 class="mb-2 text-xl font-semibold mt-[5px] tracking-tight text-gray-900  text-center"> {{$help->title}} </h5>
             <p class="font-medium text-sm text-justify mt-[5px]">
                    {{$help->description}}
             </p>

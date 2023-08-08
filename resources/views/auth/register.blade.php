@@ -9,8 +9,9 @@
         <img src="{{ $setting->logo }}" alt="" class=" h-[37px] w-[111px] ml-[88px]">
     </a>
     @if($planId)
-    <a href="/membership">
-        <button class=" mb-4 mt-4 px-6 py-2 border ml-[88px]">Back</button>
+    <a href="/membership" class="">
+        <button class=" mb-4 text-[16px] font-bold text-[#848484] mt-4 w-[95px] py-2 border ml-[88px]">
+Back</button>
     </a>
     @endif
     <div class=" @if($planId) flex @endif"
@@ -134,11 +135,11 @@
             </div> -->
             <div class="flex items-center my-3">
                 <input id="link-checkbox" type="checkbox" value=""
-                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2 "
                     required>
-                <label for="link-checkbox" class="ml-2 text-sm font-normal text-[#666565] dark:text-gray-300">Yes,I
+                <label for="link-checkbox" class="ml-2 text-sm font-normal text-[#666565] ">Yes,I
                     understand and agree to the FYH <a href="#"
-                        class="text-blue-600 dark:text-blue-500 hover:underline">Terms of Services</a>.</label>
+                        class="text-blue-600  hover:underline">Terms of Services</a>.</label>
             </div>
             <button
                 class="w-full p-3 rounded-lg font-bold text-base flex justify-center items-center bg-[#D1052C] text-white">{{ __('Create Account & Continue') }}</button>

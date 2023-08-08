@@ -42,7 +42,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto">
                     @foreach ( $stres as $story )
                         <div
-                            class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
                             <a href="{{ route('single-story', $story->id) }}">
                                 <img class="h-[424px] w-full" src="/storage/{{$story->image}}" alt="" />
                             </a>
@@ -123,6 +123,17 @@
     </div>
 @endsection
 @push('js')
+
+<script>
+    const function1=()=>{
+        const svg = document.getElementById('svg')
+        if(svg.style.backgroundColor === ''){
+            svg.style.backgroundColor = '#D1052C'
+        }else {
+            svg.style.backgroundColor = ''
+        }
+    }
+</script>
     <!-- flowbite cdn -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 @endpush
