@@ -35,94 +35,39 @@
 
 
 
-        @foreach ($stories as $story)
-        @endforeach
-
-
+        @foreach ($stories->chunk(3) as $stres)
             <!-- temporary single story page start -->
             <div class=""
                 style="background:url('/images/benifitbg.png');background-size:100% 525px;background-repeat:no-repeat;background-position:0 100%">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto">
-
-                    <div
-                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="h-[424px] w-full" src="/images/story2.png" alt="" />
-                        </a>
-                        <div class="px-[22px] mt-[10px]">
-                            <a href="#">
-                                <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">"I have learnt so much, my
-                                    memory got better, my morning routine got more structure"</h5>
+                    @foreach ( $stres as $story )
+                        <div
+                            class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
+                            <a href="{{ route('single-story', $story->id) }}">
+                                <img class="h-[424px] w-full" src="/storage/{{$story->image}}" alt="" />
                             </a>
-                            <p class=" text-sm font-normal text-[#212427] text-justify mt-5">I was struggling to find a job
-                                that aligned with my skills and experience, and I was starting Before this program I was
-                                struggling to remember things, such as PIN numbers, important dates, things to do at home,
-                                things to buy at store and I was having a hard time to concentrate and follow through with
-                                my learning.</p>
-                            <a href="" class="text-[#D1052C] font-bold text-[16px]">
-                                Read more
-                            </a>
-                            <h1 class="text-xl font-semibold mt-[20px]">David Milan<h1>
-                                    <p class="capitalize text-base font-normal">English Teacher</p>
+                            <div class="px-[22px] mt-[10px]">
+                                <a href="#">
+                                    <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">"{!! $story->title !!}"</h5>
+                                </a>
+                                <p class=" text-sm font-normal text-[#212427] text-justify mt-5">
+                                    {!! Str::limit($story->description, 595) !!}
+                                </p>
+                                <a href="{{ route('single-story', $story->id) }}" class="text-[#D1052C] font-bold text-[16px]">
+                                    Read more
+                                </a>
+                                <h1 class="text-xl font-semibold mt-[20px]">{{$story->name}}<h1>
+                                        <p class="capitalize text-base font-normal">{{$story->profession}}</p>
 
-                                    <p class="capitalize text-base font-normal">Berlin,Germany</p>
+                                        <p class="capitalize text-base font-normal">{{$story->city}}, {{$story->country->country}}</p>
 
+                            </div>
                         </div>
-                    </div>
-                    <div
-                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
-                        <a href="#">
-                            <img class="lg:h-[424px] w-full" src="/images/story2.png" alt="" />
-                        </a>
-                        <div class="px-[22px] mt-[10px] lg:h-[516px]">
-                            <a href="#">
-                                <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">"I have learnt so much, my
-                                    memory got better, my morning routine got more structure"</h5>
-                            </a>
-                            <p class=" text-sm font-normal text-[#212427] text-justify mt-5">I was struggling to find a job
-                                that aligned with my skills and experience, and I was starting Before this program I was
-                                struggling to remember things, such as PIN numbers, important dates, things to do at home,
-                                things to buy at store and I was having a hard time to concentrate and follow through with
-                                my learning.</p>
-                            <a href="" class="text-[#D1052C] font-bold text-[16px]">
-                                Read more
-                            </a>
-                            <h1 class="text-xl font-semibold mt-[20px]">David Milan<h1>
-                                    <p class="capitalize text-base font-normal">English Teacher</p>
-
-                                    <p class="capitalize text-base font-normal">Berlin,Germany</p>
-
-                        </div>
-                    </div>
-                    <div
-                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
-                        <a href="#">
-                            <img class="lg:h-[424px] w-full" src="/images/story2.png" alt="" />
-                        </a>
-                        <div class="px-[22px] mt-[10px] lg:h-[516px]">
-                            <a href="#">
-                                <h5 class="mb-2 text-xl font-bold tracking-tight text-[#212427]">"I have learnt so much, my
-                                    memory got better, my morning routine got more structure"</h5>
-                            </a>
-                            <p class=" text-sm font-normal text-[#212427] text-justify mt-5">I was struggling to find a job
-                                that aligned with my skills and experience, and I was starting Before this program I was
-                                struggling to remember things, such as PIN numbers, important dates, things to do at home,
-                                things to buy at store and I was having a hard time to concentrate and follow through with
-                                my learning.</p>
-                            <a href="" class="text-[#D1052C] font-bold text-[16px]">
-                                Read more
-                            </a>
-                            <h1 class="text-xl font-semibold mt-[20px]">David Milan<h1>
-                                    <p class="capitalize text-base font-normal">English Teacher</p>
-
-                                    <p class="capitalize text-base font-normal">Berlin,Germany</p>
-
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>
-
+        @endforeach
             <a href="" class="flex justify-center items-center"> <Button
                     class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Load More
                     Stories</button></a>
