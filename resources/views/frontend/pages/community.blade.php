@@ -144,7 +144,7 @@
                     class="lg:w-48 m-1 mt-5 p-3 rounded-lg text-base font-bold bg-[#D1052C] text-white">Read All
                     Stories</button></a>
             <button class="lg:w-48 m-1 text-base font-bold mt-5 p-3 rounded-lg bg-[#D1052C] text-white">Read Our
-                Stories</button>
+                News</button>
         </div>
     @endguest
 
