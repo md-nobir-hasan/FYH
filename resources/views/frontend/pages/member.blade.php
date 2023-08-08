@@ -104,12 +104,16 @@
                                         <h1 class="font-semibold text-[24px] text-[#212427]">{{ number_format($member->price,2) }}
                                             {{ $member->currency }}
                                             {{-- / {{$member->interval_count}} {{ $member->billing_period }} --}}
+                                           @if ($member->dis>0)
+                                            <span class="block text-center line-through font-bold text-gray-500">{{$member->price + $member->dis." ".$member->currency}}</span>
+                                           @endif
                                         </h1>
 
                                     </div>
 
                                     <div class="">
                                         <p class="text-sm ml-5">{!! $member->des !!}{{$member->dis>0 ? " ".number_format($member->dis)." ".$member->currency : ""}}.</p>
+
                                     </div>
                                 </div>
 
