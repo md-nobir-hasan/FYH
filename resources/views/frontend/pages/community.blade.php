@@ -81,10 +81,10 @@
                     </div>
                     <div class="flex justify-center items-center">
                     <div class="flex justify-center items-center ml-[17px] mt-6">
-                        <button type="submit" class="border px-4 py-2 rounded shadow hover:shadow-xl">Apply</button>
+                        <button type="submit" class="border bg-white px-4 py-2 rounded shadow hover:shadow-xl">Apply</button>
                     </div>
                     <div class="flex justify-center items-center ml-[17px] mt-6">
-                        <input type="reset" class="border px-4 py-2 rounded shadow hover:shadow-xl" value="Clear">
+                        <input type="reset" class="border bg-white px-4 py-2 rounded shadow hover:shadow-xl" value="Clear">
                     </div>
                     </div>
 
@@ -156,22 +156,24 @@
             @auth
             <div class="bg-white">
             <section class=" mb-[-100px]"  style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
-            <div class="py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
+            <div class="py-24 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
             <div class="pb-28 shadow-lg">
-            <h1 class="font-bold text-[50px] text-[#212427] text-center">
+            <h1 class="font-bold text-[50px] text-[#212427] text-center ">
             @if ($storyHead !== null)
                                     {{ $storyHead->share_title }}
                                 @endif
             </h1>
 
-            <p class="text-xl text-center text-[#D1052C] uppercase lg:w-[986px] mx-auto">
+            <p class="text-[24px] font-normal text-center text-[#D1052C]  lg:w-[986px] mx-auto capitalize">
             @if ($storyHead !== null)
                                         {{ $storyHead->share_subtitle }}
                                     @endif
             </p>
-                <a href="{{route('share.story')}}" class=" flex justify-center items-center"><button
-                class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
+                <div class="flex justify-center items-center">
+                <a href="{{route('share.story')}}" class="w-[216px]"><button
+                class=" mt-[24px] px-5 py-2 text-[20px] rounded-lg font-bold  bg-[#D1052C] text-white">Share Your
                 Story</button></a>
+                </div>
     </div>
     </div>
     </section>

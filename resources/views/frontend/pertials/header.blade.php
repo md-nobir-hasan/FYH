@@ -48,7 +48,7 @@
 
                                 <a href="{{url($menu->link->url)}}">
                                     <button
-                                        class="2xl:ml-[42px] ml-5 font-[500] text-xl p-2 rounded {{ request()->is($menu->link->url) ? 'active' : '' }} "
+                                        class="2xl:ml-[42px] hover:bg-[#FDF2F4] ml-5 font-[500] text-xl p-2 rounded {{ request()->is($menu->link->url) ? 'active' : '' }} "
                                         style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">{{$menu->name}}</button>
                                 </a>
 
