@@ -122,7 +122,8 @@
                             <h3 class="font-semibold text-xl mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
                             <p class="text-[#212427] mx-[22px] text-sm font-normal">{{ $story->profession }}</p>
                             <p class="text-[#212427] text-sm mx-[22px] font-normal">
-                                {{ $story->address }}</p>
+                                {{$story->city}}, {{$story->country->country}}
+                            </p>
                         </div>
                     </div>
 
