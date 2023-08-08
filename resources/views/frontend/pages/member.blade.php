@@ -30,11 +30,11 @@
 @endif
 </h1>
 -->
-                        <h1 class="text-[50px] font-bold text-[#D1052C]">Select your Pricing plan</h1>
+                        <h1 class="text-[50px] font-bold leading-normal text-[#D1052C]">Select your Pricing plan</h1>
 
                     </div>
                     <div class='w-[604px]'>
-                        <p class="text-[20px] ml-[72px] text-[#212427] font-normal text-justify">With this membership,
+                        <p class="text-[20px] ml-[72px] text-[#212427] font-normal text-justify leading-normal">With this membership,
                             you can share your story and access other people's stories on why they want to relocate to
                             Switzerland and how they managed to do so successfully.</p>
                     </div>

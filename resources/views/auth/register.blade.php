@@ -10,7 +10,7 @@
     </a>
     @if($planId)
     <a href="/membership" class="">
-        <button class=" mb-4 text-[16px] font-bold text-[#848484] mt-4 w-[95px] py-2 border ml-[88px]">
+        <button style="box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.20);" class="hover:bg-[#FCEEF1] hover:text-[#D1052C] rounded mb-4 text-[16px] font-bold text-[#848484] mt-4 w-[95px] py-2 border ml-[88px]">
 Back</button>
     </a>
     @endif
@@ -30,7 +30,7 @@ Back</button>
             <h1 class="mb-1 text-base font-normal @if($planId) @else text-center @endif">Describe yourself as clearly so that there are no mistakes.</h1>
             <!-- google icon -->
             <a href="{{ route('google.auth', $planId ? $planId->plan_id : null) }}"
-                class="w-full border hover:bg-[#D1052C] hover:text-white border-[#000000] p-3 rounded-lg font-semibold flex justify-center items-center"><svg
+                class="w-full border  hover:text-white border-[#000000] p-3 rounded-lg font-semibold flex justify-center items-center"><svg
                     class="mr-1" width="23" height="23" viewBox="0 0 23 23" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_468_289)">
@@ -54,10 +54,10 @@ Back</button>
                     </defs>
                 </svg>Continue with Google</a>
             <!-- google icon end -->
-            <div class="grid grid-cols-4">
-                <hr class="h-px my-5 bg-black col-span-1 border-0">
+            <div class="grid grid-cols-4 mt-[10px]">
+                <hr class="h-px mt-5 bg-black col-span-1 border-0">
                 <p class="col-span-2 flex justify-center items-center font-medium">or continue with email</p>
-                <hr class="h-px my-5 bg-black col-span-1 border-0">
+                <hr class="h-px mt-5 bg-black col-span-1 border-0">
             </div>
 
 
@@ -65,7 +65,7 @@ Back</button>
                 @if ($planId !== null) value="{{ $planId->plan_id }}" @endif>
 
             <!-- Name -->
-            <div class="">
+            <div class="mt-[20px]">
                 <x-input-label for="fname" : value="First Name"/>
                 <x-text-input placeholder="e.g. Thomas" id="fname" class="block mt-1 w-full shadow placeholder-opacity-50" type="text" name="fname"
                     :value="old('fname')" required autocomplete="fname" style="border-top:0;border-right:0; border-left:0;border-bottom:0;"
@@ -142,7 +142,7 @@ Back</button>
                         class="text-blue-600  hover:underline">Terms of Services</a>.</label>
             </div>
             <button
-                class="w-full p-3 rounded-lg font-bold text-base flex justify-center items-center bg-[#D1052C] text-white">{{ __('Create Account & Continue') }}</button>
+                class="w-full p-3 rounded-lg font-bold text-base flex justify-center items-center hover:bg-[#F6CDD5] hover:text-[#D1052C] bg-[#D1052C] text-white">{{ __('Create Account & Continue') }}</button>
         </form>
 
         @if($planId)

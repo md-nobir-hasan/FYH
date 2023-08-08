@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="card-footer text-center ">
                                         <button id="card-button"
-                                            class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold"
+                                            class="text-center w-full h-[48px] hover:bg-[#F6CDD5] hover:text-[#D1052C] bg-[#D1052C] mt-2 rounded-[10px] text-white text-[16px] font-bold"
                                             type="submit" data-secret="{{ $intent->client_secret }}"> PAY & GO
                                         </button>
                                     </div>
@@ -156,7 +156,7 @@
                                     <input type="hidden" name="plan_id" value="{{ $planId->id }}">
                                     <hr class="h-px my-8 bg-black border-0 mt-[10px] mb-0">
                                     <button
-                                        class="text-center w-full h-[48px] bg-[#D1052C] mb-[10px] mt-[10px] rounded-[10px] text-white text-[16px] font-bold">PAY
+                                        class="text-center w-full h-[48px] hover:bg-[#F6CDD5] hover:text-[#D1052C] bg-[#D1052C] mb-[10px] mt-[10px] rounded-[10px] text-white text-[16px] font-bold">PAY
                                         & GO</button>
                             </div>
                             </form>

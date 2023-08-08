@@ -26,7 +26,7 @@
                 {!! $about->title !!}
             @endif
         </h1>
-        <p class="text-center text-2xl font-normal capitalize">
+        <p class="text-center text-[24px] leading-normal font-normal capitalize">
             @if ($about !== null)
                 {!! $about->title_description !!}
             @endif
@@ -34,7 +34,7 @@
         <div class=""
             style="background:url('/images/benifitbg.png');background-size:100% 518px;background-repeat:no-repeat">
             <div class="w-[1320px] mx-auto">
-                <h1 class="text-center text-[68px] font-bold mt-[40px]">
+                <h1 class="text-center text-[68px] font-bold capitalize leading-normal mt-[20px]">
                     @if ($about !== null)
                         {!! $about->heading !!}
                     @endif

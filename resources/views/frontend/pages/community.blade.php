@@ -13,7 +13,7 @@
                     {{ $storyHead->story_title }}
                 @endif
             </h1>
-            <p class="text-2xl font-normal text-center">
+            <p class="text-[24px] font-normal text-center capitalize	">
                 @if ($storyHead !== null)
                     {{ $storyHead->story_subtitle }}
                 @endif
@@ -81,10 +81,10 @@
                         </select>
                     </div>
                     <div class="flex justify-center items-center">
-                    <div class="flex justify-center items-center ml-[17px] mt-6">
+                    <div class="flex justify-center items-center ml-[20px] mt-6">
                         <button type="submit" class="border bg-white px-4 py-2 rounded shadow hover:shadow-xl">Apply</button>
                     </div>
-                    <div class="flex justify-center items-center ml-[17px] mt-6">
+                    <div class="flex justify-center items-center ml-[20px] mt-6">
                         <input type="reset" class="border bg-white px-4 py-2 rounded shadow hover:shadow-xl" value="Clear">
                     </div>
                     </div>
@@ -113,7 +113,7 @@
                         <div class=" h-[516px]">
                             <a href="#">
                                 <h5
-                                    class="pt-[20px] px-[22px] text-xl font-bold tracking-tight text-gray-900 ">
+                                    class="pt-[20px] px-[22px] text-[20px] font-bold tracking-tight text-gray-900 ">
                                     "{!! $story->title !!}"</h5>
                             </a>
                             <p
@@ -121,9 +121,9 @@
                                 {!! Str::limit($story->description, 595) !!}</p>
                             <a href="{{ route('single-story', $story->id) }}"
                                 class="text-[#D1052C] font-bold text-base mx-[22px]">Read More</a>
-                            <h3 class="font-semibold text-xl mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
+                            <h3 class="font-semibold text-[20px] mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
                             <p class="text-[#212427] mx-[22px] text-sm font-normal">{{ $story->profession }}</p>
-                            <p class="text-[#212427] text-sm mx-[22px] font-normal">
+                            <p class="text-[#212427] text-[14px] mx-[22px] font-normal">
                                 {{ $story->address }}</p>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
                     Stories</button></a>
         @endauth
     </div>
-    <div>
+    <div class="bg-white">
         @auth
             <section class=" mb-[-100px]"
                 style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
@@ -170,7 +170,7 @@
                             @endif
                         </h1>
 
-                        <p class="text-xl text-center text-[#D1052C] uppercase w-[986px] mx-auto">
+                        <p class="text-[24px] font-normal text-center text-[#D1052C] capitalize w-[986px] mx-auto">
                             @if ($storyHead !== null)
                                 {{ $storyHead->share_subtitle }}
                             @endif

@@ -14,8 +14,8 @@
 </div>
 <div class="" style="background:url('/images/reviewbg.png');background-repeat:no-repeat;background-size:100% 397px">
 <div class="mt-[50px]  lg:pt-[28px]">
-    <h1 class="text-[50px] font-bold text-center"> @if($tittles !==null)  {{$tittles->help_title}} {{auth()->user()->fname}} @endif</h1>
-    <p class="text-center text-2xl font-normal uppercase"> @if($tittles !==null)  {{$tittles->help_subtile}}  @endif </p>
+    <h1 class="text-[50px] font-bold text-center leading-normal"> @if($tittles !==null)  {{$tittles->help_title}} {{auth()->user()->fname}} @endif</h1>
+    <p class="text-center text-[24px] leading-normal font-normal "> @if($tittles !==null)  {{$tittles->help_subtile}}  @endif </p>
     <div class=" mb-[-100px]">
 
             <!-- benifit card section -->
