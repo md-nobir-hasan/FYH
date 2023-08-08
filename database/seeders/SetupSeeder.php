@@ -23,54 +23,30 @@ class SetupSeeder extends Seeder
         //Payment Duration
             $pay_duration = [
                 ['name'=>'Monthly'],
-                ['name'=>'Yearly'],
+                ['name'=>'Annual'],
             ];
             DB::table('payment_durations')->insert($pay_duration);
 
         //client type seeder
             $ct = [
-                ['name'=>'Basic','plan_id'=>'plan_NzMovXZ9gkaiG2','interval_count'=>4,'price'=>300,
-                'des'=>' <p class="w-[236px] ml-[30px]">It’s the starter package for new comer. You can pay monthly and
-                        cancel anytime...</p>
-                        <p class="w-[400px] border-t-2 border-black mx-[30px] my-2"></p>
-                        <div class="text-[14px] ml-[40px]">
-                            <p class="mb-[6px]">
-                                <i class="fa-solid fa-check"></i> Access to A limited selection of Services
-                            </p>
-                            <p class="mb-[6px]">
-                                <i class="fa-solid fa-check"></i> Access to A limited selection of Services
-                            </p>
-                            <p class="mb-[6px]">
-                                <i class="fa-solid fa-check"></i> Access to Community Discussion Forum
-                            </p>
-                            <p class="mb-[6px]">
-                                <i class="fa-solid fa-check"></i> Customer Support via Email
-                            </p>
-                        </div>',
-                        'billing_period' => 'month',
-                        'currency' => 'chf',
+                ['name'=>'Monthly',
+                'plan_id'=>'plan_NzMovXZ9gkaiG2',
+                'interval_count'=>4,
+                'price'=>7.90,
+                'dis'=>0,
+                'des'=>'You can pay monthly and cancel the subscription',
+                'billing_period' => 'Monthly',
+                'currency' => 'CHF',
             ],
 
-            ['name'=>'Pro','plan_id'=>'plan_Nzm4CehIehiNIF','interval_count'=>1,'price'=>1000,
-            'des'=>' <p class="w-[236px] ml-[30px]">It’s the starter package for new comer. You can pay monthly and
-                    cancel anytime...</p>
-                    <p class="w-[400px] border-t-2 border-black mx-[30px] my-2"></p>
-                    <div class="text-[14px] ml-[40px]">
-                        <p class="mb-[6px]">
-                            <i class="fa-solid fa-check"></i> Access to A limited selection of Services
-                        </p>
-                        <p class="mb-[6px]">
-                            <i class="fa-solid fa-check"></i> Access to A limited selection of Services
-                        </p>
-                        <p class="mb-[6px]">
-                            <i class="fa-solid fa-check"></i> Access to Community Discussion Forum
-                        </p>
-                        <p class="mb-[6px]">
-                            <i class="fa-solid fa-check"></i> Customer Support via Email
-                        </p>
-                    </div>',
-                    'billing_period' => 'year',
-                    'currency' => 'chf',
+            ['name'=>'Annual',
+            'plan_id'=>'plan_Nzm4CehIehiNIF',
+            'interval_count'=>1,
+            'price'=>58.80,
+            'dis'=>36,
+            'des'=>'You pay annually and save',
+            'billing_period' => 'Annual',
+            'currency' => 'CHF',
         ],
 
             ];
