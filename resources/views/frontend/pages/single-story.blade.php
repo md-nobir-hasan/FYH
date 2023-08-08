@@ -35,8 +35,8 @@
 
 
 
-        @foreach ($stories as $story)
-        @endforeach
+        @foreach ($stories->chunk(3) as $story)
+
 
 
             <!-- temporary single story page start -->
@@ -122,7 +122,7 @@
 
                 </div>
             </div>
-
+            @endforeach
             <a href="" class="flex justify-center items-center"> <Button
                     class="lg:w-48 m-1 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Load More
                     Stories</button></a>

@@ -162,7 +162,7 @@ class FrontendControler extends Controller
         $story->save();
 
       if(auth()->user() !==null){
-        $stories = Story::where('status',1)->latest()->take(9)->get();
+        $stories = Story::where('status',1)->orWhere('profession',$story->profession)->orWhere('country_id',$story->country_id)->latest()->take(9)->get();
       }else{
         $stories = Story::where('status',1)->latest()->take(3)->get();
       }
