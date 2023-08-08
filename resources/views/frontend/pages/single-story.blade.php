@@ -13,7 +13,7 @@
         <img src="{{Storage::url($story->image)}}" alt="" class="w-[308px] h-[308px] "/>
     </div>
     <div class="col-span-3 ">
-        <h1 class="text-4xl mt-[10px] font-bold">“ {{$story->title}} ”</h1>
+        <h1 class="text-[36px] mt-[10px] font-bold">“ {{$story->title}} ”</h1>
 
         <div class="flex">
         <p class="text-[#666565] mt-[10px] text-base font-normal">Posted: {{date('D-M-Y', strtotime($story->created_at))}} </p>
@@ -53,7 +53,7 @@
     @foreach ($stories as $story)
 
 
-    <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class=" bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
             <img class="lg:h-1/2 w-full" src="{{Storage::url($story->image)}}" alt="{{$story->name}}" />
         </a>
@@ -82,7 +82,7 @@
 <div class="" style="background:url('/images/benifitbg.png');background-size:100% 525px;background-repeat:no-repeat;background-position:0 100%">
 <div  class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto"   >
 
-    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
             <img class="h-[424px] w-full" src="/images/story2.png" alt="" />
         </a>
@@ -101,11 +101,11 @@
 
         </div>
     </div>
-    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
-            <img class="lg:h-[424px] w-full" src="/images/story2.png" alt="" />
+            <img class="h-[424px] w-full" src="/images/story2.png" alt="" />
         </a>
-        <div class="px-[22px] mt-[10px] lg:h-[516px]">
+        <div class="px-[22px] mt-[10px]">
             <a href="#">
                 <h5 class="mt-[20px] text-[20px] font-bold tracking-tight text-[#212427]">"I have learnt so much, my memory got better, my morning routine got more structure"</h5>
             </a>
@@ -120,11 +120,11 @@
 
         </div>
     </div>
-    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
-            <img class="lg:h-[424px] w-full" src="/images/story2.png" alt="" />
+            <img class="h-[424px] w-full" src="/images/story2.png" alt="" />
         </a>
-        <div class="px-[22px] mt-[10px] lg:h-[516px]">
+        <div class="px-[22px] mt-[10px] h-[500px]">
             <a href="#">
                 <h5 class="mt-[20px] text-[20px] font-bold tracking-tight text-[#212427]">"I have learnt so much, my memory got better, my morning routine got more structure"</h5>
             </a>
@@ -145,7 +145,7 @@
 <div class="" style="background:url('/images/benifitbg.png');background-size:100% 525px;background-repeat:no-repeat;background-position:0 100%">
 <div  class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto"   >
 
-    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
             <img class="h-[424px] w-full" src="/images/story2.png" alt="" />
         </a>
@@ -164,7 +164,7 @@
 
         </div>
     </div>
-    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
             <img class="lg:h-[424px] w-full" src="/images/story2.png" alt="" />
         </a>
@@ -183,7 +183,7 @@
 
         </div>
     </div>
-    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow ">
         <a href="#">
             <img class="lg:h-[424px] w-full" src="/images/story2.png" alt="" />
         </a>
