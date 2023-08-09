@@ -15,13 +15,15 @@ class TermController extends Controller
 
    public function store(Request $request) {
              $request->validate([
-                  'term' => 'required| min:200',
-                  'cookie' => 'required| min:200',
+                  'term' => 'required',
+                  'cookie' => 'required',
+                  'privacy' => 'required',
              ]);
 
              Term::create([
                 'term' => $request->term,
                 'cookie' => $request->cookie,
+                'privacy' => $request->privacy,
              ]);
 
              return Redirect::back()->with('success', 'Successfully Create');
@@ -31,13 +33,15 @@ class TermController extends Controller
    public function update(Request $request, $id)  {
       $term = Term::findOrFail($id);
     $request->validate([
-        'term' => 'required| min:200',
-        'cookie' => 'required| min:200',
+        'term' => 'required',
+        'cookie' => 'required',
+        'privacy' => 'required',
    ]);
 
    $term->update([
       'term' => $request->term,
       'cookie' => $request->cookie,
+      'privacy' => $request->privacy,
    ]);
 
    return Redirect::back()->with('success', 'Successfully Update');

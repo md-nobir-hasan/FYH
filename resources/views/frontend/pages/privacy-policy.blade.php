@@ -7,8 +7,8 @@
 <section class="border bg-white shadow-lg rounded-lg">
 <div class="lg:mx-[87px] lg:my-10">
 
-{!! $cookie->cookie !!}
 {{-- {!! $privacy_policy->privacy !!} --}}
+<h1>This is privacy policy page</h1>
 
 </div>
 </section>

@@ -30,7 +30,7 @@ Back</button>
             <h1 class="mb-1 text-base font-normal @if($planId) @else text-center @endif">Describe yourself as clearly so that there are no mistakes.</h1>
             <!-- google icon -->
             <a href="{{ route('google.auth', $planId ? $planId->plan_id : null) }}"
-                class="w-full border  hover:text-white border-[#000000] p-3 rounded-lg font-semibold flex justify-center items-center"><svg
+                class="w-full border border-[#000000] p-3 rounded-lg font-semibold flex justify-center items-center"><svg
                     class="mr-1" width="23" height="23" viewBox="0 0 23 23" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_468_289)">
@@ -104,7 +104,7 @@ Back</button>
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
 </label>
-                    
+
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 

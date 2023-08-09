@@ -139,7 +139,7 @@
                                     <div class="flex mt-[-10px]">
                                         <h1 class="font-[500] text-sm">Your Order</h1>
                                         <p class="ml-auto text-sm uppercase">{{ $planId->currency }}
-                                            {{ $planId->price }}.00</p>
+                                            {{ number_format($planId->price,2) }}</p>
                                     </div>
                                     <div class="flex mt-[10px]">
                                         <h1 class="font-[500] text-sm">Others Fee</h1>
@@ -149,7 +149,7 @@
                                     <div class="flex">
                                         <h1 class="font-semibold text-[18px] mt-[-15px]">Total:</h1>
                                         <p class="ml-auto font-semibold text-[18px] mt-[-15px] uppercase">
-                                            {{ $planId->currency }} {{ $planId->price }}.00</p>
+                                            {{ $planId->currency }} {{ number_format($planId->price,2) }}</p>
                                     </div>
 
                                     <input type="hidden" name="total" value="{{ $planId->price }}">
@@ -171,7 +171,7 @@
                     <h1 class="font-bold text-xl ml-[41px] mt-[10px]">Order Summary</h1>
                     <div class="flex">
                         <h1 class="pl-[41px]"> {{ $planId->name }} - Online Payment... </h1>
-                        <h1 class="ml-auto uppercase pr-[39px]">{{ $planId->currency }} {{ $planId->price }}.00</h1>
+                        <h1 class="ml-auto uppercase pr-[39px]">{{ $planId->currency }} {{ number_format($planId->price,2) }}</h1>
                     </div>
                     <div class="flex mt-2">
                         <h1 class="pl-[41px]">Other fee</h1>
@@ -185,7 +185,7 @@
                     <div class="flex">
                         <h1 class="font-semibold text-[18px] ml-[41px]">Total</h1>
                         <h1 class="ml-auto font-semibold text-[18px] uppercase pr-[39px] pb-[11px]">{{ $planId->currency }}
-                            {{ $planId->price }}.00</h1>
+                            {{ number_format($planId->price,2) }}</h1>
                     </div>
                 </div>
             </div>

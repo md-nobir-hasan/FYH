@@ -80,9 +80,9 @@
 
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
-                        <a href="#"
+                        <a href="{{route('benefit.details',[$item->id])}}"
                             class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
-                            <img src="{{ "/storage/".$item->image }}" alt="{{ $item->title }}"
+                            <img src="{{ '/storage/' . $item->image }}" alt="{{ $item->title }}"
                                 class="h-20 w-20 mx-auto rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
@@ -211,8 +211,7 @@
                 @if ($popularStory->count() > 0)
                     {{-- @dd($popularStory) --}}
                     @foreach ($popularStory as $pStory)
-                        <div
-                            class=" bg-white border border-gray-200 rounded-lg shadow ">
+                        <div class=" bg-white border border-gray-200 rounded-lg shadow ">
                             <a href="{{ route('single-story', $pStory->id) }}">
                                 <img class=" lg:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}"
                                     alt="" />
@@ -371,8 +370,7 @@
                                                                             {{ $item->profession }} </p>
                                                                     </div>
                                                                 </div>
-                                                                <p
-                                                                    class="font-normal mx-[17px] text-justify text-base">
+                                                                <p class="font-normal mx-[17px] text-justify text-base">
                                                                     {!! Str::limit($item->description, 235) !!}
                                                                 </p>
                                                             </a>

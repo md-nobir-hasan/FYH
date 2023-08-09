@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name='title'>
         About Page
-       
+
     </x-slot>
 
     <div class="p-4">
-    
+
 
         <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
 
@@ -16,14 +16,14 @@
                         @csrf
                       @if($term!==null)  @method('PUT') @endif
                         <h4 class="font-bold text-xl underline text-left">About Section</h4>
-                     
 
 
-                       
+
+
 
                         <div class="grid gap-6 mb-6 md:grid-cols-1">
 
-                         
+
 
                             <div class="mb-6">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Term: </label>
@@ -36,9 +36,9 @@
                                    @enderror
                             </div>
 
-    
-    
-                      
+
+
+
                             <div class="mb-6  ">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Cookies page: </label>
                                     <textarea   name="cookie" rows="2" class="@error('cookie') is-invalid @enderror editor block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -49,10 +49,21 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
                             </div>
-                          
+
+                            <div class="mb-6  ">
+                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Cookies page: </label>
+                                    <textarea   name="privacy" rows="2" class="@error('privacy') is-invalid @enderror editor block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                                     placeholder="Enter first Image Story">
+                                     @if($term!==null)  {!!$term->privacy  !!}  @endif
+                                    </textarea>
+                                    @error('privacy')
+                                    <div class="text-left text-red-600">{{ $message }}</div>
+                                   @enderror
+                            </div>
+
                         </div>
-                    
-                     
+
+
                         <div class="mt-10">
                             <button class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                 Save</button>
@@ -61,7 +72,7 @@
 
 
 
-                   
+
                 </div>
             </div>
             <s-slot name='js'>

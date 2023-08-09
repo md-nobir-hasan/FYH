@@ -17,18 +17,13 @@ class CongratFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => 'image/badge.png',	
-             'heading' => 'congratulation',
-             'title' => 'On Subscribing To FYh',
-             'subtitle' => 'Now You Have Access To:',
-               'opOne' => 'High standard of living Geographical location',
-               'opTwo' => ' Beautiful nature and opportunity to relax without leaving the country',
-               'opThree' => 'Medicine of the highest level',
-               'opFour' => 'Education based on high standards',
-               	'icon' => '✓',
-               	'option_title' => 'What Is More Relevant For You ',
-                	'button_one' => 'Plan To Move',
-                     'button_two' => 'Already Relocated'
+            'image' => 'image/badge.png',
+            'heading' => 'Thank You',
+            'title' => 'On Subscribing To FYh',
+            'des' => 'As a new member of FYH, you are not part of a community of like-minded people whose <br class="con-br">
+                goal is to relocate to Switzerland or who have already achieved it.',
+            'button_one' => 'Plan To Move',
+            'button_two' => 'Already Relocated'
         ];
     }
 }

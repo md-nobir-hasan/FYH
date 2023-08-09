@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->longText('term')->nullable();
             $table->longText('cookie')->nullable();
+            $table->longText('privacy')->nullable();
             $table->timestamps();
         });
     }

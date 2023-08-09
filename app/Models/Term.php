@@ -10,5 +10,5 @@ class Term extends Model
     use HasFactory;
 
     protected $fillable = ['term',
-    'cookie'];
+    'cookie','privacy'];
 }

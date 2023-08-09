@@ -35,9 +35,8 @@ class GoogleSocialController extends Controller
                         return to_route('member');
                     }
                  }
-                 $Name = $google_user->getName();
-                 $firstName = explode(' ', trim($Name))[0];
-                 $SecondName = explode(' ', trim($Name))[1];
+                 $firstName = $google_user->user['given_name'];
+                 $SecondName = $google_user->user['family_name'];
                  $newUser = User::create([
                       'fname' => $firstName,
                       'lname' => $SecondName,
