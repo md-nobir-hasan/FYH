@@ -13,7 +13,7 @@
                     {{ $storyHead->story_title }}
                 @endif
             </h1>
-            <p class="text-2xl font-normal text-center">
+            <p class="text-[24px] font-normal text-center capitalize	">
                 @if ($storyHead !== null)
                     {{ $storyHead->story_subtitle }}
                 @endif
@@ -23,12 +23,12 @@
 
         @auth
 
-            <h1 class="text-5xl font-black text-center">
+            <h1 class="text-[50px] font-semibold text-center">
                 @if ($storyHead !== null)
                     {{ $storyHead->community_sub_title }}
                 @endif
             </h1>
-            <p class="text-lg text-center mb-5">
+            <p class="text-[24px] font-normal text-center mb-[10px] mt-[10px]">
                 @if ($storyHead !== null)
                     {{ $storyHead->community_sub_subtitle }}
                 @endif
@@ -36,15 +36,15 @@
 
 
 
-            <form action="{{ route('community.search') }}" method="post">
+            <form action="{{ route('community.search') }}" method="post" class="">
                 @csrf
 
-                <div class="w-[1320px] mx-auto flex">
-                    <div class="">
-                        <p class="font-medium">Sort Stories</p>
+                <div class="2xl:w-[1320px] xl:w-[1320px] lg:w-[1100px] mx-auto lg:flex block">
+                    <div class="lg:mx-0 mx-20">
+                        <p class="font-medium text-[14px]">Sort Stories</p>
 
                         <select name="stories"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5">
                             <option class="text-lg" value="latest" @isset($data) @selected($data['stories'] == 'latest')  @endisset>Most Recent</option>
                             <option class="text-lg" value="" @isset($data) @selected($data['stories'] == '')  @endisset>Most Relevant</option>
 
@@ -54,7 +54,7 @@
                     <div class="ml-[75px]">
                         <p>By Country</p>
                         <select id="countries" name="country_id"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5">
                             <option class="text-lg"  value="">All Country</option>
                             @foreach ($country as $story)
                                 <option value="{{ $story->id }}" @isset($data) @selected($data['country_id'] ==  $story->id)  @endisset>{{ $story->country }}</option>
@@ -63,11 +63,11 @@
                         </select>
 
                     </div>
-                    <div class=" ml-[75px]">
+                    <div class=" lg:ml-[75px] lg:mx-0 mx-20">
                         <p>By Time</p>
 
                         <select name="time"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border xl:w-[326px] lg:w-[250px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 ">
 
                             <option class="text-lg mb-1" value="" @isset($data) @selected($data['time'] == '') @endisset>Any Time</option>
                             <option class="text-lg mb-1" value="1" @isset($data) @selected($data['time'] == 1)  @endisset>Past 24 Hours</option>
@@ -80,11 +80,13 @@
 
                         </select>
                     </div>
-                    <div class="flex justify-center items-center ml-[17px] mt-6">
-                        <button type="submit" class="border px-4 py-2 rounded shadow hover:shadow-xl">Apply</button>
+                    <div class="flex justify-center items-center">
+                    <div class="flex justify-center items-center ml-[20px] mt-6">
+                        <button type="submit" class="border bg-white px-4 py-2 rounded shadow hover:shadow-xl">Apply</button>
                     </div>
-                    <div class="flex justify-center items-center ml-[17px] mt-6">
-                        <input type="reset" class="border px-4 py-2 rounded shadow hover:shadow-xl" value="Clear">
+                    <div class="flex justify-center items-center ml-[20px] mt-6">
+                        <input type="reset" class="border bg-white px-4 py-2 rounded shadow hover:shadow-xl" value="Clear">
+                    </div>
                     </div>
 
                 </div>
@@ -102,7 +104,7 @@
                             <div class="grid grid-cols-3 gap-6 w-[1320px] mx-auto mt-6">
                     @endif
                     <div
-                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
                         <a href="#">
                             {{-- /images/story4.png --}}
                             <img class="h-[424px] w-full" src="{{ Storage::url($story->image) }}"
@@ -111,15 +113,15 @@
                         <div class=" h-[516px]">
                             <a href="#">
                                 <h5
-                                    class="pt-[20px] px-[22px] text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    class="pt-[20px] px-[22px] text-[20px] font-bold tracking-tight text-gray-900 ">
                                     "{!! $story->title !!}"</h5>
                             </a>
                             <p
-                                class="mt-5 mx-[22px] text-[14px] font-normal text-justify text-[#212427] dark:text-gray-400">
+                                class="mt-5 mx-[22px] text-[14px] font-normal text-justify text-[#212427]">
                                 {!! Str::limit($story->description, 595) !!}</p>
                             <a href="{{ route('single-story', $story->id) }}"
                                 class="text-[#D1052C] font-bold text-base mx-[22px]">Read More</a>
-                            <h3 class="font-semibold text-xl mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
+                            <h3 class="font-semibold text-[20px] mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
                             <p class="text-[#212427] mx-[22px] text-sm font-normal">{{ $story->profession }}</p>
                             <p class="text-[#212427] text-sm mx-[22px] font-normal">
                                 {{$story->city}}, {{$countryName->country}}
@@ -157,7 +159,7 @@
                     Stories</button></a>
         @endauth
     </div>
-    <div>
+    <div class="bg-white">
         @auth
             <section class=" mb-[-100px]"
                 style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
@@ -169,7 +171,7 @@
                             @endif
                         </h1>
 
-                        <p class="text-xl text-center text-[#D1052C] uppercase w-[986px] mx-auto">
+                        <p class="text-[24px] font-normal text-center text-[#D1052C] capitalize w-[986px] mx-auto">
                             @if ($storyHead !== null)
                                 {{ $storyHead->share_subtitle }}
                             @endif

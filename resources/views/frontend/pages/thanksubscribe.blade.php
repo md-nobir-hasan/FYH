@@ -8,8 +8,8 @@
             <img src="{{'/storage/'. $titles->thank_image}}" class=""/>
 
         </div>
-        <h1 class="font-black text-center text-5xl bg-white text-[#D1052C]"> @if($titles !==null) {{$titles->thank_heading}} @endif</h1>
-        <p class="text-2xl text-center font-semibold my-3">
+        <h1 class="font-black text-center text-[50px] bg-white text-[#D1052C]"> @if($titles !==null) {{$titles->thank_heading}} @endif</h1>
+        <p class="text-[24px] text-center font-semibold my-3">
             For subscribing our news letter <br>
 
         </p>

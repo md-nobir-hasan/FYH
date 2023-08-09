@@ -3,38 +3,38 @@
     Profile
 @endpush
 @section('content')
-<div class="lg:mx-40 mt-20" style="font-family:'Poppins'">
+<div class="w-[1320px] mx-auto mt-[100px]" style="font-family:'Poppins'">
     @if($myStory->count() > 0)
-<section class="border-2 rounded grid grid-cols-1 lg:grid-cols-4 p-4 gap-10">
+<section class="border-2 bg-white rounded grid grid-cols-1 lg:grid-cols-4 p-6 gap-6">
          
            @foreach ($myStory->slice(0,1) as $story)
            <div class="col-span-1">
-            <img src="{{'/storage/'. $story->image}}" alt="" class="w-full"/>
+            <img src="{{'/storage/'. $story->image}}" alt="" class="w-[308px] h-[308px]"/>
         </div>
         <div class="col-span-3">
-            <h1 class="text-4xl font-black mb-2">“{{$story->title}}”</h1>
-            <p class="text-[#666565]">Posted: {{date('D-M-Y', strtotime($story->created_at))}}</p>
-            <p class="text-justify text-lg mt-3"> 
+            <h1 class="text-[36px] font-bold mb-[10px]">“{{$story->title}}”</h1>
+            <p class="text-[#666565] text-[16px] font-normal">Posted: {{date('D-M-Y', strtotime($story->created_at))}}</p>
+            <p class="text-justify text-[16px] mt-[20px]"> 
                     {{$story->description}}    
             </p>
-    <h1 class="text-xl font-bold my-2"> {{$story->name}} </h1>
-    <p class="text-[#666565] capitalize"> {{$story->profession}} </p>
-    <p class="text-[#666565] capitalize">{{$story->city}} , @if($story->country !==null) {{$story->country->country}} @endif</p>
+    <h1 class="text-[20px] font-bold mt-[20px]"> {{$story->name}} </h1>
+    <p class="text-[#666565] text-[16px] font-normal capitalize"> {{$story->profession}} </p>
+    <p class="text-[#666565] capitalize text-[16px] font-normal">{{$story->city}} , @if($story->country !==null) {{$story->country->country}} @endif</p>
         </div>
            @endforeach
          
          
 </section>
 <section class="">
-    <h1 class="text-2xl my-5 font-bold">Related Stories</h1>
+    <h1 class="text-[28px] mt-[64px] font-semibold">Related Stories</h1>
 
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-[20px]">
  
 @if ($myStory->count() > 0)
 @foreach ($myStory->slice(1, 3) as $item)
     
 
-<div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class=" bg-white border border-gray-200 rounded-lg shadow ">
     <a href="#">
         <img class="rounded-t-lg" src="{{'/storage/'. $item->image}}" alt="" />
     </a>

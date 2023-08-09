@@ -67,9 +67,9 @@
                                 <div>
                                     <input onclick=myFunction() id="default-radio-1" type="radio" value=""
                                         name="default-radio"
-                                        class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 ">
                                     <label for="default-radio-1"
-                                        class="ml-2 text-base font-medium text-black dark:text-gray-300">Credit / Debit
+                                        class="ml-2 text-base font-medium text-black ">Credit / Debit
                                         Card</label>
                                 </div>
                                 <div class="flex lg:ml-80 ml-[200px]">
@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="card-footer text-center ">
                                         <button id="card-button"
-                                            class="text-center w-full h-[48px] bg-green-500 mt-2 rounded-[10px] text-white text-[16px] font-bold"
+                                            class="text-center w-full h-[48px] hover:bg-[#F6CDD5] hover:text-[#D1052C] bg-[#D1052C] mt-2 rounded-[10px] text-white text-[16px] font-bold"
                                             type="submit" data-secret="{{ $intent->client_secret }}"> PAY & GO
                                         </button>
                                     </div>
@@ -128,7 +128,7 @@
                                         name="default-radio"
                                         class="w-4 h-4 text-green-600 bg-gray-300 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="default-radio-2"
-                                        class="ml-2 text-base font-medium text-black dark:text-gray-300">Paypal</label>
+                                        class="ml-2 text-base font-medium text-black ">Paypal</label>
                                 </div>
                                 <img src="{{ asset('/images/paypal.png') }}" alt="" class="h-5 ">
                             </div>
@@ -156,7 +156,7 @@
                                     <input type="hidden" name="plan_id" value="{{ $planId->id }}">
                                     <hr class="h-px my-8 bg-black border-0 mt-[10px] mb-0">
                                     <button
-                                        class="text-center w-full h-[48px] bg-[#D1052C] mb-[10px] mt-[10px] rounded-[10px] text-white text-[16px] font-bold">PAY
+                                        class="text-center w-full h-[48px] hover:bg-[#F6CDD5] hover:text-[#D1052C] bg-[#D1052C] mb-[10px] mt-[10px] rounded-[10px] text-white text-[16px] font-bold">PAY
                                         & GO</button>
                             </div>
                             </form>

@@ -2,19 +2,19 @@
 <x-guest-layout>
     
     <div class="mt-[102px] "  style="height:100vh">
-    <div class="shadow-xl mx-40 pb-[100%]">
-    <div class="p-10 sm:max-w-md bg-white mx-auto rounded-3xl">
-    <a href="{{route('home')}}"> <img src="{{$setting->logo}}" alt="" class="h-8 w-24 mx-auto mb-8 mt-[-20px]"> </a>
-    <h1 class="text-2xl font-bold text-center">
+    <div class="shadow-xl  pb-[100%]">
+    <div class="px-[129px] w-[584px] h-[408px] pt-[28px] bg-white mx-auto rounded-3xl">
+    <a href="{{route('home')}}"> <img src="{{$setting->logo}}" alt="" class="h-8 w-24 mx-auto  mt-[-20px] pt-"> </a>
+    <h1 class="text-[28px] font-semibold text-center mt-[37px]">
         Forgot Password?
     </h1>
-    <p class="text-sm text-center font-medium">No worries,we'll send you reset instructions</p>
-    <hr class="bg-black border mb-5">
+    <p class="text-[16px] font-normal text-center">No worries,we'll send you reset instructions</p>
+    <hr class="bg-black border mt-[10px]  mb-5">
 
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('password.email') }}">
+    <form method="POST" action="{{ route('password.email') }} " class=" mt-[30px]">
         @csrf
 
         <!-- Email Address -->
@@ -24,11 +24,11 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div class="mt-4">
-        <button class="w-full  p-3 rounded-lg font-semibold flex justify-center items-center bg-[#D1052C] text-white text-sm">{{ __('RESET PASSWORD') }}</button>
+        <div class="mt-5">
+        <button class="w-full  p-3 rounded-lg flex justify-center hover:bg-[#FCEEF1] hover:text-[#D1052C] items-center bg-[#D1052C] text-white text-[16px] font-bold">{{ __('RESET PASSWORD') }}</button>
         </div>
     </form>
-   <div class="text-center mt-3 font-medium text-sm">
+   <div class="text-center  mt-[10px] mb-[39px] font-medium text-sm">
    <a href="/login"><i class="fa-solid fa-arrow-left"></i>Back to log in</a>
    </div>
     </div>
