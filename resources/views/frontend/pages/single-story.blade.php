@@ -15,14 +15,24 @@
                 <div class="flex">
                 <p class="text-[#666565] mt-[10px] text-[16px] font-normal">Posted:
                     {{ date('D-M-Y', strtotime($story->created_at)) }} </p>
-                    <svg id="svg" onclick=function1() class="mt-[10px] ml-[10px]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- <svg id="svg" onclick=function1() class="mt-[10px] ml-[10px]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_2891_12010" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
 <rect width="20" height="20" fill="#D9D9D9"/>
 </mask>
 <g mask="url(#mask0_2891_12010)">
 <path d="M10.3333 17.9164L9.125 16.8597C7.72222 15.6268 6.5625 14.5633 5.64583 13.6691C4.72917 12.7749 4 11.9722 3.45833 11.2609C2.91667 10.5497 2.53819 9.89596 2.32292 9.29985C2.10764 8.70373 2 8.09407 2 7.47086C2 6.19734 2.4375 5.13382 3.3125 4.28029C4.1875 3.42676 5.27778 3 6.58333 3C7.30556 3 7.99306 3.14903 8.64583 3.44709C9.29861 3.74514 9.86111 4.16513 10.3333 4.70706C10.8056 4.16513 11.3681 3.74514 12.0208 3.44709C12.6736 3.14903 13.3611 3 14.0833 3C15.3889 3 16.4792 3.42676 17.3542 4.28029C18.2292 5.13382 18.6667 6.19734 18.6667 7.47086C18.6667 8.09407 18.559 8.70373 18.3438 9.29985C18.1285 9.89596 17.75 10.5497 17.2083 11.2609C16.6667 11.9722 15.9375 12.7749 15.0208 13.6691C14.1042 14.5633 12.9444 15.6268 11.5417 16.8597L10.3333 17.9164ZM10.3333 15.7216C11.6667 14.5565 12.7639 13.5573 13.625 12.7241C14.4861 11.8909 15.1667 11.1661 15.6667 10.5497C16.1667 9.93322 16.5139 9.38452 16.7083 8.90357C16.9028 8.42261 17 7.94504 17 7.47086C17 6.65798 16.7222 5.98057 16.1667 5.43865C15.6111 4.89673 14.9167 4.62577 14.0833 4.62577C13.4306 4.62577 12.8264 4.80528 12.2708 5.1643C11.7153 5.52333 11.3333 5.98057 11.125 6.53604H9.54167C9.33333 5.98057 8.95139 5.52333 8.39583 5.1643C7.84028 4.80528 7.23611 4.62577 6.58333 4.62577C5.75 4.62577 5.05556 4.89673 4.5 5.43865C3.94444 5.98057 3.66667 6.65798 3.66667 7.47086C3.66667 7.94504 3.76389 8.42261 3.95833 8.90357C4.15278 9.38452 4.5 9.93322 5 10.5497C5.5 11.1661 6.18056 11.8909 7.04167 12.7241C7.90278 13.5573 9 14.5565 10.3333 15.7216Z" fill="#848484"/>
 </g>
+</svg> -->
+<div>
+
+<svg onclick=function1() id="svg1" class="mt-[10px] ml-[10px]" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
 </svg>
+<svg onclick=function2() id="svg2" class="mt-[10px] ml-[10px] text-red-700 hidden" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+</svg>
+</div>
+
 
                 </div>
 
@@ -137,11 +147,24 @@
 
 <script>
     const function1=()=>{
-        const svg = document.getElementById('svg')
-        if(svg.style.backgroundColor === ''){
-            svg.style.backgroundColor = '#D1052C'
+        const svg1 = document.getElementById('svg1')
+        const svg2 = document.getElementById('svg2')
+        if(svg1.style.fill === 'red'){
+            svg1.style.display= 'block'
         }else {
-            svg.style.backgroundColor = ''
+            svg1.style.display = 'none';
+            svg2.style.display = 'block'
+        }
+    }
+    const function2=()=>{
+        const svg1 = document.getElementById('svg1')
+        const svg2 = document.getElementById('svg2')
+        if(svg1.style.fill === 'red'){
+            
+        }else {
+            svg2.style.display= 'none';
+            svg1.style.display = 'block'
+            console.log('not working')
         }
     }
 </script>
