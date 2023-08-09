@@ -18,8 +18,9 @@
     </div>
        <div class="ml-[88px] mt-[27px]">
         <a href="/register">
-        <button class="bg-white border px-5 py-3 shadow-2xl rounded"><i class="fa-solid fa-arrow-left text-[#848484]"></i><span class="ml-2 text-[16px] font-bold text-[#848484]">back</span></button>
+        <button style="box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.20);" class="bg-white border py-2 hover:bg-[#FCEEF1] hover:text-[#D1052C] w-[95px] rounded"><i class="fa-solid fa-arrow-left text-[#848484]"></i><span class="ml-2 text-[16px] font-bold text-[#848484]">Back</span></button>
         </a>
+        
        </div>
        <div class="grid lg:grid-cols-5 grid-cols-1 mt-[24px] ml-[88px]">
             <div class=" col-span-3">
