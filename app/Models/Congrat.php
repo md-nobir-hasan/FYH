@@ -11,6 +11,6 @@ class Congrat extends Model
 
 
     protected $fillable = [
-    'image','heading','title','subtitle','opOne','opTwo','opThree','opFour','opFive','icon','option_title','button_one','button_two',
+    'image','heading','title','des','button_one','button_two',
     ];
 }

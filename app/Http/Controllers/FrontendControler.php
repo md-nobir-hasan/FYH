@@ -342,8 +342,12 @@ class FrontendControler extends Controller
 
   public function helpSupport()
   {
+    if(!Auth::user()){
+        return back();
+    }
          $helps = Help::take(6)->get();
          $tittles = Home::select('help_image', 'help_title', 'help_subtile' )->first();
+
     return view('frontend.pages.help_support', ['helps'=> $helps, 'tittles' => $tittles]);
   }
   public function termsCondition()
@@ -355,6 +359,12 @@ class FrontendControler extends Controller
   {
     $cookie = Term::first();
     return view('frontend.pages.cookies', compact('cookie'));
+  }
+
+  public function privacyPolicy()
+  {
+    $privacy_policy = Term::first();
+    return view('frontend.pages.privacy-policy', compact('privacy_policy'));
   }
 
  public function ticket()  {

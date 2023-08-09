@@ -203,8 +203,8 @@
 
         <!-- Success section end -->
 
-        
-        <section class=" mb-[-100px]"
+
+         <section class=" mb-[-100px]"
             style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
             <div class="py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
                 <div class="pb-28 shadow-lg">

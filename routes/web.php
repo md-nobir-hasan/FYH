@@ -91,7 +91,8 @@ use Illuminate\Support\Facades\Route;
     // authorize user route
 
     Route::get('terms/condition', [FrontendControler::class, 'termsCondition'])->name('terms.condition');
-    Route::get('cookies', [FrontendControler::class, 'cookies'])->name('cookies');
+    Route::get('cookies-policy', [FrontendControler::class, 'cookies'])->name('cookies');
+    Route::get('privacy-policy', [FrontendControler::class, 'privacyPolicy'])->name('privacy_policy');
 
     Route::post('/mail/subscribe', [FrontendControler::class, 'mailSubscribe'])->name('mail.subscribe');
     Route::get('/subscribe/thank', [FrontendControler::class, 'mailSubscribeThank'])->name('mail.subscribe.thank');
