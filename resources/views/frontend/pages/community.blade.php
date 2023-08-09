@@ -123,8 +123,9 @@
                                 class="text-[#D1052C] font-bold text-base mx-[22px]">Read More</a>
                             <h3 class="font-semibold text-[20px] mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
                             <p class="text-[#212427] mx-[22px] text-sm font-normal">{{ $story->profession }}</p>
-                            <p class="text-[#212427] text-[14px] mx-[22px] font-normal">
-                                {{ $story->address }}</p>
+                            <p class="text-[#212427] text-sm mx-[22px] font-normal">
+                                {{$story->city}}, {{$countryName->country}}
+                            </p>
                         </div>
                     </div>
 
@@ -145,7 +146,7 @@
                     class="lg:w-48 m-1 mt-5 p-3 rounded-lg text-base font-bold bg-[#D1052C] text-white">Read All
                     Stories</button></a>
             <button class="lg:w-48 m-1 text-base font-bold mt-5 p-3 rounded-lg bg-[#D1052C] text-white">Read Our
-                Stories</button>
+                News</button>
         </div>
     @endguest
 

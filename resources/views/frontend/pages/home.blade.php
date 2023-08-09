@@ -124,7 +124,8 @@
                                 $title = $firstfeature->title;
                             @endphp
                             {{-- @dd($firstfeature) --}}
-                            <img src="{{ Storage::url($firstfeature->feature_img) }}" alt="" class="h-[316px] w-[561px]">
+                            <img src="{{ Storage::url($firstfeature->feature_img) }}" alt=""
+                                class="h-[316px] w-[561px]">
                             <div class="absolute ml-[70px] mt-[-178px]" style="">
                                 <h1 class=" text-white  text-[50px] font-black">
                                     {!! $firstfeature->title !!}
@@ -138,7 +139,8 @@
                                 <p class=" font-normal text-base text-[#212427] text-justify">
                                     {!! $firstfeature->description !!} </p>
                                 <div class="flex">
-                                    <img src="/storage/image/ellipse.png" alt="" class="h-[52px] w-[52px] mt-[24px] ">
+                                    <img src="/storage/image/ellipse.png" alt=""
+                                        class="h-[52px] w-[52px] mt-[24px] ">
                                     <div class="mt-[24px] ml-[5px]">
                                         <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $firstfeature->name }}.
                                         </h1>
@@ -160,7 +162,8 @@
                             <div>
                                 <p class=" font-normal text-[16px] text-justify"> {!! $secondfeture->description !!} </p>
                                 <div class="flex">
-                                    <img src="{{storage::url("image/ellipse.png")}}" alt="" class="h-[52px] w-[52px] mt-[24px]">
+                                    <img src="{{ storage::url('image/ellipse.png') }}" alt=""
+                                        class="h-[52px] w-[52px] mt-[24px]">
                                     <div class="mt-[24px] ml-3">
                                         <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $secondfeture->name }}
                                         </h1>
@@ -173,7 +176,8 @@
                             @php
                                 $title = str_split($secondfeture->title, 15);
                             @endphp
-                            <img src="{{ Storage::url($secondfeture->feature_img) }}" alt="" class="h-[316px] w-[561px]">
+                            <img src="{{ Storage::url($secondfeture->feature_img) }}" alt=""
+                                class="h-[316px] w-[561px]">
                             <div class="absolute ml-[80px] mt-[-140px]" style="">
                                 <h1 class=" text-white text-5xl font-black text-center"> {!! $secondfeture->title !!} </h1>
                                 </h1>
@@ -210,7 +214,8 @@
                         <div
                             class=" bg-white border border-gray-200 rounded-lg shadow ">
                             <a href="{{ route('single-story', $pStory->id) }}">
-                                <img class=" lg:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}" alt="" />
+                                <img class=" lg:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}"
+                                    alt="" />
                             </a>
                             <div class="px-[22px] pt-[20px] h-[516px]">
                                 <a href="#">
@@ -219,15 +224,16 @@
                                         "</h5>
                                 </a>
                                 <p class="mt-[20px] text-[14px] font-normal text-[#212427] text-justify">
-                                    {{ Str::limit($pStory->description, 595) }} </p>
+                                    {!! Str::limit($pStory->description, 595) !!}
+                                </p>
                                 <a href="{{ route('single-story', $pStory->id) }}"
                                     class="text-[#D1052C] text-[16px] font-bold">
                                     Read more
                                 </a>
                                 <h1 class="text-[20px] font-semibold mt-[20px]"> {{ $pStory->name }} <h1>
                                         <p class="capitalize text-[14px] font-normal">{{ $pStory->profession }}</p>
-                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->address }} ,
-                                            {{-- {{$pStory->country->country}} --}}
+                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->city }} ,
+                                            {{ $pStory->country->country }}
                                         </p>
                             </div>
                         </div>
@@ -274,8 +280,8 @@
                     class="lg:w-48 mt-5 p-3 rounded-lg font-bold text-base  bg-[#D1052C] text-white">Read All
                     Stories</button></a>
         </section>
-
         <!-- successfull story Candidate end -->
+
         <!-- Get Service Start -->
         <section class="mt-[163px]">
             <h1 class="text-center text-[50px] font-bold text-[#212427]">
@@ -344,7 +350,8 @@
                                                                 class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
-                                                                        <img src="{{ "/storage/".$item->image }}" alt=""
+                                                                        <img src="{{ '/storage/' . $item->image }}"
+                                                                            alt=""
                                                                             class="h-[103px] w-[103px] rounded-full ml-[17px]"
                                                                             style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                                                                         <svg class="ml-[17px] my-[5px]" width="28"
@@ -443,23 +450,23 @@
         </div>
     @endsection
     @push('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
 
-    <script>
-        var glide07 = new Glide('.glide-08', {
-            type: 'slider',
-            focusAt: 'center',
-            perView: 1,
-            autoplay: 5000,
-            animationDuration: 700,
-            gap: 0,
-            classes: {
-                activeNav: '[&>*]:bg-[#D1052C]',
-            },
-        });
+        <script>
+            var glide07 = new Glide('.glide-08', {
+                type: 'slider',
+                focusAt: 'center',
+                perView: 1,
+                autoplay: 5000,
+                animationDuration: 700,
+                gap: 0,
+                classes: {
+                    activeNav: '[&>*]:bg-[#D1052C]',
+                },
+            });
 
-        glide07.mount();
-    </script>
+            glide07.mount();
+        </script>
 
         <!-- flowbite cdn -->
         <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
