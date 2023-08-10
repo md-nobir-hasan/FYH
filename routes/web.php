@@ -41,6 +41,7 @@ use App\Http\Controllers\Submenucontroller;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\UserCommonController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -122,8 +123,6 @@ use Illuminate\Support\Facades\Route;
 //End frontend controller
 
 //Wthout middleware routes
-
-
         //Update Payment
         Route::get('updatepayment/{ct_id}',[PaypalController::class,'updatePayment'])->name('update_payment');
 
@@ -155,178 +154,176 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/redirect/route',[UserCommonController::class,'redirect']);
 
-
-
-
-
 // google Login
 Route::get('/redirect/{planId?}', [GoogleSocialController::class, 'redirect'])->name('google.auth');
 Route::get('/auth/callback', [GoogleSocialController::class, 'callBack'])->name('google.callback');
 
-
+// auth middleware
+Route::middleware('auth')->group(function(){
+    Route::resource('/wishlist',WishlistController::class);
+});
 
 // Admin route ===============================================
+    //dashboard
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->middleware(['auth', 'verified','admin'])->name('dashboard');
+    //end dashoard
 
-//dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified','admin'])->name('dashboard');
-//end dashoard
+    Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(function () {
 
-Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(function () {
-
-    //Settings
-    Route::prefix('/setting')->name('setting.')->group(function(){
-        Route::resource('setting',SettingsController::class);
-    });
-
-
-    Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
-
-    //ajax throug axios
-    Route::get('customer/mark-as-read',[AjaxController::class,'customerMarkAsRead'])->name('customer.mark_as_read');
-
-    // Export routes
-    Route::get('/customers/export/excel',[ExportController::class,'CustomerExport'])->name('customer.export');
-    Route::get('/customers/export/pdf',[ExportController::class,'CustomerExportPdf'])->name('customer.export.pdf');
-    // Route::get('/customers/export/pdf/htmlshow',[ExportController::class,'CustomerExportPdfhtml'])->name('customer.export.html');
-
-    //Customers
-    Route::prefix('/customer')->name('customer.')->group(function(){
-        Route::get('/index',[CustomerController::class,'index'])->name('index');
-    });
-
-    // feedback
-    Route::get('/feedback', [FeedBackController::class, 'index'])->name('feedback.index');
-
-    // problem and solving
-    Route::resource('problem', ProblemController::class)->except('create', 'destroy');
-    Route::get('/problem/destroy/{id}', [ProblemController::class, 'destroy'])->name('problem.destroy');
-
-    Route::resource('billings', BillingController::class)->only('index');
-    Route::get('/billings/destroy/{id}', [BillingController::class, 'destroy'])->name('billings.destroy');
-
-    Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
-    Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
-    Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');
-
-    // admin First Section
-    Route::resource('/home', HomeController::class)->only('create', 'update', 'store');
-
-     // about
-     Route::resource('/about', AboutController::class)->only('create', 'update', 'store');
-
-    // admin service section
-    Route::resource('/services', ServiceController::class)->except('destroy');
-    Route::get('services/destroy/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
-
-    // Story
-    Route::resource('stories', StoryController::class)->except('destroy');
-    Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
-    Route::get('/stories/status/{id}', [StoryController::class, 'status'])->name('stories.status');
-    Route::get('/stories/feature/{id}', [StoryController::class, 'feature'])->name('stories.feature');
-
-    // benefit and other Section title and subtitle
-    Route::resource('opportunitys', OpporcunityController::class);
-
-    // Congrats Route
-    Route::resource('congrats', CongratController::class);
-    Route::resource('country', CountryController::class)->except('show','destroy');
-    Route::get('country/destroy/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
-
-    // move to swizerland
-    Route::resource('moves', MoveToController::class)->except('destroy');
-    Route::get('/moves/destroy/{id}', [MoveToController::class, 'destroy'])->name('moves.destroy');
-    Route::get('/moves/status/{id}', [MoveToController::class, 'status'])->name('moves.status');
-
-
-    // Switzerland integration
-    Route::resource('integrations', IntegrationController::class);
-    Route::get('/integrations/destroy/{id}', [IntegrationController::class, 'destroy'])->name('integrations.destroy');
-    Route::get('/integrations/status/{id}', [IntegrationController::class, 'status'])->name('integrations.status');
-
-
-    //Help and support
-    Route::resource('/helps', HelpController::class);
-    Route::get('helps/destroy/{id}', [HelpController::class, 'destroy'])->name('helps.destroy');
-
-
-    // term and Condition
-    Route::resource('terms', TermController::class);
-
-    //Setup
-    Route::prefix('/setup')->name('setup.')->group(function(){
-        //Client type
-        Route::resource('/client-type',ClientTypeController::class);
-
-        //Membership type
-        Route::resource('/membership',MembershipTypeController::class);
-
-        //Benefit
-        Route::resource('/benefit',BenefitController::class)->except('destroy');
-        Route::get('/benefit/destroy/{id}', [BenefitController::class, 'destroy'])->name('benefit.destroy');
-
-        //Links
-        Route::resource('/link',LinkController::class);
-
-        //Currency
-        Route::resource('/currency',CurrencyController::class);
-
-        //Payment Duration
-        Route::resource('/payment_duration',PaymentDurationController::class);
-
-        //Video
-        Route::resource('/video',VideoController::class);
-
-
-    });
-
-    //Menus route
-    Route::prefix('/menu')->name('menu.')->group(function(){
-        Route::resource('menu',MenuController::class);
-        Route::resource('submenu',Submenucontroller::class);
-    });
-
-    //Videos route
-
-    Route::resource('survival',ServiceGuideController::class);
-
-
-
-
-
-    // content or Page Create Route
-    Route::resource('/contents', ContentController::class);
-
-    //User Management
-    Route::prefix('/user')->name('user.')->group(function(){
-        //Features
-        Route::resource('features',FeatureController::class)->names([
-            'index' => 'feature.index',
-            'create' => 'feature.create',
-            'edit' => 'feature.edit',
-            'store' => 'feature.store',
-            'update' => 'feature.update',
-            'show' => 'feature.show',
-            ]);
-
-
-        //role
-        Route::group(['as' => 'role.', 'prefix' => 'role'], function (){
-            Route::get('/index', [SettingController::class, 'roleIndex'])->name('index');
-            Route::get('/create/{id?}', [SettingController::class, 'roleCreate'])->name('create');
-            Route::post('/store', [SettingController::class, 'roleStore'])->name('store');
+        //Settings
+        Route::prefix('/setting')->name('setting.')->group(function(){
+            Route::resource('setting',SettingsController::class);
         });
 
-        //user
-        Route::group(['as' => 'user.', 'prefix' => 'user'], function (){
-            Route::get('/index', [SettingController::class, 'userIndex'])->name('index');
-            Route::get('/create/{id?}', [SettingController::class, 'userCreate'])->name('create');
-            Route::post('/store', [SettingController::class, 'userStore'])->name('store');
-        });
-    });
 
-});
-//=================================== End admin route
+        Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
+
+        //ajax throug axios
+        Route::get('customer/mark-as-read',[AjaxController::class,'customerMarkAsRead'])->name('customer.mark_as_read');
+
+        // Export routes
+        Route::get('/customers/export/excel',[ExportController::class,'CustomerExport'])->name('customer.export');
+        Route::get('/customers/export/pdf',[ExportController::class,'CustomerExportPdf'])->name('customer.export.pdf');
+        // Route::get('/customers/export/pdf/htmlshow',[ExportController::class,'CustomerExportPdfhtml'])->name('customer.export.html');
+
+        //Customers
+        Route::prefix('/customer')->name('customer.')->group(function(){
+            Route::get('/index',[CustomerController::class,'index'])->name('index');
+        });
+
+        // feedback
+        Route::get('/feedback', [FeedBackController::class, 'index'])->name('feedback.index');
+
+        // problem and solving
+        Route::resource('problem', ProblemController::class)->except('create', 'destroy');
+        Route::get('/problem/destroy/{id}', [ProblemController::class, 'destroy'])->name('problem.destroy');
+
+        Route::resource('billings', BillingController::class)->only('index');
+        Route::get('/billings/destroy/{id}', [BillingController::class, 'destroy'])->name('billings.destroy');
+
+        Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
+        Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
+        Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');
+
+        // admin First Section
+        Route::resource('/home', HomeController::class)->only('create', 'update', 'store');
+
+        // about
+        Route::resource('/about', AboutController::class)->only('create', 'update', 'store');
+
+        // admin service section
+        Route::resource('/services', ServiceController::class)->except('destroy');
+        Route::get('services/destroy/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+
+        // Story
+        Route::resource('stories', StoryController::class)->except('destroy');
+        Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
+        Route::get('/stories/status/{id}', [StoryController::class, 'status'])->name('stories.status');
+        Route::get('/stories/feature/{id}', [StoryController::class, 'feature'])->name('stories.feature');
+
+        // benefit and other Section title and subtitle
+        Route::resource('opportunitys', OpporcunityController::class);
+
+        // Congrats Route
+        Route::resource('congrats', CongratController::class);
+        Route::resource('country', CountryController::class)->except('show','destroy');
+        Route::get('country/destroy/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
+
+        // move to swizerland
+        Route::resource('moves', MoveToController::class)->except('destroy');
+        Route::get('/moves/destroy/{id}', [MoveToController::class, 'destroy'])->name('moves.destroy');
+        Route::get('/moves/status/{id}', [MoveToController::class, 'status'])->name('moves.status');
+
+
+        // Switzerland integration
+        Route::resource('integrations', IntegrationController::class);
+        Route::get('/integrations/destroy/{id}', [IntegrationController::class, 'destroy'])->name('integrations.destroy');
+        Route::get('/integrations/status/{id}', [IntegrationController::class, 'status'])->name('integrations.status');
+
+
+        //Help and support
+        Route::resource('/helps', HelpController::class);
+        Route::get('helps/destroy/{id}', [HelpController::class, 'destroy'])->name('helps.destroy');
+
+
+        // term and Condition
+        Route::resource('terms', TermController::class);
+
+        //Setup
+        Route::prefix('/setup')->name('setup.')->group(function(){
+            //Client type
+            Route::resource('/client-type',ClientTypeController::class);
+
+            //Membership type
+            Route::resource('/membership',MembershipTypeController::class);
+
+            //Benefit
+            Route::resource('/benefit',BenefitController::class)->except('destroy');
+            Route::get('/benefit/destroy/{id}', [BenefitController::class, 'destroy'])->name('benefit.destroy');
+
+            //Links
+            Route::resource('/link',LinkController::class);
+
+            //Currency
+            Route::resource('/currency',CurrencyController::class);
+
+            //Payment Duration
+            Route::resource('/payment_duration',PaymentDurationController::class);
+
+            //Video
+            Route::resource('/video',VideoController::class);
+
+
+        });
+
+        //Menus route
+        Route::prefix('/menu')->name('menu.')->group(function(){
+            Route::resource('menu',MenuController::class);
+            Route::resource('submenu',Submenucontroller::class);
+        });
+
+        //Videos route
+
+        Route::resource('survival',ServiceGuideController::class);
+
+
+
+
+
+        // content or Page Create Route
+        Route::resource('/contents', ContentController::class);
+
+        //User Management
+        Route::prefix('/user')->name('user.')->group(function(){
+            //Features
+            Route::resource('features',FeatureController::class)->names([
+                'index' => 'feature.index',
+                'create' => 'feature.create',
+                'edit' => 'feature.edit',
+                'store' => 'feature.store',
+                'update' => 'feature.update',
+                'show' => 'feature.show',
+                ]);
+
+
+            //role
+            Route::group(['as' => 'role.', 'prefix' => 'role'], function (){
+                Route::get('/index', [SettingController::class, 'roleIndex'])->name('index');
+                Route::get('/create/{id?}', [SettingController::class, 'roleCreate'])->name('create');
+                Route::post('/store', [SettingController::class, 'roleStore'])->name('store');
+            });
+
+            //user
+            Route::group(['as' => 'user.', 'prefix' => 'user'], function (){
+                Route::get('/index', [SettingController::class, 'userIndex'])->name('index');
+                Route::get('/create/{id?}', [SettingController::class, 'userCreate'])->name('create');
+                Route::post('/store', [SettingController::class, 'userStore'])->name('store');
+            });
+        });
+
+    });
+// End admin route ===================================
 
 require __DIR__.'/auth.php';

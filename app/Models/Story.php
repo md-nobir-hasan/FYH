@@ -14,5 +14,9 @@ class Story extends Model
 
     public function country()  {
         return $this->belongsTo(Country::class);
-  }
+    }
+
+    public function wishlists()  {
+        return $this->hasMany(Wishlist::class);
+    }
 }

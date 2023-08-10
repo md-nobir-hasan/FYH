@@ -157,7 +157,7 @@ class FrontendControler extends Controller
   }
   public function singleStory($id){
 
-       $story = Story::find($id);
+       $story = Story::with('wishlists')->find($id);
         $story->views +=1;
         $story->save();
 
