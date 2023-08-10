@@ -420,11 +420,11 @@
                 <!-- Indicators -->
                 <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
                     <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
-                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700  focus:outline-none"></span></button>
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
                     <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
-                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
                     <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
-                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
                 </div>
             </div>
 

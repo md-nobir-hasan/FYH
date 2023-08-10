@@ -192,11 +192,11 @@
             <!-- Indicators -->
             <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
                 <button class="p-4 group" data-glide-dir="=0" aria-label="goto slide 1"><span
-                        class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700  focus:outline-none"></span></button>
+                        class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-[#D9D9D9] bg-[#D9D9D9] ring-2  focus:outline-none"></span></button>
                 <button class="p-4 group" data-glide-dir="=1" aria-label="goto slide 2"><span
-                        class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+                        class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 ring-[#D9D9D9] bg-[#D9D9D9] focus:outline-none"></span></button>
                 <button class="p-4 group" data-glide-dir="=2" aria-label="goto slide 3"><span
-                        class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+                        class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 ring-[#D9D9D9] bg-[#D9D9D9] focus:outline-none"></span></button>
             </div>
         </div>
         </div>
@@ -206,7 +206,7 @@
 
          <section class=" mb-[-100px]"
             style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
-            <div class="py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
+            <div class="pt-20 pb-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
                 <div class="pb-28 shadow-lg">
                     <h1 class="font-bold text-[50px] text-[#212427] text-center">
                         @if ($shareStory !== null)
@@ -214,13 +214,13 @@
                         @endif
                     </h1>
 
-                    <p class="text-xl text-center text-[#D1052C] uppercase w-[986px] mx-auto">
+                    <p class="text-[24px] font-normal capitalize text-center text-[#D1052C] w-[986px] mx-auto">
                         @if ($shareStory !== null)
                             {{ $shareStory->share_subtitle }}
                         @endif
                     </p>
                     <a href="{{ route('share.story') }}" class=" flex justify-center items-center"><button
-                            class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
+                            class="lg:w-48 mt-[20px] p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
                             Story</button></a>
                 </div>
             </div>
