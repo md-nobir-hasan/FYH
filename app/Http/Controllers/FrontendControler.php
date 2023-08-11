@@ -220,10 +220,12 @@ class FrontendControler extends Controller
                 'user_id' => auth()->user()->id,
                 'country_id' => $request->country_id
             ]);
-        } else {
+        }
+        //Story store
+        else {
             //image Handling
             if ($request->hasFile('image')) {
-                $image = $request->file('image')->store('image'); 
+                $image = $request->file('image')->store('image');
             } else {
                 $image = null;
             }

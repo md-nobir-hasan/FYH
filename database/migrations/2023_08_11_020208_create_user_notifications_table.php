@@ -16,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->text('msg');
-            $table->timestamp('is_delete')->nullable();
+            $table->timestamp('read_at')->nullable();
+            $table->timestamp('isDelete')->nullable();
             $table->timestamps();
         });
     }
