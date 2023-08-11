@@ -81,14 +81,14 @@
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
                         <a href="{{route('benefit.details',[$item->id])}}"
-                            class=" w-[424px] h-[234px] px-6 py-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
+                            class=" w-[424px] h-[234px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                             <img src="{{ '/storage/' . $item->image }}" alt="{{ $item->title }}"
-                                class="h-20 w-20 mx-auto rounded-full"
+                                class="h-20 w-20 mx-auto mt-[16px] rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
-                                class="mb-[10px] mt-[20px] text-[20px] font-semibold tracking-tight text-gray-900  text-center">
+                                class="mb-[10px] mt-[10px] text-[20px] font-semibold tracking-tight text-gray-900  text-center">
                                 {{ $item->title }} </h5>
-                            <p class="font-normal text-[14px] text-center">
+                            <p class="font-normal leading-normal mx-[40px] text-[14px] text-center">
                                 {!! $item->first_para !!}
                             </p>
                         </a>
@@ -288,7 +288,7 @@
                     {{ $home->service_title }}
                 @endif
             </h1>
-            <p class="text-center font-normal uppercase text-xl">
+            <p class="text-center font-normal capitalize text-[24px] leading-normal">
                 @if ($home !== null)
                     {{ $home->service_subtitle }}
                 @endif
@@ -366,7 +366,7 @@
                                                                     <div class="ml-[14px] mt-[20px]">
                                                                         <h1 class="text-[28px] font-semibold">
                                                                             {{ $item->name }} </h1>
-                                                                        <p class="font-normal text-[20px]">
+                                                                        <p class="font-normal absolute text-[20px]">
                                                                             {{ $item->profession }} </p>
                                                                     </div>
                                                                 </div>
@@ -392,11 +392,11 @@
                 <!-- Indicators -->
                 <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
                     <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
-                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700  focus:outline-none"></span></button>
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 bg-[#D9D9D9] ring-[#D9D9D9]  focus:outline-none"></span></button>
                     <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
-                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
                     <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
-                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
                 </div>
             </div>
 

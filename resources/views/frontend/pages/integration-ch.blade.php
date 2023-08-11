@@ -17,7 +17,7 @@
 <a  class="h-[232px] w-[424px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
     <img src="{{'/storage/'. $item->image}}" alt="" class="h-[80px] w-[80px] mx-auto rounded-full mt-[16px]" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
     <h5 class="mt-[10px] text-[20px] font-semibold tracking-tight text-[#212427] text-center"> {{$item->title}} </h5>
-    <p class="font-normal text-[14px] mt-[10px] text-[#212427] text-center">
+    <p class="font-normal text-[14px] mx-[40px] mt-[10px] text-[#212427] text-center">
     {!! $item->first_para !!}
     </p>
     </a>

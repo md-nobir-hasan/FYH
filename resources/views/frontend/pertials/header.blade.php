@@ -117,9 +117,9 @@
                         style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
                 </a>
                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                    class=" font-[500] p-2 text-xl rounded {{ request()->is('guide*') ? 'active' : '' }}"
+                    class=" font-[500]  text-[20px] rounded {{ request()->is('guide*') ? 'active' : '' }}"
                     style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
-                    <div class="">
+                    <div class="hover:bg-[#FDF2F4]">
                         Guide <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
