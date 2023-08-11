@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\Survival;
+use App\Models\UserNotification;
 use App\Models\Video;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
@@ -243,6 +244,10 @@ class FrontendControler extends Controller
             ]);
             $user = User::all();
             Notification::send($user, new StoryNotification($slug));
+            UserNotification::create([
+                'user_id' => Auth::user()->id,
+                'msg' => "Story has been created successfully, waiting for approval",
+            ]);
         }
 
         return to_route('thank.you');

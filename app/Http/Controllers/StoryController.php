@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoryStoreRequest;
 use App\Http\Requests\StoryUpdateRequest;
 use App\Models\Story;
+use App\Models\UserNotification;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -118,6 +119,11 @@ class StoryController extends Controller
           }elseif ($story->status == 0) {
             $story->status = 1;
             $story->save();
+
+            UserNotification::create([
+                'user_id' => $story->user_id,
+                'msg' => "Your story approved successfully",
+            ]);
           }
 
           return Redirect::back()->with('success',' Status Update SuccessfullY');
