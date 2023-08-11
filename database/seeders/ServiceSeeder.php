@@ -17,7 +17,7 @@ class ServiceSeeder extends Seeder
             [
                 'title'=>'Select Package',
                 'image'=>'images/ser5.png',
-                'description'=>"Begin by choosing your desired<br class='br'>package from our carefully curated<br class='br'>options, tailored to suit your specific<br class='br'>needs and preferences.>",
+                'description'=>"Begin by choosing your desired<br class='br'>package from our carefully curated<br class='br'>options, tailored to suit your specific<br class='br'>needs and preferences.",
                 'priority'=>1
             ],
             [

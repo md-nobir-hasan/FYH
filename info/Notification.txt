@@ -1,0 +1,7 @@
+Notification: 
+Story has been created successfully, waiting for approval
+
+You story approved successfully
+
+7 days remain to expire your subscriptions 
+6 days remain to expire your subscriptions
