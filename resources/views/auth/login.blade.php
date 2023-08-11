@@ -57,6 +57,10 @@
                             type="password"
                             name="password"
                             required autocomplete="current-password" placeholder="min 8 character"/>
+                            <svg onclick=passwordShow() xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute ml-[330px] mt-[-33px] cursor-pointer">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -79,12 +83,23 @@
             @endif
 
             <button class="w-full text-base p-3 rounded-lg font-bold flex justify-center items-center hover:bg-[#FCEEF1] hover:text-[#D1052C] bg-[#D1052C] text-white mt-[10px]">{{ __('Log in') }}</button>
-            <p class="mt-2 text-[14px] font-normal text-center">Don't have an account?<a href="{{$setting->trail ? route('register') : route('member')}}" class="text-[#D1052C] text-[14px] font-normal hover:text-orange-600">Create an account</a></p>
+            <p class="mt-2 text-[14px] font-normal text-center">Don't have an account?<a href="{{$setting->trail ? route('register') : route('member')}}" class="text-[#D1052C] text-[14px] font-normal ml-[7px] hover:text-orange-600">Create an account</a></p>
         </div>
        </div>
     </form>
         </div>
     </div>
+    <script>
+        const passwordShow=()=>{
+            const pass=document.getElementById('password')
+            if(pass.type=== 'password'){
+                pass.type='text'
+            }
+            else{
+                pass.type='password'
+            }
+        }
+    </script>
 
 </body>
 </html>
