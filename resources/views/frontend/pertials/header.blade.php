@@ -1,8 +1,10 @@
+@auth
 @php
     if(Schema::hasTable('wishlists')) {
         $wishlists = App\Models\Wishlist::with('user','story')->where('user_id',Auth::user()->id)->get();
     }
 @endphp
+@endauth
 
 <head>
     <meta charset="utf-8">
