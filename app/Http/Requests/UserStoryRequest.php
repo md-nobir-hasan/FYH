@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Story;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserStoryRequest extends FormRequest
 {
@@ -21,15 +23,26 @@ class UserStoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-             'name' => 'required',
-             'title' => 'required| unique:stories',
-            'image' =>'required',
-            'description' => 'required|min:30',
-            'profession' => 'required',
-            // 'address' => 'required',
-            'city' => 'required',
-            'country_id' => 'required',
-        ];
+        if(Story::where('user_id',Auth::user()->id)->first()){
+            return [
+                'name' => 'required|string|max:255',
+                'title' => 'required|string',
+                'description' => 'required|min:30',
+                'profession' => 'required|string|max:255',
+                'city' => 'required',
+                'country_id' => 'required',
+           ];
+         }else{
+            return [
+                'name' => 'required|string|max:255',
+                'title' => 'required|string|unique:stories,title',
+               'image' =>'required|mimes:JPG,JPEG,PNG',
+               'description' => 'required|min:30',
+               'profession' => 'required|string|max:255',
+               // 'address' => 'required',
+               'city' => 'required',
+               'country_id' => 'required',
+           ];
+         }
     }
 }
