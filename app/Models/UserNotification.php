@@ -9,7 +9,7 @@ class UserNotification extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','msg','is_delete'];
+    protected $fillable = ['user_id','msg','isDelete','read_at'];
 
     public function user(){
         return $this->belongsTo(User::class);

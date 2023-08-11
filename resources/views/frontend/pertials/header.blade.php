@@ -7,7 +7,7 @@
         }
         if (Schema::hasTable('user_notifications')) {
             $user_noti = App\Models\UserNotification::with('user')
-                ->where('user_id', Auth::user()->id)
+                ->where('user_id', Auth::user()->id)->orderBy('id','desc')
                 ->get();
         }
     @endphp
@@ -199,7 +199,7 @@
                                                 <h1 class="text-[12px] mt-[7px] font-bold leading-normal ml-[10px]">
                                                    {!! Str::limit($noti->msg,38) !!}
                                                 </h1>
-                                                <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023{{$noti->created_at}}</h1>
+                                                <h1 class="ml-[10px] text-[10px] text-[#848484]">{{$noti->created_at->format('l F j\\, Y')}}</h1>
                                             </div>
                                         </div>
                                     </div>
