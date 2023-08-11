@@ -7,6 +7,7 @@
 <div class="w-[1320px] mx-auto bg-white" style="font-family:'Poppins'">
   <form action="{{route('share.story.store')}}" method="post" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 gap-10">
   @csrf
+  <input type="hidden" name="id" value="">
     <!-- image section -->
   <section class="col-span-1">
   <div class="border-2 rounded border-gray-200 mt-28 shadow-lg">
@@ -94,7 +95,7 @@
        </div>
 
         <div class="flex items-center mb-4 mt-5">
-    <input id="default-checkbox" type="checkbox" name="agree" @checked(old("agree")) class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" >
+    <input id="default-checkbox" type="checkbox" name="agree" @checked(old("agree")) class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" required>
     <label for="default-checkbox" class="ml-2 font-medium text-black">I agree to use my story and my photo</label>
   </div>
 <button type="submit" class="text bg-[#D1052C] text-white border border-gray-300 rounded font-semibold cursor-pointer py-2 px-7 hover:bg-[#a73147]">Post Story</button>

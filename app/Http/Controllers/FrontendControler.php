@@ -176,6 +176,10 @@ class FrontendControler extends Controller
          return Redirect::back();
       }
       $country = Country::all();
+      $story = Story::where('user_id',Auth::user()->id)->first();
+      if($story){
+        return view('frontend.pages.share-story-edit', ['user' => $user, 'country' => $country,'story'=>$story]);
+      }
     return view('frontend.pages.share-story', ['user' => $user, 'country' => $country]);
   }
 
@@ -190,23 +194,37 @@ class FrontendControler extends Controller
 
             $slug = Str::slug($request->title, '-');
 
-        Story::create([
-            'name' =>$request->name,
-            'slug' => $slug ,
-            'title' => $request->title,
-            'image' => $image,
-            'description' => $request->description,
-            'profession' =>$request->profession,
-            'address' => $request->address,
-            'city' =>$request->city,
-            'user_id' => auth()->user()->id,
-            'country_id' => $request->country_id
-        ]);
+        if($id=$request->id){
+            Story::find($id)->update([
+                'name' =>$request->name,
+                'slug' => $slug ,
+                'title' => $request->title,
+                'image' => $image,
+                'description' => $request->description,
+                'profession' =>$request->profession,
+                'address' => $request->address,
+                'city' =>$request->city,
+                'user_id' => auth()->user()->id,
+                'country_id' => $request->country_id
+            ]);
+        }else{
+            Story::create([
+                'name' =>$request->name,
+                'slug' => $slug ,
+                'title' => $request->title,
+                'image' => $image,
+                'description' => $request->description,
+                'profession' =>$request->profession,
+                'address' => $request->address,
+                'city' =>$request->city,
+                'user_id' => auth()->user()->id,
+                'country_id' => $request->country_id
+            ]);
+            $user = User::all();
+            Notification::send($user, new StoryNotification($slug));
+        }
 
-        $user = User::all();
-        Notification::send($user, new StoryNotification($slug));
-
-         return to_route('thank.you');
+        return to_route('thank.you');
   }
 
   public function thank()
