@@ -1,9 +1,16 @@
 @auth
-@php
-    if(Schema::hasTable('wishlists')) {
-        $wishlists = App\Models\Wishlist::with('user','story')->where('user_id',Auth::user()->id)->get();
-    }
-@endphp
+    @php
+        if (Schema::hasTable('wishlists')) {
+            $wishlists = App\Models\Wishlist::with('user', 'story')
+                ->where('user_id', Auth::user()->id)
+                ->get();
+        }
+        if (Schema::hasTable('user_notifications')) {
+            $user_noti = App\Models\UserNotification::with('user')
+                ->where('user_id', Auth::user()->id)
+                ->get();
+        }
+    @endphp
 @endauth
 
 <head>
@@ -89,70 +96,7 @@
                     @endif
                 @endforeach
 
-                {{-- @if (auth()->user() == null)
-                    <a href="{{ route('member') }}" class="">
-                        <button
-                            class="font-[500] text-[20px] p-2 rounded {{ request()->is('membership') ? 'active' : '' }} "
-                            style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Membership</button>
-                    </a>
-                @endif
 
-                @auth
-                    <a href="{{ route('share.story') }}">
-                        <button
-                            class=" font-semibold p-2 rounded {{ request()->is('share-story') ? 'active' : '' }}"
-                            style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">ShareStory</button>
-                    </a>
-                @endauth
-                <a href="{{ route('community') }}">
-                    <button class=" font-[500] text-[20px] p-2 rounded {{ request()->is('community') ? 'active' : '' }}"
-                        style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Community</button>
-                </a>
-
-                <a href="{{ route('benefit') }}">
-                    <button class=" font-[500] text-xl p-2 rounded {{ request()->is('benefits') ? 'active' : '' }}"
-                        style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Benefits</button>
-                </a>
-
-                <a href="{{ route('about') }}">
-                    <button class=" font-[500] p-2 text-xl rounded {{ request()->is('about') ? 'active' : '' }}"
-                        style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">About</button>
-                </a>
-                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                    class=" font-[500]  text-[20px] rounded {{ request()->is('guide*') ? 'active' : '' }}"
-                    style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
-                    <div class="hover:bg-[#FDF2F4]">
-                        Guide <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
-                    </div>
-                </button>
-
-                <!-- Dropdown menu -->
-                <div id="dropdown"
-                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
-                        <li>
-                            <a href="{{ route('guide.survival') }}"
-                                class="block px-4 py-2 hover:bg-gray-100 ">Survival
-                                Guide</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('guide.move_switzerland') }}"
-                                class="block px-4 py-2 hover:bg-gray-100 ">Move
-                                To Swizerland</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('guide.intro.move_switzerland') }}"
-                                class="block px-4 py-2 hover:bg-gray-100 ">
-                                Integration In SwiGerlan</a>
-                        </li>
-
-                    </ul>
-                </div>
---}}
                 @if (auth()->user() == null)
                     <a href="{{ route('login') }}" class="flex justify-center items-center">
 
@@ -162,130 +106,140 @@
 
                     </a>
                 @endif
+
+
                 @auth
-                    <!-- love icon svg -->
-                    <button type="button" class="flex mr-3 text-sm  md:mr-0 " id="user-menu-button" aria-expanded="false"
-                        data-dropdown-toggle="user-dropdowns" data-dropdown-placement="bottom">
-                        <span class="sr-only">Open user menu</span>
-                        <svg class="mt-3 ml-5" width="26" height="24" viewBox="0 0 26 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13 23.25L11.1875 21.625C9.08333 19.7292 7.34375 18.0938 5.96875 16.7188C4.59375 15.3438 3.5 14.1094 2.6875 13.0156C1.875 11.9219 1.30729 10.9167 0.984375 10C0.661458 9.08333 0.5 8.14583 0.5 7.1875C0.5 5.22917 1.15625 3.59375 2.46875 2.28125C3.78125 0.96875 5.41667 0.3125 7.375 0.3125C8.45833 0.3125 9.48958 0.541667 10.4688 1C11.4479 1.45833 12.2917 2.10417 13 2.9375C13.7083 2.10417 14.5521 1.45833 15.5313 1C16.5104 0.541667 17.5417 0.3125 18.625 0.3125C20.5833 0.3125 22.2188 0.96875 23.5313 2.28125C24.8438 3.59375 25.5 5.22917 25.5 7.1875C25.5 8.14583 25.3385 9.08333 25.0156 10C24.6927 10.9167 24.125 11.9219 23.3125 13.0156C22.5 14.1094 21.4062 15.3438 20.0312 16.7188C18.6562 18.0938 16.9167 19.7292 14.8125 21.625L13 23.25ZM13 19.875C15 18.0833 16.6458 16.5469 17.9375 15.2656C19.2292 13.9844 20.25 12.8698 21 11.9219C21.75 10.974 22.2708 10.1302 22.5625 9.39062C22.8542 8.65104 23 7.91667 23 7.1875C23 5.9375 22.5833 4.89583 21.75 4.0625C20.9167 3.22917 19.875 2.8125 18.625 2.8125C17.6458 2.8125 16.7396 3.08854 15.9062 3.64063C15.0729 4.19271 14.5 4.89583 14.1875 5.75H11.8125C11.5 4.89583 10.9271 4.19271 10.0938 3.64063C9.26042 3.08854 8.35417 2.8125 7.375 2.8125C6.125 2.8125 5.08333 3.22917 4.25 4.0625C3.41667 4.89583 3 5.9375 3 7.1875C3 7.91667 3.14583 8.65104 3.4375 9.39062C3.72917 10.1302 4.25 10.974 5 11.9219C5.75 12.8698 6.77083 13.9844 8.0625 15.2656C9.35417 16.5469 11 18.0833 13 19.875Z"
-                                fill="#1C1B1F" />
-                        </svg>
-                    </button>
-                    <!-- dropdown menu -->
-                    <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow"
-                        id="user-dropdowns">
-                        <div class="py-[20px] px-[20px]" id="wishlist_div">
-                            <div class="flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22"
-                                    fill="none">
-                                    <path
-                                        d="M7.9991 17.629C-0.000897884 10.429 -0.000897825 4.96235 0.999102 3.12902C5.79838 -2.47094 9.9994 1.46237 11.5 4.12902C13.5 1.96235 18.4 -1.27098 22 3.12902C25.6 7.52902 16.5 17.2957 11.5 21.629C11.5 21.2957 10.7998 20.029 7.9991 17.629Z"
-                                        fill="#D1052C" />
-                                </svg>
-                                <h1 class="ml-[10px] leading-normal">Favourites</h1>
+                    {{-- Wishlist --}}
+                        <!-- love icon svg -->
+                        <button type="button" class="flex mr-3 text-sm  md:mr-0 " id="user-menu-button" aria-expanded="false"
+                            data-dropdown-toggle="user-dropdowns" data-dropdown-placement="bottom">
+                            <span class="sr-only">Open user menu</span>
+                            <svg class="mt-3 ml-5" width="26" height="24" viewBox="0 0 26 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13 23.25L11.1875 21.625C9.08333 19.7292 7.34375 18.0938 5.96875 16.7188C4.59375 15.3438 3.5 14.1094 2.6875 13.0156C1.875 11.9219 1.30729 10.9167 0.984375 10C0.661458 9.08333 0.5 8.14583 0.5 7.1875C0.5 5.22917 1.15625 3.59375 2.46875 2.28125C3.78125 0.96875 5.41667 0.3125 7.375 0.3125C8.45833 0.3125 9.48958 0.541667 10.4688 1C11.4479 1.45833 12.2917 2.10417 13 2.9375C13.7083 2.10417 14.5521 1.45833 15.5313 1C16.5104 0.541667 17.5417 0.3125 18.625 0.3125C20.5833 0.3125 22.2188 0.96875 23.5313 2.28125C24.8438 3.59375 25.5 5.22917 25.5 7.1875C25.5 8.14583 25.3385 9.08333 25.0156 10C24.6927 10.9167 24.125 11.9219 23.3125 13.0156C22.5 14.1094 21.4062 15.3438 20.0312 16.7188C18.6562 18.0938 16.9167 19.7292 14.8125 21.625L13 23.25ZM13 19.875C15 18.0833 16.6458 16.5469 17.9375 15.2656C19.2292 13.9844 20.25 12.8698 21 11.9219C21.75 10.974 22.2708 10.1302 22.5625 9.39062C22.8542 8.65104 23 7.91667 23 7.1875C23 5.9375 22.5833 4.89583 21.75 4.0625C20.9167 3.22917 19.875 2.8125 18.625 2.8125C17.6458 2.8125 16.7396 3.08854 15.9062 3.64063C15.0729 4.19271 14.5 4.89583 14.1875 5.75H11.8125C11.5 4.89583 10.9271 4.19271 10.0938 3.64063C9.26042 3.08854 8.35417 2.8125 7.375 2.8125C6.125 2.8125 5.08333 3.22917 4.25 4.0625C3.41667 4.89583 3 5.9375 3 7.1875C3 7.91667 3.14583 8.65104 3.4375 9.39062C3.72917 10.1302 4.25 10.974 5 11.9219C5.75 12.8698 6.77083 13.9844 8.0625 15.2656C9.35417 16.5469 11 18.0833 13 19.875Z"
+                                    fill="#1C1B1F" />
+                            </svg>
+                        </button>
+                        <!-- dropdown menu -->
+                        <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow"
+                            id="user-dropdowns">
+                            <div class="py-[20px] px-[20px]" id="wishlist_div">
+                                <div class="flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22"
+                                        fill="none">
+                                        <path
+                                            d="M7.9991 17.629C-0.000897884 10.429 -0.000897825 4.96235 0.999102 3.12902C5.79838 -2.47094 9.9994 1.46237 11.5 4.12902C13.5 1.96235 18.4 -1.27098 22 3.12902C25.6 7.52902 16.5 17.2957 11.5 21.629C11.5 21.2957 10.7998 20.029 7.9991 17.629Z"
+                                            fill="#D1052C" />
+                                    </svg>
+                                    <h1 class="ml-[10px] leading-normal">Favourites</h1>
+                                </div>
+                                @foreach ($wishlists as $wishlist)
+                                    <div class="mt-[10px]  border wld{{ $wishlist->story->id }}"
+                                        style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
+                                        <a href="{{ route('single-story', $wishlist->story->id) }}">
+                                            <div class="py-[10px] pl-[20px] flex">
+                                                <img src="/storage/{{ $wishlist->story->image }}" width="65px" />
+                                                <h1 class="text-[12px] mt-[7px] font-normal leading-normal ml-[10px]">
+                                                    {{ Str::limit($wishlist->story->title, 57) }}</h1>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
                             </div>
-                            @foreach ($wishlists as $wishlist)
-                                <div class="mt-[10px]  border wld{{$wishlist->story->id}}" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
-                                    <a href="{{route('single-story', $wishlist->story->id)}}">
+
+                        </div>
+
+                        <!-- love icon svg end -->
+                    {{--End Wishlist --}}
+
+                    {{-- notification svg --}}
+                        <button type="button" class="flex mr-3 text-sm  md:mr-0 " id="user-menu-button" aria-expanded="false"
+                            data-dropdown-toggle="user-dropdownn" data-dropdown-placement="bottom">
+                            <span class="sr-only">Open user menu</span>
+                            <svg class="mt-3 ml-5" width="20" height="26" viewBox="0 0 20 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 21.75V19.25H2.5V10.5C2.5 8.77083 3.02083 7.23438 4.0625 5.89062C5.10417 4.54688 6.45833 3.66667 8.125 3.25V0.5H11.875V3.25C13.5417 3.66667 14.8958 4.54688 15.9375 5.89062C16.9792 7.23438 17.5 8.77083 17.5 10.5V19.25H20V21.75H0ZM10 25.5C9.3125 25.5 8.72396 25.2552 8.23438 24.7656C7.74479 24.276 7.5 23.6875 7.5 23H12.5C12.5 23.6875 12.2552 24.276 11.7656 24.7656C11.276 25.2552 10.6875 25.5 10 25.5ZM5 19.25H15V10.5C15 9.125 14.5104 7.94792 13.5312 6.96875C12.5521 5.98958 11.375 5.5 10 5.5C8.625 5.5 7.44792 5.98958 6.46875 6.96875C5.48958 7.94792 5 9.125 5 10.5V19.25Z"
+                                    fill="#1C1B1F" />
+                            </svg>
+                        </button>
+                        <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow"
+                            id="user-dropdownn">
+                            <div class="py-[20px] px-[20px]">
+                                <div class="flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31"
+                                        viewBox="0 0 30 31" fill="none">
+                                        <mask id="mask0_2891_19529" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="30" height="31">
+                                            <rect y="0.174805" width="30" height="30" fill="#D1052C" />
+                                        </mask>
+                                        <g mask="url(#mask0_2891_19529)">
+                                            <path
+                                                d="M5 24.4248V21.9248H7.5V13.1748C7.5 11.4456 8.02083 9.90918 9.0625 8.56543C10.1042 7.22168 11.4583 6.34147 13.125 5.9248V3.1748H16.875V5.9248C18.5417 6.34147 19.8958 7.22168 20.9375 8.56543C21.9792 9.90918 22.5 11.4456 22.5 13.1748V21.9248H25V24.4248H5ZM15 28.1748C14.3125 28.1748 13.724 27.93 13.2344 27.4404C12.7448 26.9508 12.5 26.3623 12.5 25.6748H17.5C17.5 26.3623 17.2552 26.9508 16.7656 27.4404C16.276 27.93 15.6875 28.1748 15 28.1748ZM10 21.9248H20V13.1748C20 11.7998 19.5104 10.6227 18.5312 9.64355C17.5521 8.66439 16.375 8.1748 15 8.1748C13.625 8.1748 12.4479 8.66439 11.4688 9.64355C10.4896 10.6227 10 11.7998 10 13.1748V21.9248Z"
+                                                fill="#D1052C" />
+                                            <path
+                                                d="M21.5019 23.5466H8.50189C8.16855 20.5466 7.80189 13.9466 9.00189 11.5466C10.5019 8.5466 10.5019 8.04662 15.0019 7.04662C18.6019 6.24662 20.8352 9.71328 21.5019 11.5466V23.5466Z"
+                                                fill="#D1052C" />
+                                        </g>
+                                    </svg>
+                                    </svg>
+                                    <h1 class="ml-[10px] mt-[5px] leading-normal">Notifications</h1>
+                                </div>
+                                @foreach ($user_noti as $noti)
+                                    <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
                                         <div class="py-[10px] pl-[20px] flex">
-                                            <img src="/storage/{{$wishlist->story->image}}" width="65px"/>
-                                            <h1 class="text-[12px] mt-[7px] font-normal leading-normal ml-[10px]">{{Str::limit($wishlist->story->title,57)}}</h1>
+                                            <div class="flex justify-center items-center"><svg width="15" height="16"
+                                                    viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect y="0.783203" width="15" height="15" rx="7.5"
+                                                        fill="#212427" />
+                                                </svg></div>
+
+                                            <div>
+                                                <h1 class="text-[12px] mt-[7px] font-bold leading-normal ml-[10px]">
+                                                   {!! Str::limit($noti->msg,38) !!}
+                                                </h1>
+                                                <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023{{$noti->created_at}}</h1>
+                                            </div>
                                         </div>
-                                    </a>
+                                    </div>
+                                @endforeach
+                                {{--
+                                <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
+                                    <div class="py-[10px] pl-[20px] flex">
+                                        <div class="flex justify-center items-center"><svg width="15" height="16"
+                                                viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect y="0.783203" width="15" height="15" rx="7.5"
+                                                    fill="#212427" />
+                                            </svg></div>
+
+                                        <div>
+                                            <h1 class="text-[12px] mt-[7px] font-bold leading-normal ml-[10px]">Here’s a unread
+                                                notification about your ...</h1>
+                                            <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023</h1>
+                                        </div>
+                                    </div>
                                 </div>
-                            @endforeach
+                                <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
+                                    <div class="py-[10px] pl-[20px] flex">
+                                        <div class="flex justify-center items-center"><svg width="15" height="16"
+                                                viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect y="0.216797" width="15" height="15" rx="7.5"
+                                                    fill="#848484" />
+                                            </svg>
+                                        </div>
+
+                                        <div>
+                                            <h1 class="text-[12px] mt-[7px] font-normal leading-normal ml-[10px]">Here’s a
+                                                unread notification about your ...</h1>
+                                            <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023</h1>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                            </div>
+
                         </div>
-
-                    </div>
-
-                    <!-- love icon svg end -->
-                    <!-- notification svg -->
-                    <button type="button" class="flex mr-3 text-sm  md:mr-0 " id="user-menu-button" aria-expanded="false"
-                        data-dropdown-toggle="user-dropdownn" data-dropdown-placement="bottom">
-                        <span class="sr-only">Open user menu</span>
-                        <svg class="mt-3 ml-5" width="20" height="26" viewBox="0 0 20 26" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 21.75V19.25H2.5V10.5C2.5 8.77083 3.02083 7.23438 4.0625 5.89062C5.10417 4.54688 6.45833 3.66667 8.125 3.25V0.5H11.875V3.25C13.5417 3.66667 14.8958 4.54688 15.9375 5.89062C16.9792 7.23438 17.5 8.77083 17.5 10.5V19.25H20V21.75H0ZM10 25.5C9.3125 25.5 8.72396 25.2552 8.23438 24.7656C7.74479 24.276 7.5 23.6875 7.5 23H12.5C12.5 23.6875 12.2552 24.276 11.7656 24.7656C11.276 25.2552 10.6875 25.5 10 25.5ZM5 19.25H15V10.5C15 9.125 14.5104 7.94792 13.5312 6.96875C12.5521 5.98958 11.375 5.5 10 5.5C8.625 5.5 7.44792 5.98958 6.46875 6.96875C5.48958 7.94792 5 9.125 5 10.5V19.25Z"
-                                fill="#1C1B1F" />
-                        </svg>
-                    </button>
-                    <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow"
-                        id="user-dropdownn">
-                        <div class="py-[20px] px-[20px]">
-                            <div class="flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31"
-                                    viewBox="0 0 30 31" fill="none">
-                                    <mask id="mask0_2891_19529" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                        x="0" y="0" width="30" height="31">
-                                        <rect y="0.174805" width="30" height="30" fill="#D1052C" />
-                                    </mask>
-                                    <g mask="url(#mask0_2891_19529)">
-                                        <path
-                                            d="M5 24.4248V21.9248H7.5V13.1748C7.5 11.4456 8.02083 9.90918 9.0625 8.56543C10.1042 7.22168 11.4583 6.34147 13.125 5.9248V3.1748H16.875V5.9248C18.5417 6.34147 19.8958 7.22168 20.9375 8.56543C21.9792 9.90918 22.5 11.4456 22.5 13.1748V21.9248H25V24.4248H5ZM15 28.1748C14.3125 28.1748 13.724 27.93 13.2344 27.4404C12.7448 26.9508 12.5 26.3623 12.5 25.6748H17.5C17.5 26.3623 17.2552 26.9508 16.7656 27.4404C16.276 27.93 15.6875 28.1748 15 28.1748ZM10 21.9248H20V13.1748C20 11.7998 19.5104 10.6227 18.5312 9.64355C17.5521 8.66439 16.375 8.1748 15 8.1748C13.625 8.1748 12.4479 8.66439 11.4688 9.64355C10.4896 10.6227 10 11.7998 10 13.1748V21.9248Z"
-                                            fill="#D1052C" />
-                                        <path
-                                            d="M21.5019 23.5466H8.50189C8.16855 20.5466 7.80189 13.9466 9.00189 11.5466C10.5019 8.5466 10.5019 8.04662 15.0019 7.04662C18.6019 6.24662 20.8352 9.71328 21.5019 11.5466V23.5466Z"
-                                            fill="#D1052C" />
-                                    </g>
-                                </svg>
-                                </svg>
-                                <h1 class="ml-[10px] mt-[5px] leading-normal">Notifications</h1>
-                            </div>
-                            <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
-                                <div class="py-[10px] pl-[20px] flex">
-                                    <div class="flex justify-center items-center"><svg width="15" height="16"
-                                            viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect y="0.783203" width="15" height="15" rx="7.5"
-                                                fill="#212427" />
-                                        </svg></div>
-
-                                    <div>
-                                        <h1 class="text-[12px] mt-[7px] font-bold leading-normal ml-[10px]">Here’s a unread
-                                            notification about your ...</h1>
-                                        <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
-                                <div class="py-[10px] pl-[20px] flex">
-                                    <div class="flex justify-center items-center"><svg width="15" height="16"
-                                            viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect y="0.783203" width="15" height="15" rx="7.5"
-                                                fill="#212427" />
-                                        </svg></div>
-
-                                    <div>
-                                        <h1 class="text-[12px] mt-[7px] font-bold leading-normal ml-[10px]">Here’s a unread
-                                            notification about your ...</h1>
-                                        <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
-                                <div class="py-[10px] pl-[20px] flex">
-                                    <div class="flex justify-center items-center"><svg width="15" height="16"
-                                            viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect y="0.216797" width="15" height="15" rx="7.5"
-                                                fill="#848484" />
-                                        </svg>
-                                    </div>
-
-                                    <div>
-                                        <h1 class="text-[12px] mt-[7px] font-normal leading-normal ml-[10px]">Here’s a
-                                            unread notification about your ...</h1>
-                                        <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- notification svg end -->
+                    {{-- notification svg end --}}
 
                     <div class="flex items-center ml-8 md:order-2">
                         <button type="button"
@@ -314,8 +268,9 @@
                                 </li>
                                 <li class="">
                                     <a href="{{ route('share.story') }}"
-                                        class="{{ request()->is('share-story') ? 'tgactive' : '' }} block leading-normal ml-[20px] text-[14px] hover:text-black font-medium hover:bg-gray-100">Edit
-                                        Story</a>
+                                        class="{{ request()->is('share-story') ? 'tgactive' : '' }} block leading-normal ml-[20px] text-[14px] hover:text-black font-medium hover:bg-gray-100">
+                                        Edit Story
+                                    </a>
                                 </li>
                                 <hr class="h-px bg-black mx-4 border-0">
                                 <li
@@ -385,6 +340,7 @@
 
         </div>
     </div>
+
     <nav class="bg-white border-gray-200 ">
         <div class="2xl:hidden md:hidden lg:hidden flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center">

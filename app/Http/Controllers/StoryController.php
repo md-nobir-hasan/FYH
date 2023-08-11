@@ -46,7 +46,8 @@ class StoryController extends Controller
                'profession' =>$request->profession,
                'address' => $request->address,
                'city' =>$request->city,
-               'user_id' => auth()->user()->id
+               'user_id' => auth()->user()->id,
+               'country_id' => $request->country_id,
            ]);
 
            return Redirect::back()->with('success',' Successfully created');

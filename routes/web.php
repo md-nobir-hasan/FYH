@@ -158,7 +158,7 @@ Route::get('/redirect/route',[UserCommonController::class,'redirect']);
 Route::get('/redirect/{planId?}', [GoogleSocialController::class, 'redirect'])->name('google.auth');
 Route::get('/auth/callback', [GoogleSocialController::class, 'callBack'])->name('google.callback');
 
-// auth middleware
+// URL in auth middleware
 Route::middleware('auth')->group(function(){
     Route::resource('/wishlist',WishlistController::class);
 });
