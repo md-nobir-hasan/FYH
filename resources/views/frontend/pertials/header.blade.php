@@ -67,9 +67,9 @@
                         </a>
                     @else
                         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                            class="ml-[42px] text-xl p-2 rounded {{ request()->is('guide*') ? 'active' : '' }}"
+                            class="md:ml-[30px] xl:ml-[42px] hover:bg-[#FDF2F4] text-xl p-2 rounded"
                             style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
-                            <div class="flex justify-center items-center">
+                            <div class="flex font-[500]  justify-center items-center">
                                 {{ $menu->name }}
                                 <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +86,7 @@
                                 @foreach ($menu->submenus as $submenu)
                                     <li>
                                         <a href="{{ url($submenu->link->url) }}"
-                                            class="block px-4 py-2 hover:bg-gray-100 ">
+                                            class="block hover:bg-[#FDF2F4] px-4 py-2  ">
                                             {{ $submenu->name }}</a>
                                     </li>
                                 @endforeach

@@ -62,7 +62,7 @@
         <!-- Benifit section start -->
 
         <div class="mt-[100px] pt-[31px]"
-            style="background:url(/images/benifitbg.png);background-size:100% 395px;background-repeat:no-repeat; ">
+            style="background:url(/images/benifitbg.png);background-size:100% 392px;background-repeat:no-repeat; ">
             <div>
                 <h1 class="text-[50px] font-bold text-center text-[#212427]">
                     @if ($home !== null)
@@ -418,7 +418,7 @@
                         @php
                             $shareSub = str_split($home->share_subtitle, 90);
                         @endphp
-                        <p class="text-xl text-center text-[#D1052C] uppercase">
+                        <p class="text-xl text-center text-[#D1052C] capitalize">
                             @if ($home !== null)
                                 @foreach ($shareSub as $Shitem)
                                     {{ $Shitem }} <br>
