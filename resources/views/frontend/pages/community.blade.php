@@ -119,17 +119,17 @@
                 @foreach ($stories as $story)
                     @php  $countryName = App\Models\Country::where('id', $story->country_id)->first(); @endphp
                     @if ($loop->index == 0 || $loop->index % 3 == 0)
-                        <div
+                        <div class=""
                             style="background:url('/images/benifitbg.png');background-size:100% 516px;background-position:0 100%;background-repeat:no-repeat">
-                            <div class="grid grid-cols-3 gap-6 w-[1320px] mx-auto mt-6">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 xl:w-[1320px] mx-5  xl:mx-auto mt-6">
                     @endif
                     <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
                         {{-- <a href="#"> --}}
                             {{-- /images/story4.png --}}
-                            <img class="h-[424px] w-full" src="{{ Storage::url($story->image) }}"
+                            <img class="lg:h-[424px] w-full" src="{{ Storage::url($story->image) }}"
                                 alt="{{ $story->name }}" />
                         {{-- </a> --}}
-                        <div class=" h-[516px]">
+                        <div class=" lg:h-[516px]">
                             {{-- <a href="#"> --}}
                                 <h5 class="pt-[20px] px-[22px] text-[20px] font-bold tracking-tight text-gray-900 ">
                                     "{!! $story->title !!}"</h5>

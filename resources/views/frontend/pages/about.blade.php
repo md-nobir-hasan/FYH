@@ -32,15 +32,15 @@
             @endif
         </p>
         <div class=""
-            style="background:url('/images/benifitbg.png');background-size:100% 518px;background-repeat:no-repeat">
+            style="background:url('/images/benifitbg.png');background-size:100% 486px;background-repeat:no-repeat;">
             <div class="w-[1320px] mx-auto">
-                <h1 class="text-center text-[68px] font-bold capitalize leading-normal mt-[20px]">
+                <h1 class="text-center text-[68px] font-bold capitalize leading-[85px] mt-[20px] ">
                     @if ($about !== null)
                         {!! $about->heading !!}
                     @endif
                 </h1>
 
-                <p class="text-center text-2xl mx-20 font-normal mt-5">
+                <p class="text-center text-[24px] mx-20 leading-normal font-normal mt-5">
                     @if ($about !== null)
                         {!! $about->heading_description !!}
                     @endif
@@ -48,7 +48,7 @@
 
 
 
-                <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 grid-cols-1 mt-5">
+                <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 grid-cols-1 mt-[20px]">
 
                     @if ($about->images !== null)
                         @foreach (json_decode($about->images) as $item)
