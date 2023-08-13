@@ -118,44 +118,47 @@
 
             @if ($featureStory->count() > 0)
                 @foreach ($featureStory->slice(0, 1) as $firstfeature)
-                    <div class="w-[1320px] mx-auto mt-[20px] grid grid-cols-1 lg:grid-cols-5">
-                        <div class="col-span-2">
-                            @php
-                                $title = $firstfeature->title;
-                            @endphp
-                            {{-- @dd($firstfeature) --}}
-                            <img src="{{ Storage::url($firstfeature->feature_img) }}" alt=""
-                                class="h-[316px] w-[561px]">
-                            <div class="absolute ml-[70px] mt-[-178px]" style="">
-                                <h1 class=" text-white  text-[50px] font-black">
-                                    {!! $firstfeature->title !!}
-                                </h1>
-                                {{-- <h1 class=" text-white  text-[50px] font-black text-center"> {!! $firstfeature->title !!}</h1> --}}
+                    <a href="{{route('single-story',$firstfeature->id)}}">
+                        <div class="w-[1320px] mx-auto mt-[20px] grid grid-cols-1 lg:grid-cols-5">
+                            <div class="col-span-2">
+                                @php
+                                    $title = $firstfeature->title;
+                                @endphp
+                                {{-- @dd($firstfeature) --}}
+                                <img src="{{ Storage::url($firstfeature->feature_img) }}" alt=""
+                                    class="h-[316px] w-[561px]">
+                                <div class="absolute ml-[70px] mt-[-178px]" style="">
+                                    <h1 class=" text-white  text-[50px] font-black">
+                                        {!! $firstfeature->title !!}
+                                    </h1>
+                                    {{-- <h1 class=" text-white  text-[50px] font-black text-center"> {!! $firstfeature->title !!}</h1> --}}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-span-3">
+                            <div class="col-span-3">
 
-                            <div class="ml-6">
-                                <p class=" font-normal text-base text-[#212427] text-justify">
-                                    {!! $firstfeature->description !!} </p>
-                                <div class="flex">
-                                    <img src="/storage/image/ellipse.png" alt=""
-                                        class="h-[52px] w-[52px] mt-[24px] ">
-                                    <div class="mt-[24px] ml-[5px]">
-                                        <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $firstfeature->name }}.
-                                        </h1>
-                                        <p class="capitalize text-[14px] tracking-wider font-normal">
-                                            {{ $firstfeature->profession }} </p>
+                                <div class="ml-6">
+                                    <p class=" font-normal text-base text-[#212427] text-justify">
+                                        {!! $firstfeature->description !!} </p>
+                                    <div class="flex">
+                                        <img src="/storage/image/ellipse.png" alt=""
+                                            class="h-[52px] w-[52px] mt-[24px] ">
+                                        <div class="mt-[24px] ml-[5px]">
+                                            <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $firstfeature->name }}.
+                                            </h1>
+                                            <p class="capitalize text-[14px] tracking-wider font-normal">
+                                                {{ $firstfeature->profession }} </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             @endif
 
             @if ($featureStory->count() > 0)
                 @foreach ($featureStory->slice(1, 1) as $secondfeture)
+                   <a href="{{route('single-story',$secondfeture->id)}}">
                     <div class="mt-6 grid grid-cols-1 lg:grid-cols-5 w-[1320px] mx-auto">
 
                         <div class="col-span-3">
@@ -184,6 +187,7 @@
                             </div>
                         </div>
                     </div>
+                   </a>
                 @endforeach
             @endif
 
@@ -412,17 +416,13 @@
                     <div class="pb-14 shadow-lg">
                         <h1 class="font-bold text-[50px] text-[#212427] text-center">
                             @if ($home !== null)
-                                {{ $home->share_title }}
+                                {!! $home->share_title !!}
                             @endif
                         </h1>
-                        @php
-                            $shareSub = str_split($home->share_subtitle, 90);
-                        @endphp
+
                         <p class="text-xl text-center text-[#D1052C] capitalize">
                             @if ($home !== null)
-                                @foreach ($shareSub as $Shitem)
-                                    {{ $Shitem }} <br>
-                                @endforeach
+                              {!! $home->share_subtitle !!}
                             @endif
                         </p>
                         @auth

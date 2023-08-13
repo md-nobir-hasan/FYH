@@ -9,7 +9,7 @@
                 <img src="{{ Storage::url($story->image) }}" alt="" class="w-[308px] h-[308px] mt-[20px]" />
             </div>
             <div class="col-span-3 ">
-                <h1 class="text-[36px] mt-[10px] font-bold">“ {{ $story->title }} ”</h1>
+                <h1 class="text-[36px] mt-[10px] font-bold">“ {!! $story->title !!} ”</h1>
 
                 <div class="flex">
                     <p class="text-[#666565] mt-[10px] text-[16px] font-normal">Posted:
@@ -41,7 +41,7 @@
                 </div>
 
                 <p class="text-justify font-normal text-[16px] mt-[20px]">
-                    {{ $story->description }}
+                    {!! $story->description !!}
                 </p>
                 <h1 class="text-xl font-bold mt-[20px]"> {{ $story->name }} </h1>
                 <p class="text-[#666565] font-normal text-[16px] capitalize "> {{ $story->profession }} </p>
@@ -68,14 +68,10 @@
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto">
                         @foreach ($stres as $stry)
                             <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
-                                <a href="{{ route('single-story', $stry->id) }}">
-                                    <img class="h-[424px] w-full" src="/storage/{{ $stry->image }}" alt="" />
-                                </a>
+                                <img class="h-[424px] w-full" src="/storage/{{ $stry->image }}" alt="" />
                                 <div class="px-[22px] mt-[20px] h-[500px]">
-                                    <a href="{{ route('single-story', $stry->id) }}">
-                                        <h5 class=" text-[20px] font-bold tracking-tight text-[#212427]">
-                                            "{!! $stry->title !!}"</h5>
-                                    </a>
+                                    <h5 class=" text-[20px] font-bold tracking-tight text-[#212427]">
+                                        "{!! $stry->title !!}"</h5>
                                     <p class=" text-[14px] mt-[20px] font-normal text-[#212427] text-justify">
                                         {!! Str::limit($stry->description, 595) !!}</p>
                                     <a href="{{ route('single-story', $stry->id) }}"
@@ -100,11 +96,11 @@
                     Stories</button></a>
             <!-- temporary single story page end -->
             <!-- <div class="mt-2 flex justify-center items-center mb-10">
-                @auth
-                            <button  class="bg-[#D1052C] font-bold text-xl mt-2 text-white px-6 py-2 rounded loadmoredata">Load More Stories</button>
-                @endauth
+                    @auth
+                                    <button  class="bg-[#D1052C] font-bold text-xl mt-2 text-white px-6 py-2 rounded loadmoredata">Load More Stories</button>
+                    @endauth
 
-                    </div> -->
+                        </div> -->
 
         </section>
         <section class=" mb-[-100px]"
@@ -114,11 +110,11 @@
                 <div class="pb-14 shadow-lg">
                     <h1 class="font-bold text-5xl text-[#212427] text-center">
                         @if ($share !== null)
-                            {{ $share->share_title }}
+                            {!! $share->share_title !!}
                         @endif
                     </h1>
 
-                    <p class="text-xl text-center text-[#D1052C] uppercase">
+                    <p class="text-xl text-center text-[#D1052C]">
                         @if ($share !== null)
                             {!! $share->share_subtitle !!}
                         @endif
@@ -131,21 +127,7 @@
 
             </div>
         </section>
-        <!-- <section style="background:url(/images/Line2.png);background-size:100%;background-repeat:no-repeat">>
-            <div class="mt-[100px] mb-[-100px] shadow-xl pb-32 lg:-mx-40" style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;background-position:cover">
-                    <div class="">
-                        <h1 class="font-bold text-5xl text-center">
-                               @if ($share !== null)
-    {{ $share->share_title }}
-    @endif
-                        </h1>
-                        <p class="font-normal uppercase lg:mx-32 text-2xl text-center text-[#D1052C]"> @if ($share !== null)
-    {!! $share->share_subtitle !!}
-    @endif </p>
-                    </div>
-                    <div class="text-center mt-3"> <a href="{{ route('share.story') }}"> <button class=" font-bold text-xl text-white px-7 py-2 rounded" style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Share Your Story</button> </a></div>
-                    </div>
-            </section> -->
+
 
     </div>
 @endsection

@@ -199,7 +199,7 @@ class StorySeeder extends Seeder
             [//10
                 'name' => "Thomas T.",
                 'slug' => "",
-                'title' => "<span>My Best Decision</span> <br>of Relocating",
+                'title' => "<span>My Best Decision</span> of Relocating",
                 'description' => "I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking the time to understand my career goals and helping me to identify job opportunities that matched my skill set. With their help, I was able to craft a strong resume and cover letter that really showcased my strengths.<br class='fs-br'>
                 I was able to land a job that I'm truly excited about and that offers great opportunities for growth. I even received interview coaching, which helped me to feel more confident and prepared when meeting with potential employers. Thanks to FYH, I was able to land a job that I'm truly excited about and that offers great opportunities for growth. I can't thank them enough for their excellent service and support throughout my job search journey",
                 'priority' => 10,
@@ -218,7 +218,7 @@ class StorySeeder extends Seeder
             [//11
                 'name' => "Thomas T.",
                 'slug' => "",
-                'title' => "<span>Master Of</span> <br>Happiness in Here",
+                'title' => "<span>Master Of</span> Happiness in Here",
                 'description' => "I was struggling to find a job that aligned with my skills and experience, and I was starting to feel hopeless. That's when I found FYH. From the first consultation, they provided personalized guidance and support, taking the time to understand my career goals and helping me to identify job opportunities that matched my skill set. With their help, I was able to craft a strong resume and cover letter that really showcased my strengths. I even received interview coaching, which helped me to feel more confident and prepared when meeting with potential employers. Thanks to FYH, I was able to land a job that I'm truly excited about and that offers great opportunities for growth. I can't thank them enough for their excellent service and support throughout my job search journey. I was able to land a job that I'm truly excited about and that offers great opportunities for growth.",
                 'priority' => 11,
                 'address' => "Berlin,Germany",
@@ -236,7 +236,7 @@ class StorySeeder extends Seeder
             [//12
                 'name' => "Thomas T.",
                 'slug' => "",
-                'title' => "<span>Master Of</span> <br>Happiness in Here",
+                'title' => "<span>Master Of</span> Happiness in Here",
                 'description' => "FYH is a fantastic platform for sharing relocating stories. It's a welcoming community where I felt understood and supported. I'm grateful for the opportunity to connect with others who have had similar experiences. Highly recommended!",
                 'priority' => 12,
                 'address' => "Berlin,Germany",
@@ -254,7 +254,7 @@ class StorySeeder extends Seeder
             [//13
                 'name' => "Thomas T.",
                 'slug' => "",
-                'title' => "<span>Master Of</span> <br>Happiness in Here",
+                'title' => "<span>Master Of</span> Happiness in Here",
                 'description' => "Five stars for FYH! My experience with the service has been outstanding. Their services were exceptional, and their team went above and beyond to meet my needs. I highly recommend them for their efforts  and efficiency.",
                 'priority' =>13,
                 'address' => "Berlin,Germany",
@@ -272,7 +272,7 @@ class StorySeeder extends Seeder
             [//14
                 'name' => "Thomas T.",
                 'slug' => "",
-                'title' => "<span>Master Of</span> <br>Happiness in Here",
+                'title' => "<span>Master Of</span> Happiness in Here",
                 'description' => "Exceptional services that go above and beyond expectations. Top-notch services that are second to none! Highly recommended for their professionalism and outstanding results. I like FYH Very much.",
                 'priority' => 14,
                 'address' => "Berlin,Germany",
