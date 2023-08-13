@@ -133,7 +133,7 @@
             <span class="text-sm  sm:text-center ">© {{date("Y")}} <a
                     class="hover:underline">Copyright © {{date("Y")}} FYH, All rights reserved. Powered by Fozlay.
             </span>
-            <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+            <div class="md:flex mt-4 space-x-6 sm:block sm:justify-center sm:mt-0">
                 <a href="{{route('terms.condition')}}" class="text-gray-500 hover:text-gray-900 ">
 
                     <span class="text-white">Terms of use</span>
