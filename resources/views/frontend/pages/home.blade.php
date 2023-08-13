@@ -4,6 +4,33 @@
 @endpush
 
 @section('content')
+<style>
+    
+    a:nth-child(2)>img{
+       padding:12px 20px 12px 20px;
+    }
+    a:nth-child(3)>img{
+       padding:16px;
+    }
+    a:nth-child(4)>img{
+       padding:15px;
+    }
+    a:nth-child(5)>img{
+       padding:17px;
+    }
+    a:nth-child(6)>img{
+       padding:19px 22px;
+    }
+    a:nth-child(7)>img{
+       padding:19px;
+    }
+    a:nth-child(8)>img{
+       padding:19px;
+    }
+    a:nth-child(9)>img{
+       padding:21px;
+    }
+</style>
     <!-- navbar section -->
     <div class="" style="font-family: 'Poppins';">
 
@@ -11,7 +38,7 @@
         <div class="mt-[116px] flex w-[1320px] mx-auto">
             <div class="w-[754px]">
 
-                <h3 class="text-[68px] font-bold text-[#212427]">
+                <h3 class="text-[68px] font-bold leading-[85px] text-[#212427]">
                     @if ($home !== null)
                         {{ $home->title_one }}
                     @endif
@@ -83,7 +110,7 @@
                         <a href="{{route('benefit.details',[$item->id])}}"
                             class=" w-[424px] h-[234px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                             <img src="{{ '/storage/' . $item->image }}" alt="{{ $item->title }}"
-                                class="h-20 w-20 mx-auto mt-[16px] rounded-full"
+                                class="h-20 w-20 p-2 mx-auto mt-[16px] rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
                                 class="mb-[10px] mt-[10px] text-[20px] font-semibold tracking-tight text-gray-900  text-center">
@@ -128,7 +155,7 @@
                                 <img src="{{ Storage::url($firstfeature->feature_img) }}" alt=""
                                     class="h-[316px] w-[561px]">
                                 <div class="absolute ml-[70px] mt-[-178px]" style="">
-                                    <h1 class=" text-white  text-[50px] font-black">
+                                    <h1 class=" text-white w-[400px]  text-[50px] font-black">
                                         {!! $firstfeature->title !!}
                                     </h1>
                                     {{-- <h1 class=" text-white  text-[50px] font-black text-center"> {!! $firstfeature->title !!}</h1> --}}
@@ -182,7 +209,7 @@
                             <img src="{{ Storage::url($secondfeture->feature_img) }}" alt=""
                                 class="h-[316px] w-[561px]">
                             <div class="absolute ml-[80px] mt-[-140px]" style="">
-                                <h1 class=" text-white text-5xl font-black text-center"> {!! $secondfeture->title !!} </h1>
+                                <h1 class=" text-white w-[400px] text-5xl font-black text-center"> {!! $secondfeture->title !!} </h1>
                                 </h1>
                             </div>
                         </div>
