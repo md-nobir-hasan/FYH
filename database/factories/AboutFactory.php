@@ -19,9 +19,7 @@ class AboutFactory extends Factory
         return [
             'title' => 'About Us',
             'title_description' => 'A relocation Service We Are Commited To building Jobs make Happy And Success',
-            'heading' => 'FYH PROVIDE TO HELP SERVICE
-            THAT HELP TO RELOCATE AND
-            INTGRATE           ',
+            'heading' => 'FYH  Provides The Services That Help To Relocate And Integrate',
             'heading_description' => 'Being Human is more than just what our broken education system makes it out to be. <br class="br">
                     We teach the world the art of truly living extraordinary, fulfilling, happy lives.',
             'images' => '["image/about1.png","image/about2.png","image/about3.png","image/about4.png","image/about5.png","image/about6.png","image/about7.png","image/about8.png"]',

@@ -77,7 +77,6 @@
          @enderror
         </div>
 
-
         <div>
           <input type="text" name="title" value="{{old("title")}}" placeholder="Story Title" class="@error('title') is-invalid @enderror w-full rounded border mt-5 border-dotted border-[#848484]" />
           @error('title')
