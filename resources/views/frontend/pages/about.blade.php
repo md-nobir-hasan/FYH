@@ -210,13 +210,13 @@
                 <div class="pb-28 shadow-lg">
                     <h1 class="font-bold text-[50px] text-[#212427] text-center">
                         @if ($shareStory !== null)
-                            {{ $shareStory->share_title }}
+                            {!! $shareStory->share_title !!}
                         @endif
                     </h1>
 
                     <p class="text-[24px] font-normal capitalize text-center text-[#D1052C] w-[986px] mx-auto">
                         @if ($shareStory !== null)
-                            {{ $shareStory->share_subtitle }}
+                            {!! $shareStory->share_subtitle !!}
                         @endif
                     </p>
                     <a href="{{ route('share.story') }}" class=" flex justify-center items-center"><button
