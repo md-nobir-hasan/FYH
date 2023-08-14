@@ -31,7 +31,7 @@ class SetupSeeder extends Seeder
             $ct = [
                 ['name'=>'Monthly',
                 'plan_id'=>'plan_NzMovXZ9gkaiG2',
-                'interval_count'=>4,
+                'interval_count'=>1,
                 'price'=>7.9,
                 'dis'=>0,
                 'des'=>'You can pay monthly and cancel the subscription',
