@@ -112,7 +112,7 @@
                     {{-- Wishlist --}}
                         <!-- love icon svg -->
                         <button type="button" class="flex mr-3 text-sm  md:mr-0 " id="user-menu-button" aria-expanded="false"
-                            data-dropdown-toggle="user-dropdowns" data-dropdown-placement="bottom">
+                            data-dropdown-toggle="user-dropdownsss" data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
                             <svg class="mt-3 ml-5" width="26" height="24" viewBox="0 0 26 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +123,7 @@
                         </button>
                         <!-- dropdown menu -->
                         <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow"
-                            id="user-dropdowns">
+                            id="user-dropdownsss">
                             <div class="py-[20px] px-[20px]" id="wishlist_div">
                                 <div class="flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22"

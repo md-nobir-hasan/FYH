@@ -3,17 +3,85 @@
     Community
 @endpush
 @section('content')
+<style>
+    
+    .cbg{
+        background-image:url('/images/benifitbg.png');background-size:100% 516px;background-position:0 100%;background-repeat:no-repeat
+    }
+    
+    @media (min-width: 999px) and (max-width: 1021px){
+        .cbg{
+            background-size:100% 568px
+        }
+    }
+    @media (min-width: 993px) and (max-width: 998px){
+        .cbg{
+            background-size:100% 568px
+        }
+    }
+    @media (min-width: 939px) and (max-width: 992px){
+        .cbg{
+            background-size:100% 590px
+        }
+    }
+    @media (min-width: 914px) and (max-width: 938px){
+        .cbg{
+            background-size:100% 610px
+        }
+    }
+    @media (min-width: 899px) and (max-width: 913px){
+        .cbg{
+            background-size:100% 612px
+        }
+    }
+    @media (min-width: 879px) and (max-width: 898px){
+        .cbg{
+            background-size:100% 630px
+        }
+    }
+    @media (min-width: 862px) and (max-width: 878px){
+        .cbg{
+            background-size:100% 663px
+        }
+    }
+    @media (min-width: 840px) and (max-width: 861px){
+        .cbg{
+            background-size:100% 683px
+        }
+    }
+    @media (min-width: 820px) and (max-width: 839px){
+        .cbg{
+            background-size:100% 715px
+        }
+    }
+    @media (min-width: 790px) and (max-width: 819px){
+        .cbg{
+            background-size:100% 735px
+        }
+    }
+    @media (min-width: 768px) and (max-width: 789px){
+        .cbg{
+            background-size:100% 755px
+        }
+    }
+    @media (min-width: 0px) and (max-width: 767px){
+        .cbg{
+            background-image:none
+        }
+    }
+   
+</style>
 
     <div class=" mt-[104px] mb-[-200px]" style="font-family:'Poppins'">
 
 
         @guest
-            <h1 class="text-[50px] font-bold text-center">
+            <h1 class="text-[50px] mx-5 font-bold text-center">
                 @if ($storyHead !== null)
                     {{ $storyHead->story_title }}
                 @endif
             </h1>
-            <p class="text-[24px] font-normal text-center capitalize	">
+            <p class="text-[24px] mx-5 font-normal text-center capitalize	">
                 @if ($storyHead !== null)
                     {{ $storyHead->story_subtitle }}
                 @endif
@@ -39,12 +107,12 @@
             <form action="{{ route('community.search') }}" method="post" class="">
                 @csrf
 
-                <div class="2xl:w-[1320px] xl:w-[1320px] lg:w-[1100px] mx-auto lg:flex block">
-                    <div class="lg:mx-0 mx-20">
+                <div class=" 2xl:w-[1320px] xl:mx-auto mx-10 lg:flex block">
+                    <div class=" 2xl:ml-0">
                         <p class="font-medium text-[14px]">Sort Stories</p>
 
                         <select name="stories"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5">
+                            class="bg-gray-50 border xl:w-[326px] lg:w-[220px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5">
                             <option class="text-lg" value="latest"
                                 @isset($data) @selected($data['stories'] == 'latest')  @endisset>Most
                                 Recent</option>
@@ -55,10 +123,10 @@
                         </select>
                     </div>
 
-                    <div class="ml-[75px]">
+                    <div class="lg:ml-[75px]">
                         <p>By Country</p>
                         <select id="countries" name="country_id"
-                            class="bg-gray-50 border w-[326px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5">
+                            class="bg-gray-50 border xl:w-[326px] lg:w-[220px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5">
                             <option class="text-lg" value="">All Country</option>
                             @foreach ($country as $story)
                                 <option value="{{ $story->id }}"
@@ -69,11 +137,11 @@
                         </select>
 
                     </div>
-                    <div class=" lg:ml-[75px] lg:mx-0 mx-20">
+                    <div class=" lg:ml-[75px]">
                         <p>By Time</p>
 
                         <select name="time"
-                            class="bg-gray-50 border xl:w-[326px] lg:w-[250px] w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 ">
+                            class="bg-gray-50 border w-full xl:w-[326px] lg:w-[220px]  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 ">
 
                             <option class="text-lg mb-1" value=""
                                 @isset($data) @selected($data['time'] == '') @endisset>Any Time</option>
@@ -119,8 +187,8 @@
                 @foreach ($stories as $story)
                     @php  $countryName = App\Models\Country::where('id', $story->country_id)->first(); @endphp
                     @if ($loop->index == 0 || $loop->index % 3 == 0)
-                        <div class=""
-                            style="background:url('/images/benifitbg.png');background-size:100% 516px;background-position:0 100%;background-repeat:no-repeat">
+                        <div class="cbg"
+                            style="">
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 xl:w-[1320px] mx-5  xl:mx-auto mt-6">
                     @endif
                     <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
@@ -188,7 +256,7 @@
                             @endif
                         </h1>
 
-                        <p class="text-[24px] font-normal text-center text-[#D1052C] capitalize w-[986px] mx-auto">
+                        <p class="text-[24px] font-normal text-center text-[#D1052C] capitalize lg:w-[986px] mx-auto">
                             @if ($storyHead !== null)
                                 {{ $storyHead->share_subtitle }}
                             @endif
