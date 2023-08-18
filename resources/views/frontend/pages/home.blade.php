@@ -52,6 +52,26 @@
             background-image:none
         }
     }
+    @media (min-width: 1183px) and (max-width: 1280px){
+        .pbg{
+            background-size:100% 480px
+        }
+    }
+    @media (min-width: 1108px) and (max-width: 1182px){
+        .pbg{
+            background-size:100% 500px
+        }
+    }
+    @media (min-width: 1104px) and (max-width: 1107px){
+        .pbg{
+            background-size:100% 530px
+        }
+    }
+    @media (min-width: 1024px) and (max-width: 1103px){
+        .pbg{
+            background-size:100% 550px
+        }
+    }
     @media (min-width: 0px) and (max-width: 1535px){
         .horizontal{
             display:none
