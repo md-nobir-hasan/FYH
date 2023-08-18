@@ -36,7 +36,7 @@ class UserStoryRequest extends FormRequest
             return [
                 'name' => 'required|string|max:255',
                 'title' => 'required|string|unique:stories,title',
-               'image' =>'required|mimes:JPG,JPEG,PNG',
+               'image' =>'required|mimes:jpg,jpeg,png',
                'description' => 'required|min:30',
                'profession' => 'required|string|max:255',
                // 'address' => 'required',

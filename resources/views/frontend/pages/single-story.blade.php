@@ -15,20 +15,19 @@
                     <p class="text-[#666565] mt-[10px] text-[16px] font-normal">Posted:
                         {{ date('D-M-Y', strtotime($story->created_at)) }} </p>
 
-                    <div>
+                    <div class="my-auto">
                         @auth
-                        
                             <svg class="mt-[10px] ml-[10px] cursor-pointer border-[#666565]" width="20" height="20"
                                 data-id="{{ $story->id }}" id="wl_manage" onclick="WishlistManage()"
                                 xmlns="http://www.w3.org/2000/svg"
-                                @if ($wishlist = $story->wishlists->where('user_id', Auth::user()->id)->first()) fill=[#D1052C] data-add='' @else fill="none" data-add='yes' @endif
-                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 border-[#D1052C]">
+                                @if ($wishlist = $story->wishlists->where('user_id', Auth::user()->id)->first()) fill="#d1052c" style='color:#d1052c' data-add='' @else fill="none" data-add='yes' @endif
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                             </svg>
                         @else
                             <a href="{{ route('login') }}">
-                                <svg class="mt-[10px] ml-[10px] cursor-pointer" width="20" height="20"
+                                <svg class="mt-[10px] ml-[10px] cursor-pointer text-[#666565]" width="20" height="20"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -153,7 +152,8 @@
                     } else {
                         console.log('Sussfully added');
                         wl_element.css({
-                            fill: 'red'
+                            fill: '#d1052c',
+                            color: '#d1052c',
                         });
                         add = false;
 
@@ -179,7 +179,8 @@
                         console.log('successfully deleted');
                         $('#wishlist_div').find(`div.wld${story_id}`).remove();
                         wl_element.css({
-                            fill: 'none'
+                            fill: 'none',
+                            color: '#666565'
                         });
                         add = true;
                     }
