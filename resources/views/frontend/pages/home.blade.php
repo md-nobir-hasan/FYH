@@ -85,6 +85,7 @@
     }
     
     
+
 </style>
     <!-- navbar section -->
     <div class="" style="font-family: 'Poppins';">
@@ -92,7 +93,6 @@
         <!-- hero section -->
         <div class="lg:mt-[116px] mt-[50px] xl:flex block  2xl:w-[1320px] mx-auto hero">
             <div class="lg:w-[754px] lg:mx-auto xl:mx-0 ml-5 ">
-
                 <h3 class="lg:text-[68px] text-[48px] xl:ml-5 2xl:ml-0 font-bold lg:leading-[85px] leading-[50px] text-[#212427]">
                     @if ($home !== null)
                         {{ $home->title_one }}
@@ -215,6 +215,7 @@
                                 </div>
                                 <div class="absolute xl:ml-[70px] lg:ml-[40px] md:ml-[250px] ml-[60px] mt-[-178px]" style="">
                                     <h1 class=" text-white lg:w-[400px] md:w-[400px] w-[300px]  xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black">
+
                                         {!! $firstfeature->title !!}
                                     </h1>
                                     {{-- <h1 class=" text-white  text-[50px] font-black text-center"> {!! $firstfeature->title !!}</h1> --}}
