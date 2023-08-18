@@ -186,7 +186,7 @@ class FrontendControler extends Controller
         if ($user == null) {
             return Redirect::back();
         }
-        $country = Country::all();
+        $country = Country::orderBy('country','asc')->get();
         $story = Story::where('user_id', Auth::user()->id)->first();
         if ($story) {
             return view('frontend.pages.share-story-edit', ['user' => $user, 'country' => $country, 'story' => $story]);

@@ -85,9 +85,9 @@
         </div>
 
        <div>
-        <textarea id="message" name="description" rows="4" class="@error('description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border border-dotted h-[386px] border-[#848484] focus:ring-blue-500 focus:border-blue-500 mt-5" placeholder="Write story here..." >
-            {{old('description')}}
-        </textarea>
+        <textarea id="message" name="description" rows="4"
+         class="@error('description') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border border-dotted h-[386px] border-[#848484] focus:ring-blue-500 focus:border-blue-500 mt-5" placeholder="Write story here..."
+         >{{old('description')}}</textarea>
           @error('description')
           <div class="text-left text-red-600">{{ $message }}</div>
           @enderror
