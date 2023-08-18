@@ -30,37 +30,92 @@
     a:nth-child(9)>img{
        padding:21px;
     }
+    .bbg{
+        background:url(/images/benifitbg.png);background-size:100% 392px;background-repeat:no-repeat
+    }
+    .pbg{
+        background-image:url(/images/benifitbg.png);background-size:100% 516px;background-repeat:no-repeat;background-position: 0px 100%;
+    }
+    .mbg{
+        background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px
+    }
+    @media (min-width: 0px) and (max-width: 767px){
+        .bbg{
+            background-image:none
+        }
+        .pbg{
+            background-image:none
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1020px){
+        .pbg{
+            background-image:none
+        }
+    }
+    @media (min-width: 1183px) and (max-width: 1280px){
+        .pbg{
+            background-size:100% 480px
+        }
+    }
+    @media (min-width: 1108px) and (max-width: 1182px){
+        .pbg{
+            background-size:100% 500px
+        }
+    }
+    @media (min-width: 1104px) and (max-width: 1107px){
+        .pbg{
+            background-size:100% 530px
+        }
+    }
+    @media (min-width: 1024px) and (max-width: 1103px){
+        .pbg{
+            background-size:100% 550px
+        }
+    }
+    @media (min-width: 0px) and (max-width: 1535px){
+        .horizontal{
+            display:none
+        }
+        
+    }
+    @media (min-width: 0px) and (max-width: 1023px){
+        .mbg{
+            background-image:none
+        }
+    }
+    
+    
+
 </style>
     <!-- navbar section -->
     <div class="" style="font-family: 'Poppins';">
 
         <!-- hero section -->
-        <div class="mt-[116px] flex w-[1320px] mx-auto">
-            <div class="w-[754px]">
-
-                <h3 class="text-[68px] font-bold leading-[85px] text-[#212427]">
+        <div class="lg:mt-[116px] mt-[50px] xl:flex block  2xl:w-[1320px] mx-auto hero">
+            <div class="lg:w-[754px] lg:mx-auto xl:mx-0 ml-5 ">
+                <h3 class="lg:text-[68px] text-[48px] xl:ml-5 2xl:ml-0 font-bold lg:leading-[85px] leading-[50px] text-[#212427]">
                     @if ($home !== null)
                         {{ $home->title_one }}
                     @endif
                 </h3>
-                <p class=" capitalize w-[749px] mt-[10px] font-normal text-xl ">
+                <p class="xl:ml-5 2xl:ml-0 capitalize lg:w-[749px] mt-[10px] font-normal text-[16px] lg:text-[20px] ">
                     @if ($home !== null)
                         {{ $home->title_one_description }}
                     @endif
                 </p>
-                <h3 class="text-[68px] font-bold mt-[25px] text-[#212427]">
+                <h3 class="xl:ml-5 2xl:ml-0 lg:text-[68px] text-[48px] leading-[50px] font-bold mt-[25px] text-[#212427]">
                     @if ($home !== null)
                         {{ $home->title_two }}
                     @endif
                 </h3>
-                <p class="capitalize mt-[10px] font-normal text-xl ">
+                <p class="xl:ml-5 2xl:ml-0 capitalize mt-[10px] font-normal text-[16px] lg:text-[20px] ">
                     @if ($home !== null)
                         {{ $home->title_two_description }}
                     @endif
                 </p>
-                <div class="flex">
+                <div class="flex xl:ml-5 2xl:ml-0">
                     <a href="{{ $setting->trail ? route('register') : route('member') }}">
-                        <div class="mt-[50px] text-white w-72 rounded flex justify-center items-center h-16 font-bold"
+                        <div class="mt-[50px] text-white lg:w-72 w-full rounded flex justify-center items-center h-16 font-bold"
                             style="background-color:#D1052C"><button
                                 class="mr-1 text-xl font-bold">{{ $setting->trail ? 'Start Free Trail' : 'Join FYH now' }}</button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -70,7 +125,7 @@
                             </svg>
                         </div>
                     </a>
-                    <a href="{{ route('about') }}" class="mt-8">
+                    <a href="{{ route('about') }}" class="mt-8 ">
                         <p class="mt-[48px] flex justify-center items-center ml-5 font-semibold underline decoration-3"
                             style="color:
                 #D1052C">Learn More</p>
@@ -79,17 +134,18 @@
                 </div>
             </div>
             <!-- make changing section -->
-            <div class="mt-[40px]">
+            <div class="mt-[40px] md:block hidden ">
                 @if ($home !== null)
-                    <img src="/images/Theme.png" alt="" class="w-[605px] h-[406px]  ml-[40px] absolute">
+                    <img src="/images/Theme.png" alt="" class="2xl:w-[605px] xl:w-[480px] w-[300px] md:w-[550px] lg:h-[406px] lg:mx-auto xl:mx-0 xl:ml-[40px]  xl:absolute change">
                 @endif
             </div>
             <!-- make changing section end -->
         </div>
         <!-- Benifit section start -->
 
-        <div class="mt-[100px] pt-[31px]"
-            style="background:url(/images/benifitbg.png);background-size:100% 392px;background-repeat:no-repeat; ">
+        <div class="mt-[100px] pt-[31px] bbg"
+            >
+            <div class="lg:mx-0 mx-5">
             <div>
                 <h1 class="text-[50px] font-bold text-center text-[#212427]">
                     @if ($home !== null)
@@ -103,12 +159,12 @@
                 </p>
             </div>
             <!-- benifit card section -->
-            <div class="mx-auto grid grid-cols-3 gap-6 mt-[20px] w-[1320px]">
+            <div class="2xl:mx-auto xl:mx-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-6 mt-[20px] 2xl:w-[1320px]">
 
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
                         <a href="{{route('benefit.details',[$item->id])}}"
-                            class=" w-[424px] h-[234px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
+                            class=" 2xl:w-[424px] w-full h-[234px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                             <img src="{{ '/storage/' . $item->image }}" alt="{{ $item->title }}"
                                 class="h-20 w-20 p-2 mx-auto mt-[16px] rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
@@ -125,11 +181,12 @@
 
 
             </div>
+            </div>
             <!-- benifit card section end-->
         </div>
         <!-- Benifit section end -->
         <!-- Featured story start -->
-        <section class="mt-[100px]">
+        <section class="lg:mt-[100px] mt-[50px]">
             <div>
                 <h1 class="text-[50px] font-bold text-center text-[#212427]">
                     @if ($home !== null)
@@ -146,16 +203,19 @@
             @if ($featureStory->count() > 0)
                 @foreach ($featureStory->slice(0, 1) as $firstfeature)
                     <a href="{{route('single-story',$firstfeature->id)}}">
-                        <div class="w-[1320px] mx-auto mt-[20px] grid grid-cols-1 lg:grid-cols-5">
-                            <div class="col-span-2">
+                        <div class="2xl:w-[1320px] xl:mx-auto lg:mx-5 mt-[20px] grid grid-cols-1 lg:grid-cols-5">
+                            <div class="col-span-2  xl:mx-5">
                                 @php
                                     $title = $firstfeature->title;
                                 @endphp
                                 {{-- @dd($firstfeature) --}}
+                                <div class="md:mx-0 mx-5">
                                 <img src="{{ Storage::url($firstfeature->feature_img) }}" alt=""
-                                    class="h-[316px] w-[561px]">
-                                <div class="absolute ml-[70px] mt-[-178px]" style="">
-                                    <h1 class=" text-white w-[400px]  text-[50px] font-black">
+                                    class="h-[316px] xl:w-[561px] w-full">
+                                </div>
+                                <div class="absolute xl:ml-[70px] lg:ml-[40px] md:ml-[250px] ml-[60px] mt-[-178px]" style="">
+                                    <h1 class=" text-white lg:w-[400px] md:w-[400px] w-[300px]  xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black">
+
                                         {!! $firstfeature->title !!}
                                     </h1>
                                     {{-- <h1 class=" text-white  text-[50px] font-black text-center"> {!! $firstfeature->title !!}</h1> --}}
@@ -163,7 +223,7 @@
                             </div>
                             <div class="col-span-3">
 
-                                <div class="ml-6">
+                                <div class="2xl:ml-6 xl:mx-0 2xl:mx-0 xl:mr-5 2xl:mr-0 lg:mx-0 mx-5">
                                     <p class=" font-normal text-base text-[#212427] text-justify">
                                         {!! $firstfeature->description !!} </p>
                                     <div class="flex">
@@ -186,10 +246,10 @@
             @if ($featureStory->count() > 0)
                 @foreach ($featureStory->slice(1, 1) as $secondfeture)
                    <a href="{{route('single-story',$secondfeture->id)}}">
-                    <div class="mt-6 grid grid-cols-1 lg:grid-cols-5 w-[1320px] mx-auto">
+                    <div class="mt-6 flex flex-col-reverse lg:grid grid-cols-1  lg:grid-cols-5 2xl:w-[1320px] mx-auto">
 
-                        <div class="col-span-3">
-                            <div>
+                        <div class="col-span-3 2xl:mx-0 xl:mx-5 mx-5">
+                            <div class="">
                                 <p class=" font-normal text-[16px] text-justify"> {!! $secondfeture->description !!} </p>
                                 <div class="flex">
                                     <img src="{{ storage::url('image/ellipse.png') }}" alt=""
@@ -202,14 +262,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-2 ml-4">
+                        <div class="col-span-2 md:mx-0 mx-5 2xl:ml-4">
                             @php
                                 $title = str_split($secondfeture->title, 15);
                             @endphp
                             <img src="{{ Storage::url($secondfeture->feature_img) }}" alt=""
-                                class="h-[316px] w-[561px]">
-                            <div class="absolute ml-[80px] mt-[-140px]" style="">
-                                <h1 class=" text-white w-[400px] text-5xl font-black text-center"> {!! $secondfeture->title !!} </h1>
+                                class="h-[316px] w-full lg:w-[561px]">
+                            <div class="absolute ml-[40px] md:ml-[200px] lg:ml-[50px] mt-[-180px]" style="">
+                                <h1 class=" text-white md:w-[400px] lg:w-[350px] w-[250px] xl:w-[400px] xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black text-center"> {!! $secondfeture->title !!} </h1>
                                 </h1>
                             </div>
                         </div>
@@ -222,8 +282,8 @@
         </section>
         <!-- Featured story end -->
         <!-- Popular story start -->
-        <section class="mt-[100px]"
-            style="background:url(/images/benifitbg.png);background-size:100% 516px;background-repeat:no-repeat;background-position: 0px 100%">
+        <section class="mt-[100px] pbg"
+            style="">
             <div>
                 <h1 class="text-[50px] font-bold text-center text-[#212427]">
                     @if ($home !== null)
@@ -236,18 +296,18 @@
                     @endif
                 </p>
             </div>
-            <div class="w-[1320px] mx-auto gap-6 grid grid-cols-1 lg:grid-cols-3 mt-[20px]">
+            <div class="2xl:w-[1320px] overflow-y-hidden 2xl:mx-auto mx-5 gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[20px]">
 
 
                 @if ($popularStory->count() > 0)
                     {{-- @dd($popularStory) --}}
                     @foreach ($popularStory as $pStory)
-                        <div class=" bg-white border border-gray-200 rounded-lg shadow ">
+                        <div class=" bg-white border border-gray-200 rounded-lg shadow">
                             <a href="{{ route('single-story', $pStory->id) }}">
                                 <img class=" lg:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}"
                                     alt="" />
                             </a>
-                            <div class="px-[22px] pt-[20px] h-[516px]">
+                            <div class="px-[22px] pt-[20px] xl:h-[516px]">
                                 <a href="#">
                                     <h5 class="mb-2 text-[20px] font-bold tracking-tight text-[#212427]">"
                                         {!! $pStory->title !!}
@@ -303,7 +363,9 @@
             </p>
             <div class="flex items-center justify-center mt-5">
                 @if ($home !== null)
+                    <div class="lg:mx-0 mx-5">
                     <img src="{{ '/storage/' . $home->lgImage }}" alt="" class="lg:h-[791px] lg:w-[845px]">
+                    </div>
                 @endif
             </div>
             <a href="{{ route('community') }}" class=" flex justify-center items-center"><button
@@ -324,7 +386,7 @@
                     {{ $home->service_subtitle }}
                 @endif
             </p>
-            <div class="w-[1320px] mx-auto mt-10 grid grid-cols-7">
+            <div class="2xl:w-[1320px] xl:mx-auto  mt-10 grid lg:grid-cols-2 2xl:gap-0 gap-6 2xl:grid-cols-7">
 
 
                 @if ($services->count() > 0)
@@ -332,12 +394,12 @@
                         <div class="mr-[27px] ml-4">
                             <div class="flex justify-center items-center"><img src="{{ asset($item->image) }}"
                                     alt="" class="w-[100px] h-[100px]" /></div>
-                            <h1 class="font-semibold text-xl text-center"> {{ $item->title }} </h1>
-                            <p class="text-center lg:-mx-20 text-base font-normal"> {!! $item->description !!} </p>
+                            <h1 class="font-semibold text-xl text-center "> {{ $item->title }} </h1>
+                            <p class="text-center 2xl:-mx-20 text-base font-normal"> {!! $item->description !!} </p>
                         </div>
                         @if (!$loop->last)
-                            <div class="mt-16">
-                                <hr class="border w-[193px] -mt-[15px] bg-[#D9D9D9]">
+                            <div class="mt-16 horizontal">
+                                <hr class="border w-[193px] 2xl:visible -mt-[15px] bg-[#D9D9D9]">
                             </div>
                         @endif
                     @endforeach
@@ -347,8 +409,8 @@
         <!-- Get Service end -->
 
         <!-- What our member say  -->
-        <div class="mt-[100px]"
-            style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
+        <div class="mt-[100px] mbg"
+            style="">
             <h1 class="font-bold text-[50px] text-[#212427] text-center">
                 @if ($home !== null)
                     {{ $home->customer_title }}
@@ -361,7 +423,7 @@
             </p>
 
             <!-- Component: Testimonial slider -->
-            <div class="relative w-[1320px] mx-auto glide-08">
+            <div class="relative 2xl:w-[1320px] mx-auto glide-08">
                 <!-- Slides -->
                 <div class="overflow-hidden text-center rounded " data-glide-el="track">
                     <ul
@@ -374,10 +436,10 @@
                                         <div class="relative">
                                             <figure class="relative z-10">
                                                 <blockquote class=" text-lg leading-loose lg:text-xl">
-                                                    <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+                                                    <div class=" 2xl:mx-auto mx-5 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                         @foreach ($items as $item)
                                                             <a href="javascript:void(0)"
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="{{ '/storage/' . $item->image }}"

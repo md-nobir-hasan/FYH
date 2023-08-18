@@ -23,7 +23,7 @@
             <div class="input_field flex flex-col w-max mx-auto text-center">
                 <label>
                     <input id="fileInput" class="text-sm cursor-pointer w-36 hidden" type="file" name="image" />
-                    <div class="text bg-[#D1052C] text-white border border-gray-300 rounded font-semibold cursor-pointer py-2 px-7 hover:bg-[#a73147]">Choose Image</div>
+                    <div class="text bg-[#D1052C] text-white border border-gray-300 rounded font-semibold cursor-pointer py-2 px-7 hover:bg-[#a73147] w-[200px]">Choose Image</div>
                     @error('image')
                     <div class="text-left text-red-600">{{ $message }}</div>
                   @enderror
