@@ -3,6 +3,32 @@
     Intregration In Switzerland
 @endpush
 @section('content')
+<style>
+    a:nth-child(2)>img{
+       padding:12px 20px 12px 20px;
+    }
+    a:nth-child(3)>img{
+       padding:16px;
+    }
+    a:nth-child(4)>img{
+       padding:15px;
+    }
+    a:nth-child(5)>img{
+       padding:17px;
+    }
+    a:nth-child(6)>img{
+       padding:19px 22px;
+    }
+    a:nth-child(7)>img{
+       padding:19px;
+    }
+    a:nth-child(8)>img{
+       padding:19px;
+    }
+    a:nth-child(9)>img{
+       padding:21px;
+    }
+</style>
 
 <div class="mt-[100px]" style="font-family:'Poppins'">
 <h1 class="text-center text-[50px] font-bold mt-16">@if($titles!==null) {{$titles->intr_title}}  @endif</h1>
@@ -15,7 +41,7 @@
     @foreach ($integration as $item)
 
 <a  class="xl:h-[232px] xl:w-[424px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-    <img src="{{'/storage/'. $item->image}}" alt="" class="h-[80px] w-[80px] mx-auto rounded-full mt-[16px]" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+    <img src="{{'/storage/'. $item->image}}" alt="" class="h-[80px] w-[80px] mx-auto rounded-full p-[10px] mt-[16px]" style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
     <h5 class="mt-[10px] text-[20px] font-semibold tracking-tight text-[#212427] text-center"> {{$item->title}} </h5>
     <p class="font-normal text-[14px] xs:mb-5 mx-[40px] mt-[10px] text-[#212427] text-center">
     {!! $item->first_para !!}

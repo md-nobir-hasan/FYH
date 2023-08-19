@@ -26,12 +26,14 @@
             <div class="grid grid-cols-1 2xl:w-[1320px] gap-6 mx-auto lg:grid-cols-3 md:grid-cols-2">
                 @foreach ($videos->where('default', null) as $video)
                     <div>
-                        <iframe class="mx-auto rounded-2xl 2xl:w-[424px] h-[247px]" src="{{ $video->embed_code }}">
+                        <div class="2xl:mx-0 md:mx-10 mx-5">
+                        <iframe class="mx-auto rounded-2xl w-full 2xl:w-[424px] h-[247px]" src="{{ $video->embed_code }}">
                         </iframe>
-                        <h1 class="font-semibold text-2xl uppercase mt-4 ml-2 text-[#212427]">
+                        </div>
+                        <h1 class="font-semibold xl:text-2xl lg:text-lg text-[18px] uppercase mt-4 md:mx-10 2xl:mx-0 mx-5 2xl:ml-2 text-[#212427]">
                             {{ $video->title }}
                         </h1>
-                        <p class="ml-2 text-sm font-normal">
+                        <p class="2xl:ml-2 2xl:mx-0 md:mx-10 mx-5 text-sm font-normal">
                             {{ $video->des }}
                         </p>
                     </div>
