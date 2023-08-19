@@ -3,18 +3,28 @@
     User Home
 @endpush
 @section('content')
+<style>
+    .mbg{
+        background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px
+    }
+    @media (min-width: 0px) and (max-width: 1023px){
+        .mbg{
+            background:none
+        }
+    }
+</style>
     <div class=" mt-[86px]" style="font-family:'Poppins'">
-        <div class="w-[1320px] mx-auto">
-            <h1 class="text-5xl font-bold ">Hi <span class="capitalize">{{ $user->fname }}</span>,</h1>
+        <div class="2xl:w-[1320px] 2xl:mx-auto xl:mx-20 mx-5">
+            <h1 class="text-[50px] font-bold ">Hi <span class="capitalize">{{ $user->fname }}</span>,</h1>
             <p class="text-2xl font-semibold">What’s popular now</p>
         </div>
         <!-- card section -->
-        <section class="mt-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 w-[1320px] mx-auto gap-6">
+        <section class="mt-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 2xl:w-[1320px] 2xl:mx-auto xl:mx-20 mx-5 gap-6">
             @if ($popularStory->count() > 0)
                 @foreach ($popularStory as $story)
                     <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
 
-                        <img src="{{ '/storage/' . $story->image }}" alt="" class="h-[238px] w-[424px]">
+                        <img src="{{ '/storage/' . $story->image }}" alt="" class="h-[238px] w-full 2xl:w-[424px]">
                        
                         <div class="absolute mt-[-120px] ml-[80px]">
                             @php   $title = str_split($story->title, 10)      @endphp
@@ -66,7 +76,7 @@
                 @endforeach
             @endif
         </p>
-        <div class="flex items-center justify-center mt-5">
+        <div class="flex items-center justify-center mt-5 2xl:mx-0 mx-5">
             <img src="{{ '/storage/' . $shareImage->lgImage }}" alt="" class="lg:h-[791px] lg:w-[845px]">
         </div>
         <a href="{{ route('community') }}" class=" flex justify-center items-center"><button
@@ -74,8 +84,8 @@
     </section>
     <!-- successfull section end -->
     <!-- review section start -->
-    <div class="mt-[100px]"
-            style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
+    <div class="mt-[100px] mbg"
+            >
             <h1 class="font-bold text-[50px] leading-normal text-[#212427] text-center">
             What Our Member Say
             </h1>
@@ -84,7 +94,7 @@
             </p>
 
             <!-- Component: Testimonial slider -->
-            <div class="relative w-[1320px] mx-auto glide-08">
+            <div class="relative 2xl:w-[1320px] 2xl:mx-auto mx-5 glide-08">
                 <!-- Slides -->
                 <div class="overflow-hidden text-center rounded " data-glide-el="track">
                     <ul
@@ -100,7 +110,7 @@
                                                     <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                         
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/angelia.png" alt=""
@@ -129,7 +139,7 @@
                                                                 </p>
                                                             </a>
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/ellipse.png" alt=""
@@ -158,7 +168,7 @@
                                                                 </p>
                                                             </a>
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/emma.png" alt=""
@@ -208,7 +218,7 @@
                                                     <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                         
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/angelia.png" alt=""
@@ -237,7 +247,7 @@
                                                                 </p>
                                                             </a>
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/ellipse.png" alt=""
@@ -266,7 +276,7 @@
                                                                 </p>
                                                             </a>
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/emma.png" alt=""
@@ -316,7 +326,7 @@
                                                     <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                         
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/angelia.png" alt=""
@@ -345,7 +355,7 @@
                                                                 </p>
                                                             </a>
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/ellipse.png" alt=""
@@ -374,7 +384,7 @@
                                                                 </p>
                                                             </a>
                                                             <a href=""
-                                                                class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="/images/emma.png" alt=""
@@ -449,8 +459,8 @@
             </div>
     <!-- review section end -->
     <!-- Time section start -->
-    <section class="mt-[100px]" style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 50%">
-        <form action="{{ route('feedback') }}" method="post" class="w-[1320px] mx-auto bg-white mb-[-150px] border shadow-xl">
+    <section class="mt-[100px] lg:mx-20 2xl:mx-0" style="background:url(/images/successbg.png);background-size:100%;background-repeat:no-repeat; background-position:0 50%">
+        <form action="{{ route('feedback') }}" method="post" class="2xl:w-[1320px] mx-auto bg-white mb-[-150px] border shadow-xl">
             @csrf
             <h1 class="text-center text-[50px] leading-normal mt-5 font-bold capitalize ">
                 @if ($shareImage !== null)
@@ -462,7 +472,7 @@
                     {{ $shareImage->reaction_titleOne }}
                 @endif
             </p>
-            <div class="mx-[292px] mt-[10px] grid grid-cols-2 lg:grid-cols-5 gap-10">
+            <div class="2xl:mx-[292px] xl:mx-56 mx-[60px] lg:mx-36 md:mx-24 mt-[10px] grid grid-cols-2 md:grid-cols-5 gap-10">
                 <div id="nreaction" class="hidden">
 
                 </div>
@@ -501,7 +511,7 @@
                 @endif
             </h1>
 
-            <div class="lg:mx-48 mt-2">
+            <div class="lg:mx-48 md:mx-20 mx-5 mt-2">
                 <textarea id="message" name="description" rows="4"
                     class="block p-2.5 w-full text-sm shadow-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Left Your Feedback here..."></textarea>

@@ -52,7 +52,7 @@
             background-image:none
         }
     }
-    @media (min-width: 1183px) and (max-width: 1280px){
+    @media (min-width: 1183px) and (max-width: 1279px){
         .pbg{
             background-size:100% 480px
         }
