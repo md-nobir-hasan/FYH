@@ -5,14 +5,104 @@
 @section('content')
     <style>
         iframe {
-            width: 1320px !important;
-            height: 741px !important;
+            width: 1320px ;
+            height: 741px ;
             margin: auto;
             border-radius: 10px;
             padding: 10px;
             background: #ECF9FF;
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         }
+        .abg{
+            background:url('/images/benifitbg.png');background-size:100% 486px;background-repeat:no-repeat;
+        }
+        /* @media only screen and (min-width: 1536px) {
+            iframe{
+                width:1320px
+            }
+        } */
+        @media (min-width: 1280px) and (max-width: 1535px){
+        iframe{
+            width:100%;
+            height:680px;
+            margin-right:40px
+        }
+        
+    }
+        @media (min-width: 1024px) and (max-width: 1279px){
+        iframe{
+            width:100%;
+            height:480px;
+        }
+        
+    }
+        @media (min-width: 768px) and (max-width: 1023px){
+        iframe{
+            width:100%;
+            height:380px;
+        }
+        
+    }
+        @media (min-width: 0px) and (max-width: 767px){
+        iframe{
+            width:100%;
+            height:280px;
+        }
+        
+    }
+        
+        
+        @media (min-width: 0px) and (max-width: 767px){
+        .abg{
+            background:none
+        }
+        
+    }
+    .sbg{
+        background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px
+    }
+    @media (min-width: 0px) and (max-width: 1023px){
+        .sbg{
+            background:none
+        }
+    }
+    
+    @media (min-width: 1024px) and (max-width: 1031px){
+        .abg{
+            background-size:100% 486px
+        }
+    }
+    @media (min-width: 1032px) and (max-width: 1057px){
+        .abg{
+            background-size:100% 486px
+        }
+    }
+    @media (min-width: 1058px) and (max-width: 1279px){
+        .abg{
+            background-size:100% 486px
+        }
+    }
+    @media (min-width: 1018px) and (max-width: 1023px){
+        .abg{
+            background-size:100% 417px
+        }
+    }
+    @media (min-width: 951px) and (max-width: 1017px){
+        .abg{
+            background-size:100% 417px
+        }
+    }
+    @media (min-width: 858px) and (max-width: 950px){
+        .abg{
+            background-size:100% 417px
+        }
+    }
+    @media (min-width: 791px) and (max-width: 857px){
+        .abg{
+            background-size:100% 450px
+        }
+    }
+        
     </style>
 
 
@@ -21,26 +111,26 @@
 
 
     <div class="mt-[100px]" style="font-family:'Poppins'">
-        <h1 class="text-center text-[50px] font-bold">
+        <h1 class="text-center text-[50px] mx-5 font-bold">
             @if ($about !== null)
                 {!! $about->title !!}
             @endif
         </h1>
-        <p class="text-center text-[24px] leading-normal font-normal capitalize">
+        <p class="text-center mx-5 md:text-[24px] text-[18px] leading-normal font-normal capitalize">
             @if ($about !== null)
                 {!! $about->title_description !!}
             @endif
         </p>
-        <div class=""
-            style="background:url('/images/benifitbg.png');background-size:100% 486px;background-repeat:no-repeat;">
-            <div class="w-[1320px] mx-auto">
-                <h1 class="text-center text-[68px] font-bold capitalize leading-[85px] mt-[20px] ">
+        <div class="abg"
+            style="">
+            <div class="2xl:w-[1320px] 2xl:mx-auto lg:mx-10 mx-5">
+                <h1 class="text-center xl:text-[68px] lg:text-[50px]  text-[36px] font-bold capitalize lg:leading-[85px] md:leading-[50px] leading-[40px] mt-[20px] ">
                     @if ($about !== null)
                         {!! $about->heading !!}
                     @endif
                 </h1>
 
-                <p class="text-center text-[24px] mx-20 leading-normal font-normal mt-5">
+                <p class="text-center md:text-[24px] text-[18px] md:mx-50  leading-normal font-normal mt-5">
                     @if ($about !== null)
                         {!! $about->heading_description !!}
                     @endif
@@ -48,18 +138,18 @@
 
 
 
-                <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 grid-cols-1 mt-[20px]">
+                <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 grid-cols-1 mt-[20px] ">
 
                     @if ($about->images !== null)
                         @foreach (json_decode($about->images) as $item)
-                            <img src="{{ '/storage/' . $item }}" alt="" class="rounded-lg w-[312px] h-[212px]">
+                            <img src="{{ '/storage/' . $item }}" alt="" class="rounded-lg w-full lg:w-[312px] h-[212px]">
                         @endforeach
                     @endif
                 </div>
             </div>
         </div>
 
-        <p class=" mt-6 w-[1144px] mx-auto text-justify text-base font-normal">
+        <p class=" mt-6 2xl:w-[1144px] 2xl:mx-auto lg:mx-10 mx-5 text-justify text-base font-normal">
             @if ($about !== null)
                 {!! $about->images_description !!}
             @endif
@@ -71,26 +161,26 @@
         @php
             $default_video = $videos->where('default', 1)->first();
         @endphp
-        <div class="mt-[50px]">
+        <div class="mt-[50px] lg:mx-10 mx-5">
             <iframe src="{{ $default_video->embed_code }}" frameborder="0"></iframe>
         </div>
 
 
-        <div class="mt-[50px] w-[1144px] mx-auto px-[70px] py-[16px] "
+        <div class="mt-[50px] 2xl:w-[1144px] 2xl:mx-auto lg:mx-10 mx-5 px-[10px] py-[10px] lg:px-[70px] lg:py-[16px] "
             style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
             <h1 class="font-bold text-2xl">{!! $default_video->des !!} </h1>
             <p class="text-lg font-normal">{!! $default_video->title !!}</p>
         </div>
 
         {{-- Story  --}}
-        <div class="mt-[50px] flex w-[1320px] mx-auto">
+        <div class="mt-[50px] lg:flex 2xl:w-[1320px] 2xl:mx-auto lg:mx-10 mx-5">
             <div class="">
                 @if ($about !== null)
-                    <img src="/storage/image/about-rect1.png" alt="" class="w-[561px] h-[316px]">
-                    <h1 class="-mt-44 ml-24 absolute text-[50px] font-black text-white">{!! $about->fimg_title !!}
+                    <img src="/storage/image/about-rect1.png" alt="" class="w-full 2xl:w-[561px] h-[316px]">
+                    <h1 class="-mt-44 xl:ml-24 lg:ml-16 md:ml-56 ml-16 absolute xl:text-[50px] lg:text-[40px] md:text-[50px] text-[30px] font-black text-white">{!! $about->fimg_title !!}
                 @endif
             </div>
-            <div class="w-[735px] ml-[24px]">
+            <div class="lg:w-[735px] lg:ml-[24px]">
                 <h1 class=" text-4xl font-bold">{!! $about->fimg_subtitle !!}</h1>
                 <p class="text-base text-justify font-normal">
                     @if ($about !== null)
@@ -101,8 +191,8 @@
         </div>
 
 
-        <div class="flex mx-auto mt-6 w-[1320px]">
-            <div class="w-[735px] mr-[24px]">
+        <div class="lg:flex lg:flex-row flex flex-col-reverse lg:mx-10 mx-5 2xl:mx-auto mt-6 2xl:w-[1320px]">
+            <div class="lg:w-[735px] lg:mr-[24px]">
                 <h1 class="text-4xl font-bold">{!! $about->simg_subtitle !!}</h1>
                 <p class="text-justify text-base font-normal">
                     @if ($about !== null)
@@ -112,8 +202,8 @@
             </div>
             <div>
                 @if ($about !== null)
-                    <img src="/storage/image/about-rect2.png" alt="" class="w-[561px] h-[316px]">
-                    <h1 class="absolute text-[50px] font-black -mt-48 ml-20 text-white"><span
+                    <img src="/storage/image/about-rect2.png" alt="" class="2xl:w-[561px] w-full h-[316px]">
+                    <h1 class="absolute xl:text-[50px] lg:text-[40px] md:text-[50px] text-[30px] font-black -mt-48 xl:ml-24 lg:ml-16 md:ml-56 ml-16 text-white"><span
                             class="">{!! $about->simg_title !!}
                 @endif
             </div>
@@ -121,8 +211,8 @@
         </div>
 
         <!-- Success section start -->
-        <div class="mt-[100px] pb-28"
-            style="background:url(/images/benifitbg.png);background-size:100% 387px;background-repeat:no-repeat; background-position:0 125px">
+        <div class="mt-[100px] pb-28 sbg"
+            style="">
             <h1 class="font-bold text-[50px] text-[#212427] text-center">
                 What Our Member Say
             </h1>
@@ -131,7 +221,7 @@
             </p>
 
              <!-- Component: Testimonial slider -->
-        <div class="relative w-[1320px] mx-auto glide-08">
+        <div class="relative 2xl:w-[1320px] 2xl:mx-auto lg:mx-10 mx-5 glide-08">
             <!-- Slides -->
             <div class="overflow-hidden text-center rounded " data-glide-el="track">
                 <ul
@@ -147,7 +237,7 @@
                                                 <div class=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                     @foreach ($items as $item)
                                                         <a href="javascript:void(0)"
-                                                            class=" h-[304px] w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden">
+                                                            class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden">
                                                             <div class="flex">
                                                                 <div>
                                                                     <img src="{{ '/storage/' . $item->image }}" alt=""
@@ -214,7 +304,7 @@
                         @endif
                     </h1>
 
-                    <p class="text-[24px] font-normal capitalize text-center text-[#D1052C] w-[986px] mx-auto">
+                    <p class="text-[24px] font-normal capitalize text-center text-[#D1052C] mx-10 2xl:w-[986px] 2xl:mx-auto">
                         @if ($shareStory !== null)
                             {!! $shareStory->share_subtitle !!}
                         @endif

@@ -4,12 +4,12 @@
 @endpush
 @section('content')
 
-<div class="w-[1320px] mx-auto bg-white" style="font-family:'Poppins'">
-  <form action="{{route('share.story.store')}}" method="post" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<div class="2xl:w-[1320px] 2xl:mx-auto lg:mx-10 mx-5 bg-white" style="font-family:'Poppins'">
+  <form action="{{route('share.story.store')}}" method="post" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 lg:gap-10">
   @csrf
   <input type="hidden" name="id" value="">
     <!-- image section -->
-  <section class="col-span-1">
+  <section class="col-span-1 lg:mx-0 md:mx-20">
   <div class="border-2 rounded border-gray-200 mt-28 shadow-lg">
     <div class="extraOutline p-1 bg-white  bg-whtie m-auto rounded-lg">
         <div class="file_upload p-5 relative border-4  border-dotted border-gray-300 rounded-lg" >

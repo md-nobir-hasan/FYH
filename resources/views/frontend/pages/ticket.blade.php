@@ -4,14 +4,14 @@
 @endpush
 @section('content')
 <div class=" mb-[-150px]" style="font-family:'Poppins'">
-<section class="mt-[64px]">
+<section class="md:mt-[64px]">
 <section>
    <a href="{{route('createRequest')}}"> 
-    <img src="/images/ticketBanner.png" alt="" class="mx-auto"/>
+    <img src="/images/ticketBanner.png" alt="" class="lg:h-full md:h-[300px] h-[250px] mx-auto"/>
    </a>
 
 </section>
-<section class="mt-[50px] w-[1320px] mx-auto">
+<section class="mt-[50px] 2xl:w-[1320px] mx-auto">
 
 <div class="relative bg-white overflow-x-auto shadow-md sm:rounded-lg">
     

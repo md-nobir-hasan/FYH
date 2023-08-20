@@ -14,27 +14,27 @@
     @if (Session::has('error'))
     @endif
     <div class=" pt-[107px] pb-[10vh]"
-        style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
+        style="background:url(/images/loginimg.png);background-size:100%;background-repeat:no-repeat;background-color:#FAF7F7;">
 
-        <div class=" pb-10 mb-10 bg-white border w-[1320px] mx-auto rounded-2xl h-[815px]" style="font-family:'Poppins';">
+        <div class=" pb-10 mb-10 bg-white border xl:w-[1320px] mx-auto rounded-2xl h-[815px]" style="font-family:'Poppins';">
             <a href="{{ route('home') }}">
-                <img src="{{ $setting->logo }}" alt="" class="lg:ml-[62px] mt-[22px] h-[38px] w-[112px]">
+                <img src="{{ $setting->logo }}" alt="" class="lg:ml-[62px] mt-[22px] h-[38px] xl:w-[112px]">
             </a>
 
-            <div class="grid grid-cols-4 mt-[232px]">
+            <div class="grid xl:grid-cols-4 grid-cols-1 mt-[232px]">
                 <div class="col-span-2">
-                    <div class="ml-[72px]">
+                    <div class="xl:ml-[72px]">
 
                         <!-- <h1 class="text-[50px] font-bold text-[#D1052C] w-[604px]">  @if ($opportunity !== null)
 {{ $opportunity->title }}
 @endif
 </h1>
 -->
-                        <h1 class="text-[50px] font-bold leading-normal text-[#D1052C]">Select your Pricing plan</h1>
+                        <h1 class="text-[50px] font-bold leading-normal xl:mx-0 lg:mx-48 md:mx-20 text-[#D1052C]">Select your Pricing plan</h1>
 
                     </div>
-                    <div class='w-[604px]'>
-                        <p class="text-[20px] ml-[72px] text-[#212427] font-normal text-justify leading-normal">With this membership,
+                    <div class='xl:w-[604px]'>
+                        <p class="text-[20px] xl:ml-[72px] xl:mx-0 lg:mx-48 md:mx-20 text-[#212427] font-normal text-justify leading-normal">With this membership,
                             you can share your story and access other people's stories on why they want to relocate to
                             Switzerland and how they managed to do so successfully.</p>
                     </div>
@@ -83,7 +83,7 @@
                 </div> -->
                 </div>
                 <!-- right side -->
-                <div class="col-span-2 -mt-[29px] ml-[50px] mr-[72px]">
+                <div class="col-span-2 xl:-mt-[29px] xl:mx-0 lg:mx-48 md:mx-20 xl:ml-[50px] xl:mr-[72px]">
                     <h3 class="text-center font-bold text-2xl m-2 bg-slate-100 uppercase text-red-600"> <span
                             class="bg-blue-200 rounded-md">{{ Session::get('error') }}</span></h3>
 

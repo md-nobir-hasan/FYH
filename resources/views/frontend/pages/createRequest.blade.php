@@ -8,7 +8,7 @@
 
 
 
-<div class="w-[953px] mx-auto" style="font-family:'Poppins'">
+<div class="2xl:w-[953px] 2xl:mx-auto xl:mx-56 lg:mx-48 md:mx-20 mx-5" style="font-family:'Poppins'">
     <form action="{{route('problemStore')}}" method="post">
         @csrf
     <section class="mt-[68px]">
