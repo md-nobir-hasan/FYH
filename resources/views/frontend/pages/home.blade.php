@@ -41,7 +41,7 @@
     }
     @media (min-width: 0px) and (max-width: 767px){
         .bbg{
-            background-image:none
+            background-size:100% 330px
         }
         .pbg{
             background-image:none
@@ -115,7 +115,7 @@
                 </p>
                 <div class="flex xl:ml-5 2xl:ml-0">
                     <a href="{{ $setting->trail ? route('register') : route('member') }}">
-                        <div class="mt-[50px] text-white lg:w-72 w-full rounded flex justify-center items-center h-16 font-bold"
+                        <div class="mt-[50px] text-white lg:w-72 w-[200px]  rounded flex justify-center items-center h-16 font-bold"
                             style="background-color:#D1052C"><button
                                 class="mr-1 text-xl font-bold">{{ $setting->trail ? 'Start Free Trail' : 'Join FYH now' }}</button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -126,7 +126,7 @@
                         </div>
                     </a>
                     <a href="{{ route('about') }}" class="mt-8 ">
-                        <p class="mt-[48px] flex justify-center items-center ml-5 font-semibold underline decoration-3"
+                        <p class="md:mt-[48px] mt-[40px] flex justify-center items-center ml-10 md:ml-5 font-semibold underline decoration-3"
                             style="color:
                 #D1052C">Learn More</p>
                     </a>
@@ -169,9 +169,9 @@
                                 class="h-20 w-20 p-2 mx-auto mt-[16px] rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
-                                class="mb-[10px] mt-[10px] text-[20px] font-semibold tracking-tight text-gray-900  text-center">
+                                class=" mt-[10px] text-[20px] font-semibold tracking-tight text-gray-900  text-center">
                                 {{ $item->title }} </h5>
-                            <p class="font-normal leading-normal mx-[40px] text-[14px] text-center">
+                            <p class="font-normal mt-[10px]  leading-normal md:mx-[40px] mx-[30px] text-[14px] text-center">
                                 {!! $item->first_para !!}
                             </p>
                         </a>
@@ -290,7 +290,7 @@
                         {{ $home->story_title }}
                     @endif
                 </h1>
-                <p class="text-center font-normal text-2xl">
+                <p class="text-center mx-5 font-normal text-2xl">
                     @if ($home !== null)
                         {{ $home->story_subtitle }}
                     @endif
@@ -322,7 +322,7 @@
                                 </a>
                                 <h1 class="text-[20px] font-semibold mt-[20px]"> {{ $pStory->name }} <h1>
                                         <p class="capitalize text-[14px] font-normal">{{ $pStory->profession }}</p>
-                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->city }} ,
+                                        <p class="capitalize text-[14px] font-normal md:mb-0 mb-[20px]">{{ $pStory->city }} ,
                                             {{ $pStory->country->country }}
                                         </p>
                             </div>
@@ -376,12 +376,12 @@
 
         <!-- Get Service Start -->
         <section class="mt-[163px]">
-            <h1 class="text-center text-[50px] font-bold text-[#212427]">
+            <h1 class="text-center text-[50px] mx-5 md:leading-0 leading-[60px] font-bold text-[#212427]">
                 @if ($home !== null)
                     {{ $home->service_title }}
                 @endif
             </h1>
-            <p class="text-center font-normal capitalize text-[24px] leading-normal">
+            <p class="text-center font-normal mx-5 capitalize text-[24px] leading-normal">
                 @if ($home !== null)
                     {{ $home->service_subtitle }}
                 @endif
@@ -411,12 +411,12 @@
         <!-- What our member say  -->
         <div class="mt-[100px] mbg"
             style="">
-            <h1 class="font-bold text-[50px] text-[#212427] text-center">
+            <h1 class="font-bold text-[50px] mx-5  leading-[60px] text-[#212427] text-center">
                 @if ($home !== null)
                     {{ $home->customer_title }}
                 @endif
             </h1>
-            <p class="text-2xl font-normal text-center text-[#212427]">
+            <p class="text-2xl font-normal mx-5 text-center text-[#212427]">
                 @if ($home !== null)
                     {{ $home->customer_subtitle }}
                 @endif
@@ -509,7 +509,7 @@
                             @endif
                         </h1>
 
-                        <p class="text-xl text-center text-[#D1052C] capitalize">
+                        <p class="text-xl text-center mx-5 text-[#D1052C] capitalize">
                             @if ($home !== null)
                               {!! $home->share_subtitle !!}
                             @endif

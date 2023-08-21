@@ -31,7 +31,7 @@
     }
 </style>
     <div class="mt-[104px] 2xl:w-[1320px] mx-auto" style="font-family:'Poppins'">
-        <h1 class="text-center text-[50px] font-bold">
+        <h1 class="text-center mx-[5px] text-[50px] font-bold">
             @if ($benefitHeader !== null)
                 {{ $benefitHeader->benefit_title }}
             @endif

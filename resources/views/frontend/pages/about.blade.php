@@ -216,7 +216,7 @@
             <h1 class="font-bold text-[50px] text-[#212427] text-center">
                 What Our Member Say
             </h1>
-            <p class="text-2xl font-normal text-center text-[#212427]">
+            <p class="text-2xl font-normal text-center mx-[20px] text-[#212427]">
                 Here’s all of the successful stories of our customers
             </p>
 

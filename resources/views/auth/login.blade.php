@@ -10,8 +10,8 @@
 <x-auth-session-status class="" :status="session('status')"/>
 
     <div class="pt-1 pb-1" style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
-        <div class="shadow-xl mx-40 pb-5" style="">
-        <form class=" shadow-xl lg:px-28 p-16 my-20 lg:py-16 rounded-2xl lg:h-[750px] lg:w-[584px] bg-white mx-auto " method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';" enctype="multipart/form-data">
+        <div class="shadow-xl lg:mx-40 pb-5" style="">
+        <form class=" shadow-xl lg:px-28 p-16 my-20 lg:py-16 rounded-2xl lg:h-[750px] lg:w-[584px] bg-white lg:mx-auto mx-20" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';" enctype="multipart/form-data">
     @csrf
        <div>
        <a href="{{route('home')}}">
