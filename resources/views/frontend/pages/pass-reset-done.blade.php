@@ -1,13 +1,7 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Reset Done</title>
-@vite(['resources/css/app.css'])
-</head>
-<body  style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
+<x-guest-layout>
 <div class="">
-<div class="mt-[102px] bg-white py-6 w-[584px] h-[381px] rounded-xl mx-auto" style="font-family:'Poppins';">
+
+<div class="mt-[102px] bg-white py-6 xl:w-[584px] xl:h-[381px] rounded-xl xl:mx-auto lg:mx-40 md:mx-20 mx-10" style="font-family:'Poppins';">
         <div class="flex justify-center items-center ">
             <a href="/"><img src="/images/fyhlogo.png" alt="" class="h-10 w-28"/></a>
         </div>
@@ -31,5 +25,4 @@
                     </a>
 </div>
 </div>
-</body>
-</html>
+                        </x-guest-layout>
