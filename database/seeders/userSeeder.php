@@ -19,10 +19,19 @@ class userSeeder extends Seeder
         $n =[
             //admin (developer)
                [
+                'fname' => "Developer",
+                // 'lname' => "Admin",
+                'email' => "nobir.wd@gmail.com",
+                'phone' => "01518460933",
+                'role_id' => 1,
+                'password' => Hash::make('fkd#3S)#LD>)L'),
+                'img' => '/storage/user/profile.png',
+               ],
+               [
                 'fname' => "Super Admin",
                 // 'lname' => "Admin",
                 'email' => "support@fyh.ch",
-                'phone' => "01518460933",
+                'phone' => "12345678910",
                 'role_id' => 1,
                 'password' => Hash::make('94jf&shf^#nG'),
                 'img' => '/storage/user/profile.png',
