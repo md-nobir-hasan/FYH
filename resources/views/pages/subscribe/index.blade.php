@@ -19,11 +19,11 @@
                         <h4 class="text-bold text-lg">Subcription By Stripe</h4>
                         @if ($n->add)
                             <div class="flex items-center justify-end">
-                                <a href="{{ route('admin.page.customer.export') }}">
+                                <a href="{{ route('admin.customer.export') }}">
                                     <button type="button"
                                         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Excel</button>
                                 </a>
-                                <a href="{{ route('admin.page.customer.export.pdf') }}">
+                                <a href="{{ route('admin.customer.export.pdf') }}">
                                     <button type="button"
                                         class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">PDF</button>
                                 </a>
@@ -136,11 +136,11 @@
                         <h4 class="text-bold text-lg">Subcription by Paypal payment</h4>
                         @if ($n->add)
                             <div class="flex items-center justify-end">
-                                <a href="{{ route('admin.page.customer.export') }}">
+                                <a href="{{ route('admin.customer.export') }}">
                                     <button type="button"
                                         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Excel</button>
                                 </a>
-                                <a href="{{ route('admin.page.customer.export.pdf') }}">
+                                <a href="{{ route('admin.customer.export.pdf') }}">
                                     <button type="button"
                                         class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">PDF</button>
                                 </a>
@@ -247,11 +247,11 @@
                         <h4 class="text-bold text-lg">Free Trail Users</h4>
                         @if ($n->add)
                             <div class="flex items-center justify-end">
-                                <a href="{{ route('admin.page.customer.export') }}">
+                                <a href="{{ route('admin.customer.export') }}">
                                     <button type="button"
                                         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Excel</button>
                                 </a>
-                                <a href="{{ route('admin.page.customer.export.pdf') }}">
+                                <a href="{{ route('admin.customer.export.pdf') }}">
                                     <button type="button"
                                         class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">PDF</button>
                                 </a>
