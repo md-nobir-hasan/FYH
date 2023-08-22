@@ -6,6 +6,8 @@
             'name' => 'setup',
             'route_name' => 'setup',
             'children' => [['title' => 'Link', 'name' => 'link', 'route_name' => 'admin.setup.link.index'], ['title' => 'Membership Type', 'name' => 'membership_type', 'route_name' => 'admin.setup.client-type.index'], ['title' => 'Payment Duration', 'name' => 'payment_duration', 'route_name' => 'admin.setup.payment_duration.index'], ['title' => 'Videos', 'name' => 'video', 'route_name' => 'admin.setup.video.index']],
+        ],
+    ];
 @endphp
 
 <!-- Sidenav -->
