@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Membership</title>
-</head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-<style>
-    
-</style>
-
-<body>
-    @if (Session::has('error'))
+<x-guest-layout>
+@if (Session::has('error'))
     @endif
+    
     <div class=" pt-[107px] pb-[10vh]"
         style="background:url(/images/loginimg.png);background-size:100%;background-repeat:no-repeat;background-color:#FAF7F7;">
 
-        <div class=" pb-10 mb-10 bg-white border xl:w-[1320px] mx-auto rounded-2xl h-[815px]" style="font-family:'Poppins';">
+        <div class=" pb-10 mb-10 bg-white border xl:w-[1320px] mx-auto rounded-2xl 2xl:h-[815px]" style="font-family:'Poppins';">
             <a href="{{ route('home') }}">
                 <img src="{{ $setting->logo }}" alt="" class="lg:ml-[62px] mt-[22px] h-[38px] xl:w-[112px]">
             </a>
@@ -30,11 +19,11 @@
 @endif
 </h1>
 -->
-                        <h1 class="text-[50px] font-bold leading-normal xl:mx-0 lg:mx-48 md:mx-20 text-[#D1052C]">Select your Pricing plan</h1>
+                        <h1 class="text-[50px] font-bold leading-normal xl:mx-0 lg:mx-48 md:mx-20 mx-5 text-[#D1052C]">Select your Pricing plan</h1>
 
                     </div>
                     <div class='xl:w-[604px]'>
-                        <p class="text-[20px] xl:ml-[72px] xl:mx-0 lg:mx-48 md:mx-20 text-[#212427] font-normal text-justify leading-normal">With this membership,
+                        <p class="text-[20px] xl:ml-[72px] xl:mx-0 lg:mx-48 md:mx-20 mx-5 text-[#212427] font-normal text-justify leading-normal">With this membership,
                             you can share your story and access other people's stories on why they want to relocate to
                             Switzerland and how they managed to do so successfully.</p>
                     </div>
@@ -83,7 +72,7 @@
                 </div> -->
                 </div>
                 <!-- right side -->
-                <div class="col-span-2 xl:-mt-[29px] xl:mx-0 lg:mx-48 md:mx-20 xl:ml-[50px] xl:mr-[72px]">
+                <div class="col-span-2 xl:-mt-[29px] xl:mx-0 lg:mx-48 md:mx-20 mx-5 xl:ml-[50px] xl:mr-[72px]">
                     <h3 class="text-center font-bold text-2xl m-2 bg-slate-100 uppercase text-red-600"> <span
                             class="bg-blue-200 rounded-md">{{ Session::get('error') }}</span></h3>
 
@@ -117,7 +106,7 @@
                                     </div>
 
                                     <div class="">
-                                        <article class="text-[14px]  font-normal ml-7">{!! $member->des !!}{{$member->dis>0 ? " ".number_format($member->dis)." ".$member->currency : ""}}.</article>
+                                        <article class="text-[14px] md:w-full w-[160px] font-normal ml-7">{!! $member->des !!}{{$member->dis>0 ? " ".number_format($member->dis)." ".$member->currency : ""}}.</article>
 
                                     </div>
                                 </div>
@@ -137,8 +126,4 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
-
-
-</body>
-
-</html>
+</x-guest-layout>

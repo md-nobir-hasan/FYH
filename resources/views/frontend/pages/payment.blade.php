@@ -1,44 +1,15 @@
-{{-- @extends('frontend.layout.app')
-@push('title')
-    Payment
-@endpush
-@section('content')
-
-
-
-@endsection
-@push('js')
-
-
-
-<!-- flowbite cdn end -->
-@endpush --}}
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Payment - FHY</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'public/js/toastr.css'])
-</head>
-
-<body style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
-    <div class=" w-[1320px] h-[917px] rounded-lg mx-auto shadow-2xl bg-white mt-[107px]">
+<x-guest-layout>
+    <div class=" xl:w-[1320px] xl:h-[917px] rounded-lg mx-auto shadow-2xl bg-white mt-[107px]">
         <div class="pt-[23px]">
-            <img src="/images/fyhlogo.png" class="h-[37px] w-[111px] ml-[63px]" />
+            <img src="/images/fyhlogo.png" class="h-[37px] w-[111px] xl:ml-[63px] xl:mx-0 md:mx-20 mx-5" />
         </div>
         <a href="/membership">
             <button
-                class=" mb-[24px]  py-2 text-[16px] font-bold text-[#848484] shadow-xl px-6 mt-[27px] border ml-[88px]">Back</button>
+                class=" mb-[24px]  py-2 text-[16px] font-bold text-[#848484] shadow-xl px-6 mt-[27px] border xl:ml-[88px] xl:mx-0 md:mx-20 mx-5">Back</button>
         </a>
-        <div class=" grid lg:grid-cols-3 grid-cols-1 " style="font-family: 'Poppins'">
+        <div class=" grid xl:grid-cols-3 grid-cols-1 xl:mx-0 md:mx-20 mx-5" style="font-family: 'Poppins'">
 
-            <div class="col-span-2 w-[702px] ml-[88px]">
+            <div class="col-span-2 xl:w-[702px] xl:ml-[88px]">
                 <div class=" h-[93px] rounded-xl pl-5 pt-[10px]" style="border:1px solid rgba(102, 101, 101, 0.50)">
                     <h1 class="font-bold text-xl">Your Account</h1>
                     <p class="text-sm font-normal"> {{ auth()->user()->name }} </p>
@@ -72,7 +43,7 @@
                                         class="ml-2 text-base font-medium text-black ">Credit / Debit
                                         Card</label>
                                 </div>
-                                <div class="flex lg:ml-80 ml-[200px]">
+                                <div class="flex md:ml-[300px] lg:ml-[520px] xl:ml-[345px]">
                                     <img src="{{ asset('/images/visa.png') }}" alt="" class="h-6">
                                     <img src="{{ asset('/images/american.png') }}" alt="" class="h-6">
                                     <img src="{{ asset('/images/debit.png') }}" alt="" class="h-6">
@@ -82,8 +53,8 @@
                         <hr class="h-px my-8 mx-[46px] bg-gray-400 border-0 mt-[-10px]">
                         <div id="hideShow" class="hidden">
 
-                            <div class="card  mt-3 p-4 rounded-xl"
-                                style="width:500px !important; margin:auto !important;">
+                            <div class="card  mt-3 p-4 rounded-xl xl:w-[500px]"
+                                style=" margin:auto !important;">
                                 <form action="{{ route('checkout.payment') }}" method="post" id="payment-form"
                                     class="p-4">
                                     @csrf
@@ -166,7 +137,7 @@
                 </div>
                 <!-- payment end -->
             </div>
-            <div class="col-span-1 w-[418px] lg:ml-[-60px] mr-[88px]">
+            <div class="col-span-1 xl:w-[418px] xl:ml-[-60px] xl:mr-[88px] xl:mt-0 mt-6 mb-6">
                 <div class="rounded-xl" style="border:1px solid rgba(102, 101, 101, 0.50);">
                     <h1 class="font-bold text-xl ml-[41px] mt-[10px]">Order Summary</h1>
                     <div class="flex">
@@ -314,6 +285,5 @@
             form.submit();
         }
     </script>
-</body>
 
-</html>
+    </x-guest-layout>

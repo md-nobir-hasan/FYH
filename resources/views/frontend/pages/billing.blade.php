@@ -1,32 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Billing</title>
-</head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'public/js/toastr.css'])
-<body style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
-
+<x-guest-layout>
 @php
                $user = auth()->user();
                $countrys = App\Models\Country::all();
     @endphp
 
-    <div class="w-[1320px] mx-auto bg-white  rounded mt-20" style="font-family: 'Poppins';">
+    <div class="xl:w-[1320px] xl:mx-auto md:mx-10 bg-white  rounded mt-20" style="font-family: 'Poppins';">
     <div class="pt-[23px]">
         <a href="{{route('home')}}">
-            <img src="{{asset('/images/fyhlogo.png')}}" alt="" class="ml-[63px]  h-[37px] w-[111px]">
+            <img src="{{asset('/images/fyhlogo.png')}}" alt="" class="xl:ml-[63px] xl:mx-0 md:mx-20 mx-5 h-[37px] w-[111px]">
         </a>
     </div>
-       <div class="ml-[88px] mt-[27px]">
+       <div class="xl:ml-[88px] xl:mx-0 md:mx-20 mx-5 mt-[27px]">
         <a href="/register">
         <button style="box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.20);" class="bg-white border py-2 hover:bg-[#FCEEF1] hover:text-[#D1052C] w-[95px] rounded"><i class="fa-solid fa-arrow-left text-[#848484]"></i><span class="ml-2 text-[16px] font-bold text-[#848484]">Back</span></button>
         </a>
 
        </div>
-       <div class="grid lg:grid-cols-5 grid-cols-1 mt-[24px] ml-[88px]">
+       <div class="grid xl:grid-cols-5 grid-cols-1 xl:mx-0 md:mx-20 mx-5 mt-[24px] xl:ml-[88px]">
             <div class=" col-span-3">
-                    <div class=" rounded-lg w-[702px]" style="border:1px solid rgba(102, 101, 101, 0.50);"
+                    <div class=" rounded-lg xl:w-[702px]" style="border:1px solid rgba(102, 101, 101, 0.50);"
 >
                             <div class="flex">
                                 <h1 class="text-xl font-bold ml-[20px] mt-[10px]">Your Account</h1>
@@ -36,7 +28,7 @@
                                 <p class="ml-5 text-[14px] font-normal mb-[10px]" > {{$user->email}} </p>
                     </div>
                     <!-- billing section -->
-                        <div class="pt-[10px] pb-[20px] w-[702px] mt-[24px] px-[49px] mb-10  rounded-lg" style="border:1px solid rgba(102, 101, 101, 0.50);">
+                        <div class="pt-[10px] pb-[20px] xl:w-[702px] mt-[24px] px-[49px] mb-10  rounded-lg" style="border:1px solid rgba(102, 101, 101, 0.50);">
                             <h1 class="text-[20px] font-[700]">Billing Details</h1>
                             <p class="text-[14px] font-normal">FYH collects and uses personal data in accordance with our Privacy Policy. By creating an account, you agree to our Terms and Conditions.</p>
 
@@ -83,7 +75,7 @@
 
                     <!-- billing section end -->
             </div>
-            <div class="col-span-2 ml-[-10px] w-[418px]">
+            <div class="col-span-2 xl:ml-[-10px] xl:w-[418px]">
         <div class="border-2  border-gray-300 rounded-xl p-3">
             <h1 class="font-bold text-[20px] ml-4">Order Summary</h1>
             <div class="flex mt-2">
@@ -107,10 +99,7 @@
     </div>
        </div>
     </div>
-
-</body>
-</html>
-
+</x-guest-layout> 
 
 
 

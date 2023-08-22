@@ -36,7 +36,7 @@
 <div class="lg:mx-10 2xl:mx-0">
 
    <a href="{{route('ticket')}}" >
-    <img src="{{'/storage/'. $tittles->help_image}}" alt="" class="2xl:w-[1320px] w-full lg:h-[299px] md:h-[220px] h-[150px] mx-auto"/>
+    <img src="{{'/storage/'. $tittles->help_image}}" alt="" class="2xl:w-[1320px] w-full lg:h-[299px] md:h-[220px] mx-auto"/>
 </a>
 
 </div>

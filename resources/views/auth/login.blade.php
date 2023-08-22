@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Login</title>
-</head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-@vite(['resources/css/app.css','resources/js/app.js'])
-<body>
-
+<x-guest-layout>
+    <style>
+        
+    </style>
 <x-auth-session-status class="" :status="session('status')"/>
 
-    <div class="pt-1 pb-1" style="background:url(/images/loginimg.png);background-size:100% ;background-repeat:no-repeat;background-color:#FAF7F7;">
-        <div class="shadow-xl lg:mx-40 pb-5" style="">
-        <form class=" shadow-xl lg:px-28 p-16 my-20 lg:py-16 rounded-2xl lg:h-[750px] lg:w-[584px] bg-white lg:mx-auto mx-20" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';" enctype="multipart/form-data">
+    <div class="pt-1 pb-1">
+        <div class="shadow-xl lg:mx-40 lg:pb-5 pb-36" style="">
+        <form class=" shadow-xl lg:px-28 md:p-16 p-10 my-20 lg:py-16 rounded-2xl lg:h-[750px] md:w-[500px]  lg:w-[584px] bg-white lg:mx-auto md:mx-auto mx-auto" method="POST" action="{{ route('login') }}" style="font-family: 'Poppins';" enctype="multipart/form-data">
     @csrf
        <div>
        <a href="{{route('home')}}">
@@ -51,17 +46,17 @@
 
         <!-- Password -->
         <div class="mt-5">
-            <x-input-label for="password" :value="__('Password')" />
+        <label class="relative" for="password">
+                <x-input-label for="password" : value="Password"/>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" placeholder="min 8 character"/>
-                            <svg onclick=passwordShow() xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute ml-[330px] mt-[-33px] cursor-pointer">
+                <x-text-input id="password" class="block mt-2 w-full shadow" type="password" name="password"
+                    required autocomplete="new-password" style="border-top:0;border-right:0; border-left:0;border-bottom:0"
+                    placeholder="min 8 character"/>
+                    <svg onclick=passwordShow() xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute right-0 top-1/2 transform -translate-y-1/2  mt-3 cursor-pointer">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
-
+</label>
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
@@ -101,6 +96,4 @@
         }
     </script>
 
-</body>
-</html>
-
+    </x-guest-layout>

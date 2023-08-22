@@ -3,7 +3,7 @@
     
     <div class="mt-[102px] "  style="height:100vh">
     <div class="shadow-xl  pb-[100%]">
-    <div class="px-[129px] w-[584px] h-[408px] pt-[28px] bg-white mx-auto rounded-3xl">
+    <div class="xl:px-[129px] px-3 xl:w-[584px] xl:h-[408px] pb-[28px] pt-[28px] bg-white mx-auto rounded-3xl">
     <a href="{{route('home')}}"> <img src="{{$setting->logo}}" alt="" class="h-8 w-24 mx-auto  mt-[-20px] pt-"> </a>
     <h1 class="text-[28px] font-semibold text-center mt-[37px]">
         Forgot Password?

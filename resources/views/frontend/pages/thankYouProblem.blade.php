@@ -12,7 +12,7 @@
         <p class="text-[36px] text-center font-bold">
              For Sharing Your Story     
         </p>
-        <p class="mt-[20px] leading-normal text-center text-md font-normal"> As a new member of FYH, you are not part of a community of like-minded people whose <br> goal is to relocate to Switzerland or who have already achieved it.</p>
+        
         <div class="mt-[20px] flex justify-center items-center mb-10">
             <a href="{{route('user.myStroy')}}" class="bg-[#D1052C] text-[16px] font-normal text-white px-6 py-2 rounded">Read Your Story</a>
             <a href="{{route('community')}}" class="bg-[#D1052C] text-[16px] font-normal ml-3 text-white px-6 py-2 rounded">Read All Stories</a>
