@@ -34,21 +34,17 @@
 <div class="" style="font-family:'Poppins'">
 <section class="md:mt-[65px]">
 <div class="lg:mx-10 2xl:mx-0">
-
    <a href="{{route('ticket')}}" >
     <img src="{{'/storage/'. $tittles->help_image}}" alt="" class="2xl:w-[1320px] w-full lg:h-[299px] md:h-[220px] mx-auto"/>
-</a>
-
+  </a>
 </div>
 <div class="hbg" style="">
 <div class="mt-[50px]  lg:pt-[28px]">
     <h1 class="lg:text-[50px] text-[36px] leading-[40px] font-bold text-center lg:leading-normal"> @if($tittles !==null)  {{$tittles->help_title}} {{auth()->user()->fname}} @endif</h1>
     <p class="text-center lg:text-[24px] text-[18px] leading-normal font-normal "> @if($tittles !==null)  {{$tittles->help_subtile}}  @endif </p>
     <div class=" mb-[-100px]">
-
             <!-- benifit card section -->
             <div class="2xl:w-[1320px] 2xl:mx-auto lg:mx-10 mx-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-[30px]">
-
          @if($helps->count() > 0)
          @foreach ($helps as $help)
              

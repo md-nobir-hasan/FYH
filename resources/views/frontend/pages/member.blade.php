@@ -6,6 +6,7 @@
         style="background:url(/images/loginimg.png);background-size:100%;background-repeat:no-repeat;background-color:#FAF7F7;">
 
         <div class=" pb-10 mb-10 bg-white border xl:w-[1320px] mx-auto rounded-2xl 2xl:h-[815px]" style="font-family:'Poppins';">
+
             <a href="{{ route('home') }}">
                 <img src="{{ $setting->logo }}" alt="" class="lg:ml-[62px] mt-[22px] h-[38px] xl:w-[112px]">
             </a>
@@ -24,6 +25,7 @@
                     </div>
                     <div class='xl:w-[604px]'>
                         <p class="text-[20px] xl:ml-[72px] xl:mx-0 lg:mx-48 md:mx-20 mx-5 text-[#212427] font-normal text-justify leading-normal">With this membership,
+
                             you can share your story and access other people's stories on why they want to relocate to
                             Switzerland and how they managed to do so successfully.</p>
                     </div>
