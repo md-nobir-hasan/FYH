@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name='title'>
         Service
-       
+
     </x-slot>
 
     <div class="p-4">
@@ -10,11 +10,11 @@
             <div class="p-6 mx-auto bg-gray-100">
                 <div class="block mx-auto min-w-full rounded-lg bg-white p-6  shadow-lg dark:bg-neutral-700">
                     <h1 class="text-center font-bold text-2xl bg-white rounded mb-2">Service Edit</h1>
-                    <form action="{{route('admin.helps.update',$help->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.page.helps.update',$help->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                          @method('put')
                         <h4 class="font-bold text-xl underline text-left">Help and Support  Edit</h4>
-                  
+
                         <div class="grid gap-6 mb-6 md:grid-cols-2">
                             <div class="text-left">
                                 <label
@@ -30,14 +30,14 @@
                                 <div class="text-left text-red-600">{{ $message }}</div>
                                @enderror
                             </div>
-                     
-                      
-                         
 
-                         
 
-                           
-                          
+
+
+
+
+
+
                         </div>
 
                         <div class="mb-6">
@@ -65,9 +65,9 @@
                             <div class="text-left text-red-600">{{ $message }}</div>
                            @enderror
                         </div>
-                
 
-                     
+
+
                         <div class="mt-10">
                             <button class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                 Save</button>

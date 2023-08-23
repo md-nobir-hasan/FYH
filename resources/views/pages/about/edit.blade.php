@@ -12,7 +12,7 @@
             <div class="p-6 mx-auto bg-gray-100">
                 <div class="block mx-auto min-w-full rounded-lg bg-white p-6  shadow-lg dark:bg-neutral-700">
                     <h1 class="text-center font-bold text-2xl bg-white rounded mb-2">About Page</h1>
-                    <form action="@if($about!==null) {{route('admin.about.update',$about->id)}} @else {{route('admin.about.store')}} @endif" method="POST" enctype="multipart/form-data">
+                    <form action="@if($about!==null) {{route('admin.page.about.update',$about->id)}} @else {{route('admin.page.about.store')}} @endif" method="POST" enctype="multipart/form-data">
                         @csrf
                       @if($about!==null)  @method('PUT') @endif
                         <h4 class="font-bold text-xl underline text-left">About Section</h4>

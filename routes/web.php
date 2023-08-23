@@ -168,7 +168,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/dashboard', function () {
             return view('dashboard');
         })->middleware(['auth', 'verified','admin'])->name('dashboard');
-    //end dashoard
+
 
     Route::middleware(['auth','admin'])->prefix('/admin')->name('admin.')->group(function () {
 
@@ -177,7 +177,7 @@ Route::middleware('auth')->group(function(){
             Route::resource('setting',SettingsController::class);
         });
 
-
+        //Everything is deleted from this route
         Route::get('/delete/{id}/{model}',[MiscellaneousController::class,'SingleDelete'])->name('delete');
 
         //ajax throug axios
@@ -193,64 +193,6 @@ Route::middleware('auth')->group(function(){
             Route::get('/index',[CustomerController::class,'index'])->name('index');
         });
 
-        // feedback
-        Route::get('/feedback', [FeedBackController::class, 'index'])->name('feedback.index');
-
-        // problem and solving
-        Route::resource('problem', ProblemController::class)->except('create', 'destroy');
-        Route::get('/problem/destroy/{id}', [ProblemController::class, 'destroy'])->name('problem.destroy');
-
-        Route::resource('billings', BillingController::class)->only('index');
-        Route::get('/billings/destroy/{id}', [BillingController::class, 'destroy'])->name('billings.destroy');
-
-        Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
-        Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
-        Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');
-
-        // admin First Section
-        Route::resource('/home', HomeController::class)->only('create', 'update', 'store');
-
-        // about
-        Route::resource('/about', AboutController::class)->only('create', 'update', 'store');
-
-        // admin service section
-        Route::resource('/services', ServiceController::class)->except('destroy');
-        Route::get('services/destroy/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
-
-        // Story
-        Route::resource('stories', StoryController::class)->except('destroy');
-        Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
-        Route::get('/stories/status/{id}', [StoryController::class, 'status'])->name('stories.status');
-        Route::get('/stories/feature/{id}', [StoryController::class, 'feature'])->name('stories.feature');
-
-        // benefit and other Section title and subtitle
-        Route::resource('opportunitys', OpporcunityController::class);
-
-        // Congrats Route
-        Route::resource('congrats', CongratController::class);
-        Route::resource('country', CountryController::class)->except('show','destroy');
-        Route::get('country/destroy/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
-
-        // move to swizerland
-        Route::resource('moves', MoveToController::class)->except('destroy');
-        Route::get('/moves/destroy/{id}', [MoveToController::class, 'destroy'])->name('moves.destroy');
-        Route::get('/moves/status/{id}', [MoveToController::class, 'status'])->name('moves.status');
-
-
-        // Switzerland integration
-        Route::resource('integrations', IntegrationController::class);
-        Route::get('/integrations/destroy/{id}', [IntegrationController::class, 'destroy'])->name('integrations.destroy');
-        Route::get('/integrations/status/{id}', [IntegrationController::class, 'status'])->name('integrations.status');
-
-
-        //Help and support
-        Route::resource('/helps', HelpController::class);
-        Route::get('helps/destroy/{id}', [HelpController::class, 'destroy'])->name('helps.destroy');
-
-
-        // term and Condition
-        Route::resource('terms', TermController::class);
-
         //Setup
         Route::prefix('/setup')->name('setup.')->group(function(){
             //Client type
@@ -258,10 +200,6 @@ Route::middleware('auth')->group(function(){
 
             //Membership type
             Route::resource('/membership',MembershipTypeController::class);
-
-            //Benefit
-            Route::resource('/benefit',BenefitController::class)->except('destroy');
-            Route::get('/benefit/destroy/{id}', [BenefitController::class, 'destroy'])->name('benefit.destroy');
 
             //Links
             Route::resource('/link',LinkController::class);
@@ -275,6 +213,10 @@ Route::middleware('auth')->group(function(){
             //Video
             Route::resource('/video',VideoController::class);
 
+            Route::resource('country',
+                CountryController::class
+            )->except('show', 'destroy');
+            Route::get('country/destroy/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
 
         });
 
@@ -283,13 +225,6 @@ Route::middleware('auth')->group(function(){
             Route::resource('menu',MenuController::class);
             Route::resource('submenu',Submenucontroller::class);
         });
-
-        //Videos route
-
-        Route::resource('survival',ServiceGuideController::class);
-
-
-
 
 
         // content or Page Create Route
@@ -322,6 +257,75 @@ Route::middleware('auth')->group(function(){
                 Route::post('/store', [SettingController::class, 'userStore'])->name('store');
             });
         });
+
+        Route::prefix('/pages')->name('page.')->group(function(){
+            // admin First Section
+            Route::resource('/home', HomeController::class)->only('create', 'update', 'store');
+
+            // about
+            Route::resource('/about', AboutController::class)->only('create', 'update', 'store');
+
+            // Benefit
+            Route::resource('/benefit', BenefitController::class)->except('destroy');
+            Route::get('/benefit/destroy/{id}', [BenefitController::class, 'destroy'])->name('benefit.destroy');
+
+            // Congrats Route
+            Route::resource('congrats', CongratController::class);
+
+            //Survival page
+            Route::resource('survival', ServiceGuideController::class);
+
+
+            // feedback
+            Route::get('/feedback', [FeedBackController::class, 'index'])->name('feedback.index');
+
+            // problem and solving
+            Route::resource('problem', ProblemController::class)->except('create', 'destroy');
+            Route::get('/problem/destroy/{id}', [ProblemController::class, 'destroy'])->name('problem.destroy');
+
+            //billing
+            Route::resource('billings', BillingController::class)->only('index');
+            Route::get('/billings/destroy/{id}', [BillingController::class, 'destroy'])->name('billings.destroy');
+
+            //Subscriptions
+            Route::get('/subscriptions', [SubcriptionController::class, 'index'])->name('subscriptions.index');
+            Route::get('/subscriptions/cancel/{userId}/{subName}', [SubcriptionController::class, 'cancel'])->name('subscriptions.cancel');
+            Route::get('/subscriptions/resume/{userId}/{subName}', [SubcriptionController::class, 'resume'])->name('subscriptions.resume');
+
+
+            // admin service section
+            Route::resource('/services', ServiceController::class)->except('destroy');
+            Route::get('services/destroy/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+
+            // benefit and other Section title and subtitle
+            Route::resource('opportunitys', OpporcunityController::class);
+
+            // move to swizerland
+            Route::resource('moves', MoveToController::class)->except('destroy');
+            Route::get('/moves/destroy/{id}', [MoveToController::class, 'destroy'])->name('moves.destroy');
+            Route::get('/moves/status/{id}', [MoveToController::class, 'status'])->name('moves.status');
+
+
+            // Switzerland integration
+            Route::resource('integrations', IntegrationController::class);
+            Route::get('/integrations/destroy/{id}', [IntegrationController::class, 'destroy'])->name('integrations.destroy');
+            Route::get('/integrations/status/{id}', [IntegrationController::class, 'status'])->name('integrations.status');
+
+
+            //Help and support
+            Route::resource('/helps',HelpController::class);
+            Route::get('helps/destroy/{id}', [HelpController::class, 'destroy'])->name('helps.destroy');
+
+            // term and Condition
+            Route::resource('terms', TermController::class);
+
+        });
+
+    // Story
+    Route::resource('stories', StoryController::class)->except('destroy');
+    Route::get('stories/destroy/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
+    Route::get('/stories/status/{id}', [StoryController::class, 'status'])->name('stories.status');
+    Route::get('/stories/feature/{id}', [StoryController::class, 'feature'])->name('stories.feature');
 
     });
 // End admin route ===================================

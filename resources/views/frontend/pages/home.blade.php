@@ -182,6 +182,7 @@
                                 class=" mt-[10px] text-[20px] font-semibold tracking-tight text-gray-900  text-center">
                                 {{ $item->title }} </h5>
                             <p class="font-normal mt-[10px] 2xl:mb-0 mb-[23px] leading-normal md:mx-[40px] mx-[30px] text-[14px] text-center">
+
                                 {!! $item->first_para !!}
                             </p>
                         </a>

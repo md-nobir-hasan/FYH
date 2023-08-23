@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name='title'>
         Home Section
-       
+
     </x-slot>
- 
+
      <x-slot name='style'>
-   
+
 
      </x-slot>
 
@@ -15,7 +15,7 @@
             <div class="p-6 mx-auto bg-gray-100">
                 <div class="block mx-auto min-w-full rounded-lg bg-white p-6  shadow-lg dark:bg-neutral-700">
                     <h1 class="text-center font-bold text-2xl bg-white rounded mb-2">Home Section</h1>
-                    <form action="@if($homeSection!==null) {{route('admin.home.update',$homeSection->id)}} @else {{route('admin.home.store')}} @endif" method="POST" enctype="multipart/form-data">
+                    <form action="@if($homeSection!==null) {{route('admin.page.home.update',$homeSection->id)}} @else {{route('admin.page.home.store')}} @endif" method="POST" enctype="multipart/form-data">
                         @csrf
                       @if($homeSection!==null)  @method('PUT') @endif
                         <h4 class="font-bold text-xl underline text-left">Home Section</h4>
@@ -37,7 +37,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Title One: </label
                               >
-                              <input name="title_one"     @if($homeSection!==null) value="{{$homeSection->title_one}}" @endif 
+                              <input name="title_one"     @if($homeSection!==null) value="{{$homeSection->title_one}}" @endif
                                 class="@error('title_one') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="title_one" placeholder="Enter title One" />
@@ -64,7 +64,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Title Two: </label
                               >
-                              <input name="title_two"  @if($homeSection!==null) value="{{$homeSection->title_two}}" @endif 
+                              <input name="title_two"  @if($homeSection!==null) value="{{$homeSection->title_two}}" @endif
                                 class="@error('title_two') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="title_two" placeholder="Enter title Two" />
@@ -87,14 +87,14 @@
 
 
                             {{-- benifit and Other Titile And description --}}
-                            
+
                             <div class="text-left">
                                 <label
                                 for="benefit_title"
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Benefit Title : </label
                               >
-                              <input name="benefit_title"  @if($homeSection!==null) value="{{$homeSection->benefit_title}}" @endif 
+                              <input name="benefit_title"  @if($homeSection!==null) value="{{$homeSection->benefit_title}}" @endif
                                 class="@error('benefit_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="title_two" placeholder="Enter Bemefit title " />
@@ -115,7 +115,7 @@
                                    @enderror
                             </div>
 
-                            
+
                             {{-- story Title AND SUBTITLE --}}
                             <div class="text-left">
                                 <label
@@ -123,7 +123,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Story title : </label
                               >
-                              <input name="story_title"  @if($homeSection!==null) value="{{$homeSection->story_title}}" @endif 
+                              <input name="story_title"  @if($homeSection!==null) value="{{$homeSection->story_title}}" @endif
                                 class="@error('story_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="story_title" placeholder="Enter Story title " />
@@ -143,7 +143,7 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
                             </div>
-                            
+
 
                             {{-- fature title and subtitle --}}
                             <div class="text-left">
@@ -152,7 +152,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Feature Title : </label
                               >
-                              <input name="feature_title"  @if($homeSection!==null) value="{{$homeSection->feature_title}}" @endif 
+                              <input name="feature_title"  @if($homeSection!==null) value="{{$homeSection->feature_title}}" @endif
                                 class="@error('feature_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="feature_title" placeholder="Enter Feature title " />
@@ -180,7 +180,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Image Title : </label
                               >
-                              <input name="image_title"  @if($homeSection!==null) value="{{$homeSection->image_title}}" @endif 
+                              <input name="image_title"  @if($homeSection!==null) value="{{$homeSection->image_title}}" @endif
                                 class="@error('image_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="image_title" placeholder="Enter Iamge title " />
@@ -210,7 +210,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Service Title : </label
                               >
-                              <input name="service_title"  @if($homeSection!==null) value="{{$homeSection->service_title}}" @endif 
+                              <input name="service_title"  @if($homeSection!==null) value="{{$homeSection->service_title}}" @endif
                                 class="@error('service_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="service_title" placeholder="Enter Service title " />
@@ -239,7 +239,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Customer Title : </label
                               >
-                              <input name="customer_title"  @if($homeSection!==null) value="{{$homeSection->customer_title}}" @endif 
+                              <input name="customer_title"  @if($homeSection!==null) value="{{$homeSection->customer_title}}" @endif
                                 class="@error('customer_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="customer_title" placeholder="Enter Customer title " />
@@ -268,7 +268,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Share Title : </label
                               >
-                              <input name="share_title"  @if($homeSection!==null) value="{{$homeSection->share_title}}" @endif 
+                              <input name="share_title"  @if($homeSection!==null) value="{{$homeSection->share_title}}" @endif
                                 class="@error('share_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="share_title" placeholder="Enter Share title " />
@@ -296,7 +296,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Move Title : </label
                               >
-                              <input name="move_title"  @if($homeSection!==null) value="{{$homeSection->move_title}}" @endif 
+                              <input name="move_title"  @if($homeSection!==null) value="{{$homeSection->move_title}}" @endif
                                 class="@error('move_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="move_title" placeholder="Enter Move title " />
@@ -325,7 +325,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Integation Title : </label
                               >
-                              <input name="intr_title"  @if($homeSection!==null) value="{{$homeSection->intr_title}}" @endif 
+                              <input name="intr_title"  @if($homeSection!==null) value="{{$homeSection->intr_title}}" @endif
                                 class="@error('intr_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="intr_title" placeholder="Enter integation title " />
@@ -355,7 +355,7 @@
                                 class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                 >Help Title : </label
                               >
-                              <input name="help_title"  @if($homeSection!==null) value="{{$homeSection->help_title}}" @endif 
+                              <input name="help_title"  @if($homeSection!==null) value="{{$homeSection->help_title}}" @endif
                                 class="@error('help_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                 type="text"
                                 id="help_title" placeholder="Enter Help title " />
@@ -383,11 +383,11 @@
                                     class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                     >Thank Heading : </label
                                   >
-                                  <input name="thank_heading"  @if($homeSection!==null) value="{{$homeSection->thank_heading}}" @endif 
+                                  <input name="thank_heading"  @if($homeSection!==null) value="{{$homeSection->thank_heading}}" @endif
                                     class="@error('thank_heading') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                     type="text"
                                     id="thank_heading" placeholder="Enter Thank heading " />
-    
+
                                     @error('thank_heading')
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
@@ -399,16 +399,16 @@
                                     class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                     >Thank Title : </label
                                   >
-                                  <input name="thank_title"  @if($homeSection!==null) value="{{$homeSection->thank_title}}" @endif 
+                                  <input name="thank_title"  @if($homeSection!==null) value="{{$homeSection->thank_title}}" @endif
                                     class="@error('thank_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                     type="text"
                                     id="thank_title" placeholder="Enter Thank title " />
-    
+
                                     @error('thank_title')
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
                                 </div>
-    
+
                                 <div class="text-left">
                                     <label for="thank_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Thank Subtitle: </label>
                                         <textarea id="editor"  name="thank_subtitle" rows="2" class="@error('thank_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -428,16 +428,16 @@
                                   class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                   >Reaction Heading  : </label
                                 >
-                                <input name="reaction_heading"  @if($homeSection!==null) value="{{$homeSection->reaction_heading}}" @endif 
+                                <input name="reaction_heading"  @if($homeSection!==null) value="{{$homeSection->reaction_heading}}" @endif
                                   class="@error('reaction_heading') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                   type="text"
                                   id="reaction_heading" placeholder="Enter Reaction Heading " />
-  
+
                                   @error('reaction_heading')
                                   <div class="text-left text-red-600">{{ $message }}</div>
                                  @enderror
                               </div>
-  
+
                               <div class="text-left">
                                   <label for="reaction_titleOne" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Reation Title One: </label>
                                       <textarea  name="reaction_titleOne" rows="2" class="@error('reaction_titleOne') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -463,23 +463,23 @@
 
 
                             {{-- communuty after subcription title subtitle  --}}
-                            
+
                                  <div class="text-left">
                                   <label
                                   for="community_sub_title"
                                   class="mb-2 text-left inline-block text-neutral-700 dark:text-neutral-200"
                                   >community Subcription title  : </label
                                 >
-                                <input name="community_sub_title"  @if($homeSection!==null) value="{{$homeSection->community_sub_title}}" @endif 
+                                <input name="community_sub_title"  @if($homeSection!==null) value="{{$homeSection->community_sub_title}}" @endif
                                   class="@error('community_sub_title') is-invalid @enderror relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                                   type="text"
                                   id="community_sub_title" placeholder="Enter Community Subcription Title " />
-  
+
                                   @error('community_sub_title')
                                   <div class="text-left text-red-600">{{ $message }}</div>
                                  @enderror
                               </div>
-  
+
                               <div class="text-left">
                                   <label for="community_sub_subtitle" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Community Subcription Subtitle : </label>
                                       <textarea  name="community_sub_subtitle" rows="2" class="@error('community_sub_subtitle') is-invalid @enderror block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -508,7 +508,7 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                 @enderror
                             </div>
-                     
+
                             <div class="mb-3 text-left">
                                 <label
                                 for="lgImage"
@@ -523,7 +523,7 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                 @enderror
                             </div>
-                          
+
 
                             <div class="mb-3 text-left">
                                 <label
@@ -555,9 +555,9 @@
                                 @enderror
                             </div>
                         </div>
-                
 
-                     
+
+
                         <div class="mt-10">
                             <button class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                 Save</button>

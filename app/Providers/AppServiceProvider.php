@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Content;
+use App\Models\Feature;
 use App\Models\Menu;
 use App\Models\Setting;
 use App\Models\User;
@@ -45,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
             }
 
        }catch(\Exception $e){
-
+        dd('apservice provider error');
        }
 
     }

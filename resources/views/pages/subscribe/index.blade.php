@@ -27,7 +27,7 @@
                                     <button type="button"
                                         class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">PDF</button>
                                 </a>
-                                {{-- <a href="{{ route('admin.user.feature.create') }}">
+                                {{-- <a href="{{ route('admin.page.user.feature.create') }}">
                                     <button type="button"
                                         class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">Add
                                         new Customer</button>
@@ -107,9 +107,9 @@
                                             <td class="px-6 py-4 text-center flex">
                                                 @if ($n->edit)
                                                     @if($value->ends_at==null)
-                                                    <a href="{{route('admin.subscriptions.cancel',[$value->user_id,$value->name ])}}" class="bg-red-600 text-white px-3 py-1 rounded-lg">Cancel</a>
+                                                    <a href="{{route('admin.page.subscriptions.cancel',[$value->user_id,$value->name ])}}" class="bg-red-600 text-white px-3 py-1 rounded-lg">Cancel</a>
                                                     @else
-                                                    <a href="{{route('admin.subscriptions.resume',[$value->user_id,$value->name ])}}" class="bg-blue-600 text-white px-3 py-1 rounded-lg">Resume</a>
+                                                    <a href="{{route('admin.page.subscriptions.resume',[$value->user_id,$value->name ])}}" class="bg-blue-600 text-white px-3 py-1 rounded-lg">Resume</a>
                                                     @endif
                                                 @endif
 
@@ -219,7 +219,7 @@
                                         <td class="px-6 py-4 text-center flex">
                                             @if ($n->edit)
                                                 @if ($value->ends_at == null)
-                                                    <a href="{{ route('admin.subscriptions.update', [$value->user_id, $value->fname]) }}"
+                                                    <a href="{{ route('admin.page.subscriptions.update', [$value->user_id, $value->fname]) }}"
                                                         class="bg-red-600 text-white px-3 py-1 rounded-lg">Upgrade Plan</a>
                                             @endif
 
