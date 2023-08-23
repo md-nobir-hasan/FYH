@@ -5,7 +5,7 @@
 
 @section('content')
 <style>
-    
+
     a:nth-child(2)>img{
        padding:12px 20px 12px 20px;
     }
@@ -86,15 +86,15 @@
         .horizontal{
             display:none
         }
-        
+
     }
     @media (min-width: 0px) and (max-width: 1023px){
         .mbg{
             background-image:none
         }
     }
-    
-    
+
+
 
 </style>
     <!-- navbar section -->
@@ -108,7 +108,7 @@
                         {{ $home->title_one }}
                     @endif
                 </h3>
-                <p class="xl:ml-5 2xl:ml-0 capitalize lg:w-[749px] mt-[10px] font-normal text-[16px] lg:text-[20px] ">
+                <p class="xl:ml-5 2xl:ml-0  lg:w-[749px] mt-[10px] font-normal text-[16px] lg:text-[20px] ">
                     @if ($home !== null)
                         {{ $home->title_one_description }}
                     @endif
@@ -118,7 +118,7 @@
                         {{ $home->title_two }}
                     @endif
                 </h3>
-                <p class="xl:ml-5 2xl:ml-0 capitalize mt-[30px] font-normal text-[16px] lg:text-[20px] ">
+                <p class="xl:ml-5 2xl:ml-0  mt-[10px] font-normal text-[16px] lg:text-[20px] ">
                     @if ($home !== null)
                         {{ $home->title_two_description }}
                     @endif
@@ -242,7 +242,7 @@
                                         <div class="mt-[24px] ml-[5px]">
                                             <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $firstfeature->name }}.
                                             </h1>
-                                            <p class="capitalize text-[14px] tracking-wider font-normal">
+                                            <p class=" text-[14px] tracking-wider font-normal">
                                                 {{ $firstfeature->profession }} </p>
                                         </div>
                                     </div>
@@ -267,7 +267,7 @@
                                     <div class="mt-[24px] ml-3">
                                         <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $secondfeture->name }}
                                         </h1>
-                                        <p class="capitalize text-[14px] font-normal"> {{ $secondfeture->profession }} </p>
+                                        <p class=" text-[14px] font-normal"> {{ $secondfeture->profession }} </p>
                                     </div>
                                 </div>
                             </div>
@@ -331,8 +331,8 @@
                                     Read more
                                 </a>
                                 <h1 class="text-[20px] font-semibold mt-[20px]"> {{ $pStory->name }} <h1>
-                                        <p class="capitalize text-[14px] font-normal">{{ $pStory->profession }}</p>
-                                        <p class="capitalize text-[14px] font-normal mb-[20px]">{{ $pStory->city }} ,
+                                        <p class="text-[14px] font-normal">{{ $pStory->profession }}</p>
+                                        <p class="text-[14px] font-normal md:mb-0 mb-[20px]">{{ $pStory->city }} ,
                                             {{ $pStory->country->country }}
                                         </p>
                             </div>
@@ -354,7 +354,7 @@
                 @endif
             </h1>
 
-            <p class="text-center font-normal text-2xl uppercase">
+            <p class="text-center font-normal text-2xl">
                 @if ($home !== null)
                     {{ $home->image_title }}
                 @endif
@@ -391,7 +391,7 @@
                     {{ $home->service_title }}
                 @endif
             </h1>
-            <p class="text-center font-normal mx-5 capitalize text-[24px] leading-normal">
+            <p class="text-center font-normal mx-5 text-[24px] leading-normal">
                 @if ($home !== null)
                     {{ $home->service_subtitle }}
                 @endif
@@ -519,7 +519,7 @@
                             @endif
                         </h1>
 
-                        <p class="text-xl text-center mx-5 text-[#D1052C] capitalize">
+                        <p class="text-xl text-center mx-5 text-[#D1052C]">
                             @if ($home !== null)
                               {!! $home->share_subtitle !!}
                             @endif
