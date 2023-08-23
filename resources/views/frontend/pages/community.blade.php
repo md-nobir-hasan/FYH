@@ -64,7 +64,7 @@
             background-size:100% 755px
         }
     }
-    @media (min-width: 0px) and (max-width: 767px){
+    @media (min-width: 0px) and (max-width: 1279px){
         .cbg{
             background-image:none
         }
@@ -189,7 +189,7 @@
                     @if ($loop->index == 0 || $loop->index % 3 == 0)
                         <div class="cbg"
                             style="">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 xl:w-[1320px] mx-5  xl:mx-auto mt-6">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 xl:w-[1320px] mx-5  xl:mx-auto mt-6">
                     @endif
                     <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
                         {{-- <a href="#"> --}}

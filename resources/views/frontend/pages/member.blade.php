@@ -19,7 +19,7 @@
 @endif
 </h1>
 -->
-                        <h1 class="text-[50px] font-bold leading-normal xl:mx-0 lg:mx-48 md:mx-20 mx-5 text-[#D1052C]">Select your Pricing plan</h1>
+                        <h1 class="text-[50px] lg:w-[650px] font-bold leading-normal xl:mx-0 lg:mx-48 md:mx-20 mx-5 text-[#D1052C]">Select your Pricing plan</h1>
 
                     </div>
                     <div class='xl:w-[604px]'>

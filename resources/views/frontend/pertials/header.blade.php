@@ -24,6 +24,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     @yield('styles')
@@ -32,7 +35,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'public/js/toastr.css'])
 </head>
 
-<body class="antialiased" style="background:url(/images/Line.png);background-size:100%  ;background-repeat:no-repeat;">
+<body class="antialiased" style="background:url(/images/Line.png);background-size:100%  ;background-repeat:no-repeat;font-family:'Poppins'">
     <div class="mt-12 2xl:flex lg:flex xl:flex md:block  hidden" style="font-family: 'Poppins';">
         <div class="flex justify-between lg:w-[1320px]  mx-auto">
             @auth
