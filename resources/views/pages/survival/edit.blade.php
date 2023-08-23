@@ -18,7 +18,7 @@
                 <div class="block mx-auto min-w-full rounded-lg bg-white p-6  shadow-lg dark:bg-neutral-700">
                     <h1 class="text-center font-bold text-2xl bg-white rounded mb-2">Survival Guide</h1>
                     <form
-                        action="@if ($survival !== null) {{ route('admin.survival.update', $survival->id) }} @else {{ route('admin.survival.store') }} @endif"
+                        action="@if ($survival !== null) {{ route('admin.page.survival.update', $survival->id) }} @else {{ route('admin.page.survival.store') }} @endif"
                         method="POST" enctype="multipart/form-data">
                         @csrf
                         @if ($survival !== null)

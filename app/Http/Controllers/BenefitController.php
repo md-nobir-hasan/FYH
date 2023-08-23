@@ -20,7 +20,7 @@ class BenefitController extends Controller
     public function index()
     {
         $n['mdata'] = Benefit::orderBy('priority','asc')->get();
-        return view('pages.setup.benefit.index',$n);
+        return view('pages.benefit.index',$n);
     }
 
     /**
@@ -31,7 +31,7 @@ class BenefitController extends Controller
         if(!check('Benefit')->add){
             return back();
         }
-    return view('pages.setup.benefit.create');
+    return view('pages.benefit.create');
     }
 
     /**
@@ -43,13 +43,13 @@ class BenefitController extends Controller
             return back();
         }
 
-        
+
         if($request->hasFile('image')){
             $image = $request->file('image')->store('image');
       }else{
             $image = null;
       }
-       
+
         Benefit::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title, '-'),
@@ -57,7 +57,7 @@ class BenefitController extends Controller
             'description' => $request->description,
             'priority' => $request->priority,
         ]);
-        return redirect()->route('admin.setup.benefit.index')->with('success',$request->name.' successfylly created');
+        return redirect()->route('admin.page.benefit.index')->with('success',$request->name.' successfylly created');
     }
 
     /**
@@ -66,7 +66,7 @@ class BenefitController extends Controller
     public function show(Benefit $benefit)
     {
         $n['mdata'] = $benefit;
-        return view('pages.setup.benefit.show',$n);
+        return view('pages.benefit.show',$n);
     }
 
     /**
@@ -78,7 +78,7 @@ class BenefitController extends Controller
             return back();
         }
 
-        return view('pages.setup.benefit.edit',['mdata' =>$benefit]);
+        return view('pages.benefit.edit',['mdata' =>$benefit]);
     }
 
     /**
@@ -93,7 +93,7 @@ class BenefitController extends Controller
         if($request->hasFile('image')){
             if($benefit->image){
                  Storage::delete($benefit->image);
-                 
+
             }
             $image = $request->file('image')->store('image');
       }else{
@@ -107,7 +107,7 @@ class BenefitController extends Controller
             'description' => $request->description,
             'priority' => $request->priority,
         ]);
-        return redirect()->route('admin.setup.benefit.index')->with('success',$benefit->name.' successfylly updated');
+        return redirect()->route('admin.page.benefit.index')->with('success',$benefit->name.' successfylly updated');
     }
 
     /**
@@ -116,14 +116,14 @@ class BenefitController extends Controller
     public function destroy($id)
     {
            $benefit = Benefit::findOrFail($id);
-         
-      
+
+
         if($benefit->image){
             Storage::delete($benefit->image);
-            
+
        }
        $benefit->delete();
-     
+
        return Redirect::back()->with('success',' Benefit Delete SuccessfullY');
     }
 }

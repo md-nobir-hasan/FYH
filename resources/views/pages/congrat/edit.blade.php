@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name='title'>
         Congratulation Section
-       
+
     </x-slot>
-  
+
 
     <div class="p-4">
         <div class="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
@@ -11,11 +11,11 @@
             <div class="p-6 mx-auto bg-gray-100">
                 <div class="block mx-auto min-w-full rounded-lg bg-white p-6  shadow-lg dark:bg-neutral-700">
                     <h1 class="text-center font-bold text-2xl bg-white rounded mb-2">Congratulation</h1>
-                    <form action="@if($congrat!==null) {{route('admin.congrats.update',$congrat->id)}} @else {{route('admin.congrats.store')}} @endif" method="POST" enctype="multipart/form-data">
+                    <form action="@if($congrat!==null) {{route('admin.page.congrats.update',$congrat->id)}} @else {{route('admin.page.congrats.store')}} @endif" method="POST" enctype="multipart/form-data">
                         @csrf
                       @if($congrat!==null)  @method('PUT') @endif
                         <h4 class="font-bold text-xl underline text-left">Congrat Section</h4>
-                     
+
                         <div class="grid gap-6 mb-6 md:grid-cols-2">
 
                             <div class="text-left">
@@ -33,7 +33,7 @@
                                 <div class="text-left text-red-600">{{ $message }}</div>
                                @enderror
                             </div>
-                       
+
                             <div class="text-left">
                                 <label
                                 for="title"
@@ -72,7 +72,7 @@
                                     <div class="text-left text-red-600">{{ $message }}</div>
                                    @enderror
                             </div>
-                          
+
 
                             <div class="mb-6 ">
                                 <label for="opTwo"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left"> Oppronity Two: </label>
@@ -122,7 +122,7 @@
                                 <div class="text-left text-red-600">{{ $message }}</div>
                                @enderror
                             </div>
-                           
+
 
 
                             <div class="text-left">
@@ -189,12 +189,12 @@
                             </div>
 
                         </div>
-                     
 
 
-                     
 
-                     
+
+
+
                         <div class="mt-10">
                             <button class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                 Save</button>
