@@ -4,19 +4,19 @@
   opacity: 0.5;
 }
 </style>
-    <div class="bg-white w-[1320px] h-[850px] mt-[107px] pt-[23px] mb-[158px] rounded-xl  @if($planId) lg:mx-auto @else mx-auto lg:w-[886px]@endif">
-    <a href="{{ route('home') }}" class=" @if($planId) lg:mt-1 @else mb-10 flex items-center justify-center @endif">
-        <img src="{{ $setting->logo }}" alt="" class=" h-[37px] w-[111px] ml-[88px]">
+    <div class="bg-white xl:w-[1320px] 2xl:h-[900px] mt-[107px] pt-[23px] mb-[158px] rounded-xl lg:mx-auto">
+    <a href="{{ route('home') }}" class=" @if($planId) lg:mt-1  @endif">
+        <img src="{{ $setting->logo }}" alt="" class=" h-[37px] w-[111px] md:ml-10 ml-2 lg:ml-[88px]">
     </a>
     @if($planId)
     <a href="/membership" class="">
-        <button style="box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.20);" class="hover:bg-[#FCEEF1] hover:text-[#D1052C] rounded mb-4 text-[16px] font-bold text-[#848484] mt-4 w-[95px] py-2 border ml-[88px]">
+        <button style="box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.20);" class="hover:bg-[#FCEEF1] hover:text-[#D1052C] rounded mb-4 text-[16px] font-bold text-[#848484] mt-4 w-[95px] py-2 border md:ml-10 ml-2 lg:ml-[88px]">
 Back</button>
     </a>
     @endif
-    <div class=" @if($planId) flex @endif"
+    <div class=" lg:flex lg:flex-row flex flex-col-reverse lg:mx-0 md:mx-10 mx-2"
         style="font-family: 'Poppins';">
-        <form class="@if($planId) mr-[24px] lg:w-[702px] lg:h-[700px] ml-[88px] border-gray-300 border-2 lg:col-span-2 p-10 rounded-xl @endif" method="POST" action="{{ route('register') }}"
+        <form class=" lg:mr-[24px] lg:w-[702px] lg:mt-0 mt-5 lg:h-[700px] lg:ml-[88px]  border-gray-300 border-2 lg:col-span-2 p-10 rounded-xl" method="POST" action="{{ route('register') }}"
 
             enctype="multipart/form-data">
             @csrf

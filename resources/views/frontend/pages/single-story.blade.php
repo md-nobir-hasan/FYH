@@ -3,13 +3,62 @@
     {{ $story->name }}
 @endpush
 @section('content')
+<style>
+    .sbg{
+        background:url('/images/benifitbg.png');background-size:100% 525px;background-repeat:no-repeat;background-position:0 100%
+    }
+    .sharebg{
+        background:url(/images/lastbg.png);background-size:100% 100%;background-repeat:no-repeat;background-position:0 30px
+    }
+    .share{
+        background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:cover
+    }
+    @media (min-width: 0px) and (max-width: 768px){
+        .sharebg{
+            background:none
+        }
+        .share{
+            background:none
+        }
+    }
+    @media (min-width: 0px) and (max-width: 1023px){
+        .sbg{
+            background:none
+        }
+    }
+    @media (min-width: 1223px) and (max-width: 1279px){
+        .sbg{
+            background-size:100% 503px
+        }
+    }
+    @media (min-width: 1134px) and (max-width: 1143px){
+        .sbg{
+            background-size:100% 544px
+        }
+    }
+    @media (min-width: 1062px) and (max-width: 1133px){
+        .sbg{
+            background-size:100% 575px
+        }
+    }
+    @media (min-width: 1033px) and (max-width: 1061px){
+        .sbg{
+            background-size:100% 595px
+        }
+    }
+    @media (min-width: 1024px) and (max-width: 1032px){
+        .sbg{
+            background-size:100% 616px
+        }
+    }
+</style>
     <div class=" mt-[100px] mx-auto" style="font-family:'Poppins'">
-        <section class="border-2 rounded grid grid-cols-1 lg:grid-cols-4 px-5 w-[1320px] bg-white gap-[48px] mx-auto ">
-            <div class="col-span-1">
-                <img src="{{ Storage::url($story->image) }}" alt="" class="w-[308px] h-[308px] mt-[20px]" />
+        <section class="border-2 rounded grid grid-cols-1 lg:grid-cols-4 px-5 2xl:w-[1320px] bg-white gap-[48px] 2xl:mx-auto mx-5 lg:mx-10">
+            <div class="col-span-4 lg:col-span-1">
+                <img src="{{ Storage::url($story->image) }}" alt="" class="lg:w-[308px] w-full 2xl:h-[308px] mt-[20px]" />
             </div>
-            <div class="col-span-3 ">
-                <h1 class="text-[36px] mt-[10px] font-bold">“ {!! $story->title !!} ”</h1>
+            <div class="col-span-4 lg:col-span-3 ">
+                <h1 class="2xl:text-[36px] lg:text-[28px] text-[24px] mt-[10px] font-bold">“ {!! $story->title !!} ”</h1>
 
                 <div class="flex">
                     <p class="text-[#666565] mt-[10px] text-[16px] font-normal">Posted:
@@ -57,19 +106,19 @@
 
 
         <section id="releted">
-            <h1 class="text-2xl mt-[50px] w-[1320px] mx-auto -mb-5 font-bold">Related Stories</h1>
+            <h1 class="text-2xl mt-[50px] 2xl:w-[1320px] 2xl:mx-auto lg:mx-10 mx-5 -mb-5 font-bold">Related Stories</h1>
 
 
 
             @foreach ($stories->chunk(3) as $stres)
                 <!-- temporary single story page start -->
-                <div class=""
-                    style="background:url('/images/benifitbg.png');background-size:100% 525px;background-repeat:no-repeat;background-position:0 100%">
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 w-[1320px] mx-auto">
+                <div class="sbg"
+                    style="">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 2xl:w-[1320px] 2xl:mx-auto lg:mx-10 mx-5">
                         @foreach ($stres as $stry)
                             <div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
-                                <img class="h-[424px] w-full" src="/storage/{{ $stry->image }}" alt="" />
-                                <div class="px-[22px] mt-[20px] h-[500px]">
+                                <img class="xl:h-[424px] w-full" src="/storage/{{ $stry->image }}" alt="" />
+                                <div class="px-[22px] mt-[20px] xl:h-[500px]">
                                     <h5 class=" text-[20px] font-bold tracking-tight text-[#212427]">
                                         "{!! $stry->title !!}"</h5>
                                     <p class=" text-[14px] mt-[20px] font-normal text-[#212427] text-justify">
@@ -81,7 +130,7 @@
                                     <h1 class="text-xl font-semibold mt-[20px]">{{ $stry->name }}<h1>
                                             <p class="capitalize text-[16px] font-normal">{{ $stry->profession }}</p>
 
-                                            <p class="capitalize text-[16px] font-normal">{{ $stry->city }},
+                                            <p class="capitalize text-[16px] font-normal mb-5">{{ $stry->city }},
                                                 {{ $stry->country->country }}</p>
 
                                 </div>
@@ -103,18 +152,18 @@
                         </div> -->
 
         </section>
-        <section class=" mb-[-100px]"
-            style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
+        <section class=" mb-[-100px] share"
+            style="">
             <div
-                class="pb-10 pt-56 mt-[69px]"style="background:url(/images/lastbg.png);background-size:100% 100%;background-repeat:no-repeat;background-position:0 30px">
+                class="pb-10 pt-56 mt-[69px] sharebg"style="">
                 <div class="pb-14 shadow-lg">
-                    <h1 class="font-bold text-5xl text-[#212427] text-center">
+                    <h1 class="font-bold text-[50px] lg:leading-0 leading-[60px] text-[#212427] text-center">
                         @if ($share !== null)
                             {!! $share->share_title !!}
                         @endif
                     </h1>
 
-                    <p class="text-xl text-center text-[#D1052C]">
+                    <p class="text-xl text-center mx-5 text-[#D1052C]">
                         @if ($share !== null)
                             {!! $share->share_subtitle !!}
                         @endif

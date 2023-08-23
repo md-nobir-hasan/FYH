@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mt-[80px] pt-[12vh]">
     <div class="shadow-xl mx-40 pb-[20vh]">
-    <form method="POST" action="{{ route('password.store') }}" class="border mx-auto px-20 bg-white rounded-2xl w-[584px] h-[470px]">
+    <form method="POST" action="{{ route('password.store') }}" class="border mx-auto px-20 bg-white rounded-2xl xl:w-[584px] xl:h-[470px]">
         @csrf
 
         <div class="flex justify-center items-center mt-3">

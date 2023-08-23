@@ -40,7 +40,7 @@ class HomeSeeder extends Seeder
          'move_subtile' => 'This guide will help you to integrate easier, more meaningful and fun',
          'intr_title' => 'Integration In Switzerland',
          'intr_subtile' => 'This guide will help you to integrate easier, more meaningful and fun',
-         'help_image' => 'image/helpBanner.png',
+         'help_image' => 'image/helpBanner.svg',
          'help_title' => 'How can we help you',
           'help_subtile' => 'CHOOSE A CATEGORY TO FIND THE HELP YOU NEED',
          'thank_heading' => 'Thank you',

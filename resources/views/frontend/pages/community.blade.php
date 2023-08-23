@@ -208,7 +208,7 @@
                                 class="text-[#D1052C] font-bold text-base mx-[22px]">Read More</a>
                             <h3 class="font-semibold text-[20px] mx-[22px] mt-5 text-[#212427]">{{ $story->name }}</h3>
                             <p class="text-[#212427] mx-[22px] text-sm font-normal">{{ $story->profession }}</p>
-                            <p class="text-[#212427] text-sm mx-[22px] font-normal">
+                            <p class="text-[#212427] text-sm mx-[22px] font-normal lg:mb-[0] mb-[20px]">
                                 {{ $story->city }}, {{ $countryName->country }}
                             </p>
                         </div>

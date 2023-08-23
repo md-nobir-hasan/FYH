@@ -3,13 +3,13 @@
     Profile
 @endpush
 @section('content')
-<div class="w-[1320px] mx-auto mt-[100px]" style="font-family:'Poppins'">
+<div class="2xl:w-[1320px] w-full mx-auto mt-[100px]" style="font-family:'Poppins'">
     @if($myStory->count() > 0)
 <section class="border-2 bg-white rounded grid grid-cols-1 lg:grid-cols-4 p-6 gap-6">
          
            @foreach ($myStory->slice(0,1) as $story)
            <div class="col-span-1">
-            <img src="{{'/storage/'. $story->image}}" alt="" class="w-[308px] h-[308px]"/>
+            <img src="{{'/storage/'. $story->image}}" alt="" class="2xl:w-[308px] 2xl:h-[308px]"/>
         </div>
         <div class="col-span-3">
             <h1 class="text-[36px] font-bold mb-[10px]">“{{$story->title}}”</h1>
