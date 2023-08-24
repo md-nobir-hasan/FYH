@@ -69,12 +69,12 @@
     
     @media (min-width: 1024px) and (max-width: 1031px){
         .abg{
-            background-size:100% 486px
+            background-size:100% 520px
         }
     }
     @media (min-width: 1032px) and (max-width: 1057px){
         .abg{
-            background-size:100% 486px
+            background-size:100% 520px
         }
     }
     @media (min-width: 1058px) and (max-width: 1279px){
@@ -177,7 +177,7 @@
             <div class="">
                 @if ($about !== null)
                     <img src="/storage/image/about-rect1.png" alt="" class="w-full 2xl:w-[561px] h-[316px]">
-                    <h1 class="-mt-44 xl:ml-24 lg:ml-16 md:ml-56 ml-16 absolute xl:text-[50px] lg:text-[40px] md:text-[50px] text-[30px] font-black text-white">{!! $about->fimg_title !!}
+                    <h1 class="-mt-44 xl:ml-10 lg:ml-8 md:ml-56 ml-16 absolute xl:text-[50px] lg:text-[40px] md:text-[50px] text-[30px] font-black text-white">{!! $about->fimg_title !!}
                 @endif
             </div>
             <div class="lg:w-[735px] lg:ml-[24px]">
@@ -203,7 +203,7 @@
             <div>
                 @if ($about !== null)
                     <img src="/storage/image/about-rect2.png" alt="" class="2xl:w-[561px] w-full h-[316px]">
-                    <h1 class="absolute xl:text-[50px] lg:text-[40px] md:text-[50px] text-[30px] font-black -mt-48 xl:ml-24 lg:ml-16 md:ml-56 ml-16 text-white"><span
+                    <h1 class="absolute xl:text-[50px] lg:text-[40px] md:text-[50px] text-[30px] font-black -mt-48 xl:ml-6 lg:ml-2 md:ml-56 ml-6 text-white"><span
                             class="">{!! $about->simg_title !!}
                 @endif
             </div>

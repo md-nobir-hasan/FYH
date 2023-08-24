@@ -41,10 +41,20 @@
     }
     @media (min-width: 0px) and (max-width: 767px){
         .bbg{
-            background-size:100% 330px
+            background-size:100% 360px
         }
         .pbg{
             background-image:none
+        }
+    }
+    @media (min-width: 1061px) and (max-width: 1279px){
+        .bbg{
+            background-size:100% 413px
+        }
+    }
+    @media (min-width: 1024px) and (max-width: 1060px){
+        .bbg{
+            background-size:100% 435px
         }
     }
     @media (min-width: 768px) and (max-width: 1020px){
@@ -54,22 +64,22 @@
     }
     @media (min-width: 1183px) and (max-width: 1279px){
         .pbg{
-            background-size:100% 480px
+            background-size:100% 560px
         }
     }
     @media (min-width: 1108px) and (max-width: 1182px){
         .pbg{
-            background-size:100% 500px
+            background-size:100% 613px
         }
     }
     @media (min-width: 1104px) and (max-width: 1107px){
         .pbg{
-            background-size:100% 530px
+            background-size:100% 610px
         }
     }
     @media (min-width: 1024px) and (max-width: 1103px){
         .pbg{
-            background-size:100% 550px
+            background-size:100% 675px
         }
     }
     @media (min-width: 0px) and (max-width: 1535px){
@@ -164,14 +174,15 @@
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
                         <a href="{{route('benefit.details',[$item->id])}}"
-                            class=" 2xl:w-[424px] w-full h-[234px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
+                            class=" 2xl:w-[424px] w-full xl:h-[234px]  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                             <img src="{{ '/storage/' . $item->image }}" alt="{{ $item->title }}"
                                 class="h-20 w-20 p-2 mx-auto mt-[16px] rounded-full"
                                 style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                             <h5
                                 class=" mt-[10px] text-[20px] font-semibold tracking-tight text-gray-900  text-center">
                                 {{ $item->title }} </h5>
-                            <p class="font-normal mt-[10px]  leading-normal md:mx-[40px] mx-[30px] text-[14px] text-center">
+                            <p class="font-normal mt-[10px] 2xl:mb-0 mb-[23px] leading-normal md:mx-[40px] mx-[30px] text-[14px] text-center">
+
                                 {!! $item->first_para !!}
                             </p>
                         </a>
@@ -204,7 +215,7 @@
                 @foreach ($featureStory->slice(0, 1) as $firstfeature)
                     <a href="{{route('single-story',$firstfeature->id)}}">
                         <div class="2xl:w-[1320px] xl:mx-auto lg:mx-5 mt-[20px] grid grid-cols-1 lg:grid-cols-5">
-                            <div class="col-span-2  xl:mx-5">
+                            <div class="col-span-2">
                                 @php
                                     $title = $firstfeature->title;
                                 @endphp
@@ -213,15 +224,15 @@
                                 <img src="{{ Storage::url($firstfeature->feature_img) }}" alt=""
                                     class="h-[316px] xl:w-[561px] w-full">
                                 </div>
-                                <div class="absolute xl:ml-[70px] lg:ml-[40px] md:ml-[250px] ml-[60px] mt-[-178px]" style="">
-                                    <h1 class=" text-white lg:w-[400px] md:w-[400px] w-[300px]  xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black">
+                                <div class="absolute xl:ml-10 lg:ml-[20px] md:ml-[250px] ml-[60px] mt-[-178px]" style="">
+                                    <h1 class=" text-white xl:w-[460px] lg:w-[390px] md:w-[500px] w-[280px]  xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black">
 
                                         {!! $firstfeature->title !!}
                                     </h1>
                                     {{-- <h1 class=" text-white  text-[50px] font-black text-center"> {!! $firstfeature->title !!}</h1> --}}
                                 </div>
                             </div>
-                            <div class="col-span-3">
+                            <div class="col-span-3 lg:ml-5 ml-0 2xl:ml-0">
 
                                 <div class="2xl:ml-6 xl:mx-0 2xl:mx-0 xl:mr-5 2xl:mr-0 lg:mx-0 mx-5">
                                     <p class=" font-normal text-base text-[#212427] text-justify">
@@ -262,14 +273,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-2 md:mx-0 mx-5 2xl:ml-4">
+                        <div class="col-span-2 md:mx-0 mx-5 2xl:ml-4 2xl:mr-0 lg:mr-5">
                             @php
                                 $title = str_split($secondfeture->title, 15);
                             @endphp
                             <img src="{{ Storage::url($secondfeture->feature_img) }}" alt=""
                                 class="h-[316px] w-full lg:w-[561px]">
-                            <div class="absolute ml-[40px] md:ml-[200px] lg:ml-[50px] mt-[-180px]" style="">
-                                <h1 class=" text-white md:w-[400px] lg:w-[350px] w-[250px] xl:w-[400px] xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black text-center"> {!! $secondfeture->title !!} </h1>
+                            <div class="absolute ml-[20px] md:ml-[200px] xl:ml-[20px] lg:ml-[0px] mt-[-180px]" style="">
+                                <h1 class=" text-white md:w-[500px] lg:w-[400px] w-[300px] xl:w-[480px] xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black text-center"> {!! $secondfeture->title !!} </h1>
                                 </h1>
                             </div>
                         </div>
@@ -394,7 +405,7 @@
                         <div class="mr-[27px] ml-4">
                             <div class="flex justify-center items-center"><img src="{{ asset($item->image) }}"
                                     alt="" class="w-[100px] h-[100px]" /></div>
-                            <h1 class="font-semibold text-xl text-center "> {{ $item->title }} </h1>
+                            <h1 class="font-semibold text-xl 2xl:w-[160px] text-center "> {{ $item->title }} </h1>
                             <p class="text-center 2xl:-mx-20 text-base font-normal"> {!! $item->description !!} </p>
                         </div>
                         @if (!$loop->last)

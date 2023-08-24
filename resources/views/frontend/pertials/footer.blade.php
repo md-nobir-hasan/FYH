@@ -71,7 +71,7 @@
 
             </div>
             <div class="grid grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3">
-                <div class="ml-20">
+                <div class="lg:ml-20">
                     <h2 class="mb-6 text-sm font-semibold  uppercase ">Our Contacts</h2>
                     <ul class="font-medium">
                         <li class="mb-4">
@@ -86,7 +86,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="ml-20">
+                <div class="lg:ml-20">
                     <h2 class="mb-6 text-sm font-semibold uppercase ">Explore</h2>
                     <ul class="  font-medium">
                         <li>
@@ -129,11 +129,11 @@
             </div>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
-        <div class="sm:flex sm:items-center sm:justify-between mx-36">
+        <div class="sm:flex sm:items-center sm:justify-between lg:mx-36">
             <span class="text-sm  sm:text-center ">© {{date("Y")}} <a
                     class="hover:underline">Copyright © {{date("Y")}} FYH, All rights reserved. Powered by Fozlay.
             </span>
-            <div class="md:flex mt-4 space-x-6 sm:block sm:justify-center sm:mt-0">
+            <div class="flex mt-4 space-x-6 sm:block sm:justify-center sm:mt-0">
                 <a href="{{route('terms.condition')}}" class="text-gray-500 hover:text-gray-900 ">
 
                     <span class="text-white">Terms of use</span>
