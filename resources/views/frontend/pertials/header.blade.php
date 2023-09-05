@@ -36,7 +36,7 @@
 </head>
 
 <body class="antialiased" style="background:url(/images/Line.png);background-size:100%  ;background-repeat:no-repeat;font-family:'Poppins'">
-    <div class="mt-12 2xl:flex lg:flex xl:flex md:block  hidden" style="font-family: 'Poppins';">
+    <div class="mt-12 2xl:flex lg:flex xl:flex  hidden" style="font-family: 'Poppins';">
         <div class="flex justify-between lg:w-[1320px]  mx-auto">
             @auth
                 <a href="{{ route('user.home') }}"><img src="{{ $setting->logo }}" alt=""
@@ -349,13 +349,13 @@
     </div>
 
     <nav class="bg-white border-gray-200 ">
-        <div class="2xl:hidden md:hidden lg:hidden flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="lg:hidden flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center">
 
                 <img src="/images/fyhlogo.png" class="w-20 h-7" />
             </a>
             <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                 aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -364,38 +364,38 @@
                         d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
             </button>
-            <div class="hidden w-full md:block md:w-auto " id="navbar-default">
+            <div class="hidden w-full  " id="navbar-default">
                 <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
+                    class="font-medium flex flex-col p-4  mt-4 border border-gray-100 rounded-lg bg-gray-50   ">
                     @if (auth()->user() == null)
                         <li>
                             <a href="{{ route('member') }}"
-                                class="block py-2 pl-3 pr-4 text-black hover:hover:bg-[#D1052C] hover:text-white rounded md:bg-transparent md:text-blue-700 md:p-0  {{ request()->is('membership') ? 'active' : '' }} "
+                                class="block py-2 pl-3 pr-4 text-black hover:hover:bg-[#D1052C] hover:text-white rounded  {{ request()->is('membership') ? 'active' : '' }} "
                                 aria-current="page">Membership</a>
                         </li>
                     @endif
                     @auth
                         <li>
                             <a href="{{ route('share.story') }}"
-                                class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ request()->is('share-story') ? 'active' : '' }}">Share
+                                class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white {{ request()->is('share-story') ? 'active' : '' }}">Share
                                 Story</a>
                         </li>
                     @endauth
                     <li>
                         <a href="{{ route('community') }}"
-                            class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ request()->is('community') ? 'active' : '' }}">Community</a>
+                            class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white {{ request()->is('community') ? 'active' : '' }}">Community</a>
                     </li>
                     <li>
                         <a href="{{ route('benefit') }}"
-                            class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ request()->is('benefits') ? 'active' : '' }}">Benifits</a>
+                            class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white {{ request()->is('benefits') ? 'active' : '' }}">Benifits</a>
                     </li>
                     <li>
                         <a href="{{ route('about') }}"
-                            class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 {{ request()->is('about') ? 'active' : '' }}">About</a>
+                            class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white {{ request()->is('about') ? 'active' : '' }}">About</a>
                     </li>
                     <div class="relative" data-te-dropdown-ref>
                         <button
-                            class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  {{ request()->is('guide*') ? 'active' : '' }} flex mt-3"
+                            class="block py-2 pl-3 pr-4 text-black rounded hover:hover:bg-[#D1052C] hover:text-white  {{ request()->is('guide*') ? 'active' : '' }} flex mt-3"
                             type="button" id="dropdownMenuButton1" data-te-dropdown-toggle-ref aria-expanded="false"
                             data-te-ripple-init data-te-ripple-color="light">
                             Guide

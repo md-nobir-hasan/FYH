@@ -41,12 +41,19 @@
     }
     @media (min-width: 0px) and (max-width: 767px){
         .bbg{
-            background-size:100% 360px
+            background-size:100% 290px
         }
         .pbg{
             background-image:none
         }
     }
+
+    @media (min-width: 768px) and (max-width: 820px){
+        .bbg{
+            background-size:100% 437px
+        }
+    }
+    
     @media (min-width: 1061px) and (max-width: 1279px){
         .bbg{
             background-size:100% 413px
@@ -82,7 +89,7 @@
             background-size:100% 675px
         }
     }
-    @media (min-width: 0px) and (max-width: 1535px){
+    @media (min-width: 0px) and (max-width: 1279px){
         .horizontal{
             display:none
         }
@@ -93,7 +100,13 @@
             background-image:none
         }
     }
-
+    @media (min-width: 1310px) and (max-width: 1531px){
+        .ml{
+            margin-left:50px
+        }
+        
+    }
+    
 
 
 </style>
@@ -101,29 +114,29 @@
     <div class="" style="font-family: 'Poppins';">
 
         <!-- hero section -->
-        <div class="lg:mt-[116px] mt-[50px] xl:flex block  2xl:w-[1320px] mx-auto hero">
-            <div class="lg:w-[754px] lg:mx-auto xl:mx-0 ml-5 ">
-                <h3 class="lg:text-[68px] text-[48px] xl:ml-5 2xl:ml-0 font-bold lg:leading-[85px] leading-[50px] text-[#212427]">
+        <div class="lg:mt-[116px] mt-[50px] xl:flex block  2xl:w-[1320px] mx-auto hero ml">
+            <div class="lg:w-[754px] lg:mx-auto xl:mx-5  2xl:ml-0 ">
+                <h3 class="lg:text-[68px] mx-[5px] lg:text-start text-center text-[48px] xl:ml-0 2xl:ml-0 font-bold lg:leading-[85px] leading-[50px] text-[#212427]">
                     @if ($home !== null)
                         {{ $home->title_one }}
                     @endif
                 </h3>
-                <p class="xl:ml-5 2xl:ml-0  lg:w-[749px] mt-[10px] font-normal text-[16px] lg:text-[20px] ">
+                <p class="xl:ml-0 lg:text-start text-center 2xl:ml-0 lg:w-[749px] xl:w-full  mt-[10px] font-normal text-[16px] lg:text-[20px] ">
                     @if ($home !== null)
                         {{ $home->title_one_description }}
                     @endif
                 </p>
-                <h3 class="xl:ml-5 2xl:ml-0 lg:text-[68px] text-[48px] leading-[50px] font-bold mt-[25px] text-[#212427]">
+                <h3 class="xl:ml-0 lg:text-start text-center 2xl:ml-0 lg:text-[68px] text-[48px] leading-[50px] md:leading-[85px] font-bold mt-[25px] text-[#212427]">
                     @if ($home !== null)
                         {{ $home->title_two }}
                     @endif
                 </h3>
-                <p class="xl:ml-5 2xl:ml-0  mt-[10px] font-normal text-[16px] lg:text-[20px] ">
+                <p class="xl:ml-5 lg:text-start text-center 2xl:ml-0  mt-[10px] font-normal text-[16px] lg:text-[20px] ">
                     @if ($home !== null)
                         {{ $home->title_two_description }}
                     @endif
                 </p>
-                <div class="flex xl:ml-5 2xl:ml-0">
+                <div class="lg:flex flex lg:justify-start justify-center items-center xl:ml-5 2xl:ml-0">
                     <a href="{{ $setting->trail ? route('register') : route('member') }}">
                         <div class="mt-[50px] text-white lg:w-72 w-[200px]  rounded flex justify-center items-center h-16 font-bold"
                             style="background-color:#D1052C"><button
@@ -144,9 +157,9 @@
                 </div>
             </div>
             <!-- make changing section -->
-            <div class="mt-[40px] md:block hidden ">
+            <div class="mt-[40px] lg:block flex justify-center items-center">
                 @if ($home !== null)
-                    <img src="/images/Theme.png" alt="" class="2xl:w-[605px] xl:w-[480px] w-[300px] md:w-[550px] lg:h-[406px] lg:mx-auto xl:mx-0 xl:ml-[40px]  xl:absolute change">
+                    <img src="/images/Theme.png" alt="" class="2xl:w-[605px] xl:w-full w-[300px] sm:w-[500px] md:w-[550px] lg:h-[406px] lg:ml-[135px] ml-5 xl:mx-0 2xl:ml-[40px]  2xl:absolute change">
                 @endif
             </div>
             <!-- make changing section end -->
@@ -157,7 +170,7 @@
             >
             <div class="lg:mx-0 mx-5">
             <div>
-                <h1 class="text-[50px] font-bold text-center text-[#212427]">
+                <h1 class="text-[50px] font-bold text-center  text-[#212427] leading-[50px] lg:leading-normal">
                     @if ($home !== null)
                         {{ $home->benefit_title }}
                     @endif
@@ -169,7 +182,7 @@
                 </p>
             </div>
             <!-- benifit card section -->
-            <div class="2xl:mx-auto xl:mx-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-6 mt-[20px] 2xl:w-[1320px]">
+            <div class="2xl:mx-auto lg:mx-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-6 mt-[20px] 2xl:w-[1320px]">
 
                 @if ($benefits->count() > 0)
                     @foreach ($benefits as $item)
@@ -197,9 +210,9 @@
         </div>
         <!-- Benifit section end -->
         <!-- Featured story start -->
-        <section class="lg:mt-[100px] mt-[50px]">
+        <section class="mt-[100px]">
             <div>
-                <h1 class="text-[50px] font-bold text-center text-[#212427]">
+                <h1 class="text-[50px] font-bold text-center md:leading-normal leading-[50px]  text-[#212427]">
                     @if ($home !== null)
                         {{ $home->feature_title }}
                     @endif
@@ -260,7 +273,7 @@
                     <div class="mt-6 flex flex-col-reverse lg:grid grid-cols-1  lg:grid-cols-5 2xl:w-[1320px] mx-auto">
 
                         <div class="col-span-3 2xl:mx-0 xl:mx-5 mx-5">
-                            <div class="">
+                            <div class="2xl:mr-2">
                                 <p class=" font-normal text-[16px] text-justify"> {!! $secondfeture->description !!} </p>
                                 <div class="flex">
                                     <img src="{{ storage::url('image/ellipse.png') }}" alt=""
@@ -397,7 +410,7 @@
                     {{ $home->service_subtitle }}
                 @endif
             </p>
-            <div class="2xl:w-[1320px] xl:mx-auto  mt-10 grid lg:grid-cols-2 2xl:gap-0 gap-6 2xl:grid-cols-7">
+            <div class="2xl:w-[1320px] xl:mx-20 2xl:mx-auto mt-10 grid lg:grid-cols-2 gap-6 xl:gap-0 xl:grid-cols-7">
 
 
                 @if ($services->count() > 0)
@@ -405,12 +418,12 @@
                         <div class="mr-[27px] ml-4">
                             <div class="flex justify-center items-center"><img src="{{ asset($item->image) }}"
                                     alt="" class="w-[100px] h-[100px]" /></div>
-                            <h1 class="font-semibold text-xl 2xl:w-[160px] text-center "> {{ $item->title }} </h1>
-                            <p class="text-center 2xl:-mx-20 text-base font-normal"> {!! $item->description !!} </p>
+                            <h1 class="font-semibold text-xl xl:w-[160px] text-center "> {{ $item->title }} </h1>
+                            <p class="text-center xl:-mx-24 lg:mx-10 mx-28 text-base font-normal"> {!! $item->description !!} </p>
                         </div>
                         @if (!$loop->last)
                             <div class="mt-16 horizontal">
-                                <hr class="border w-[193px] 2xl:visible -mt-[15px] bg-[#D9D9D9]">
+                                <hr class="border w-[193px] xl:visible -mt-[15px] bg-[#D9D9D9]">
                             </div>
                         @endif
                     @endforeach
@@ -450,7 +463,7 @@
                                                     <div class=" 2xl:mx-auto mx-5 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                         @foreach ($items as $item)
                                                             <a href="javascript:void(0)"
-                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="{{ '/storage/' . $item->image }}"
@@ -474,7 +487,7 @@
                                                                             {{ $item->profession }} </p>
                                                                     </div>
                                                                 </div>
-                                                                <p class="font-normal mx-[17px] text-justify text-base">
+                                                                <p class="font-normal mx-[17px] text-justify text-base pb-5">
                                                                     {!! Str::limit($item->description, 235) !!}
                                                                 </p>
                                                             </a>
@@ -510,11 +523,11 @@
             <!-- Success section end -->
             <!-- last section start -->
             <section class="mt-[100px] mb-[-100px]"
-                style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:center">
+                style="background:url(/images/Line2.png);background-size:100% ;background-repeat:no-repeat;background-position:0 120px;">
                 <div
-                    class="pb-10 py-28 "style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;">
-                    <div class="pb-14 shadow-lg">
-                        <h1 class="font-bold text-[50px] text-[#212427] text-center">
+                    class="pb-20 py-28 " style="background:url(/images/lastbg.png);background-size:100%;background-repeat:no-repeat;background-position:0 30px">
+                    <div class="pb-[60px] pt-[70px]" style="box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+                        <h1 class="font-bold text-[50px] text-[#212427] md:leading-normal leading-[50px] text-center">
                             @if ($home !== null)
                                 {!! $home->share_title !!}
                             @endif
@@ -536,7 +549,7 @@
                                         Story</button></a>
                             @else
                                 <a href="{{ route('member') }}" class=" flex justify-center items-center"><button
-                                        class="lg:w-48 mt-3 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
+                                        class="lg:w-48 mt-5 p-3 rounded-lg font-semibold  bg-[#D1052C] text-white">Share Your
                                         Story</button></a>
                             @endif
                         @endauth
