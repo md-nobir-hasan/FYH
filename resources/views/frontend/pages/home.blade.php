@@ -279,7 +279,7 @@
                             <div class="col-span-3 lg:ml-5 ml-0 2xl:ml-0">
 
                                 <div class="2xl:ml-6 xl:mx-0 2xl:mx-0 xl:mr-5 2xl:mr-0 lg:mx-0 mx-5">
-                                    <p class=" font-normal text-base text-[#212427] text-justify">
+                                    <p class=" font-normal h-[220px] overflow-hidden text-base text-[#212427] text-justify">
                                         {!! $firstfeature->description !!} </p>
                                     <div class="flex">
                                         <img src="/storage/image/ellipse.png" alt=""
@@ -306,14 +306,14 @@
 
                             <div class="col-span-3 2xl:mx-0 xl:mx-5 mx-5">
                                 <div class="2xl:mr-2">
-                                    <p class=" font-normal text-[16px] text-justify"> {!! $secondfeture->description !!} </p>
+                                    <p class=" font-normal h-[220px] overflow-hidden text-[16px] text-justify"> {!! $secondfeture->description !!} </p>
                                     <div class="flex">
                                         <img src="{{ storage::url('image/ellipse.png') }}" alt=""
                                             class="h-[52px] w-[52px] mt-[24px]">
                                         <div class="mt-[24px] ml-3">
                                             <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $secondfeture->name }}
                                             </h1>
-                                            <p class=" text-[14px] font-normal"> {{ $secondfeture->profession }} </p>
+                                            <p class=" text-[14px]  font-normal"> {{ $secondfeture->profession }} </p>
                                         </div>
                                     </div>
                                 </div>
