@@ -60,11 +60,11 @@
                     <label for="search" class="mb-2 text-sm font-medium sr-only "></label>
                     <div class="relative">
 
-                        <input type="email" id="search" name="email"
-                            class="block rounded-3xl w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                        <input type="email" id="search" name=""
+                            class="block rounded-3xl w-full p-4 xl:pl-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                             placeholder="your email adress..." required>
                         <button type="submit"
-                            class="text-[#D1052C] absolute right-2.5 bottom-2.5 font-bold focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2  ">Subscribe<i
+                            class="text-[#D1052C] absolute right-2.5 bottom-2.5 font-bold focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm xl:px-4 py-2  ">Subscribe<i
                                 class="fas fa-arrow-right ml-1"></i></button>
                     </div>
                 </form>
