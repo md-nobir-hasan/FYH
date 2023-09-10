@@ -139,8 +139,8 @@
     <div class="" style="font-family: 'Poppins';">
 
         <!-- hero section -->
-        <div class="lg:mt-[116px] mt-[50px] xl:flex block  2xl:w-[1320px] mx-auto hero ml">
-            <div class="lg:w-[754px] lg:mx-auto xl:mx-5  2xl:ml-0 ">
+        <div class="lg:mt-[116px] mt-[50px] flex flex-col-reverse xl:flex-row xl:flex 2xl:w-[1320px] mx-auto hero ml">
+            <div class="lg:w-[754px] lg:mx-auto xl:mx-5 2xl:ml-0 ">
                 <h3
                     class="lg:text-[68px] mx-[5px] lg:text-start text-center text-[48px] xl:ml-0 2xl:ml-0 font-bold lg:leading-[85px] leading-[50px] text-[#212427]">
                     @if ($home !== null)
@@ -164,11 +164,11 @@
                         {{ $home->title_two_description }}
                     @endif
                 </p>
-                <div class="lg:flex flex lg:justify-start justify-center items-center xl:ml-5 2xl:ml-0">
-                    <a href="{{ $setting->trail ? route('register') : route('member') }}">
-                        <div class="mt-[50px] text-white lg:w-72 w-[200px]  rounded flex justify-center items-center h-16 font-bold"
+                <div class="lg:flex  lg:justify-start block xl:ml-5 2xl:ml-0">
+                    <a href="{{ $setting->trail ? route('register') : route('member') }}" class="">
+                        <div class="mt-[50px] text-white lg:w-72 lg:mx-0 mx-[28px] lg:rounded rounded-[25px] flex justify-center items-center py-[20px] font-bold"
                             style="background-color:#D1052C"><button
-                                class="mr-1 text-xl font-bold">{{ $setting->trail ? 'Start Free Trail' : 'Join FYH now' }}</button>
+                                class=" text-xl font-bold">{{ $setting->trail ? 'Start Free Trail' : 'Join FYH now' }}</button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -176,8 +176,13 @@
                             </svg>
                         </div>
                     </a>
-                    <a href="{{ route('about') }}" class="mt-8 ">
-                        <p class="md:mt-[48px] mt-[40px] flex justify-center items-center ml-10 md:ml-5 font-semibold underline decoration-3"
+                    <a href="{{ route('about') }}" class="ml-5 lg:flex hidden">
+                        <p class="md:mt-[48px] flex justify-center items-center  md:ml-5 lg:font-semibold lg:underline lg:decoration-3"
+                            style="color:
+                #D1052C">Learn More</p>
+                    </a>
+                    <a href="{{ route('about') }}" class=" visible lg:hidden">
+                        <p class="md:mt-[20px] mt-[20px] flex justify-center items-center lg:border-none border-2 mx-[28px] rounded-[25px] text-[20px] font-bold lg:py-0 lg:px-0 py-[20px] px-[80px] border-[D1052C]  md:ml-5 lg:font-semibold lg:underline lg:decoration-3"
                             style="color:
                 #D1052C">Learn More</p>
                     </a>
@@ -188,7 +193,7 @@
             <div class="mt-[40px] lg:block flex justify-center items-center">
                 @if ($home !== null)
                     <img src="/images/Theme.png" alt=""
-                        class="2xl:w-[605px] xl:w-full w-[300px] sm:w-[500px] md:w-[550px] lg:h-[406px] lg:ml-[135px] ml-5 xl:mx-0 2xl:ml-[40px]  2xl:absolute change">
+                        class="2xl:w-[605px] xl:w-full w-[320px] sm:w-[500px] md:w-[600px] lg:h-[406px] lg:ml-[135px]  xl:mx-0 2xl:ml-[40px]  2xl:absolute change">
                 @endif
             </div>
             <!-- make changing section end -->
@@ -361,7 +366,7 @@
                 @if ($popularStory->count() > 0)
                     {{-- @dd($popularStory) --}}
                     @foreach ($popularStory as $pStory)
-                        <div class=" bg-white border border-gray-200 rounded-lg shadow">
+                        <div class="pb-5 xl:pb-0 bg-white border border-gray-200 rounded-lg shadow">
                             <a href="{{ route('single-story', $pStory->id) }}">
                                 <img class=" lg:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}"
                                     alt="" />
@@ -445,7 +450,7 @@
                     {{ $home->service_subtitle }}
                 @endif
             </p>
-            <div class="2xl:w-[1320px] xl:mx-20 2xl:mx-auto mt-10 grid lg:grid-cols-2 gap-6 xl:gap-0 xl:grid-cols-7">
+            <div class="2xl:w-[1320px] xl:mx-20 2xl:mx-auto mt-10 grid md:grid-cols-2 gap-6 xl:gap-0 xl:grid-cols-7">
 
 
                 @if ($services->count() > 0)
@@ -454,7 +459,7 @@
                             <div class="flex justify-center items-center"><img src="{{ asset($item->image) }}"
                                     alt="" class="w-[100px] h-[100px]" /></div>
                             <h1 class="font-semibold text-xl xl:w-[160px] text-center "> {{ $item->title }} </h1>
-                            <p class="text-center xl:-mx-24 lg:mx-10 mx-28 text-base font-normal"> {!! $item->description !!}
+                            <p class="text-center xl:-mx-24 lg:mx-10  text-base font-normal"> {!! $item->description !!}
                             </p>
                         </div>
                         @if (!$loop->last)

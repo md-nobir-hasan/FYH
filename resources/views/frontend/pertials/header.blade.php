@@ -428,9 +428,9 @@
                     </div>
                 </ul>
                 @if (auth()->user() == null)
-                    <a href="{{ route('login') }}" class="flex justify-center items-center">
+                    <a href="{{ route('login') }}" class="">
 
-                        <button class=" w-[127px] h-[38px] ml-[42px] mr-5 font-semibold p-1 text-xl text-white rounded"
+                        <button class=" w-[127px] h-[38px]  font-semibold p-1 text-xl text-white rounded"
                             style="background-color:#D1052C; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">Login</button>
 
                     </a>
