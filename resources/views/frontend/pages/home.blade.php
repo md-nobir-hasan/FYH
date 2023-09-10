@@ -773,7 +773,7 @@
                         activeNav: '[&>*]:bg-[#D1052C]',
                     },
                 });
-            } else if (widthn > 768 && widthn < 1024) {
+            } else if (widthn > 768 && widthn < 1100) {
                 $('.glide-01,.glide-03').remove();
                 var sliderMount = new Glide('.glide-02', {
                     type: 'slider',
