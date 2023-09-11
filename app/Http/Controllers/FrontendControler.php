@@ -351,13 +351,13 @@ class FrontendControler extends Controller
         }
 
 
-
+        $member_says = Story::select('id', 'name', 'slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority', 'desc')->take(9)->get();
         $shareImage = Home::select('lgImage', 'customer_title', 'customer_subtitle', 'image_title', 'image_subtitle', 'reaction_heading', 'reaction_titleOne', 'reaction_titleTwo')->first();
         $storyCount = Story::all()->count();
         $popularStory = DB::table('stories')->where('status', 1)->orderBy('views', 'desc')->join('users', 'stories.user_id', '=', 'users.id')->select('stories.*', 'users.img')->take(3)->get();
         $stories = Story::where('status', 1)->orderBy('priority', 'asc')->take(3)->get();
 
-        return view('frontend.pages.user-home', ['user' => $user, 'popularStory' => $popularStory, 'storyCount' => $storyCount, 'shareImage' => $shareImage, 'stories' => $stories]);
+        return view('frontend.pages.user-home', ['user' => $user, 'popularStory' => $popularStory, 'storyCount' => $storyCount, 'shareImage' => $shareImage, 'stories' => $stories, 'member_says' => $member_says]);
     }
 
     public function myStory()
