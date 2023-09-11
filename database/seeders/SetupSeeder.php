@@ -106,6 +106,8 @@ class SetupSeeder extends Seeder
                 ['country'=>'Austria'],
                 ['country'=>'Bahams'],
                 ['country'=>'Bangladesh'],
+                ['country'=>'Germany'],
+                ['country'=> 'Russia'],
             ];
             DB::table('countries')->insert($countries);
     }

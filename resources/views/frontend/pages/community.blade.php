@@ -4,11 +4,11 @@
 @endpush
 @section('content')
 <style>
-    
+
     .cbg{
         background-image:url('/images/benifitbg.png');background-size:100% 516px;background-position:0 100%;background-repeat:no-repeat
     }
-    
+
     @media (min-width: 999px) and (max-width: 1021px){
         .cbg{
             background-size:100% 568px
@@ -69,7 +69,7 @@
             background-image:none
         }
     }
-   
+
 </style>
 
     <div class=" mt-[104px] mb-[-200px]" style="font-family:'Poppins'">
