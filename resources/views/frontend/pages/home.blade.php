@@ -190,10 +190,10 @@
                 </div>
             </div>
             <!-- make changing section -->
-            <div class="mt-[40px] lg:block flex justify-center items-center">
+            <div class="mt-[37px] lg:block flex justify-center items-center">
                 @if ($home !== null)
                     <img src="/images/Theme.png" alt=""
-                        class="2xl:w-[605px] xl:w-full w-[320px] sm:w-[500px] md:w-[600px] lg:h-[406px] lg:ml-[135px]  xl:mx-0 2xl:ml-[40px]  2xl:absolute change">
+                        class="xl:w-[566px] xl:h-[315px]  w-[320px] sm:w-[500px] md:w-[600px] lg:h-[406px] lg:ml-[135px]  xl:mx-0 2xl:ml-[40px]  2xl:absolute change">
                 @endif
             </div>
             <!-- make changing section end -->
@@ -368,7 +368,7 @@
                     @foreach ($popularStory as $pStory)
                         <div class="pb-5 xl:pb-0 bg-white border border-gray-200 rounded-lg shadow">
                             <a href="{{ route('single-story', $pStory->id) }}">
-                                <img class=" lg:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}"
+                                <img class=" xl:h-[424px] w-full" src="{{ Storage::url($pStory->image) }}"
                                     alt="" />
                             </a>
                             <div class="px-[22px] pt-[20px] xl:h-[516px]">
@@ -455,7 +455,7 @@
 
                 @if ($services->count() > 0)
                     @foreach ($services as $item)
-                        <div class="mr-[27px] ml-4">
+                        <div class="mr-[27px] ">
                             <div class="flex justify-center items-center"><img src="{{ asset($item->image) }}"
                                     alt="" class="w-[100px] h-[100px]" /></div>
                             <h1 class="font-semibold text-xl xl:w-[160px] text-center "> {{ $item->title }} </h1>
