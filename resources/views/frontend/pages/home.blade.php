@@ -505,7 +505,7 @@
                                                             class=" 2xl:mx-auto mx-5 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                             {{-- @foreach ($items as $item) --}}
                                                             <a href="javascript:void(0)"
-                                                                class=" h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                class=" lg:h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
                                                                     <div>
                                                                         <img src="{{ '/storage/' . $item->image }}"
@@ -574,10 +574,10 @@
                                                 <figure class="relative z-10">
                                                     <blockquote class=" text-lg leading-loose lg:text-xl">
                                                         <div
-                                                            class=" 2xl:mx-auto mx-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                                                            class=" 2xl:mx-auto mx-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
                                                             @foreach ($items as $item)
                                                                 <a href="javascript:void(0)"
-                                                                    class=" h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                    class=" lg:h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                     <div class="flex">
                                                                         <div>
                                                                             <img src="{{ '/storage/' . $item->image }}"
@@ -652,7 +652,7 @@
                                                             class=" 2xl:mx-auto mx-5 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
                                                             @foreach ($items as $item)
                                                                 <a href="javascript:void(0)"
-                                                                    class=" h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                    class=" lg:h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                     <div class="flex">
                                                                         <div>
                                                                             <img src="{{ '/storage/' . $item->image }}"
