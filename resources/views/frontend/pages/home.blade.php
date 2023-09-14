@@ -142,31 +142,31 @@
         <div class="lg:mt-[116px] mt-[50px] flex flex-col-reverse xl:flex-row xl:flex 2xl:w-[1320px] mx-auto hero ml">
             <div class="lg:w-[754px] lg:mx-auto xl:mx-5 2xl:ml-0 ">
                 <h3
-                    class="lg:text-[68px] mx-[5px] lg:text-start text-center text-[48px] xl:ml-0 2xl:ml-0 font-bold lg:leading-[85px] leading-[50px] text-[#212427]">
+                    class="lg:text-[68px] mx-[5px] xl:text-start text-center text-[48px] xl:ml-0 2xl:ml-0 font-bold lg:leading-[85px] leading-[50px] text-[#212427]">
                     @if ($home !== null)
                         {{ $home->title_one }}
                     @endif
                 </h3>
                 <p
-                    class="xl:ml-0 lg:text-start text-center 2xl:ml-0 lg:w-[749px] xl:w-full  mt-[10px] font-normal text-[16px] lg:text-[20px] ">
+                    class="xl:ml-0 xl:text-start text-center 2xl:ml-0 lg:w-[749px] xl:w-full md:mx-20 lg:mx-0 mt-[10px] font-normal text-[16px] lg:text-[20px] ">
                     @if ($home !== null)
                         {{ $home->title_one_description }}
                     @endif
                 </p>
                 <h3
-                    class="xl:ml-0 lg:text-start text-center 2xl:ml-0 lg:text-[68px] text-[48px] leading-[50px] md:leading-[85px] font-bold mt-[25px] text-[#212427]">
+                    class="xl:ml-0 xl:text-start text-center 2xl:ml-0 lg:text-[68px] text-[48px] leading-[50px] md:leading-[85px] font-bold mt-[25px] text-[#212427]">
                     @if ($home !== null)
                         {{ $home->title_two }}
                     @endif
                 </h3>
-                <p class="xl:ml-5 lg:text-start text-center 2xl:ml-0  mt-[10px] font-normal text-[16px] lg:text-[20px] ">
+                <p class="xl:ml-5 xl:text-start text-center 2xl:ml-0  mt-[10px] font-normal text-[16px] lg:text-[20px] ">
                     @if ($home !== null)
                         {{ $home->title_two_description }}
                     @endif
                 </p>
-                <div class="lg:flex  lg:justify-start block xl:ml-5 2xl:ml-0">
+                <div class="lg:flex lg:flex-start block xl:ml-5 2xl:ml-0">
                     <a href="{{ $setting->trail ? route('register') : route('member') }}" class="">
-                        <div class="mt-[50px] text-white lg:w-72 lg:mx-0 mx-[28px] lg:rounded rounded-[25px] flex justify-center items-center py-[20px] font-bold"
+                        <div class="mt-[50px] text-white xl:w-72  xl:mx-0 mx-[28px] xl:rounded rounded-[25px] flex justify-center items-center py-[20px] lg:px-[100px] xl:px-0 font-bold"
                             style="background-color:#D1052C"><button
                                 class=" text-xl font-bold">{{ $setting->trail ? 'Start Free Trail' : 'Join FYH now' }}</button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -176,13 +176,16 @@
                             </svg>
                         </div>
                     </a>
-                    <a href="{{ route('about') }}" class="ml-5 lg:flex hidden">
+                    <a href="{{ route('about') }}" class="xl:hidden lg:flex hidden mt-[50px] justify-center items-center py-5 border border-[#D1052C] text-[#D1052C] rounded-[25px] px-[120px]">Learn More</a>
+
+                    <a href="{{ route('about') }}" class="ml-5 xl:flex hidden">
                         <p class="md:mt-[48px] flex justify-center items-center  md:ml-5 lg:font-semibold lg:underline lg:decoration-3"
                             style="color:
                 #D1052C">Learn More</p>
                     </a>
+
                     <a href="{{ route('about') }}" class=" visible lg:hidden">
-                        <p class="md:mt-[20px] mt-[20px] flex justify-center items-center lg:border-none border-2 mx-[28px] rounded-[25px] text-[20px] font-bold lg:py-0 lg:px-0 py-[20px] px-[80px] border-[D1052C]  md:ml-5 lg:font-semibold lg:underline lg:decoration-3"
+                        <p class="md:mt-[20px] mt-[20px] flex justify-center items-center lg:border-none border-2 mx-[28px] rounded-[25px] text-[20px] font-bold lg:py-0 lg:px-0 py-[20px] px-[80px] border-[#D1052C]  md:ml-5 lg:font-semibold lg:underline lg:decoration-3"
                             style="color:
                 #D1052C">Learn More</p>
                     </a>
@@ -190,10 +193,10 @@
                 </div>
             </div>
             <!-- make changing section -->
-            <div class="mt-[37px] lg:block flex justify-center items-center">
+            <div class="mt-[37px] xl:mb-0 lg:mb-[70px] md:mb-[49px] mb-[30px] xl:block flex justify-center items-center">
                 @if ($home !== null)
                     <img src="/images/Theme.png" alt=""
-                        class="xl:w-[566px] xl:h-[315px]  w-[320px] sm:w-[500px] md:w-[600px] lg:h-[406px] lg:ml-[135px]  xl:mx-0 2xl:ml-[40px]  2xl:absolute change">
+                        class="xl:w-[566px] lg:h-[315px]  w-[320px] sm:w-[500px] md:w-[600px]  xl:mx-0 2xl:ml-[40px]  2xl:absolute change">
                 @endif
             </div>
             <!-- make changing section end -->
