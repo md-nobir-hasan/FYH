@@ -71,16 +71,16 @@ class FrontendControler extends Controller
 
     public function communityPage()
     {
-        $country = Country::all();
-        $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title', 'community_sub_title', 'community_sub_subtitle')->first();
+        $n['country'] = Country::all();
+        $n['storyHead'] = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title', 'community_sub_title', 'community_sub_subtitle')->first();
 
         if (auth()->user() !== null) {
-            $stories = Story::where('status', 1)->where('feature', 0)->orderBy('priority', 'asc')->get();
+            $n['stories'] = Story::where('status', 1)->where('feature', 0)->orderBy('priority', 'asc')->get();
         } else {
-            $stories = Story::where('status', 1)->orderBy('priority', 'asc')->take(6)->get();
+            $n['stories'] = Story::where('status', 1)->orWhere('feature', 0)->orderBy('priority', 'asc')->take(6)->get();
         }
-
-        return view('frontend.pages.community', compact('stories', 'storyHead', 'country'));
+        
+        return view('frontend.pages.community',$n);
     }
 
 

@@ -267,7 +267,7 @@
                                     <img src="{{ Storage::url($firstfeature->feature_img) }}" alt=""
                                         class="h-[316px] xl:w-[561px] w-full">
                                 </div>
-                                <div class="absolute xl:ml-10 lg:ml-[20px] md:ml-[250px] ml-[60px] mt-[-178px]"
+                                {{-- <div class="absolute xl:ml-10 lg:ml-[20px] md:ml-[250px] ml-[60px] mt-[-178px]"
                                     style="">
                                     <h1
                                         class=" text-white xl:w-[460px] lg:w-[390px] md:w-[500px] w-[280px]  xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black">
@@ -275,8 +275,8 @@
                                         {!! $firstfeature->feature_title !!}
                                     </h1>
                                     <p>{!! $firstfeature->feature_para !!}</p>
-                                    {{-- <h1 class=" text-white  text-[50px] font-black text-center"> {!! $firstfeature->title !!}</h1> --}}
-                                </div>
+
+                                </div> --}}
                             </div>
                             <div class="col-span-3 lg:ml-5 ml-0 2xl:ml-0">
 
@@ -311,7 +311,7 @@
                                     <p class=" font-normal h-[220px] overflow-hidden text-[16px] text-justify">
                                         {!! $secondfeture->description !!} </p>
                                     <div class="flex">
-                                        <img src="/storage/{{$firstfeature->image}}" alt=""
+                                        <img src="/storage/{{$secondfeture->image}}" alt=""
                                             class="h-[52px] w-[52px] mt-[24px]">
                                         <div class="mt-[24px] ml-3">
                                             <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $secondfeture->name }}
@@ -325,7 +325,7 @@
 
                                 <img src="{{ Storage::url($secondfeture->feature_img) }}" alt=""
                                     class="h-[316px] w-full lg:w-[561px]">
-                                <div class="absolute ml-[20px] md:ml-[200px] xl:ml-[20px] lg:ml-[0px] mt-[-180px]"
+                                {{-- <div class="absolute ml-[20px] md:ml-[200px] xl:ml-[20px] lg:ml-[0px] mt-[-180px]"
                                     style="">
                                     <h1
                                         class=" text-white md:w-[500px] lg:w-[400px] w-[300px] xl:w-[480px] xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black text-center">
@@ -333,7 +333,7 @@
                                     </h1>
                                     <p class="text-white md:w-[500px] lg:w-[400px] w-[300px] xl:w-[480px] xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black text-center"
                                     > {!! $secondfeture->feature_para !!}</p>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </a>
@@ -391,8 +391,6 @@
                         </div>
                     @endforeach
                 @endif
-
-
             </div>
         </section>
         <!-- Popular story end -->
