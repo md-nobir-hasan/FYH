@@ -192,7 +192,7 @@
             <!-- make changing section -->
             <div class="mt-[37px] lg:block flex justify-center items-center">
                 @if ($home !== null)
-                    <img src="/images/Theme.png" alt=""
+                    <img src="/storage/{{$home->image }}" alt=""
                         class="xl:w-[566px] xl:h-[315px]  w-[320px] sm:w-[500px] md:w-[600px] lg:h-[406px] lg:ml-[135px]  xl:mx-0 2xl:ml-[40px]  2xl:absolute change">
                 @endif
             </div>
@@ -263,10 +263,6 @@
                     <a href="{{ route('single-story', $firstfeature->id) }}">
                         <div class="2xl:w-[1320px] xl:mx-auto lg:mx-5 mt-[20px] grid grid-cols-1 lg:grid-cols-5">
                             <div class="col-span-2">
-                                @php
-                                    $title = $firstfeature->title;
-                                @endphp
-                                {{-- @dd($firstfeature) --}}
                                 <div class="md:mx-0 mx-5">
                                     <img src="{{ Storage::url($firstfeature->feature_img) }}" alt=""
                                         class="h-[316px] xl:w-[561px] w-full">
@@ -276,8 +272,9 @@
                                     <h1
                                         class=" text-white xl:w-[460px] lg:w-[390px] md:w-[500px] w-[280px]  xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black">
 
-                                        {!! $firstfeature->title !!}
+                                        {!! $firstfeature->feature_title !!}
                                     </h1>
+                                    <p>{!! $firstfeature->feature_para !!}</p>
                                     {{-- <h1 class=" text-white  text-[50px] font-black text-center"> {!! $firstfeature->title !!}</h1> --}}
                                 </div>
                             </div>
@@ -287,7 +284,7 @@
                                     <p class=" font-normal h-[220px] overflow-hidden text-base text-[#212427] text-justify">
                                         {!! $firstfeature->description !!} </p>
                                     <div class="flex">
-                                        <img src="/storage/image/ellipse.png" alt=""
+                                        <img src="/storage/{{$firstfeature->image}}" alt=""
                                             class="h-[52px] w-[52px] mt-[24px] ">
                                         <div class="mt-[24px] ml-[5px]">
                                             <h1 class="text-[20px] font-semibold text-[#212427]">
@@ -311,9 +308,10 @@
 
                             <div class="col-span-3 2xl:mx-0 xl:mx-5 mx-5">
                                 <div class="2xl:mr-2">
-                                    <p class=" font-normal h-[220px] overflow-hidden text-[16px] text-justify"> {!! $secondfeture->description !!} </p>
+                                    <p class=" font-normal h-[220px] overflow-hidden text-[16px] text-justify">
+                                        {!! $secondfeture->description !!} </p>
                                     <div class="flex">
-                                        <img src="{{ storage::url('image/ellipse.png') }}" alt=""
+                                        <img src="/storage/{{$firstfeature->image}}" alt=""
                                             class="h-[52px] w-[52px] mt-[24px]">
                                         <div class="mt-[24px] ml-3">
                                             <h1 class="text-[20px] font-semibold text-[#212427]"> {{ $secondfeture->name }}
@@ -324,17 +322,17 @@
                                 </div>
                             </div>
                             <div class="col-span-2 md:mx-0 mx-5 2xl:ml-4 2xl:mr-0 lg:mr-5">
-                                @php
-                                    $title = str_split($secondfeture->title, 15);
-                                @endphp
+
                                 <img src="{{ Storage::url($secondfeture->feature_img) }}" alt=""
                                     class="h-[316px] w-full lg:w-[561px]">
                                 <div class="absolute ml-[20px] md:ml-[200px] xl:ml-[20px] lg:ml-[0px] mt-[-180px]"
                                     style="">
                                     <h1
                                         class=" text-white md:w-[500px] lg:w-[400px] w-[300px] xl:w-[480px] xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black text-center">
-                                        {!! $secondfeture->title !!} </h1>
+                                        {!! $secondfeture->feature_title !!} </h1>
                                     </h1>
+                                    <p class="text-white md:w-[500px] lg:w-[400px] w-[300px] xl:w-[480px] xl:text-[50px] md:text-[50px] text-[30px] lg:text-[40px] leading-[63.25px] font-black text-center"
+                                    > {!! $secondfeture->feature_para !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -476,34 +474,106 @@
 
         <div class="mt-[100px] mbg" style="">
             <!-- What our member say => Component: Testimonial slider  -->
-                <h1 class="font-bold text-[50px] mx-5  leading-[60px] text-[#212427] text-center">
-                    @if ($home !== null)
-                        {{ $home->customer_title }}
-                    @endif
-                </h1>
-                <p class="text-2xl font-normal mx-5 text-center text-[#212427]">
-                    @if ($home !== null)
-                        {{ $home->customer_subtitle }}
-                    @endif
-                </p>
+            <h1 class="font-bold text-[50px] mx-5  leading-[60px] text-[#212427] text-center">
+                @if ($home !== null)
+                    {{ $home->customer_title }}
+                @endif
+            </h1>
+            <p class="text-2xl font-normal mx-5 text-center text-[#212427]">
+                @if ($home !== null)
+                    {{ $home->customer_subtitle }}
+                @endif
+            </p>
 
-                {{-- This slider for 1 items per slides  --}}
-                <div class="relative 2xl:w-[1320px] mx-auto glide-01 ">
-                    <!-- Slides -->
-                    <div class="overflow-hidden text-center rounded " data-glide-el="track">
-                        <ul
-                            class="relative overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
-                            @foreach ($member_says as $item)
-                                <li>
-                                    <div class="w-full">
-                                        <!-- Start Testimonial -->
-                                        <div class="overflow-hidden ">
-                                            <div class="relative">
-                                                <figure class="relative z-10">
-                                                    <blockquote class=" text-lg leading-loose lg:text-xl">
-                                                        <div
-                                                            class=" 2xl:mx-auto mx-5 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
-                                                            {{-- @foreach ($items as $item) --}}
+            {{-- This slider for 1 items per slides  --}}
+            <div class="relative 2xl:w-[1320px] mx-auto glide-01 ">
+                <!-- Slides -->
+                <div class="overflow-hidden text-center rounded " data-glide-el="track">
+                    <ul
+                        class="relative overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
+                        @foreach ($member_says as $item)
+                            <li>
+                                <div class="w-full">
+                                    <!-- Start Testimonial -->
+                                    <div class="overflow-hidden ">
+                                        <div class="relative">
+                                            <figure class="relative z-10">
+                                                <blockquote class=" text-lg leading-loose lg:text-xl">
+                                                    <div
+                                                        class=" 2xl:mx-auto mx-5 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+                                                        {{-- @foreach ($items as $item) --}}
+                                                        <a href="javascript:void(0)"
+                                                            class=" lg:h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                            <div class="flex">
+                                                                <div>
+                                                                    <img src="{{ '/storage/' . $item->image }}"
+                                                                        alt=""
+                                                                        class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                                                                        style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                                                                    <svg class="ml-[17px] my-[5px]" width="28"
+                                                                        height="23" viewBox="0 0 28 23" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z"
+                                                                            fill="#212427" />
+                                                                    </svg>
+
+                                                                </div>
+                                                                <div class="ml-[14px] mt-[20px]">
+                                                                    <h1 class="text-[28px] font-semibold">
+                                                                        {{ $item->name }} </h1>
+                                                                    <p class="font-normal absolute text-[20px]">
+                                                                        {{ $item->profession }} </p>
+                                                                </div>
+                                                            </div>
+                                                            <p class="font-normal mx-[17px] text-justify text-base pb-5">
+                                                                {!! Str::limit($item->description, 235) !!}
+                                                            </p>
+                                                        </a>
+                                                        {{-- @endforeach --}}
+
+                                                    </div>
+                                                </blockquote>
+
+                                            </figure>
+
+                                        </div>
+                                    </div>
+                                    <!-- End Testimonial -->
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <!-- Indicators -->
+                <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
+                    <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 bg-[#D9D9D9] ring-[#D9D9D9]  focus:outline-none"></span></button>
+                    <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
+                    <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
+                </div>
+            </div>
+
+            {{-- This slider for 2 items per slides  --}}
+            <div class="relative 2xl:w-[1320px] mx-auto glide-02">
+                <!-- Slides -->
+                <div class="overflow-hidden text-center rounded " data-glide-el="track">
+                    <ul
+                        class="relative tab w-full overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
+
+                        @foreach ($member_says->chunk(2) as $items)
+                            <li>
+                                <div class="w-full">
+                                    <!-- Start Testimonial -->
+                                    <div class="overflow-hidden ">
+                                        <div class="relative">
+                                            <figure class="relative z-10">
+                                                <blockquote class=" text-lg leading-loose lg:text-xl">
+                                                    <div
+                                                        class=" 2xl:mx-auto mx-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
+                                                        @foreach ($items as $item)
                                                             <a href="javascript:void(0)"
                                                                 class=" lg:h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
                                                                 <div class="flex">
@@ -513,7 +583,8 @@
                                                                             class="h-[103px] w-[103px] rounded-full ml-[17px]"
                                                                             style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
                                                                         <svg class="ml-[17px] my-[5px]" width="28"
-                                                                            height="23" viewBox="0 0 28 23" fill="none"
+                                                                            height="23" viewBox="0 0 28 23"
+                                                                            fill="none"
                                                                             xmlns="http://www.w3.org/2000/svg">
                                                                             <path
                                                                                 d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z"
@@ -528,185 +599,112 @@
                                                                             {{ $item->profession }} </p>
                                                                     </div>
                                                                 </div>
-                                                                <p class="font-normal mx-[17px] text-justify text-base pb-5">
+                                                                <p
+                                                                    class="font-normal mx-[17px] text-justify text-base pb-5">
                                                                     {!! Str::limit($item->description, 235) !!}
                                                                 </p>
                                                             </a>
-                                                            {{-- @endforeach --}}
+                                                        @endforeach
 
-                                                        </div>
-                                                    </blockquote>
+                                                    </div>
+                                                </blockquote>
 
-                                                </figure>
+                                            </figure>
 
-                                            </div>
                                         </div>
-                                        <!-- End Testimonial -->
                                     </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <!-- Indicators -->
-                    <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
-                        <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 bg-[#D9D9D9] ring-[#D9D9D9]  focus:outline-none"></span></button>
-                        <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
-                        <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
-                    </div>
+                                    <!-- End Testimonial -->
+                                </div>
+                            </li>
+                        @endforeach
+
+                    </ul>
                 </div>
+                <!-- Indicators -->
+                <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
+                    <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 bg-[#D9D9D9] ring-[#D9D9D9]  focus:outline-none"></span></button>
+                    <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
+                    <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
+                </div>
+            </div>
 
-                {{-- This slider for 2 items per slides  --}}
-                <div class="relative 2xl:w-[1320px] mx-auto glide-02">
-                    <!-- Slides -->
-                    <div class="overflow-hidden text-center rounded " data-glide-el="track">
-                        <ul
-                            class="relative tab w-full overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
+            {{-- This slider for 2 items per slides  --}}
+            <div class="relative 2xl:w-[1320px] mx-auto glide-03">
+                <!-- Slides -->
+                <div class="overflow-hidden text-center rounded " data-glide-el="track">
+                    <ul
+                        class="relative tab w-full overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
 
-                            @foreach ($member_says->chunk(2) as $items)
-                                <li>
-                                    <div class="w-full">
-                                        <!-- Start Testimonial -->
-                                        <div class="overflow-hidden ">
-                                            <div class="relative">
-                                                <figure class="relative z-10">
-                                                    <blockquote class=" text-lg leading-loose lg:text-xl">
-                                                        <div
-                                                            class=" 2xl:mx-auto mx-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
-                                                            @foreach ($items as $item)
-                                                                <a href="javascript:void(0)"
-                                                                    class=" lg:h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
-                                                                    <div class="flex">
-                                                                        <div>
-                                                                            <img src="{{ '/storage/' . $item->image }}"
-                                                                                alt=""
-                                                                                class="h-[103px] w-[103px] rounded-full ml-[17px]"
-                                                                                style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-                                                                            <svg class="ml-[17px] my-[5px]" width="28"
-                                                                                height="23" viewBox="0 0 28 23"
-                                                                                fill="none"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <path
-                                                                                    d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z"
-                                                                                    fill="#212427" />
-                                                                            </svg>
+                        @foreach ($member_says->chunk(3) as $items)
+                            <li>
+                                <div class="w-full">
+                                    <!-- Start Testimonial -->
+                                    <div class="overflow-hidden ">
+                                        <div class="relative">
+                                            <figure class="relative z-10">
+                                                <blockquote class=" text-lg leading-loose lg:text-xl">
+                                                    <div
+                                                        class=" 2xl:mx-auto mx-5 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+                                                        @foreach ($items as $item)
+                                                            <a href="javascript:void(0)"
+                                                                class=" lg:h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
+                                                                <div class="flex">
+                                                                    <div>
+                                                                        <img src="{{ '/storage/' . $item->image }}"
+                                                                            alt=""
+                                                                            class="h-[103px] w-[103px] rounded-full ml-[17px]"
+                                                                            style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
+                                                                        <svg class="ml-[17px] my-[5px]" width="28"
+                                                                            height="23" viewBox="0 0 28 23"
+                                                                            fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z"
+                                                                                fill="#212427" />
+                                                                        </svg>
 
-                                                                        </div>
-                                                                        <div class="ml-[14px] mt-[20px]">
-                                                                            <h1 class="text-[28px] font-semibold">
-                                                                                {{ $item->name }} </h1>
-                                                                            <p class="font-normal absolute text-[20px]">
-                                                                                {{ $item->profession }} </p>
-                                                                        </div>
                                                                     </div>
-                                                                    <p
-                                                                        class="font-normal mx-[17px] text-justify text-base pb-5">
-                                                                        {!! Str::limit($item->description, 235) !!}
-                                                                    </p>
-                                                                </a>
-                                                            @endforeach
-
-                                                        </div>
-                                                    </blockquote>
-
-                                                </figure>
-
-                                            </div>
-                                        </div>
-                                        <!-- End Testimonial -->
-                                    </div>
-                                </li>
-                            @endforeach
-
-                        </ul>
-                    </div>
-                    <!-- Indicators -->
-                    <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
-                        <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 bg-[#D9D9D9] ring-[#D9D9D9]  focus:outline-none"></span></button>
-                        <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
-                        <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
-                    </div>
-                </div>
-
-                {{-- This slider for 2 items per slides  --}}
-                <div class="relative 2xl:w-[1320px] mx-auto glide-03">
-                    <!-- Slides -->
-                    <div class="overflow-hidden text-center rounded " data-glide-el="track">
-                        <ul
-                            class="relative tab w-full overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
-
-                            @foreach ($member_says->chunk(3) as $items)
-                                <li>
-                                    <div class="w-full">
-                                        <!-- Start Testimonial -->
-                                        <div class="overflow-hidden ">
-                                            <div class="relative">
-                                                <figure class="relative z-10">
-                                                    <blockquote class=" text-lg leading-loose lg:text-xl">
-                                                        <div
-                                                            class=" 2xl:mx-auto mx-5 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
-                                                            @foreach ($items as $item)
-                                                                <a href="javascript:void(0)"
-                                                                    class=" lg:h-[304px] 2xl:w-[424px] px-2 py-2 mt-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  overflow-hidden">
-                                                                    <div class="flex">
-                                                                        <div>
-                                                                            <img src="{{ '/storage/' . $item->image }}"
-                                                                                alt=""
-                                                                                class="h-[103px] w-[103px] rounded-full ml-[17px]"
-                                                                                style="box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.08);">
-                                                                            <svg class="ml-[17px] my-[5px]" width="28"
-                                                                                height="23" viewBox="0 0 28 23"
-                                                                                fill="none"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <path
-                                                                                    d="M11.952 0.511997L7.728 15.872L6.32 10.112C8.15467 10.112 9.648 10.6453 10.8 11.712C11.952 12.7787 12.528 14.2507 12.528 16.128C12.528 17.9627 11.9307 19.456 10.736 20.608C9.584 21.7173 8.13333 22.272 6.384 22.272C4.592 22.272 3.09867 21.7173 1.904 20.608C0.752 19.456 0.176 17.9627 0.176 16.128C0.176 15.5733 0.218667 15.04 0.304 14.528C0.389333 13.9733 0.56 13.3333 0.816 12.608C1.072 11.8827 1.43467 10.9227 1.904 9.728L5.616 0.511997H11.952ZM27.056 0.511997L22.832 15.872L21.424 10.112C23.2587 10.112 24.752 10.6453 25.904 11.712C27.056 12.7787 27.632 14.2507 27.632 16.128C27.632 17.9627 27.0347 19.456 25.84 20.608C24.688 21.7173 23.2373 22.272 21.488 22.272C19.696 22.272 18.2027 21.7173 17.008 20.608C15.856 19.456 15.28 17.9627 15.28 16.128C15.28 15.5733 15.3227 15.04 15.408 14.528C15.4933 13.9733 15.664 13.3333 15.92 12.608C16.176 11.8827 16.5387 10.9227 17.008 9.728L20.72 0.511997H27.056Z"
-                                                                                    fill="#212427" />
-                                                                            </svg>
-
-                                                                        </div>
-                                                                        <div class="ml-[14px] mt-[20px]">
-                                                                            <h1 class="text-[28px] font-semibold">
-                                                                                {{ $item->name }} </h1>
-                                                                            <p class="font-normal absolute text-[20px]">
-                                                                                {{ $item->profession }} </p>
-                                                                        </div>
+                                                                    <div class="ml-[14px] mt-[20px]">
+                                                                        <h1 class="text-[28px] font-semibold">
+                                                                            {{ $item->name }} </h1>
+                                                                        <p class="font-normal absolute text-[20px]">
+                                                                            {{ $item->profession }} </p>
                                                                     </div>
-                                                                    <p
-                                                                        class="font-normal mx-[17px] text-justify text-base pb-5">
-                                                                        {!! Str::limit($item->description, 235) !!}
-                                                                    </p>
-                                                                </a>
-                                                            @endforeach
+                                                                </div>
+                                                                <p
+                                                                    class="font-normal mx-[17px] text-justify text-base pb-5">
+                                                                    {!! Str::limit($item->description, 235) !!}
+                                                                </p>
+                                                            </a>
+                                                        @endforeach
 
-                                                        </div>
-                                                    </blockquote>
+                                                    </div>
+                                                </blockquote>
 
-                                                </figure>
+                                            </figure>
 
-                                            </div>
                                         </div>
-                                        <!-- End Testimonial -->
                                     </div>
-                                </li>
-                            @endforeach
+                                    <!-- End Testimonial -->
+                                </div>
+                            </li>
+                        @endforeach
 
-                        </ul>
-                    </div>
-                    <!-- Indicators -->
-                    <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
-                        <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 bg-[#D9D9D9] ring-[#D9D9D9]  focus:outline-none"></span></button>
-                        <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
-                        <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
-                                class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
-                    </div>
+                    </ul>
                 </div>
+                <!-- Indicators -->
+                <div class="flex items-center justify-center w-full  pt-2" data-glide-el="controls[nav]">
+                    <button class="p-2 group" data-glide-dir="=0" aria-label="goto slide 1"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2 bg-[#D9D9D9] ring-[#D9D9D9]  focus:outline-none"></span></button>
+                    <button class="p-2 group" data-glide-dir="=1" aria-label="goto slide 2"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
+                    <button class="p-2 group" data-glide-dir="=2" aria-label="goto slide 3"><span
+                            class="block w-[15px] h-[15px] transition-colors duration-300 rounded-full ring-2  bg-[#D9D9D9] ring-[#D9D9D9] focus:outline-none"></span></button>
+                </div>
+            </div>
             <!--  What our member say => Component: Testimonial slider -->
 
             <!-- last section start -->

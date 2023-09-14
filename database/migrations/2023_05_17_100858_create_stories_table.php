@@ -23,10 +23,12 @@ return new class extends Migration
             $table->unsignedBigInteger('country_id')->nullable();
             $table->string('profession')->nullable();
             $table->integer('priority')->nullable();
-            $table->bigInteger('user_id')->nullable(); 
+            $table->bigInteger('user_id')->nullable();
             $table->integer('status')->default(0);
             $table->bigInteger('views')->default(0);
             $table->integer('feature')->default(0);
+            $table->string('feature_title')->nullable();
+            $table->string('feature_para')->nullable();
             $table->string('feature_img')->nullable();
             $table->timestamps();
         });

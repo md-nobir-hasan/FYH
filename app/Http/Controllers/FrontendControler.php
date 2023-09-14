@@ -14,7 +14,6 @@ use App\Models\Country;
 use App\Models\FeedBack;
 use App\Models\Help;
 use App\Models\Home;
-use App\Models\Integration;
 use App\Models\MoveTo;
 use App\Models\Opportunity;
 use App\Models\Problem;
@@ -52,7 +51,7 @@ class FrontendControler extends Controller
         $services = Service::orderBy('priority', 'asc')->take(4)->get();
         $benefits = Benefit::orderBy('priority', 'asc')->take(6)->get();
         $featureStory  = Story::where('feature', '1')->where('status', 1)->orderBy('priority', 'asc')
-            ->select('image','id', 'title', 'description', 'name', 'profession', 'feature_img')->take(2)->get();
+            ->select('image','id', 'title', 'description', 'name', 'profession', 'feature_img', 'feature_title','feature_para')->take(2)->get();
         $stories = Story::where('feature', 0)->select('id', 'name', 'slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority', 'asc')->take(15)->get();
         $member_says = Story::select('id', 'name', 'slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority', 'desc')->take(9)->get();
         $popularStory = Story::where('status', 1)->OrderBy('views', 'desc')->take(3)->get();
