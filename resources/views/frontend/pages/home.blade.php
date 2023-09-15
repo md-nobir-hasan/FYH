@@ -376,7 +376,7 @@
                                         "</h5>
                                 </a>
                                 <p class="mt-[20px] text-[14px] font-normal text-[#212427] text-justify">
-                                    {!! Str::limit($pStory->description, 585) !!}
+                                    {!! Str::limit($pStory->description, 584) !!}
                                 </p>
                                 <a href="{{ route('single-story', $pStory->id) }}"
                                     class="text-[#D1052C] text-[16px] font-bold">
