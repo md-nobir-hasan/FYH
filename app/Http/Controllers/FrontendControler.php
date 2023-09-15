@@ -50,7 +50,7 @@ class FrontendControler extends Controller
         $home = Home::first() ?? null;
         $services = Service::orderBy('priority', 'asc')->take(4)->get();
         $benefits = Benefit::orderBy('priority', 'asc')->take(6)->get();
-        $featureStory  = Story::where('feature', '1')->where('status', 1)->orderBy('priority', 'asc')
+        $featureStory  = Story::where('feature', '1')->where('status', 1)->orderBy('id', 'desc')
             ->select('image','id', 'title', 'description', 'name', 'profession', 'feature_img', 'feature_title','feature_para')->take(2)->get();
         $stories = Story::where('feature', 0)->select('id', 'name', 'slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority', 'asc')->take(15)->get();
         $member_says = Story::select('id', 'name', 'slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority', 'desc')->take(9)->get();
