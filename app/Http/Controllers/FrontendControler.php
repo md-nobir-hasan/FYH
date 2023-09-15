@@ -14,7 +14,6 @@ use App\Models\Country;
 use App\Models\FeedBack;
 use App\Models\Help;
 use App\Models\Home;
-use App\Models\Integration;
 use App\Models\MoveTo;
 use App\Models\Opportunity;
 use App\Models\Problem;
@@ -52,7 +51,7 @@ class FrontendControler extends Controller
         $services = Service::orderBy('priority', 'asc')->take(4)->get();
         $benefits = Benefit::orderBy('priority', 'asc')->take(6)->get();
         $featureStory  = Story::where('feature', '1')->where('status', 1)->orderBy('priority', 'asc')
-            ->select('image','id', 'title', 'description', 'name', 'profession', 'feature_img')->take(2)->get();
+            ->select('image','id', 'title', 'description', 'name', 'profession', 'feature_img', 'feature_title','feature_para')->take(2)->get();
         $stories = Story::where('feature', 0)->select('id', 'name', 'slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority', 'asc')->take(15)->get();
         $member_says = Story::select('id', 'name', 'slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority', 'desc')->take(9)->get();
         $popularStory = Story::where('status', 1)->OrderBy('views', 'desc')->take(3)->get();
@@ -72,16 +71,16 @@ class FrontendControler extends Controller
 
     public function communityPage()
     {
-        $country = Country::all();
-        $storyHead = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title', 'community_sub_title', 'community_sub_subtitle')->first();
+        $n['country'] = Country::all();
+        $n['storyHead'] = Home::select('story_title', 'story_subtitle', 'share_subtitle', 'share_title', 'community_sub_title', 'community_sub_subtitle')->first();
 
         if (auth()->user() !== null) {
-            $stories = Story::where('status', 1)->where('feature', 0)->orderBy('priority', 'asc')->get();
+            $n['stories'] = Story::where('status', 1)->where('feature', 0)->orderBy('priority', 'asc')->get();
         } else {
-            $stories = Story::where('status', 1)->orderBy('priority', 'asc')->take(6)->get();
+            $n['stories'] = Story::where('status', 1)->orWhere('feature', 0)->orderBy('priority', 'asc')->take(6)->get();
         }
 
-        return view('frontend.pages.community', compact('stories', 'storyHead', 'country'));
+        return view('frontend.pages.community',$n);
     }
 
 
@@ -354,10 +353,10 @@ class FrontendControler extends Controller
         $member_says = Story::select('id', 'name', 'slug', 'title', 'priority', 'image', 'description', 'profession')->orderBy('priority', 'desc')->take(9)->get();
         $shareImage = Home::select('lgImage', 'customer_title', 'customer_subtitle', 'image_title', 'image_subtitle', 'reaction_heading', 'reaction_titleOne', 'reaction_titleTwo')->first();
         $storyCount = Story::all()->count();
-        $popularStory = DB::table('stories')->where('status', 1)->orderBy('views', 'desc')->join('users', 'stories.user_id', '=', 'users.id')->select('stories.*', 'users.img')->take(3)->get();
+        $fs_story = DB::table('stories')->where('status', 1)->where('feature', 1)->orderBy('id','desc')->join('users', 'stories.user_id', '=', 'users.id')->select('stories.*', 'users.img')->take(3)->get();
         $stories = Story::where('status', 1)->orderBy('priority', 'asc')->take(3)->get();
 
-        return view('frontend.pages.user-home', ['user' => $user, 'popularStory' => $popularStory, 'storyCount' => $storyCount, 'shareImage' => $shareImage, 'stories' => $stories, 'member_says' => $member_says]);
+        return view('frontend.pages.user-home', ['user' => $user, 'fs_story' => $fs_story, 'storyCount' => $storyCount, 'shareImage' => $shareImage, 'stories' => $stories, 'member_says' => $member_says]);
     }
 
     public function myStory()
