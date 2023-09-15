@@ -376,7 +376,7 @@
                                         "</h5>
                                 </a>
                                 <p class="mt-[20px] text-[14px] font-normal text-[#212427] text-justify">
-                                    {!! Str::limit($pStory->description, 595) !!}
+                                    {!! Str::limit($pStory->description, 585) !!}
                                 </p>
                                 <a href="{{ route('single-story', $pStory->id) }}"
                                     class="text-[#D1052C] text-[16px] font-bold">
@@ -410,7 +410,6 @@
                 @endif
             </p>
             <p class="text-center font-normal text-sm">
-
                 @php
                     $subtitle = str_split($home->image_subtitle, 50);
                 @endphp

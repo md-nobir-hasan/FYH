@@ -136,14 +136,14 @@ class StorySeeder extends Seeder
                 'name' => "Heena Verma",
                 'slug' => "",
                 'title' => 'Switzerland - We call it Heaven',
-                'description' => "Being of Indian origin, we lived in the US for almost 7 years, and our daughter was born there as well.<br class='str-br single'>
-                                We enjoyed NY fast-paced life and had a plan of settling there itself.<br class='str-br dbl'><br class='str-br dbl'>
+                'description' => "Being of Indian origin, we lived in the US for almost 7 years, and our daughter was born there as well.<br class='str-br single'/>
+                                We enjoyed NY fast-paced life and had a plan of settling there itself.<br class='str-br br2'><br class='str-br br2' />
 
-                                One day, an opportunity knocked our door to travel and work in Switzerland through my husband’s employer. We were unsure. Moving countries with a 2.5 year old daughter, leaving our jobs, her day care, home were not easy. It was a huge change.<br class='str-br dbl'><br class='str-br dbl'>
+                                One day, an opportunity knocked our door to travel and work in Switzerland through my husband’s employer. We were unsure. Moving countries with a 2.5 year old daughter, leaving our jobs, her day care, home were not easy. It was a huge change. <br class='str-br br2' /> <br class='str-br br2' />
 
-                                The only thing I knew about Switzerland was from Bollywood movies that it’s serene and heaven on earth.<br class='str-br dbl'><br class='str-br dbl'>
+                                The only thing I knew about Switzerland was from Bollywood movies that it’s serene and heaven on earth.<br class='str-br br2' /><br class='str-br br2' />
 
-                                We decided to take this chance. Initially, the plan was short-term, but now it’s already been 6 years, and we visualise this as our home.<br class='str-br dbl'><br class='str-br dbl'>
+                                We decided to take this chance. Initially, the plan was short-term, but now it’s already been 6 years, and we visualise this as our home.<br class='str-br br2' /><br class='str-br br2' />
 
                                 This is a country where safety is the key, and quality of life is everything. I call it 3S- Slow pace, safe and serene.
                                 ",
