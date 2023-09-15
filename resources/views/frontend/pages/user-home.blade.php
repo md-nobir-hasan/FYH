@@ -24,13 +24,12 @@
         </div>
         <!-- card section -->
         <section class="mt-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 2xl:w-[1320px] 2xl:mx-auto xl:mx-20 mx-5 gap-6">
-            @if ($popularStory->count() > 0)
-                @foreach ($popularStory as $story)
+            @foreach ($fs_story as $story)
                     <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
 
-                        <img src="{{ '/storage/' . $story->image }}" alt="" class="h-[238px] w-full 2xl:w-[424px]">
+                        <img src="{{ '/storage/' . $story->feature_img }}" alt="" class="h-[238px] w-full 2xl:w-[424px]">
 
-                        <div class="absolute mt-[-120px] ml-[80px]">
+                        {{-- <div class="absolute mt-[-120px] ml-[80px]">
                             @php   $title = str_split($story->title, 10)      @endphp
                             @foreach ($title as $key => $item)
                                 @if ($key == 2)
@@ -43,11 +42,11 @@
                         @endforeach
 
 
-                    </div>
+                    </div> --}}
                     <div class="p-3">
                         <div class="flex">
-                            <img src="{{ $story->img }}" alt="" class="mt-[-40px]">
-                            <img src="/images/user1.png" class="mt-[-20px]" />
+                            {{-- <img src="{{ $story->img }}" alt="" class="mt-[-40px]"> --}}
+                            <img src="/storage/{{$story->image}}" class="mt-[-20px]" height="65px" width="65px" />
                             <div class="ml-3">
                                 <h1 class="text-xl font-semibold mt-[-5px]"> {{ $story->name }} </h1>
                                 <p class="text-sm font-normal text-[#848484]"> {{ $story->profession }} </p>
@@ -60,7 +59,7 @@
 
                 </div>
             @endforeach
-        @endif
+
 
 
     </section>
