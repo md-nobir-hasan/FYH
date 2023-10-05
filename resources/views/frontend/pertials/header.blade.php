@@ -69,22 +69,31 @@
                                 style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">{{ $menu->name }}</button>
                         </a>
                     @else
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                            class="md:ml-[30px] xl:ml-[42px] hover:bg-[#FDF2F4] text-xl p-2 rounded"
+                        <!-- <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                            class="md:ml-[30px] xl:ml-[42px] hover:bg-[#FDF2F4] text-xl p-2  rounded"
                             style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);" type="button">
                             <div class="flex font-[500]  justify-center items-center">
                                 {{ $menu->name }}
-                                <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
+                                <svg class="w-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 9l-7 7-7-7">
                                     </path>
                                 </svg>
                             </div>
-                        </button>
+                        </button> -->
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="w-[109px] h-[44px] px-3 py-[5px] md:ml-[30px] xl:ml-[42px] bg-white rounded-[5px] justify-center items-center gap-[5px] inline-flex" style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08);">
+  <div class="text-center text-neutral-800 text-xl font-medium font-['Poppins'] flex">{{ $menu->name }}<svg class="w-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg></div>
+  <div class="w-5 h-5 relative"></div>
+    </button>
                         <!-- Dropdown menu -->
                         <div id="dropdown"
-                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-48 ">
+                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-56 ">
                             <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton">
                                 @foreach ($menu->submenus as $submenu)
                                     <li>
@@ -438,20 +447,135 @@
                 @auth
                     <!-- love icon svg -->
                     <div class="flex justify-between">
-                        <svg class="mt-3 ml-5" width="26" height="24" viewBox="0 0 26 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13 23.25L11.1875 21.625C9.08333 19.7292 7.34375 18.0938 5.96875 16.7188C4.59375 15.3438 3.5 14.1094 2.6875 13.0156C1.875 11.9219 1.30729 10.9167 0.984375 10C0.661458 9.08333 0.5 8.14583 0.5 7.1875C0.5 5.22917 1.15625 3.59375 2.46875 2.28125C3.78125 0.96875 5.41667 0.3125 7.375 0.3125C8.45833 0.3125 9.48958 0.541667 10.4688 1C11.4479 1.45833 12.2917 2.10417 13 2.9375C13.7083 2.10417 14.5521 1.45833 15.5313 1C16.5104 0.541667 17.5417 0.3125 18.625 0.3125C20.5833 0.3125 22.2188 0.96875 23.5313 2.28125C24.8438 3.59375 25.5 5.22917 25.5 7.1875C25.5 8.14583 25.3385 9.08333 25.0156 10C24.6927 10.9167 24.125 11.9219 23.3125 13.0156C22.5 14.1094 21.4062 15.3438 20.0312 16.7188C18.6562 18.0938 16.9167 19.7292 14.8125 21.625L13 23.25ZM13 19.875C15 18.0833 16.6458 16.5469 17.9375 15.2656C19.2292 13.9844 20.25 12.8698 21 11.9219C21.75 10.974 22.2708 10.1302 22.5625 9.39062C22.8542 8.65104 23 7.91667 23 7.1875C23 5.9375 22.5833 4.89583 21.75 4.0625C20.9167 3.22917 19.875 2.8125 18.625 2.8125C17.6458 2.8125 16.7396 3.08854 15.9062 3.64063C15.0729 4.19271 14.5 4.89583 14.1875 5.75H11.8125C11.5 4.89583 10.9271 4.19271 10.0938 3.64063C9.26042 3.08854 8.35417 2.8125 7.375 2.8125C6.125 2.8125 5.08333 3.22917 4.25 4.0625C3.41667 4.89583 3 5.9375 3 7.1875C3 7.91667 3.14583 8.65104 3.4375 9.39062C3.72917 10.1302 4.25 10.974 5 11.9219C5.75 12.8698 6.77083 13.9844 8.0625 15.2656C9.35417 16.5469 11 18.0833 13 19.875Z"
-                                fill="#1C1B1F" />
-                        </svg>
+                    <button type="button" class="flex mr-3 text-sm  md:mr-0 " id="user-menu-button" aria-expanded="false"
+                            data-dropdown-toggle="user-dropdownssss" data-dropdown-placement="bottom">
+                            <span class="sr-only">Open user menu</span>
+                            <svg class="mt-3 ml-5" width="26" height="24" viewBox="0 0 26 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13 23.25L11.1875 21.625C9.08333 19.7292 7.34375 18.0938 5.96875 16.7188C4.59375 15.3438 3.5 14.1094 2.6875 13.0156C1.875 11.9219 1.30729 10.9167 0.984375 10C0.661458 9.08333 0.5 8.14583 0.5 7.1875C0.5 5.22917 1.15625 3.59375 2.46875 2.28125C3.78125 0.96875 5.41667 0.3125 7.375 0.3125C8.45833 0.3125 9.48958 0.541667 10.4688 1C11.4479 1.45833 12.2917 2.10417 13 2.9375C13.7083 2.10417 14.5521 1.45833 15.5313 1C16.5104 0.541667 17.5417 0.3125 18.625 0.3125C20.5833 0.3125 22.2188 0.96875 23.5313 2.28125C24.8438 3.59375 25.5 5.22917 25.5 7.1875C25.5 8.14583 25.3385 9.08333 25.0156 10C24.6927 10.9167 24.125 11.9219 23.3125 13.0156C22.5 14.1094 21.4062 15.3438 20.0312 16.7188C18.6562 18.0938 16.9167 19.7292 14.8125 21.625L13 23.25ZM13 19.875C15 18.0833 16.6458 16.5469 17.9375 15.2656C19.2292 13.9844 20.25 12.8698 21 11.9219C21.75 10.974 22.2708 10.1302 22.5625 9.39062C22.8542 8.65104 23 7.91667 23 7.1875C23 5.9375 22.5833 4.89583 21.75 4.0625C20.9167 3.22917 19.875 2.8125 18.625 2.8125C17.6458 2.8125 16.7396 3.08854 15.9062 3.64063C15.0729 4.19271 14.5 4.89583 14.1875 5.75H11.8125C11.5 4.89583 10.9271 4.19271 10.0938 3.64063C9.26042 3.08854 8.35417 2.8125 7.375 2.8125C6.125 2.8125 5.08333 3.22917 4.25 4.0625C3.41667 4.89583 3 5.9375 3 7.1875C3 7.91667 3.14583 8.65104 3.4375 9.39062C3.72917 10.1302 4.25 10.974 5 11.9219C5.75 12.8698 6.77083 13.9844 8.0625 15.2656C9.35417 16.5469 11 18.0833 13 19.875Z"
+                                    fill="#1C1B1F" />
+                            </svg>
+                        </button>
+                        <!-- dropdown menu -->
+                        <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow"
+                            id="user-dropdownssss">
+                            <div class="py-[20px] px-[20px]" id="wishlist_div">
+                                <div class="flex">
+                                <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_2494_3982" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="31">
+<rect y="0.128418" width="30" height="30" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_2494_3982)">
+<path d="M15.5 27.0659L13.6875 25.4409C11.5833 23.5451 9.84375 21.9097 8.46875 20.5347C7.09375 19.1597 6 17.9253 5.1875 16.8315C4.375 15.7378 3.80729 14.7326 3.48438 13.8159C3.16146 12.8993 3 11.9618 3 11.0034C3 9.04508 3.65625 7.40967 4.96875 6.09717C6.28125 4.78467 7.91667 4.12842 9.875 4.12842C10.9583 4.12842 11.9896 4.35758 12.9688 4.81592C13.9479 5.27425 14.7917 5.92008 15.5 6.75342C16.2083 5.92008 17.0521 5.27425 18.0313 4.81592C19.0104 4.35758 20.0417 4.12842 21.125 4.12842C23.0833 4.12842 24.7188 4.78467 26.0313 6.09717C27.3438 7.40967 28 9.04508 28 11.0034C28 11.9618 27.8385 12.8993 27.5156 13.8159C27.1927 14.7326 26.625 15.7378 25.8125 16.8315C25 17.9253 23.9062 19.1597 22.5312 20.5347C21.1562 21.9097 19.4167 23.5451 17.3125 25.4409L15.5 27.0659ZM15.5 23.6909C17.5 21.8993 19.1458 20.3628 20.4375 19.0815C21.7292 17.8003 22.75 16.6857 23.5 15.7378C24.25 14.7899 24.7708 13.9461 25.0625 13.2065C25.3542 12.467 25.5 11.7326 25.5 11.0034C25.5 9.75342 25.0833 8.71175 24.25 7.87842C23.4167 7.04508 22.375 6.62842 21.125 6.62842C20.1458 6.62842 19.2396 6.90446 18.4062 7.45654C17.5729 8.00863 17 8.71175 16.6875 9.56592H14.3125C14 8.71175 13.4271 8.00863 12.5938 7.45654C11.7604 6.90446 10.8542 6.62842 9.875 6.62842C8.625 6.62842 7.58333 7.04508 6.75 7.87842C5.91667 8.71175 5.5 9.75342 5.5 11.0034C5.5 11.7326 5.64583 12.467 5.9375 13.2065C6.22917 13.9461 6.75 14.7899 7.5 15.7378C8.25 16.6857 9.27083 17.8003 10.5625 19.0815C11.8542 20.3628 13.5 21.8993 15.5 23.6909Z" fill="#D1052C"/>
+<path d="M11.9991 22.6285C3.9991 15.4285 3.9991 9.96186 4.9991 8.12853C9.79838 2.52857 13.9994 6.46188 15.5 9.12853C17.5 6.96186 22.4 3.72853 26 8.12853C29.6 12.5285 20.5 22.2952 15.5 26.6285C15.5 26.2952 14.7998 25.0285 11.9991 22.6285Z" fill="#D1052C"/>
+</g>
+</svg>
+
+                                    <h1 class="ml-[10px] mt-[4px] leading-normal">Favourites</h1>
+                                </div>
+                                @foreach ($wishlists as $wishlist)
+                                    <div class="mt-[10px]  border wld{{ $wishlist->story->id }}"
+                                        style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
+                                        <a href="{{ route('single-story', $wishlist->story->id) }}">
+                                            <div class="py-[10px] pl-[20px] flex">
+                                                <img src="/storage/{{ $wishlist->story->image }}" width="65px" />
+                                                <h1 class="text-[12px] mt-[7px] font-normal leading-normal ml-[10px]">
+                                                    {{ Str::limit($wishlist->story->title, 57) }}</h1>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                        </div>
                         <!-- love icon svg end -->
                         <!-- notification svg -->
-                        <svg class="mt-3 ml-5" width="20" height="26" viewBox="0 0 20 26" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 21.75V19.25H2.5V10.5C2.5 8.77083 3.02083 7.23438 4.0625 5.89062C5.10417 4.54688 6.45833 3.66667 8.125 3.25V0.5H11.875V3.25C13.5417 3.66667 14.8958 4.54688 15.9375 5.89062C16.9792 7.23438 17.5 8.77083 17.5 10.5V19.25H20V21.75H0ZM10 25.5C9.3125 25.5 8.72396 25.2552 8.23438 24.7656C7.74479 24.276 7.5 23.6875 7.5 23H12.5C12.5 23.6875 12.2552 24.276 11.7656 24.7656C11.276 25.2552 10.6875 25.5 10 25.5ZM5 19.25H15V10.5C15 9.125 14.5104 7.94792 13.5312 6.96875C12.5521 5.98958 11.375 5.5 10 5.5C8.625 5.5 7.44792 5.98958 6.46875 6.96875C5.48958 7.94792 5 9.125 5 10.5V19.25Z"
-                                fill="#1C1B1F" />
-                        </svg>
+                        <button type="button" class="flex mr-3 text-sm  md:mr-0 " id="user-menu-button" aria-expanded="false"
+                            data-dropdown-toggle="user-dropdownnn" data-dropdown-placement="bottom">
+                            <span class="sr-only">Open user menu</span>
+                            <svg class="mt-3 ml-5" width="20" height="26" viewBox="0 0 20 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 21.75V19.25H2.5V10.5C2.5 8.77083 3.02083 7.23438 4.0625 5.89062C5.10417 4.54688 6.45833 3.66667 8.125 3.25V0.5H11.875V3.25C13.5417 3.66667 14.8958 4.54688 15.9375 5.89062C16.9792 7.23438 17.5 8.77083 17.5 10.5V19.25H20V21.75H0ZM10 25.5C9.3125 25.5 8.72396 25.2552 8.23438 24.7656C7.74479 24.276 7.5 23.6875 7.5 23H12.5C12.5 23.6875 12.2552 24.276 11.7656 24.7656C11.276 25.2552 10.6875 25.5 10 25.5ZM5 19.25H15V10.5C15 9.125 14.5104 7.94792 13.5312 6.96875C12.5521 5.98958 11.375 5.5 10 5.5C8.625 5.5 7.44792 5.98958 6.46875 6.96875C5.48958 7.94792 5 9.125 5 10.5V19.25Z"
+                                    fill="#1C1B1F" />
+                            </svg>
+                        </button>
+                        <div class="z-50 lg:w-80 hidden my-4 text-base list-none bg-white rounded-lg shadow"
+                            id="user-dropdownnn">
+                            <div class="py-[20px] px-[20px]">
+                                <div class="flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31"
+                                        viewBox="0 0 30 31" fill="none">
+                                        <mask id="mask0_2891_19529" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="30" height="31">
+                                            <rect y="0.174805" width="30" height="30" fill="#D1052C" />
+                                        </mask>
+                                        <g mask="url(#mask0_2891_19529)">
+                                            <path
+                                                d="M5 24.4248V21.9248H7.5V13.1748C7.5 11.4456 8.02083 9.90918 9.0625 8.56543C10.1042 7.22168 11.4583 6.34147 13.125 5.9248V3.1748H16.875V5.9248C18.5417 6.34147 19.8958 7.22168 20.9375 8.56543C21.9792 9.90918 22.5 11.4456 22.5 13.1748V21.9248H25V24.4248H5ZM15 28.1748C14.3125 28.1748 13.724 27.93 13.2344 27.4404C12.7448 26.9508 12.5 26.3623 12.5 25.6748H17.5C17.5 26.3623 17.2552 26.9508 16.7656 27.4404C16.276 27.93 15.6875 28.1748 15 28.1748ZM10 21.9248H20V13.1748C20 11.7998 19.5104 10.6227 18.5312 9.64355C17.5521 8.66439 16.375 8.1748 15 8.1748C13.625 8.1748 12.4479 8.66439 11.4688 9.64355C10.4896 10.6227 10 11.7998 10 13.1748V21.9248Z"
+                                                fill="#D1052C" />
+                                            <path
+                                                d="M21.5019 23.5466H8.50189C8.16855 20.5466 7.80189 13.9466 9.00189 11.5466C10.5019 8.5466 10.5019 8.04662 15.0019 7.04662C18.6019 6.24662 20.8352 9.71328 21.5019 11.5466V23.5466Z"
+                                                fill="#D1052C" />
+                                        </g>
+                                    </svg>
+                                    </svg>
+                                    <h1 class="ml-[10px] mt-[5px] leading-normal">Notifications</h1>
+                                </div>
+                                @foreach ($user_noti as $noti)
+                                    <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
+                                        <div class="py-[10px] pl-[20px] flex">
+                                            <div class="flex justify-center items-center"><svg width="15" height="16"
+                                                    viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect y="0.783203" width="15" height="15" rx="7.5"
+                                                        fill="#212427" />
+                                                </svg></div>
+
+                                            <div>
+                                                <h1 class="text-[12px] mt-[7px] font-bold leading-normal ml-[10px]">
+                                                   {!! Str::limit($noti->msg,38) !!}
+                                                </h1>
+                                                <h1 class="ml-[10px] text-[10px] text-[#848484]">{{$noti->created_at->format('l F j\\, Y')}}</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                {{--
+                                <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
+                                    <div class="py-[10px] pl-[20px] flex">
+                                        <div class="flex justify-center items-center"><svg width="15" height="16"
+                                                viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect y="0.783203" width="15" height="15" rx="7.5"
+                                                    fill="#212427" />
+                                            </svg></div>
+
+                                        <div>
+                                            <h1 class="text-[12px] mt-[7px] font-bold leading-normal ml-[10px]">Here’s a unread
+                                                notification about your ...</h1>
+                                            <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-[10px]  border" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.08);">
+                                    <div class="py-[10px] pl-[20px] flex">
+                                        <div class="flex justify-center items-center"><svg width="15" height="16"
+                                                viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect y="0.216797" width="15" height="15" rx="7.5"
+                                                    fill="#848484" />
+                                            </svg>
+                                        </div>
+
+                                        <div>
+                                            <h1 class="text-[12px] mt-[7px] font-normal leading-normal ml-[10px]">Here’s a
+                                                unread notification about your ...</h1>
+                                            <h1 class="ml-[10px] text-[10px] text-[#848484]">Sun April 23,2023</h1>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                            </div>
+
+                        </div>
 
                         <!-- notification svg end -->
 
